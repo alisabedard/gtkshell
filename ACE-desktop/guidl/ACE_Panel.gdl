@@ -1,0 +1,32 @@
+// ACE Panel
+option "rows" 7;
+option "title" "ACE Panel";
+option "application";
+option "icon size" "menu";
+add button "File::Exit___,gtk-quit";
+add button "Help::gtkshell -da & # About,gtk-about";
+//option "icon size" "large toolbar";
+option "icon size" "DND";
+add buttons 
+	"ACE IRC,network-transmit-receive"
+	"ACE File_Manager,file-manager", 	
+	"ACE -A GUIDL Manual_Browser,gtk-help",
+	"ACE CD_Player,gtk-cdrom", 
+	"ACE Calculator,accessories-calculator",
+	"ACE -A Alarm,clock_32.png", 
+	"ACE Mail,emblem-mail",
+	"ACE -A Settings,gtk-preferences", 
+	"ACE -A Command,gtk-execute",
+	"ACE -A GUIDL Administration_Panel,system", 
+	"ACE Lock_Display,lock",
+	"ACE Terminal,terminal",
+	"ACE Sticky_Note,todo_32.png",
+	"ACE Browser,web-browser",
+	"ACE Image_Editor,image",
+	"ACE Word_Processor,wordprocessing",
+	"ACE -A GUIDL File_System_Panel,gtk-harddisk",
+	"ACE -A GUIDL Network_Panel,gtk-network", 
+	"ACE -A GUIDL Publishing_Panel,gtk-print", 
+	"ACE -A Calendar,vcalendar",
+	"ACE -A IDE,applications-development";
+

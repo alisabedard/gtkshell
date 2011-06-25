@@ -1,0 +1,56 @@
+.DD March 9, 2007
+.TH gshterm 1
+.SH NAME
+gshterm \- transparent vte-based terminal emulator
+.SH SYNOPSIS
+.B gshterm
+.B [[-f
+font
+.B ] [-g
+geometry
+.B ] [-s
+font_size
+.B ]][-e
+command
+.B [
+arguments
+.B ]]
+.SH DESCRIPTION
+.I gshterm
+is a vte-based terminal emulator.  It supports pseudotransparency and
+antialiased fonts by default.  Additionally, the command execution specification
+is improved over that of the vte program.  Improved command line handling 
+was the primary motivation for writing 
+.I gshterm.
+Other an appealing visual display of pseudotransparency and antialiased fonts,
+the user interface is quite simple.  This means that there are no extraneous
+features such as configuration files, terminal multiplexing, or scroll bars.
+It is quite useful for hosting screen sessions, if you desire multiplexing of
+shell sessions.
+.SH OPTIONS
+.TP
+.B \-f font
+Specify either a font name or font string, in fontconfig format, to use for the
+terminal widget.
+.TP
+.B \-s size
+Specify a font size, if only a font name was specified in the
+.B \-f
+option.
+.TP
+.B \-g geometry
+Specify the application geometry.
+.TP
+.B \-e command [args]
+Execute a command in terminal, with optional
+.B args.
+.SH AUTHORS
+gshterm was written by Jeffrey Bedard <antiright@gmail.com>.  
+.SH REPORTING BUGS
+Report bugs to <antiright@gmail.com>
+.SH COPYRIGHT
+Copyright 2007, Jeffrey E. Bedard
+This  is  free software; see the source for copying conditions.  There is NO 
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+.SH SEE ALSO
+ACE (1) gtkshell(1) system.antiright(5) X(7)

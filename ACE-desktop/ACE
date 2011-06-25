@@ -1,0 +1,692 @@
+#!/bin/sh
+
+#    GUIShell (c) 2002-2010 Jeffrey Bedard antiright@gmail.com
+
+#    This file is part of GUIShell.
+
+#     GUIShell is free software; you can redistribute it and/or
+#     modify it under the terms of the GNU General Public License as
+#     published by the Free Software Foundation; either version 2 of
+#     the License, or (at your option) any later version.  GUIShell
+#     is distributed in the hope that it will be useful, but WITHOUT
+#     ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.  You should have
+#     received a copy of the GNU General Public License along with
+#     GUIShell; if not, write to the Free Software Foundation, Inc.,
+#     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+
+ARSHELL=gtkshell
+AWK=awk
+
+Setup_XDG()
+{
+	if [ "$XDG_DATA_HOME" = "" ]; then
+		export XDG_DATA_HOME="$HOME/.local/share"
+		if [ ! -d "$XDG_DATA_HOME/antiright" ]; then
+			mkdir -p $XDG_DATA_HOME/antiright
+			chmod 0700 $XDG_DATA_HOME/antiright
+		fi
+	fi
+	if [ "$XDG_CONFIG_HOME" = "" ]; then
+		export XDG_CONFIG_HOME="$HOME/.config"
+		if [ ! -d "$XDG_CONFIG_HOME/antiright" ]; then
+			mkdir -p $XDG_CONFIG_HOME/antiright
+			chmod 0700 $XDG_DATA_HOME/antiright
+		fi
+	fi
+	if [ "$XDG_DATA_DIRS" = "" ]; then
+		export XDG_DATA_DIRS="/usr/local/share:/usr/share"
+		# Be nice to pkgsrc users.  
+		export XDG_DATA_DIRS="$XDG_DATA_DIRS:/usr/pkg/share"
+	fi
+	if [ "$XDG_CONFIG_DIRS" = "" ]; then
+		export XDG_CONFIG_DIRS="/etc/xdg:/usr/pkg/etc/xdg"
+	fi
+}
+
+Search_XDG()
+{
+	Setup_XDG
+	IFS=':'
+	# Find system program data location.  
+	for DIR in $XDG_DATA_DIRS; do
+		if [ -d "$DIR/antiright" ]; then
+			datadir="$DIR/antiright"
+			break
+		fi
+	done
+	# Find system configuration file location.
+	for DIR in $XDG_CONFIG_DIRS; do
+		if [ -d "$DIR/antiright" ]; then
+			sysconfigdir="$DIR/antiright"
+			break
+		fi
+	done
+	IFS=' '
+}
+
+display_config_keys()
+{
+  $ARSHELL -ca | grep -v '\[*\]'
+}
+
+Setup_Dirs()
+{
+	Search_XDG
+	if [ "$sysconfigdir" = "" ]; then
+		sysconfigdir=$PREFIX/etc/xdg/antiright
+	fi
+	export SYSARCONF=$sysconfigdir/system.antiright
+	icon=$datadir/icons
+	ARCONF=$XDG_CONFIG_HOME/antiright/antiright.conf
+	if [ "$TMPDIR" = "" ]; then
+		TMPDIR=/tmp
+	fi
+	rm -f $TMPDIR/ARO.*
+	# This allows external programs to 
+	# use antiright resourcedirectories.  
+	if [ "$1" = "-e" ]; then
+		echo "export sysconfigdir=$sysconfigdir"
+		echo "export datadir=$datadir"
+		echo "export icon=$icon"
+		echo "export ARCONF=$ARCONF"
+	fi
+}
+
+Undefined()
+{
+	gtkshell -de "Please define $1 command."
+	ACE -A Settings_Node $1
+}
+
+ACE_Init()
+{
+	Setup_Dirs
+	# Allow DEBUG from environment.  
+	if [ "$DEBUG" = "" ]; then
+		DEBUG=0
+	fi
+}
+
+Hack()
+{
+	local HACK_DIR=$datadir/hacks
+	local COMMAND="$1"
+
+	shift
+	exec sh -c "$HACK_DIR/$COMMAND.sh $@"
+}
+
+List_Hacks()
+{
+	ls $datadir/hacks | awk -F '.' '{print($1);}' | tr '\n' ' '; echo
+}
+
+Debug()
+{
+	if [ "$DEBUG" = "1" ]; then
+		if [ "$COUNTER" = "" ]; then
+			COUNTER=0
+		fi
+		COUNTER=$(($COUNTER+1))
+		echo $COUNTER
+	fi
+}
+
+Get_Temp()
+{
+	if [ "$TMPDIR" = "" ]; then
+		TMPDIR=/tmp
+	fi
+	echo $TMPDIR/ACE.$1.$$
+}
+
+Prepare_Temp()
+{
+	rm -f $1
+	touch $Secure1
+	chmod og-rwx $1
+	chmod u+x $1
+	trap "rm -f $@" EXIT QUIT
+}
+
+Prepare_Temp_Script()
+{
+	Prepare_Temp $1
+	echo '#!/bin/sh' >> $1
+}
+
+GUIDL()
+{
+	local GUIDLFILE="$datadir/$1.gdl"
+	shift
+	exec $ARSHELL -f $GUIDLFILE $@
+}
+
+IDE()
+{
+	if [ "$1" != "" ]; then
+		cd "$1"
+	fi
+	GUIDL IDE
+}
+
+GetWindowID()
+{
+	xwininfo -int -name "$1" | awk '/Window id:/{print $4}' | tail -n1
+}
+
+IDE_CD()
+{
+	local DIR="$(gtkshell -dd)"
+	if [ "$DIR" != "" ]; then
+		IDE "$DIR" &
+	fi
+}
+
+ACE_Verification()
+{
+	$ARSHELL  -oT Verification -or 1 -oe -al "$(echo $1 __ | tr '_' ' ')"\
+		'echo Yes' 'echo No'
+}
+
+ACE_record_titles()
+{
+  $ARSHELL -ca | cut -d '=' -f 1 | grep -v '\[*\]' | tr '\n' ' '
+}
+
+ACE_confval()
+{
+	CONFFILE="$2"
+	if [ "$CONFFILE" = "" ]; then
+		CONFFILE="$ARCONF"
+	fi
+# This prints values of records matching $1 that do not contain # characters
+    	$AWK -v config_item=$1 '\
+		BEGIN {FS="="}\
+		$1 ~ config_item {if ($0 !~ /#/) value=$2}\
+		END {print value}' $CONFFILE
+# The value is printed in the end to ensure that it is the most recent value
+}
+
+ACE_read_configuration_value()
+{
+        VALUE=`$ARSHELL -cg $1`
+	if ( [ "$VALUE" = "" ] || ( echo $VALUE | grep Undefined ) ); then
+		VALUE="`ACE_confval \"$1\" $SYSARCONF`"
+                $ARSHELL -cs "$1" "$VALUE"
+        fi
+	if [ "$VALUE" = "" ]; then
+	  ACE -A Settings_Node "$1"
+          VALUE=`$ARSHELL -cg "$1"`
+        fi
+        echo "$VALUE"
+}
+
+AR_Prepare_Environment()
+{
+	local OLD_ARRC="$HOME/.antirightrc"
+	local ARRC="$XDG_CONFIG_HOME/antiright/antirightrc"
+
+	ACE_Check_Configuration_File
+	if [ -f $OLD_ARRC ]; then
+		mv $OLD_ARRC $ARRC
+		rm $OLD_ARRC
+	else
+		if [ ! -f $ARRC ]; then
+			touch $ARRC
+			chmod +x $ARRC
+		else
+			$ARRC
+		fi
+	fi
+}
+
+Deskbar()
+{
+  GUIDL Deskbar -og "1024x16+208-0"
+}
+
+AR()
+{
+	AR_Prepare_Environment
+	ACE -A Deskbar &
+	for WM in $WINDOWMANAGER arwm evilwm fluxbox twm\
+		fvwm metacity gshterm ACE; do
+		if [ "`which $WM 2> /dev/null`" != "" ]; then
+			exec $wm
+			break
+		fi
+	done
+}
+Prompt_User()
+{
+	$ARSHELL -oT Prompt -oe -al "Enter $1:" -at echo\
+		'Exit___ Cancel,gtk-close'
+}
+Binary_Command()
+{
+	if [ "$2" = "" ]; then
+		local SOURCE="$(Prompt_User Source)"
+	fi
+	local DEST="$(Prompt_User Destination)"
+	$1 $SOURCE $DESTINATION
+}
+Check_AR_IN_FM()
+{
+	if [ "AR_IN_FM" = "1" ]; then
+		ACE -A File_Manager &
+	fi
+}
+Move()
+{
+	Binary_Command mv $1
+	Check_AR_IN_FM
+}
+Copy()
+{
+	Binary_Command cp $1
+	Check_AR_IN_FM
+}
+Delete()
+{
+	if [ "$1" = "" ]; then
+		local FILE="$(Prompt_User)"
+	else
+		local FILE=$1
+	fi
+	rm $FILE
+
+	Check_AR_IN_FM
+}
+
+Modes()
+{
+	local FILES="$*"
+	if [ "$FILES" = "" ]; then
+		FILES="*"
+	fi
+	local INPUT="$(Prompt_User 'New Permissions')"
+	if [ "$INPUT" != "" ]; then
+		if [ "$DEBUG" = "TRUE" ]; then
+			echo chmod $INPUT $FILES
+		fi
+		chmod $INPUT $FILES
+	fi
+	Check_AR_IN_FM
+}
+FM_Text_Editor()
+{
+	ACE Text_Editor $@ &
+	ACE -A File_Manager &
+}
+File_Manager()
+{
+	if [ "$1" != "" ]; then
+		cd $1 
+	fi
+	export AR_IN_FM=1
+	CMD="gtkshell -oT 'File Manager' -f $datadir/File_Manager.gdl"
+	local FILE
+	for FILE in *; do
+		CMD="$CMD \"ACE -A Hack open_file $FILE & # $FILE\",gtk-file"
+	done
+		if [ "$DEBUG" = "1" ]; then
+		echo $CMD
+	fi
+	#echo $CMD
+	exec sh -c "$CMD"
+}
+Clock()
+{
+	gtkshell -oT Clock -on -og -0-0 -aul "date | tr '\n' ' '"
+}
+Console()
+{
+	local CMD="$ARSHELL -oT Console -os -ou 5000 "
+
+	for ITEM in "$@"; do
+		CMD="$CMD -al $ITEM -aul \"tail -n 3 $ITEM\" "
+	done
+
+	CMD="$CMD -aul date"
+	echo "$CMD"
+	exec sh -c "$CMD"
+}
+
+Sticky_Note()
+{
+	nice $ARSHELL -oT 'Note' -aT -og 175x200 
+}
+
+Read_Man_Page()
+{
+	ACE Terminal -e man $1 $2
+}
+Man_Browse_Section()
+{
+	local CMD="exec $ARSHELL -oT \"Manual Section $1\""
+	CMD="$CMD -os -og 500x450 -or 42"
+	manual_root=$(ACE Manual_Root)
+	cd $manual_root/man$1
+	CMD="$CMD -al \"Manual Section $1\""
+	CMD="$CMD Exit___,gtk-quit"
+	CMD="$CMD \"ACE -A Man_Browse_Section $1 # Back,gtk-go-back\""
+	for MANPAGE in *.$1; do
+		MANPAGE="$(echo $MANPAGE | cut -d'.' -f1)"
+		CMD="$CMD \"ACE -A Read_Man_Page $MANPAGE\""
+	done
+	exec sh -c "$CMD"
+}
+
+OS_Specific()
+{
+	$ARSHELL -di 'FIXME No OS specific functionality available.'
+}
+
+Command()
+{
+	exec $(Prompt_User command) $@
+}
+
+Calendar()
+{
+	exec $ARSHELL -al "$(cal)" -oT Calendar
+}
+
+ARI()
+{
+    $ARSHELL -oT ARI 'make install; $ARSHELL -di Done; echo Install'
+}
+
+Diff()
+{
+	local file_a="$($ARSHELL -df)"
+	if [ "$file_a" = "" ]; then
+		exit
+	fi
+	local file_b="$($ARSHELL -df)"
+	if [ "$file_b" = "" ]; then
+		exit
+	fi
+	diff $file_a $file_b > /tmp/diff.$$
+	ACE Terminal -e less /tmp/diff.$$
+	rm -f /tmp/diff.$$
+}
+Message()
+{
+    $ARSHELL -di $1
+}
+
+
+Settings_Node()
+{
+    new_value=$($ARSHELL -og 256x154\
+    	-al 'Current command:'\
+	-al "$(ACE -r $1)"\
+	-al 'Enter a new command:'\
+	-oE -oe -at "echo"\
+	'# Close')
+    if [ "$new_value" != "" ]; then
+	$ARSHELL -cs "$1" "$new_value"
+    fi
+}
+
+View_Settings()
+{
+
+#	local CMD="exec $ARSHELL -or 10"
+	local LIST=" : "
+	local BEFORE_FIRST_FLAG="TRUE"
+
+	for title in $(ACE_record_titles); do
+		LIST="$LIST,$title:$(ACE -r $title)"
+	done
+	$ARSHELL -os -aL "$LIST" 1> /dev/null 2> /dev/null
+}
+
+Settings()
+{
+	local CMD="exec $ARSHELL -or 10"
+	CMD="$CMD -ol -oi 'small toolbar'"
+	CMD="$CMD 'ACE -A View_Settings & # See_All_Values,gtk-index'"
+	for title in `ACE_record_titles`; do
+	   CMD="$CMD \"ACE -A Settings_Node $title # $title,gtk-preferences\""
+	done
+	exec sh -c "$CMD"
+}
+
+Load_Meter()
+{
+	$ARSHELL -aul uptime
+}
+VMStat()
+{
+	$ARSHELL -aul vmstat
+}
+Alarm()
+{
+    local alarm_time="$($ARSHELL  -al 'Alarm Time (ex 22:40):' -oe -at echo)"
+    if [ "$alarm_time" != "" ]; then
+	$ARSHELL  -al "Alarm Command:" -oe -at echo | at "$alarm_time"
+    fi
+}
+
+IOStat()
+{
+	$ARSHELL -aul 'iostat'
+}
+
+System_Accounting()
+{
+	if [ "$(which sar)" != "" ]; then
+		$ARSEHLL -aul sar
+	else
+		Message 'SAR must be installed.' 
+	fi
+}
+Secure_Permissions()
+{
+	local choice=$(ACE_Verification\
+	Make_all_your_files_invisible_to_other_users?)
+	if [ "$choice" = "Yes" ]; then
+		chmod -R o-w ~/*
+	fi
+}
+See_Open_Ports()
+{
+	nmap localhost > /tmp/nmap.$$
+ 	ACE Terminal -e less /tmp/nmap.$$ 
+	rm -f /tmp/nmap.$$
+}
+See_User_Processes()
+{
+	$ARSHELL -aul 'ps u'
+}
+Mount_File_System()
+{
+    ACE -L 'File System' mount
+}
+Unmount_File_System()
+{
+    ACE -L 'File System' umount
+}
+Show_All_File_Systems()
+{
+	ACE Terminal -e less /etc/fstab &
+}
+ACE_peer_operation()
+{
+    ACE -L "$(echo -n $1 | tr [a-z] [A-Z]) Peer" ACE Terminal -e $1
+}
+Open_Display()
+{
+    ACE_peer_operation 'xhost +'
+}
+
+# desktop pulishing with roff
+arroff()
+{
+	groff -Tps \
+	"$(ACE roff_flags)"\
+	"$(ACE roff_file)" \
+	> /tmp/roff.ps.$$
+}
+clean_roff()
+{
+	rm -f /tmp/roff.ps.$$
+}
+Preview_roff()
+{
+	arroff
+	gv /tmp/roff.ps.$$ &
+	clean_roff
+}
+Print_roff()
+{
+	arroff
+	$(ACE print_command)\
+	/tmp/roff.ps.$$ 
+	clean_roff
+}
+Save_PS()
+{
+	arroff
+	mv /tmp/roff.ps.$$ \
+	$(ACE roff_file).ps
+}
+Save_PDF()
+{
+	arroff
+	ps2pdf /tmp/roff.ps.$$\
+		$(ACE roff_file).pdf
+	clean_roff
+}
+
+Word_Count_roff()
+{
+	local filename=$(ACE roff_file)
+	local output=$(wc $filename)
+	ACE -A Message "$output"
+}
+
+Save_JPEG()
+{
+	arroff
+	convert /tmp/roff.ps.$$\
+		$(ACE roff_file).jpg
+	clean_roff
+}
+
+Save_TEXT()
+{
+	groff -Tascii\
+	"$(ACE roff_flags)"\
+	"$(ACE roff_file)"\
+	> $(ACE roff_file).txt
+}
+# Disk space admin commands
+Select_Directory()
+{
+	directory="$($ARSHELL \ 
+		-al 'Select the current directory.'\
+		-at echo)"
+}
+Get_Largest_Files()
+{
+	Select_Directory
+	du -ak $directory | sort -n | tail -n 64 > /tmp/ACE.du.$$
+}
+Show_Largest_Files()
+{
+	Get_Largest_Files
+	ACE Terminal -e less /tmp/ACE.du.$$
+}
+
+# Problem here can be cases where files contain spaces.
+
+Prompt_to_Clean()	
+{
+	Get_Largest_Files
+
+	for LARGE_FILE in "$(cat /tmp/ACE.du.$$)"; do
+		ask_del "$LARGE_FILE"
+	done
+}
+ACE_show_usage_and_exit()
+{
+    echo "usage: `basename $1` [+-ctr ARG] [+-p ARG] [+-L ARG] [+-V ARG]\
+	[+-A ARG] [--] ARGS..."
+    exit 2
+}
+
+# Main()
+
+ACE_Init
+
+while getopts ':ctp:R:r:L:V:A:g:B:' OPT; do
+    case $OPT in
+	t|+t)
+		ACE_record_titles
+		exit 0
+		;;
+	p|+p) 
+		# This argument allows executing a configured binding
+	      	# while not passing any proceeding arguments.
+		`ACE_read_configuration_value "$OPTARG"`
+		exit 0
+		;;
+	R|+R)
+		ACE_confval "$OPTARG"
+		exit 0
+		;;
+	r|+r)
+		ACE_read_configuration_value "$OPTARG"
+		exit 0
+		;;
+	g|+g)
+		GUIDL "$OPTARG"
+		exit 0
+		;;
+	L|+L)
+		arguments=`$ARSHELL  -al 'Launch Arguments:' -oe -at "echo"`
+		shift $(( $OPTIND - 1 ))
+		$@ $arguments &
+		exit 0
+		;;
+	V|+V)
+		ACE_Verification "$OPTARG"
+		exit 0
+		;;
+	A|+A)
+		shift $(( $OPTIND - 2 ))
+		$@
+                exit 0
+		;;
+	b|+b)
+		shift $(( $OPTIND - 2 ))
+		$@ &
+		exit 0
+		;;
+	*)
+		ACE_show_usage_and_exit $0
+    	esac
+done
+shift `expr $OPTIND - 1`
+
+if [ $# -gt 0 ]; then 
+	# This runs a command configured in $ARCONF
+	command="$(ACE_read_configuration_value $1)"
+	# Set the remaining arguments to not include COMMAND.  
+	shift
+        # This allows parameters to be passed to a configured command.
+#	echo "$command $*"
+	$command $*
+else
+	# No getopt-unrecognized parameters passed, so launch the ACE
+	# main panel.  
+	GUIDL ACE_Panel
+fi
+
+

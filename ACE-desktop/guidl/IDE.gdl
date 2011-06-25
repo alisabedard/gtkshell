@@ -1,0 +1,58 @@
+
+// This is an IDE, particularly suited for development
+// of GUIShell.  It is a combination of useful functionality
+// into one app, rather than a reinvention of such.
+
+option "title" "IDE";
+
+option "rows" 4;
+
+option "application";
+option "icon size" "menu";
+add buttons 
+	"File::ACE -A IDE_CD & # Open...,gtk-open::Exit__,gtk-quit",
+	"Help::gtkshell -da & # About,gtk-about";
+
+// Set up status bar.
+// Set delay for status bar update to ten seconds.  
+//option "update frequency" 10000;
+// Show the most recently changed files.
+//add "updating label" "echo -n 'Recent: '; ls -t | grep -v o$ | tr '\n' ' ' | cut -d ' ' -f-6";
+
+option "icon size" "small toolbar";
+
+option "no fill";
+add "system label" "pwd";
+option "fill";
+
+option "terminal font" "Mono 12";
+option "terminal width" 80;
+option "terminal height" 24;
+add "terminal" "vi";
+
+option "pane next";
+
+option "terminal font" "Mono 10";
+option "terminal height" 8;
+add "terminal" "$SHELL";
+//add "command shell";
+
+option "rows" 16;
+
+add "vertical pane" "Work,Utilities";
+
+option "no fill";
+add buttons
+	"TERM__make # Build,gtk-save", 
+	"TERM__make clean # Clean,gtk-delete", 
+	"TERM__make install # Install,gtk-save", 
+	"TERM__make test # Test,gtk-execute",
+	"gshterm -e cvs commit & # CVS_Commit,gtk-save",
+	"TERM__cvs -q -z3 update -dP & # CVS_Update,gtk-open";
+
+add "separator";
+
+add "label" "     TODO:     ";
+option "fill";
+add "text";
+

@@ -1,0 +1,13 @@
+// Simple file manager panel that actually works.  
+
+option "application";
+
+add button "File::Exit___,gtk-quit";
+add button "Help::About___,gtk-about";
+
+add buttons 
+	"gtkshell -df # List_Directory,gtk-info",
+	"cp $(gtkshell -df) $(gtkshell -df) # Copy,gtk-copy",
+	"move $(gtkshell -df) $(gtkshell -df) # Move,gtk-cut",
+	"rm $(gtkshell -df) $(gtkshell -df) # Delete,gtk-delete",
+	"mkdir $(gtkshell -dd) # New_Directory,gtk-directory";

@@ -1,0 +1,26 @@
+TODO
+----
+
+Use new dictionary callback mechanism for direct translation from
+GUIDL source to widgets, eliminating the options parsing step.  
+
+Implement button selection support, where a regular expression can be
+applied to button titles for selection.  Test if it is possible to
+drag this entire selection, else compile the titles into a string for passing.
+Drag and drop of any selected widget should perform this compilation.
+Any unselected widget dragged when others are selected should unset the
+selection, though this may be reconsidered, as it is useful to have a selection
+preserved when doing other operations--keep selection until it is explicitly
+changed.
+
+Add gnome session management support. 
+
+Separate gtk-specific code.
+
+Use common code for xshell implementation.  
+
+Fix broken elements in ACE environment, including initial configuration file
+definition, manual page browser, and file manager.  Read from reasonable
+system defaults whenever a configuration value is not found before attempting
+to prompt the user for a new value.  
+

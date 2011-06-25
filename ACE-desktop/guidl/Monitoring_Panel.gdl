@@ -1,0 +1,11 @@
+option "rows" 4;
+add buttons 
+      "gtkshell -os -og 640x480 -ou 3000 -aul 'ps xau' & # Processes,gtk-execute",
+      "gtkshell -ou 2000 -aul who & # Users,gtk-info",
+      "gtkshell -ou 5000 -aul df & # Disks,gtk-harddisk",
+      "ACE System_Monitor,System_Monitor_32.png",
+      "gtkshell -ou 2500 -aul uptime & # Uptime,gtk-info",
+      "ACE -A System_Accounting,gtk-index",
+      "xload -bg darkslategrey -fg white -hl azure & # XLoad,System_Monitor_32.png",
+      "gtkshell -aul iostat,System_Monitor_32.png";
+

@@ -1,0 +1,191 @@
+.TH ANTIRIGHT 1
+.SH NAME
+ACE \- The GUIShell Configuration Environment
+.SH SYNOPSIS
+.B ACE
+[+-ctr ARG] [+-p ARG] [+-L ARG] [+-V ARG] [+-A ARG] [--] ARGS...
+.SH DESCRIPTION
+.PP
+.I ACE
+is the main component of the GUIShell desktop environment.  
+It is a script which defines the function of gtkshell instances.  
+It makes use of a configuration lookup mechanism to use user configurable 
+bindings where appropriate.  Due to the scripted nature, 
+the desktop environment behavior can be carried across different 
+graphical user interfaces by simply changing the gtkshell program.  
+Since the gtkshell program event loop is maintained by gtkshell, 
+which is typically written in C, speed is not an issue.  
+This is despite the scripted nature of the environment.  
+The ACE script can easily be modified to change the environment, 
+greatly easing development time.
+.PP
+To start a desktop session, use ACE -A AR.
+To start only the main panel, simply invoke ACE with no options.  
+A panel will appear.  Most button bindings are 
+configurable through the 
+.I Settings 
+utility.  For example, one can change 
+the default browser to dillo, links, firefox, mozilla, or whatever you happen
+to use.
+The
+.I Administration Panel
+contains a 
+.I Secure Permissions
+button, a 
+.I Root Shell
+button, a 
+.I Monitoring Panel
+button, and a button for launching operating system specific features.
+.pp
+The
+.I Secure Permissions
+button changes the permissions of all the files in a user's home 
+directory so that others and group members cannot read, write, or 
+execute them.  This is a needed action in maintaining personal privacy
+and security.  Before these actions are performed, the user will be
+prompted.  
+.pp
+The
+.I Root Shell
+button launches an instance of su in a terminal window.  Entering 
+the root password will give the user a root shell.  
+.pp
+The monitoring panel contains launchers for commands that allow you
+to monitor system activity.  
+The
+.I Processes
+button lists all processes in an gtkshell work area.  The ps command used 
+is ps xau.  If such a command does not work due to platform-dependent command
+syntax, modify the ACE script such that it executes ps -A.  The
+.I Users
+button lists the users, as reported by the who command, in an gtkshell work 
+area.  The
+.I Disks
+button pipes the results of the df command into an gtkshell work area. The
+.I See User Processes
+button allows the user to view detailed information about his or her 
+processes.  The results of the ps u command are piped into an gtkshell
+work area.  The
+.I System Monitor
+button launches the configured system monitor.  By default, this is 
+an instance of top in an xterm.  
+.PP
+The
+.I File System Panel
+contains a
+.I Mount File System
+button, an
+.I Unmount File System
+button, a
+.I Show Free Space
+button, a
+.I Show All File Systems
+button, and a
+.I Diff
+button.  The
+.I Mount File System
+button launches a dialog in which the filesystem to be mounted can be 
+entered.  Simply type the filesystem name and press enter.  The
+.I Unmount File System
+button launches a dialog in which the filesystem to be unmounted can be 
+entered.  The
+.I Show Free Space
+button pipes the output of the df command into an gtkshell work area.  
+This shows detailed disk usage information.  The
+.I Show All File Systems
+button launches an instance of gtkshell in which the work area displays 
+the contents of /etc/fstab. The
+.I Diff
+button allows you to compare two files using the diff utility.  Input and
+output are through gtkshell.
+.PP
+The
+.I Network Panel
+contains an
+.I Open Display
+button, an
+.I Open URL
+button, a
+.I FTP
+button, a
+.I Telnet
+button, an
+.I SSH
+button, an
+.I SFTP
+button, a
+.I PPP On
+button, a
+.I PPP Off
+button, and a
+.I See Open Ports
+button.  The
+.I Open Display
+button allows one to open the X display to another host.  The
+.I Open URL
+button launches the browser, starting at the entered url.  The
+.I FTP
+button starts a file transfer protocol session with the host entered at the 
+dialog prompt.  The
+.I Telnet
+button launches a telnet session with the entered host.  The
+.I SSH
+button launches a secure shell session with the entered host.  The
+.I SFTP
+button launches a secure file transfer protocol session with the entered host.  The 
+.I PPP On
+button launches the configured command for dialing an Internet service provider through PPP.  It is recommended that this option be examined in the 
+configuration utility and customized to whatever command is used locally.  The
+.I PPP Off
+button stops the PPP connection.  Configure this as is appropriate for 
+your site.  These commands use the ACE Launcher facility, which allows 
+easy passing of options from the user to commands.  
+ The
+.I See Open Ports
+button runs a portscan of the local host and pipes the results into an 
+gtkshell work area.  This requires the nmap utility.  
+.PP
+.SH OPTIONS
+.B \-c
+Check the presence of ~/.antiright, the configuration file, 
+and create one if it does not exist.  
+.TP
+.B \-t
+List the titles of the configuration options.
+.TP
+.B \-p
+Execute a configured binding but don't pass proceeding arguments 
+to the bound command.  
+.TP
+.B \-r ARG
+Read the value of a configured option ARG.
+.TP
+.B \-L ARG
+Launch command ARG, gathering and passing to command ARG a user 
+specified argument with an gtkshell dialog.  
+.TP
+.B \-V ARG
+Launch a verification dialog, verifying the desire to perform 
+command ARG. 
+.TP
+.B \-A ARG
+Launch an GUIShell Configuration Environment function.  
+Please examine the ACE file for such functions.  
+.PP
+Other options will result in the printing of usage information.  
+.SH FILES
+.TP
+.B ~/.antiright
+This is the antiright configuration file, which stores commands associated
+with desktop functionality.
+.SH AUTHORS
+Written by Jeffrey Bedard <antiright@gmail.com>.  
+.SH REPORTING BUGS
+Report bugs to <antiright@gmail.com>.  See http://www.nongnu.org for access
+information pertaining to the bug database.
+.SH COPYRIGHT
+Copyright 2002-2007, Jeffrey E. Bedard
+This  is  free software; see the source for copying conditions.  There is NO 
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+.SH SEE ALSO
+gtkshell(1) system.antiright(5) sh(1)

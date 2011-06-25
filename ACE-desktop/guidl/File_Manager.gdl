@@ -1,0 +1,19 @@
+
+// This contains the static portion of the file manager code.
+
+option "scrolled";
+option "rows" 16;
+option "geometry" "750x500";
+option "exit_on_activate";
+
+add buttons 	"exit # Refresh,gtk-refresh",
+		"cd ..; ACE -A File_Manager & # UP,gtk-directory",
+		"ACE -A Delete & # ACE_-A_Delete,gtk-delete",
+		"ACE Text_Editor & # ACE_-A_FM@Text@Editor,gtk-edit",
+		"ACE -A Move & # ACE_-A_Move,gtk-cut",
+		"ACE -A Copy & # ACE_-A_Copy,gtk-copy",
+		"ACE -A Command & # ACE_-A_Command,gtk-execute",
+		"ACE -A Modes & # ACE_-A_Modes,gtk-info",
+		"ACE -A File_Manager & # Refresh,gtk-refresh";
+add "separator";
+

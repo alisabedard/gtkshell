@@ -1,0 +1,18 @@
+option "application";
+option "icon size" "menu";
+add button "File::Exit___,gtk-quit";
+add button "Help::gtkshell -da & # About,gtk-about";
+option "rows" 3;
+add "label" "Manual section:";
+add "row";
+option "icon size" "toolbar small";
+add buttons 	"ACE -A Man_Browse_Section 1,gtk-help", 
+		"ACE -A Man_Browse_Section 2,gtk-help",
+		"ACE -A Man_Browse_Section 3,gtk-help",
+		"ACE -A Man_Browse_Section 4,gtk-help", 
+		"ACE -A Man_Browse_Section 5,gtk-help",
+		"ACE -A Man_Browse_Section 6,gtk-help", 
+		"ACE -A Man_Browse_Section 7,gtk-help", 
+		"ACE -A Man_Browse_Section 8,gtk-help",
+		"ACE -A Man_Browse_Section 9,gtk-help"; 
+

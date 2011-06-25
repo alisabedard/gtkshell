@@ -1,0 +1,15 @@
+REQUIREMENTS
+
+In order to build, you will need a C compiler, 
+pkg-config, vte, gtk2, glib, and gmake or bsd make.
+
+TO INSTALL:
+
+Set PREFIX environment value to desired install location.
+
+./configure
+make
+su
+make install
+exit
+

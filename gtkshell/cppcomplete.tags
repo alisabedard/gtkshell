@@ -1,0 +1,1167 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ADD	y.tab.c	149;"	e	enum:yytokentype	file:
+ADD	y.tab.h	47;"	e	enum:yytokentype
+ADD_COLUMN	tree.c	83;"	d	file:
+ADD_STOCK_BUTTON	macros.h	108;"	d
+ADD_STOCK_ITEM	macros.h	104;"	d
+APPENDC	ptk-app-menu.c	362;"	d	file:
+APPENDS	ptk-app-menu.c	361;"	d	file:
+ARFLAGS	Makefile	29;"	m
+ARTDEF	options.c	197;"	d	file:
+BEGIN	lex.yy.c	125;"	d	file:
+BS	undo.c	53;"	e	enum:__anon11	file:
+BUTTON	y.tab.c	151;"	e	enum:yytokentype	file:
+BUTTON	y.tab.h	49;"	e	enum:yytokentype
+BUTTONS	y.tab.c	150;"	e	enum:yytokentype	file:
+BUTTONS	y.tab.h	48;"	e	enum:yytokentype
+Bitmask	macros.h	49;"	t
+CHECKTERM	terminal_options.c	27;"	d	file:
+CHKPIX	image_button.c	56;"	d	file:
+COLUMN_COUNT	tree.c	29;"	e	enum:__anon9	file:
+COMMA	y.tab.c	145;"	e	enum:yytokentype	file:
+COMMA	y.tab.h	43;"	e	enum:yytokentype
+CatInfo	ptk-app-menu.c	61;"	t	typeref:struct:_CatInfo	file:
+DEF	guidl_dialog.c	36;"	d	file:
+DEF	guidl_options.c	34;"	d	file:
+DEF	guidl_widgets.c	33;"	d	file:
+DEL	undo.c	54;"	e	enum:__anon11	file:
+DESENSITIZE	undo.c	35;"	d	file:
+DIALOG	y.tab.c	147;"	e	enum:yytokentype	file:
+DIALOG	y.tab.h	45;"	e	enum:yytokentype
+DICT	guidl_dialog.c	47;"	d	file:
+DICT	guidl_options.c	56;"	d	file:
+DICT	guidl_widgets.c	51;"	d	file:
+DND_SIGNAL	dragdrop.c	110;"	d	file:
+DV	undo.c	26;"	d	file:
+DV	undo.c	28;"	d	file:
+ECHO	lex.yy.c	595;"	d	file:
+END	y.tab.c	148;"	e	enum:yytokentype	file:
+END	y.tab.h	46;"	e	enum:yytokentype
+EOB_ACT_CONTINUE_SCAN	lex.yy.c	160;"	d	file:
+EOB_ACT_END_OF_FILE	lex.yy.c	161;"	d	file:
+EOB_ACT_LAST_MATCH	lex.yy.c	162;"	d	file:
+FILENAME_NOT_EMPTY	text.c	192;"	d	file:
+FLEXINT_H	lex.yy.c	30;"	d	file:
+FLEX_BETA	lex.yy.c	14;"	d	file:
+FLEX_SCANNER	lex.yy.c	9;"	d	file:
+FRAME	containers.c	60;"	d	file:
+GADS	about_dialog.c	25;"	d	file:
+GDLDictionaries	guidl_dictionary.h	26;"	s
+GDLEnvironment	guidl_util.h	26;"	s
+GETLIST	ptk-app-menu.c	523;"	d	file:
+GET_STOCK_ITEM	macros.h	98;"	d
+GFREEIF	macros.h	58;"	d
+GGEA	options.c	43;"	d	file:
+GIS	option_options.c	119;"	d	file:
+GISCMP	option_options.c	122;"	d	file:
+GLS	label.c	29;"	d	file:
+GMT_EDIT	menu.h	31;"	e	enum:__anon8
+GMT_FILE	menu.h	30;"	e	enum:__anon8
+GMT_HELP	menu.h	34;"	e	enum:__anon8
+GMT_NONE	menu.h	29;"	e	enum:__anon8
+GMT_TOOLS	menu.h	32;"	e	enum:__anon8
+GMT_VIEW	menu.h	33;"	e	enum:__anon8
+GSH	gsh.h	27;"	s
+GSH	gsh.h	91;"	t	typeref:struct:GSH
+GSHBIT	macros.h	26;"	d
+GSHCA	macros.h	65;"	d
+GSHCA_TIGHT	macros.h	68;"	d
+GSHCBData	callbacks.h	29;"	s
+GSHCONNECT	macros.h	111;"	d
+GSHClockData	clock.c	32;"	s	file:
+GSHCommandShell	command_shell.h	27;"	s
+GSHCommandShell	command_shell.h	40;"	t	typeref:struct:GSHCommandShell
+GSHMENUS	menu.c	209;"	d	file:
+GSHMenuType	menu.h	35;"	t	typeref:enum:__anon8
+GSHR	menu.c	167;"	d	file:
+GSHRows	row_struct.h	26;"	s
+GSHRows_check	row.c	43;"	f	file:
+GSHRows_delete	row.c	50;"	f	file:
+GSHRows_new	row.c	26;"	f	file:
+GSHSETCB	macros.h	114;"	d
+GSHTM	clock.c	46;"	d	file:
+GSHTerminal	terminal_struct.h	26;"	s
+GSHTerminal	terminal_struct.h	38;"	t	typeref:struct:GSHTerminal
+GSHUpdateManager	update_manager_struct.h	26;"	s
+GSHUpdatedWidget	updated.h	26;"	s
+GSH_ABOUT_DIALOG_H	about_dialog.h	24;"	d
+GSH_ACTION_IF	macros.h	55;"	d
+GSH_ADD_MANAGED	macros.h	89;"	d
+GSH_ADD_OPTIONS_H	add_options.h	24;"	d
+GSH_ADD_WIDGET	macros.h	77;"	d
+GSH_ADD_WIDGET_TIGHT	macros.h	83;"	d
+GSH_APPLET_H	applets.h	3;"	d
+GSH_APP_MODE	macros.h	39;"	d
+GSH_APP_MODE_H	app_mode.h	25;"	d
+GSH_ARGUMENTS_H	arguments.h	24;"	d
+GSH_AUTHORS	about_dialog.h	28;"	d
+GSH_BUTTON_H	button.h	24;"	d
+GSH_CALLBACKS_H	callbacks.h	24;"	d
+GSH_CBEXIT	macros.h	30;"	d
+GSH_CLOCK_H	clock.h	24;"	d
+GSH_CLOCK_TIME_STRING_SIZE	clock.c	27;"	d	file:
+GSH_CLOCK_TIME_STRING_SIZE	clock.c	29;"	d	file:
+GSH_CMDSHELL_H	command_shell.h	24;"	d
+GSH_COLOR_H	color.h	24;"	d
+GSH_COMMENTS	about_dialog.h	36;"	d
+GSH_CONTAINERS_H	containers.h	24;"	d
+GSH_COPYRIGHT	about_dialog.h	34;"	d
+GSH_COUNT	options.h	29;"	d
+GSH_COUNT	options.h	35;"	d
+GSH_CREATE	macros.h	71;"	d
+GSH_DEFAULT_SHELL	terminal.h	29;"	d
+GSH_DESTROY_IF	macros.h	56;"	d
+GSH_DIALOG_H	dialog.h	25;"	d
+GSH_DIALOG_OPTIONS	dialog_options.h	24;"	d
+GSH_DRAGDROP_H	dragdrop.h	24;"	d
+GSH_FALLBACK_BGCOLOR	color.h	27;"	d
+GSH_FALLBACK_COLOR	color.h	26;"	d
+GSH_FALLBACK_FGCOLOR	color.h	28;"	d
+GSH_FILE_DIALOG	file_dialog.h	26;"	d
+GSH_FILE_DIALOG_H	file_dialog.h	24;"	d
+GSH_FIRST_TERMINAL	macros.h	41;"	d
+GSH_FIXME	macros.h	60;"	d
+GSH_FLAG	macros.h	51;"	d
+GSH_FORM_H	form.h	25;"	d
+GSH_FRAMED_LABELS	macros.h	34;"	d
+GSH_FREE_IF	macros.h	57;"	d
+GSH_GEOMETRY_H	geometry.h	24;"	d
+GSH_GET_CHILD	macros.h	95;"	d
+GSH_GSH_H	gsh.h	23;"	d
+GSH_GTKSHELL_H	gtkshell.h	24;"	d
+GSH_GUIDL_CHECK_DICTIONARY	guidl_dictionary.h	34;"	d
+GSH_GUIDL_DEFINE	guidl_dictionary.h	40;"	d
+GSH_GUIDL_DIALOG_H	guidl_dialog.h	24;"	d
+GSH_GUIDL_DICTIONARY_H	guidl_dictionary.h	24;"	d
+GSH_GUIDL_ITEM	guidl_dictionary.h	43;"	d
+GSH_GUIDL_ITEM_FUNC	guidl_dictionary.h	49;"	d
+GSH_GUIDL_ITEM_HEAD	guidl_dictionary.h	55;"	d
+GSH_GUIDL_NO_DUMMY	macros.h	38;"	d
+GSH_GUIDL_OPTIONS_H	guidl_options.h	24;"	d
+GSH_GUIDL_UTIL_H	guidl_util.h	24;"	d
+GSH_GUIDL_WIDGETS_H	guidl_widgets.h	24;"	d
+GSH_HEAP_ALLOCATED	macros.h	47;"	d
+GSH_HORIZONTAL_LABELS	macros.h	32;"	d
+GSH_HORIZ_CLOCK	macros.h	46;"	d
+GSH_ICON_SIZE_IS_CUSTOM	macros.h	44;"	d
+GSH_IMAGE_BUTTON_H	image_button.h	24;"	d
+GSH_INIT_H	init.h	24;"	d
+GSH_IN_SECONDARY_WIN	macros.h	43;"	d
+GSH_KEY_FILE	options.c	71;"	d	file:
+GSH_KEY_FILE_GROUP	options.c	72;"	d	file:
+GSH_LABEL_H	label.h	24;"	d
+GSH_LABEL_TO_ICON_MAPPINGS	button.h	29;"	d
+GSH_LICENSE_FILE	about_dialog.h	26;"	d
+GSH_MACROS_H	macros.h	24;"	d
+GSH_MENU_BUTTON	macros.h	35;"	d
+GSH_MENU_H	menu.h	25;"	d
+GSH_MESSAGE_DIALOG	dialog.h	37;"	d
+GSH_MODULE_INCLUDES_H	module_includes.h	24;"	d
+GSH_NEW_UPDATER	updated.h	44;"	d
+GSH_NEW_UPDATER_WITH_COMMAND	updated.h	39;"	d
+GSH_NONE	macros.h	28;"	d
+GSH_NO_BASE_FRAME	macros.h	36;"	d
+GSH_NO_EXPAND	macros.h	37;"	d
+GSH_NO_RELIEF	macros.h	45;"	d
+GSH_OPTIONS_H	options.h	24;"	d
+GSH_OPTION_FUNCTION	macros.h	121;"	d
+GSH_OPTION_FUNC_NAME	macros.h	118;"	d
+GSH_OPTION_OPTIONS_H	option_options.h	24;"	d
+GSH_OPTION_PROTOTYPE	macros.h	119;"	d
+GSH_OPTION_SET_FUNCTION	macros.h	125;"	d
+GSH_OPTION_SET_PROTOTYPE	macros.h	123;"	d
+GSH_OPTION_UNSET_FUNCTION	macros.h	130;"	d
+GSH_OPTION_UNSET_PROTOTYPE	macros.h	128;"	d
+GSH_PANE_H	pane.h	26;"	d
+GSH_PANE_NEXT	macros.h	40;"	d
+GSH_PROMPT_ECHOES	macros.h	33;"	d
+GSH_ROW_H	row.h	24;"	d
+GSH_ROW_STRUCT_H	row_struct.h	24;"	d
+GSH_SCROLL	macros.h	29;"	d
+GSH_SET	macros.h	52;"	d
+GSH_SHOW_CREATE	macros.h	74;"	d
+GSH_STATUS_WIDGET	updated_label.c	53;"	d	file:
+GSH_STOCK_ITEM	macros.h	134;"	d
+GSH_TERMINAL_H	terminal.h	24;"	d
+GSH_TERMINAL_OPTIONS_H	terminal_options.h	25;"	d
+GSH_TERMINAL_STRUCT_H	terminal_struct.h	24;"	d
+GSH_TERM_TRANSPARENT	macros.h	42;"	d
+GSH_TEXT_H	text.h	24;"	d
+GSH_TREE_H	tree.h	24;"	d
+GSH_UMS_H	update_manager_struct.h	24;"	d
+GSH_UNSET	macros.h	53;"	d
+GSH_UPDATED_H	updated.h	24;"	d
+GSH_UPDATED_LABEL_H	updated_label.h	24;"	d
+GSH_UPDATED_PROGRESS_H	updated_progress.h	24;"	d
+GSH_UPDATING	macros.h	31;"	d
+GSH_UPD_MAN_H	update_manager.h	24;"	d
+GSH_WEBSITE	about_dialog.h	35;"	d
+GSS	callbacks.c	70;"	d	file:
+GSWS	containers.c	26;"	d	file:
+GTKFLAGS	Makefile	30;"	m
+GTKSHELL_FONT_H	font.h	24;"	d
+GWA	app_mode.c	26;"	d	file:
+GWA	containers.c	59;"	d	file:
+GWA	gtkshell.c	113;"	d	file:
+GWA	menu.c	182;"	d	file:
+GWAM	gtkshell.c	115;"	d	file:
+ICON_SIZE	ptk-app-menu.c	48;"	d	file:
+IFGISCMP	option_options.c	123;"	d	file:
+IFLTSET	ptk-app-menu.c	312;"	d	file:
+IFS	y.tab.c	143;"	e	enum:yytokentype	file:
+IFS	y.tab.h	41;"	e	enum:yytokentype
+INITIAL	lex.yy.c	508;"	d	file:
+INS	undo.c	52;"	e	enum:__anon11	file:
+INSTALLPROG	Makefile	35;"	m
+INSTALLPROG	Makefile	37;"	m
+INT16_MAX	lex.yy.c	73;"	d	file:
+INT16_MIN	lex.yy.c	64;"	d	file:
+INT32_MAX	lex.yy.c	76;"	d	file:
+INT32_MIN	lex.yy.c	67;"	d	file:
+INT8_MAX	lex.yy.c	70;"	d	file:
+INT8_MIN	lex.yy.c	61;"	d	file:
+KEY_COLUMN	tree.c	27;"	e	enum:__anon9	file:
+KILLWIDGET	row.c	52;"	d	file:
+LOADPB	image_button.c	57;"	d	file:
+MENTEST	menu.c	196;"	d	file:
+NULLIFY	guidl_dictionary.c	53;"	d	file:
+NUM	y.tab.c	154;"	e	enum:yytokentype	file:
+NUM	y.tab.h	52;"	e	enum:yytokentype
+OPTION	y.tab.c	146;"	e	enum:yytokentype	file:
+OPTION	y.tab.h	44;"	e	enum:yytokentype
+PFD	font.c	31;"	d	file:
+PROMPT_FILENAME	text.c	191;"	d	file:
+PTK_APP_MENU_H	ptk-app-menu.h	25;"	d
+PTK_APP_MENU_ITEM_ID	ptk-app-menu.c	47;"	v
+PtkAppMenuItem	ptk-app-menu.c	68;"	t	typeref:struct:_PtkAppMenuItem	file:
+REJECT	lex.yy.c	473;"	d	file:
+REPARENT_TO	pane.c	36;"	d	file:
+SC	y.tab.c	144;"	e	enum:yytokentype	file:
+SC	y.tab.h	42;"	e	enum:yytokentype
+SENSITIZE	undo.c	34;"	d	file:
+SETUP_MENU_ITEM_SIGNALS	ptk-app-menu.c	338;"	d	file:
+SHOW_STOCK_ITEM	macros.h	101;"	d
+SKIP	ptk-app-menu.c	513;"	d	file:
+SPLIT_ALL	arguments.c	26;"	d	file:
+SPLIT_ALL	menu.c	26;"	d	file:
+STRING	y.tab.c	153;"	e	enum:yytokentype	file:
+STRING	y.tab.h	51;"	e	enum:yytokentype
+TAB_BUTTON	terminal.c	240;"	d	file:
+TARGET_STRING	dragdrop.c	30;"	e	enum:__anon2	file:
+TESTEDITOR	callbacks.c	71;"	d	file:
+TEST_EDITOR_EXISTS	text.c	152;"	d	file:
+TITLE	ptk-app-menu.c	278;"	d	file:
+TOKEN_ECHO	y.tab.c	152;"	e	enum:yytokentype	file:
+TOKEN_ECHO	y.tab.h	50;"	e	enum:yytokentype
+UINT16_MAX	lex.yy.c	82;"	d	file:
+UINT32_MAX	lex.yy.c	85;"	d	file:
+UINT8_MAX	lex.yy.c	79;"	d	file:
+UndoInfo	undo.c	48;"	t	typeref:struct:__anon10	file:
+VALUE_COLUMN	tree.c	28;"	e	enum:__anon9	file:
+VSETW	terminal.c	33;"	d	file:
+YYABORT	y.tab.c	582;"	d	file:
+YYACCEPT	y.tab.c	581;"	d	file:
+YYBACKUP	y.tab.c	603;"	d	file:
+YYBISON	y.tab.c	45;"	d	file:
+YYBISON_VERSION	y.tab.c	48;"	d	file:
+YYCOPY	y.tab.c	365;"	d	file:
+YYCOPY	y.tab.c	368;"	d	file:
+YYDEBUG	y.tab.c	120;"	d	file:
+YYDPRINTF	y.tab.c	683;"	d	file:
+YYDPRINTF	y.tab.c	832;"	d	file:
+YYEMPTY	y.tab.c	578;"	d	file:
+YYEOF	y.tab.c	579;"	d	file:
+YYERRCODE	y.tab.c	622;"	d	file:
+YYERROR	y.tab.c	583;"	d	file:
+YYERROR_VERBOSE	y.tab.c	125;"	d	file:
+YYERROR_VERBOSE	y.tab.c	126;"	d	file:
+YYERROR_VERBOSE	y.tab.c	128;"	d	file:
+YYFAIL	y.tab.c	593;"	d	file:
+YYFILE	y.tab.c	96;"	d	file:
+YYFINAL	y.tab.c	398;"	d	file:
+YYFPRINTF	y.tab.c	680;"	d	file:
+YYFREE	y.tab.c	331;"	d	file:
+YYID	y.tab.c	255;"	d	file:
+YYID	y.tab.c	260;"	f	file:
+YYINITDEPTH	y.tab.c	841;"	d	file:
+YYLAST	y.tab.c	400;"	d	file:
+YYLEX	y.tab.c	670;"	d	file:
+YYLEX	y.tab.c	672;"	d	file:
+YYLLOC_DEFAULT	y.tab.c	631;"	d	file:
+YYLSP_NEEDED	y.tab.c	63;"	d	file:
+YYMALLOC	y.tab.c	324;"	d	file:
+YYMAXDEPTH	y.tab.c	852;"	d	file:
+YYMAXUTOK	y.tab.c	413;"	d	file:
+YYNNTS	y.tab.c	405;"	d	file:
+YYNRULES	y.tab.c	407;"	d	file:
+YYNSTATES	y.tab.c	409;"	d	file:
+YYNTOKENS	y.tab.c	403;"	d	file:
+YYPACT_NINF	y.tab.c	536;"	d	file:
+YYPOPSTACK	y.tab.c	1192;"	d	file:
+YYPULL	y.tab.c	60;"	d	file:
+YYPURE	y.tab.c	54;"	d	file:
+YYPUSH	y.tab.c	57;"	d	file:
+YYRECOVERING	y.tab.c	601;"	d	file:
+YYRHSLOC	y.tab.c	629;"	d	file:
+YYSIZE_MAXIMUM	y.tab.c	232;"	d	file:
+YYSIZE_T	y.tab.c	220;"	d	file:
+YYSIZE_T	y.tab.c	222;"	d	file:
+YYSIZE_T	y.tab.c	226;"	d	file:
+YYSIZE_T	y.tab.c	228;"	d	file:
+YYSKELETON_NAME	y.tab.c	51;"	d	file:
+YYSTACK_ALLOC	y.tab.c	278;"	d	file:
+YYSTACK_ALLOC	y.tab.c	282;"	d	file:
+YYSTACK_ALLOC	y.tab.c	287;"	d	file:
+YYSTACK_ALLOC	y.tab.c	310;"	d	file:
+YYSTACK_ALLOC_MAXIMUM	y.tab.c	307;"	d	file:
+YYSTACK_ALLOC_MAXIMUM	y.tab.c	313;"	d	file:
+YYSTACK_BYTES	y.tab.c	357;"	d	file:
+YYSTACK_FREE	y.tab.c	301;"	d	file:
+YYSTACK_FREE	y.tab.c	311;"	d	file:
+YYSTACK_GAP_MAXIMUM	y.tab.c	353;"	d	file:
+YYSTACK_RELOCATE	y.tab.c	384;"	d	file:
+YYSTATE	lex.yy.c	132;"	d	file:
+YYSTYPE	y.tab.c	161;"	u	file:
+YYSTYPE	y.tab.c	174;"	t	typeref:union:YYSTYPE	file:
+YYSTYPE	y.tab.h	59;"	u
+YYSTYPE	y.tab.h	72;"	t	typeref:union:YYSTYPE
+YYSTYPE_IS_DECLARED	y.tab.c	177;"	d	file:
+YYSTYPE_IS_DECLARED	y.tab.h	75;"	d
+YYSTYPE_IS_TRIVIAL	y.tab.c	175;"	d	file:
+YYSTYPE_IS_TRIVIAL	y.tab.h	73;"	d
+YYTABLES_NAME	lex.yy.c	1874;"	d	file:
+YYTABLE_NINF	y.tab.c	554;"	d	file:
+YYTERROR	y.tab.c	621;"	d	file:
+YYTOKENTYPE	y.tab.c	139;"	d	file:
+YYTOKENTYPE	y.tab.h	37;"	d
+YYTOKEN_TABLE	y.tab.c	133;"	d	file:
+YYTRANSLATE	y.tab.c	415;"	d	file:
+YYUNDEFTOK	y.tab.c	412;"	d	file:
+YYUSE	y.tab.c	248;"	d	file:
+YYUSE	y.tab.c	250;"	d	file:
+YY_	y.tab.c	238;"	d	file:
+YY_	y.tab.c	242;"	d	file:
+YY_AT_BOL	lex.yy.c	331;"	d	file:
+YY_BREAK	lex.yy.c	674;"	d	file:
+YY_BUFFER_EOF_PENDING	lex.yy.c	247;"	d	file:
+YY_BUFFER_NEW	lex.yy.c	235;"	d	file:
+YY_BUFFER_NORMAL	lex.yy.c	236;"	d	file:
+YY_BUFFER_STATE	lex.yy.c	153;"	t	typeref:struct:yy_buffer_state	file:
+YY_BUF_SIZE	lex.yy.c	144;"	d	file:
+YY_CHAR	lex.yy.c	335;"	t	file:
+YY_CURRENT_BUFFER	lex.yy.c	263;"	d	file:
+YY_CURRENT_BUFFER_LVALUE	lex.yy.c	270;"	d	file:
+YY_DECL	lex.yy.c	662;"	d	file:
+YY_DECL_IS_OURS	lex.yy.c	658;"	d	file:
+YY_DO_BEFORE_ACTION	lex.yy.c	356;"	d	file:
+YY_END_OF_BUFFER	lex.yy.c	364;"	d	file:
+YY_END_OF_BUFFER_CHAR	lex.yy.c	140;"	d	file:
+YY_EXIT_FAILURE	lex.yy.c	1672;"	d	file:
+YY_EXTRA_TYPE	lex.yy.c	519;"	d	file:
+YY_FATAL_ERROR	lex.yy.c	649;"	d	file:
+YY_FLEX_MAJOR_VERSION	lex.yy.c	10;"	d	file:
+YY_FLEX_MINOR_VERSION	lex.yy.c	11;"	d	file:
+YY_FLEX_SUBMINOR_VERSION	lex.yy.c	12;"	d	file:
+YY_FLUSH_BUFFER	lex.yy.c	299;"	d	file:
+YY_INPUT	lex.yy.c	602;"	d	file:
+YY_INT_ALIGNED	lex.yy.c	5;"	d	file:
+YY_LESS_LINENO	lex.yy.c	164;"	d	file:
+YY_LOCATION_PRINT	y.tab.c	657;"	d	file:
+YY_LOCATION_PRINT	y.tab.c	662;"	d	file:
+YY_MORE_ADJ	lex.yy.c	475;"	d	file:
+YY_NEW_FILE	lex.yy.c	138;"	d	file:
+YY_NULL	lex.yy.c	112;"	d	file:
+YY_NUM_RULES	lex.yy.c	363;"	d	file:
+YY_READ_BUF_SIZE	lex.yy.c	587;"	d	file:
+YY_REDUCE_PRINT	y.tab.c	822;"	d	file:
+YY_REDUCE_PRINT	y.tab.c	835;"	d	file:
+YY_RESTORE_YY_MORE_OFFSET	lex.yy.c	476;"	d	file:
+YY_RULE_SETUP	lex.yy.c	677;"	d	file:
+YY_SC_TO_UI	lex.yy.c	119;"	d	file:
+YY_STACK_PRINT	y.tab.c	784;"	d	file:
+YY_STACK_PRINT	y.tab.c	834;"	d	file:
+YY_START	lex.yy.c	131;"	d	file:
+YY_START_STACK_INCR	lex.yy.c	644;"	d	file:
+YY_STATE_BUF_SIZE	lex.yy.c	149;"	d	file:
+YY_STATE_EOF	lex.yy.c	135;"	d	file:
+YY_STRUCT_YY_BUFFER_STATE	lex.yy.c	188;"	d	file:
+YY_SYMBOL_PRINT	y.tab.c	689;"	d	file:
+YY_SYMBOL_PRINT	y.tab.c	833;"	d	file:
+YY_TYPEDEF_YY_BUFFER_STATE	lex.yy.c	152;"	d	file:
+YY_TYPEDEF_YY_SIZE_T	lex.yy.c	183;"	d	file:
+YY_USER_ACTION	lex.yy.c	669;"	d	file:
+YY_USE_CONST	lex.yy.c	100;"	d	file:
+YY_USE_CONST	lex.yy.c	93;"	d	file:
+_CatInfo	ptk-app-menu.c	55;"	s	file:
+_PtkAppMenuItem	ptk-app-menu.c	63;"	s	file:
+_STDLIB_H	y.tab.c	292;"	d	file:
+_STDLIB_H	y.tab.c	320;"	d	file:
+_UNDO_H	undo.h	21;"	d
+_VIEW_H	view.h	21;"	d
+__STDC_LIMIT_MACROS	lex.yy.c	40;"	d	file:
+__notebook	terminal_struct.h	35;"	m	struct:GSHTerminal	access:public
+add	gsh.h	87;"	m	struct:GSH	typeref:struct:GSH::__anon7	access:public
+add	guidl.y	104;"	l
+add	guidl_util.h	34;"	m	struct:GDLEnvironment	access:public
+add	terminal_struct.h	33;"	m	struct:GSHTerminal	access:public
+add	update_manager_struct.h	32;"	m	struct:GSHUpdateManager	access:public
+add_commanded	add_options.c	149;"	f	file:
+add_each_menu	arguments.c	55;"	f	file:
+add_item	tree.c	33;"	f	file:
+add_menu_bar	menu.c	180;"	f	file:
+add_menu_items	menu.c	165;"	f	file:
+add_menu_launcher	menu.c	233;"	f	file:
+add_to_recent_files	text.c	253;"	f	file:
+add_to_usage	options.c	75;"	f	file:
+alloca	y.tab.c	285;"	d	file:
+app	gsh.h	56;"	m	struct:GSH::__anon3	typeref:struct:GSH::__anon3::__anon4	access:public
+app_dir_name	ptk-app-menu.c	53;"	v	file:
+app_dirs_foreach	ptk-app-menu.c	273;"	p	file:
+app_dirs_foreach	ptk-app-menu.c	684;"	f	file:
+args	guidl_util.h	29;"	m	struct:GDLEnvironment	typeref:struct:GDLEnvironment::ARArguments	access:public
+assign_add_methods	gtkshell.c	91;"	f	file:
+assign_methods	gtkshell.c	99;"	f	file:
+assign_methods	update_manager.c	94;"	f	file:
+audiovideo_cats	ptk-app-menu.c	155;"	v	file:
+begin_submenu	menu.c	102;"	f	file:
+bflags	gsh.h	31;"	m	struct:GSH	access:public
+bgcolor	gsh.h	63;"	m	struct:GSH::__anon6	access:public
+button	gsh.h	39;"	m	struct:GSH::__anon3	access:public
+button	gsh.h	85;"	m	struct:GSH::__anon7	access:public
+button	guidl.y	128;"	l
+button_parse	arguments.c	70;"	f	file:
+buttons	guidl.y	120;"	l
+cb_begin_user_action	undo.c	266;"	f	file:
+cb_delete_range	undo.c	238;"	f	file:
+cb_end_user_action	undo.c	277;"	f	file:
+cb_insert_text	undo.c	226;"	f	file:
+change_page_cb	terminal.c	181;"	f	file:
+check	row_struct.h	35;"	m	struct:GSHRows	access:public
+clock_widget	clock.c	35;"	m	struct:GSHClockData	file:	access:public
+command	guidl.y	60;"	l
+command	undo.c	43;"	m	struct:__anon10	file:	access:public
+command	updated.h	29;"	m	struct:GSHUpdatedWidget	access:public
+command_dictionary	gsh.h	72;"	m	struct:GSH	access:public
+commands	guidl.y	54;"	l
+common_guidl_handler	options.c	31;"	f	file:
+compare_menu_item_titles	ptk-app-menu.c	276;"	f	file:
+current	row_struct.h	30;"	m	struct:GSHRows	access:public
+data	callbacks.h	32;"	m	struct:GSHCBData	access:public
+delete_child_classes	gtkshell.c	27;"	f	file:
+delete_contents	guidl_dictionary.c	35;"	f	file:
+delete_dictionary	guidl_dictionary.c	28;"	f	file:
+desktop_ent	ptk-app-menu.c	52;"	v	file:
+development_cats	ptk-app-menu.c	70;"	v	file:
+dialog	guidl.y	74;"	l
+dialog	guidl_dialog.h	26;"	v
+dialog	guidl_dictionary.h	29;"	m	struct:GDLDictionaries	typeref:struct:GDLDictionaries::ARTupleVector	access:public
+dictionaries	guidl_util.h	28;"	m	struct:GDLEnvironment	typeref:struct:GDLEnvironment::GDLDictionaries	access:public
+dimensions	terminal_struct.h	31;"	m	struct:GSHTerminal	access:public
+directory_file	ptk-app-menu.c	58;"	m	struct:_CatInfo	file:	access:public
+do_load_dir	ptk-app-menu.c	494;"	f	file:
+drag_data_get	dragdrop.c	84;"	f	file:
+drag_drop	dragdrop.c	64;"	f	file:
+drag_received	dragdrop.c	39;"	f	file:
+edit	gsh.h	46;"	m	struct:GSH::__anon3::__anon4::__anon5	access:public
+editor	gsh.h	65;"	m	struct:GSH	typeref:struct:GSH::__anon6	access:public
+education_cats	ptk-app-menu.c	189;"	v	file:
+end	undo.c	45;"	m	struct:__anon10	file:	access:public
+entry	callbacks.h	35;"	m	struct:GSHCBData	access:public
+exec	ptk-app-menu.c	67;"	m	struct:_PtkAppMenuItem	file:	access:public
+exec_and_test_print	callbacks.c	133;"	f	file:
+fgcolor	gsh.h	64;"	m	struct:GSH::__anon6	access:public
+file	gsh.h	45;"	m	struct:GSH::__anon3::__anon4::__anon5	access:public
+filename	gsh.h	61;"	m	struct:GSH::__anon6	access:public
+finalize	gsh.h	78;"	m	struct:GSH	access:public
+find_and_set_compound_label_widget	menu.c	69;"	f	file:
+find_and_set_label_widget	menu.c	80;"	f	file:
+find_cat	ptk-app-menu.c	249;"	f	file:
+find_menu_item_by_name	ptk-app-menu.c	283;"	f	file:
+flex_int16_t	lex.yy.c	46;"	t	file:
+flex_int16_t	lex.yy.c	52;"	t	file:
+flex_int32_t	lex.yy.c	48;"	t	file:
+flex_int32_t	lex.yy.c	53;"	t	file:
+flex_int8_t	lex.yy.c	44;"	t	file:
+flex_int8_t	lex.yy.c	51;"	t	file:
+flex_uint16_t	lex.yy.c	47;"	t	file:
+flex_uint16_t	lex.yy.c	55;"	t	file:
+flex_uint32_t	lex.yy.c	49;"	t	file:
+flex_uint32_t	lex.yy.c	56;"	t	file:
+flex_uint8_t	lex.yy.c	45;"	t	file:
+flex_uint8_t	lex.yy.c	54;"	t	file:
+font	terminal_struct.h	29;"	m	struct:GSHTerminal	access:public
+frame	gsh.h	54;"	m	struct:GSH::__anon3::__anon4	access:public
+free	y.tab.c	334;"	p	file:
+function	updated.h	30;"	m	struct:GSHUpdatedWidget	access:public
+game_cats	ptk-app-menu.c	171;"	v	file:
+geometry	gsh.h	30;"	m	struct:GSH	access:public
+get	command_shell.h	37;"	m	struct:GSHCommandShell	access:public
+get_color_for_string	color.c	27;"	f	file:
+get_command_shell	command_shell.c	32;"	f	file:
+get_command_val	updated_progress.c	26;"	f	file:
+get_current_page	terminal.c	164;"	f	file:
+get_filename	text.c	195;"	f	file:
+get_icon	ptk-app-menu.c	424;"	f	file:
+get_key_file	options.c	92;"	f	file:
+get_key_file_data	options.c	135;"	f	file:
+get_key_filename	options.c	86;"	f	file:
+get_shell	terminal.c	47;"	f	file:
+get_text	text.c	158;"	f	file:
+get_time_string	clock.c	39;"	f	file:
+get_title	ptk-app-menu.c	571;"	f	file:
+get_value	options.c	106;"	f	file:
+graphics_cats	ptk-app-menu.c	100;"	v	file:
+gsh	callbacks.h	31;"	m	struct:GSHCBData	typeref:struct:GSHCBData::GSH	access:public
+gsh	clock.c	34;"	m	struct:GSHClockData	file:	access:public
+gsh	row_struct.h	32;"	m	struct:GSHRows	access:public
+gsh	terminal_struct.h	34;"	m	struct:GSHTerminal	access:public
+gsh_GDLEnvironment_add	guidl_util.c	39;"	f	file:
+gsh_GSH	gtkshell.c	138;"	f
+gsh_GSH	gtkshell.h	59;"	p
+gsh_GSHUpdateManager_add	update_manager.c	59;"	f	file:
+gsh_GSHUpdateManager_start	update_manager.c	45;"	f	file:
+gsh_GSHUpdatedWidget_update	updated.c	32;"	f	file:
+gsh_GSH_Terminal_add	terminal.c	293;"	f	file:
+gsh_GSH_add_window	init.c	40;"	f
+gsh_GSH_add_window	init.h	26;"	p
+gsh_GSH_finalize	init.c	51;"	f
+gsh_GSH_finalize	init.h	28;"	p
+gsh_about_dialog	about_dialog.c	67;"	f
+gsh_about_dialog	about_dialog.h	38;"	p
+gsh_add_app_menu_cb	ptk-app-menu.c	740;"	f
+gsh_add_app_menu_cb	ptk-app-menu.h	27;"	p
+gsh_add_applet_clock_cb	add_options.c	38;"	f
+gsh_add_applet_clock_cb	add_options.h	30;"	p
+gsh_add_button	button.c	153;"	f
+gsh_add_button	button.h	26;"	p
+gsh_add_command_cb	add_options.c	53;"	f
+gsh_add_command_cb	add_options.h	34;"	p
+gsh_add_commanded_button_cb	add_options.c	160;"	f
+gsh_add_commanded_button_cb	add_options.h	55;"	p
+gsh_add_commanded_label_cb	add_options.c	166;"	f
+gsh_add_commanded_label_cb	add_options.h	58;"	p
+gsh_add_editor_cb	add_options.c	67;"	f
+gsh_add_editor_cb	add_options.h	36;"	p
+gsh_add_embedded_cb	add_options.h	72;"	p
+gsh_add_entry_cb	add_options.c	195;"	f
+gsh_add_entry_cb	add_options.h	62;"	p
+gsh_add_form	form.c	89;"	f
+gsh_add_form	form.h	27;"	p
+gsh_add_form_cb	add_options.c	74;"	f
+gsh_add_form_cb	add_options.h	38;"	p
+gsh_add_label	label.c	50;"	f
+gsh_add_label	label.h	26;"	p
+gsh_add_label_cb	add_options.c	86;"	f
+gsh_add_label_cb	add_options.h	42;"	p
+gsh_add_list_cb	add_options.c	80;"	f
+gsh_add_list_cb	add_options.h	40;"	p
+gsh_add_pane_cb	add_options.c	46;"	f
+gsh_add_pane_cb	add_options.h	32;"	p
+gsh_add_piped_label_cb	add_options.c	104;"	f
+gsh_add_piped_label_cb	add_options.h	46;"	p
+gsh_add_piped_text_cb	add_options.c	92;"	f
+gsh_add_piped_text_cb	add_options.h	44;"	p
+gsh_add_quickstart_cb	add_options.h	48;"	p
+gsh_add_row_cb	add_options.c	132;"	f
+gsh_add_row_cb	add_options.h	50;"	p
+gsh_add_separator_cb	add_options.c	140;"	f
+gsh_add_separator_cb	add_options.h	52;"	p
+gsh_add_shell_cb	add_options.c	172;"	f
+gsh_add_shell_cb	add_options.h	60;"	p
+gsh_add_tearoff	menu.c	95;"	f
+gsh_add_tearoff	menu.h	40;"	p
+gsh_add_text_cb	add_options.c	202;"	f
+gsh_add_text_cb	add_options.h	64;"	p
+gsh_add_updated_label	updated_label.c	49;"	f
+gsh_add_updated_label	updated_label.h	26;"	p
+gsh_add_updated_progress	updated_progress.c	48;"	f
+gsh_add_updated_progress	updated_progress.h	26;"	p
+gsh_add_updating_label_cb	add_options.c	216;"	f
+gsh_add_updating_label_cb	add_options.h	70;"	p
+gsh_add_updating_progress_cb	add_options.c	210;"	f
+gsh_add_updating_progress_cb	add_options.h	67;"	p
+gsh_add_window_cb	add_options.c	26;"	f
+gsh_add_window_cb	add_options.h	28;"	p
+gsh_check_and_set_geometry	geometry.c	40;"	f
+gsh_check_and_set_geometry	geometry.h	30;"	p
+gsh_check_command_exists	button.h	42;"	p
+gsh_check_geometry	geometry.c	27;"	f	file:
+gsh_check_row	arguments.h	30;"	p
+gsh_clock_new	clock.c	66;"	f
+gsh_clock_new	clock.h	26;"	p
+gsh_color_dialog_submit	dialog.c	60;"	f
+gsh_color_dialog_submit	dialog.h	35;"	p
+gsh_common_dialog_executioner	dialog.c	26;"	f
+gsh_common_dialog_executioner	dialog.h	28;"	p
+gsh_define_command_line_options	options.c	188;"	f	file:
+gsh_delete_GDLDictionaries	guidl_dictionary.c	43;"	f	file:
+gsh_delete_GDLEnvironment	guidl_util.c	29;"	f	file:
+gsh_delete_GSH	gtkshell.c	35;"	f	file:
+gsh_delete_GSHCBData	callbacks.c	28;"	f	file:
+gsh_delete_GSHCommandShell	command_shell.c	26;"	f	file:
+gsh_delete_GSHUpdateManager	update_manager.c	85;"	f	file:
+gsh_delete_GSHUpdatedWidget	updated.c	26;"	f	file:
+gsh_delete_GSH_Terminal	terminal.c	108;"	f	file:
+gsh_delete_each_updater	update_manager.c	75;"	f	file:
+gsh_dialog_about_cb	dialog_options.c	26;"	f
+gsh_dialog_about_cb	dialog_options.h	27;"	p
+gsh_dialog_color_cb	dialog_options.c	34;"	f
+gsh_dialog_color_cb	dialog_options.h	30;"	p
+gsh_dialog_error_cb	dialog_options.c	60;"	f
+gsh_dialog_error_cb	dialog_options.h	39;"	p
+gsh_dialog_file_cb	dialog_options.c	76;"	f
+gsh_dialog_file_cb	dialog_options.h	45;"	p
+gsh_dialog_folder_cb	dialog_options.c	44;"	f
+gsh_dialog_folder_cb	dialog_options.h	33;"	p
+gsh_dialog_folder_open_cb	dialog_options.c	52;"	f
+gsh_dialog_folder_open_cb	dialog_options.h	36;"	p
+gsh_dialog_font_cb	dialog_options.c	66;"	f
+gsh_dialog_font_cb	dialog_options.h	42;"	p
+gsh_dialog_information_cb	dialog_options.c	84;"	f
+gsh_dialog_information_cb	dialog_options.h	48;"	p
+gsh_dialog_save_cb	dialog_options.c	96;"	f
+gsh_dialog_save_cb	dialog_options.h	54;"	p
+gsh_dialog_warning_cb	dialog_options.c	90;"	f
+gsh_dialog_warning_cb	dialog_options.h	51;"	p
+gsh_editor_open	text.c	269;"	f
+gsh_editor_open	text.h	46;"	p
+gsh_editor_save	text.c	181;"	f
+gsh_editor_save	text.h	44;"	p
+gsh_editor_save_as	text.c	214;"	f
+gsh_editor_save_as	text.h	42;"	p
+gsh_entry_cb	callbacks.c	146;"	f	file:
+gsh_file_dialog_submit	dialog.c	38;"	f
+gsh_file_dialog_submit	dialog.h	31;"	p
+gsh_font_dialog_submit	dialog.c	48;"	f
+gsh_font_dialog_submit	dialog.h	33;"	p
+gsh_get_image	image_button.c	50;"	f
+gsh_get_image	image_button.h	26;"	p
+gsh_guidl_env	guidl_util.c	26;"	v	typeref:struct:GDLEnvironment
+gsh_guidl_env	y.tab.c	111;"	v	typeref:struct:GDLEnvironment
+gsh_guidl_generic_item	guidl_dictionary.c	79;"	f
+gsh_guidl_generic_item	guidl_dictionary.h	61;"	p
+gsh_handle_switch_argument	options.c	296;"	f
+gsh_handle_switch_argument	options.h	42;"	p
+gsh_icon_size_to_pixels	image_button.c	26;"	f	file:
+gsh_image_button	image_button.c	92;"	f
+gsh_image_button	image_button.h	28;"	p
+gsh_invalid_option	options.c	51;"	f	file:
+gsh_is_menubar_item	menu.c	194;"	f
+gsh_is_menubar_item	menu.h	37;"	p
+gsh_manage	gtkshell.c	82;"	f	file:
+gsh_menubutton_parse	menu.c	250;"	f
+gsh_menubutton_parse	menu.h	43;"	p
+gsh_new_GDLDictionaries	guidl_dictionary.c	68;"	f
+gsh_new_GDLDictionaries	guidl_dictionary.h	58;"	p
+gsh_new_GDLEnvironment	guidl_util.c	65;"	f
+gsh_new_GDLEnvironment	guidl_util.h	37;"	p
+gsh_new_GSH	gtkshell.c	147;"	f
+gsh_new_GSH	gtkshell.h	62;"	p
+gsh_new_GSHCBData	callbacks.c	173;"	f
+gsh_new_GSHCBData	callbacks.h	38;"	p
+gsh_new_GSHCommandShell	command_shell.c	117;"	f
+gsh_new_GSHCommandShell	command_shell.h	42;"	p
+gsh_new_GSHRows	row.c	59;"	f
+gsh_new_GSHRows	row.h	26;"	p
+gsh_new_GSHUpdateManager	update_manager.c	117;"	f
+gsh_new_GSHUpdateManager	update_manager.h	26;"	p
+gsh_new_GSHUpdatedWidget	updated.c	39;"	f
+gsh_new_GSHUpdatedWidget	updated.h	36;"	p
+gsh_new_GSH_Terminal	terminal.c	322;"	f
+gsh_new_GSH_Terminal	terminal.h	31;"	p
+gsh_new_label	label.h	28;"	p
+gsh_option_app_mode_cb	option_options.c	34;"	f
+gsh_option_app_mode_cb	option_options.h	34;"	p
+gsh_option_color_cb	option_options.c	41;"	f
+gsh_option_color_cb	option_options.h	37;"	p
+gsh_option_echoes_cb	option_options.c	62;"	f
+gsh_option_echoes_cb	option_options.h	46;"	p
+gsh_option_exits_cb	option_options.c	69;"	f
+gsh_option_exits_cb	option_options.h	49;"	p
+gsh_option_expand_cb	option_options.c	142;"	f
+gsh_option_expand_cb	option_options.h	70;"	p
+gsh_option_framed_labels_cb	option_options.c	84;"	f
+gsh_option_framed_labels_cb	option_options.h	55;"	p
+gsh_option_geometry_cb	option_options.c	92;"	f
+gsh_option_geometry_cb	option_options.h	58;"	p
+gsh_option_horiz_clock_cb	option_options.c	99;"	f
+gsh_option_horiz_clock_cb	option_options.h	61;"	p
+gsh_option_horiz_labels_cb	option_options.c	107;"	f
+gsh_option_horiz_labels_cb	option_options.h	64;"	p
+gsh_option_icon_size_cb	option_options.c	115;"	f
+gsh_option_icon_size_cb	option_options.h	67;"	p
+gsh_option_no_base_frame_cb	option_options.c	76;"	f
+gsh_option_no_base_frame_cb	option_options.h	52;"	p
+gsh_option_no_decorations_cb	option_options.c	157;"	f
+gsh_option_no_decorations_cb	option_options.h	76;"	p
+gsh_option_no_dummy_cb	option_options.c	55;"	f
+gsh_option_no_dummy_cb	option_options.h	43;"	p
+gsh_option_no_expand_cb	option_options.c	149;"	f
+gsh_option_no_expand_cb	option_options.h	73;"	p
+gsh_option_no_relief_cb	option_options.c	48;"	f
+gsh_option_no_relief_cb	option_options.h	40;"	p
+gsh_option_null_cb	option_options.c	27;"	f
+gsh_option_null_cb	option_options.h	28;"	p
+gsh_option_pane_next_cb	option_options.c	180;"	f
+gsh_option_pane_next_cb	option_options.h	79;"	p
+gsh_option_rows_cb	option_options.c	187;"	f
+gsh_option_rows_cb	option_options.h	82;"	p
+gsh_option_scroll_cb	option_options.c	193;"	f
+gsh_option_scroll_cb	option_options.h	85;"	p
+gsh_option_terminal_font_cb	terminal_options.c	44;"	f
+gsh_option_terminal_font_cb	terminal_options.h	36;"	p
+gsh_option_terminal_height_cb	terminal_options.c	37;"	f
+gsh_option_terminal_height_cb	terminal_options.h	32;"	p
+gsh_option_terminal_not_tab_cb	terminal_options.c	70;"	f
+gsh_option_terminal_not_tab_cb	terminal_options.h	47;"	p
+gsh_option_terminal_not_transparent_cb	terminal_options.c	60;"	f
+gsh_option_terminal_not_transparent_cb	terminal_options.h	43;"	p
+gsh_option_terminal_transparent_cb	terminal_options.c	51;"	f
+gsh_option_terminal_transparent_cb	terminal_options.h	39;"	p
+gsh_option_terminal_width_cb	terminal_options.c	30;"	f
+gsh_option_terminal_width_cb	terminal_options.h	29;"	p
+gsh_option_title_cb	option_options.c	200;"	f
+gsh_option_title_cb	option_options.h	88;"	p
+gsh_option_update_cb	option_options.c	206;"	f
+gsh_option_update_cb	option_options.h	91;"	p
+gsh_pane_previous	pane.c	82;"	f
+gsh_pane_previous	pane.h	30;"	p
+gsh_parse_arguments	arguments.c	93;"	f
+gsh_parse_arguments	arguments.h	28;"	p
+gsh_perform_updates	update_manager.c	33;"	f	file:
+gsh_reparent_widget	pane.c	28;"	f
+gsh_reparent_widget	pane.h	33;"	p
+gsh_send_signal	callbacks.c	25;"	d	file:
+gsh_send_signal	callbacks.h	40;"	p
+gsh_set_geometry	geometry.h	27;"	p
+gsh_set_label	label.h	30;"	p
+gsh_setup_app_mode	app_mode.c	29;"	f
+gsh_setup_app_mode	app_mode.h	27;"	p
+gsh_setup_base_container	containers.c	57;"	f
+gsh_setup_base_container	containers.h	28;"	p
+gsh_setup_command_entry	text.c	42;"	f
+gsh_setup_command_entry	text.h	32;"	p
+gsh_setup_containers	containers.h	26;"	p
+gsh_setup_drag_drop	dragdrop.c	99;"	f
+gsh_setup_drag_drop	dragdrop.h	26;"	p
+gsh_setup_hpaned	pane.c	61;"	f
+gsh_setup_hpaned	pane.h	28;"	p
+gsh_setup_prompt_command_entry	text.h	35;"	p
+gsh_setup_scrolled_window	containers.c	30;"	f	file:
+gsh_system_cb	callbacks.c	117;"	f	file:
+gsh_terminal_run	terminal.c	68;"	f	file:
+gsh_text_area	text.c	77;"	f
+gsh_text_area	text.h	38;"	p
+gsh_text_area_set_text	text.c	92;"	f
+gsh_text_area_set_text	text.h	28;"	p
+gsh_text_editor	text.c	278;"	f
+gsh_text_editor	text.h	40;"	p
+gsh_tree_view_new	tree.c	112;"	f
+gsh_tree_view_new	tree.h	26;"	p
+gsh_undo_init	undo.c	312;"	f
+gsh_undo_init	undo.h	24;"	p
+gsh_undo_redo	undo.c	397;"	f
+gsh_undo_redo	undo.h	29;"	p
+gsh_undo_undo	undo.c	346;"	f
+gsh_undo_undo	undo.h	27;"	p
+gsh_update_each	update_manager.c	26;"	f	file:
+gsh_update_label	updated_label.c	26;"	f	file:
+gsh_update_progress	updated_progress.c	41;"	f	file:
+gsh_widget_set_color	color.c	40;"	f
+gsh_widget_set_color	color.h	31;"	p
+gsh_widget_set_font	font.c	38;"	f
+gsh_widget_set_font	font.h	26;"	p
+gshterm_usage	gshterm	5;"	f
+guidl_file_cb	options.c	60;"	f	file:
+h	row_struct.h	28;"	m	struct:GSHRows	access:public
+handle_child_exited	terminal.c	57;"	f	file:
+help	gsh.h	49;"	m	struct:GSH::__anon3::__anon4::__anon5	access:public
+icon	ptk-app-menu.c	59;"	m	struct:_CatInfo	file:	access:public
+icon	ptk-app-menu.c	66;"	m	struct:_PtkAppMenuItem	file:	access:public
+icon_size	gsh.h	32;"	m	struct:GSH	access:public
+info_changed_cb	terminal.c	118;"	f	file:
+initialize_app_mode_fields	gtkshell.c	110;"	f	file:
+initialize_fields	gtkshell.c	120;"	f	file:
+initialize_fields	update_manager.c	102;"	f	file:
+initialize_member_fields	guidl_dictionary.c	51;"	f	file:
+input	command_shell.h	31;"	m	struct:GSHCommandShell::__anon1	access:public
+input	lex.yy.c	580;"	p	file:
+is_image_button	button.c	138;"	f	file:
+is_toolbutton	button.c	129;"	f	file:
+isatty	lex.yy.c	1429;"	p	file:
+keyval	undo.c	32;"	v	file:
+known_cats	ptk-app-menu.c	232;"	v	file:
+label	gsh.h	86;"	m	struct:GSH::__anon7	access:public
+label_to_icon_translation	button.c	57;"	f	file:
+last_managed	gsh.h	40;"	m	struct:GSH::__anon3	access:public
+list	update_manager_struct.h	29;"	m	struct:GSHUpdateManager	access:public
+lists	undo.c	70;"	m	struct:__anon12	typeref:struct:__anon12::__anon14	file:	access:public
+load_cat_title	ptk-app-menu.c	292;"	f	file:
+load_dir	ptk-app-menu.c	551;"	f	file:
+main	main.c	26;"	f
+make_framed_label	label.c	38;"	f	file:
+malloc	y.tab.c	327;"	p	file:
+manage	gsh.h	79;"	m	struct:GSH	access:public
+manage_generic	gtkshell.c	45;"	f	file:
+manage_in_current_pane	gtkshell.c	63;"	f	file:
+manage_in_other_pane	gtkshell.c	75;"	f	file:
+manage_regular_widget	gtkshell.c	52;"	f	file:
+menubar	gsh.h	51;"	m	struct:GSH::__anon3::__anon4	access:public
+menubar_parse	arguments.c	29;"	f	file:
+menuitem_parse	menu.c	48;"	f	file:
+menus	gsh.h	50;"	m	struct:GSH::__anon3::__anon4	typeref:struct:GSH::__anon3::__anon4::__anon5	access:public
+modified_step	undo.c	74;"	m	struct:__anon12::__anon15	file:	access:public
+name	ptk-app-menu.c	65;"	m	struct:_PtkAppMenuItem	file:	access:public
+network_cats	ptk-app-menu.c	113;"	v	file:
+new_menu_item_with_title	ptk-app-menu.c	584;"	f	file:
+new_terminal_tab	terminal.c	275;"	f	file:
+number	y.tab.c	168;"	m	union:YYSTYPE	file:	access:public
+number	y.tab.h	66;"	m	union:YYSTYPE	access:public
+objects	Makefile	32;"	m
+office_cats	ptk-app-menu.c	84;"	v	file:
+on_app_menu_destroy	ptk-app-menu.c	557;"	f	file:
+on_app_menu_item_activate	ptk-app-menu.c	332;"	f	file:
+on_menu_item_expose	ptk-app-menu.c	318;"	f	file:
+on_menu_item_size_request	ptk-app-menu.c	306;"	f	file:
+open_in_editor	text.c	224;"	f	file:
+option	guidl.y	86;"	l
+option	guidl_dictionary.h	30;"	m	struct:GDLDictionaries	typeref:struct:GDLDictionaries::ARTupleVector	access:public
+option	guidl_options.h	26;"	v
+output	command_shell.h	32;"	m	struct:GSHCommandShell::__anon1	access:public
+page_removed_cb	terminal.c	221;"	f	file:
+parse	gsh.h	77;"	m	struct:GSH	access:public
+parse_input	tree.c	60;"	f	file:
+parse_special_and_noicon_items	menu.c	29;"	f	file:
+parse_submenu_or_item_specification	menu.c	120;"	f	file:
+perform_addition_for_each_item	menu.c	139;"	f	file:
+period	update_manager_struct.h	28;"	m	struct:GSHUpdateManager	access:public
+prev_keyval	undo.c	75;"	m	struct:__anon12::__anon15	file:	access:public
+print_all_values	options.c	149;"	f	file:
+print_value	options.c	120;"	f	file:
+ptk_app_menu_insert_items	ptk-app-menu.c	622;"	f
+ptk_app_menu_item_has_data	ptk-app-menu.c	565;"	f	file:
+ptk_app_menu_new	ptk-app-menu.c	50;"	p	file:
+ptk_app_menu_new	ptk-app-menu.c	672;"	f
+recent_file_cb	text.c	237;"	f	file:
+redo	undo.c	62;"	m	struct:__anon12::__anon13	file:	access:public
+redo	undo.c	69;"	m	struct:__anon12::__anon14	file:	access:public
+row	command_shell.h	33;"	m	struct:GSHCommandShell::__anon1	access:public
+row	gsh.h	55;"	m	struct:GSH::__anon3::__anon4	access:public
+rows	gsh.h	68;"	m	struct:GSH	typeref:struct:GSH::GSHRows	access:public
+run	command_shell.h	36;"	m	struct:GSHCommandShell	access:public
+run_command	command_shell.c	38;"	f	file:
+run_command_cb	command_shell.c	48;"	f	file:
+save_to_opened_file	text.c	171;"	f	file:
+scripts	terminal_struct.h	30;"	m	struct:GSHTerminal	typeref:struct:GSHTerminal::ARArguments	access:public
+scroll_to_cursor	undo.c	86;"	f	file:
+scrolled_window	gsh.h	38;"	m	struct:GSH::__anon3	access:public
+selection_handler	tree.c	88;"	f	file:
+seq	undo.c	46;"	m	struct:__anon10	file:	access:public
+seq_reserve	undo.c	76;"	m	struct:__anon12::__anon15	file:	access:public
+set_font	font.c	26;"	f	file:
+set_options	label.c	27;"	f	file:
+set_options	text.c	54;"	f	file:
+set_output_label_options	command_shell.c	68;"	f	file:
+set_submenu_label	menu.c	61;"	f	file:
+set_terminal_options	terminal.c	29;"	f	file:
+set_value	options.c	163;"	f	file:
+settings_cats	ptk-app-menu.c	132;"	v	file:
+setup_GDLDictionaries	guidl_dictionary.c	60;"	f	file:
+setup_GDLEnvironment	guidl_util.c	56;"	f	file:
+setup_GSH_Terminal	terminal.c	308;"	f	file:
+setup_about_fields	about_dialog.c	51;"	f	file:
+setup_about_license	about_dialog.c	27;"	f	file:
+setup_action_widgets	terminal.c	231;"	f	file:
+setup_app_menu_icon	ptk-app-menu.c	705;"	f	file:
+setup_callback	button.c	43;"	f	file:
+setup_command_shell	command_shell.c	110;"	f	file:
+setup_command_shell_methods	command_shell.c	60;"	f	file:
+setup_command_shell_widgets	command_shell.c	100;"	f	file:
+setup_common	button.c	109;"	f	file:
+setup_contents	form.c	64;"	f	file:
+setup_controls	form.c	48;"	f	file:
+setup_dictionary	guidl_dialog.c	30;"	f	file:
+setup_dictionary	guidl_options.c	29;"	f	file:
+setup_dictionary	guidl_widgets.c	28;"	f	file:
+setup_entry_cb	text.c	30;"	f	file:
+setup_framed	containers.c	46;"	f	file:
+setup_icon_for_toolbutton	button.c	83;"	f	file:
+setup_label	button.c	27;"	f	file:
+setup_label_for_toolbutton	button.c	98;"	f	file:
+setup_logo	about_dialog.c	35;"	f	file:
+setup_menu_bar	ptk-app-menu.c	716;"	f	file:
+setup_menu_button_item	ptk-app-menu.c	728;"	f	file:
+setup_menu_item_label	ptk-app-menu.c	397;"	f	file:
+setup_model	tree.c	73;"	f	file:
+setup_notebook	terminal.c	262;"	f	file:
+setup_output_area	command_shell.c	89;"	f	file:
+setup_output_scroller	command_shell.c	76;"	f	file:
+setup_pane_half	pane.c	50;"	f	file:
+setup_quit_signal	init.c	26;"	f	file:
+setup_quit_signals	init.c	32;"	f	file:
+setup_signals	tree.c	101;"	f	file:
+setup_signals	undo.c	299;"	f	file:
+setup_submenu	ptk-app-menu.c	604;"	f	file:
+setup_terminal_signals	terminal.c	150;"	f	file:
+setup_text_scroller	text.c	68;"	f	file:
+setup_toolbar	text.c	121;"	f	file:
+setup_toolbutton_from_command_button	button.c	116;"	f	file:
+setup_undo	text.c	135;"	f	file:
+setup_undo	text.c	26;"	p	file:
+setup_unredo_button	text.c	103;"	f	file:
+setup_updater	update_manager.c	110;"	f	file:
+setup_with_exec	ptk-app-menu.c	479;"	f	file:
+setup_with_title	ptk-app-menu.c	441;"	f	file:
+short	y.tab.c	188;"	d	file:
+split_and_add_pair	tree.c	41;"	f	file:
+split_columns_for_pane	pane.c	39;"	f	file:
+start	undo.c	44;"	m	struct:__anon10	file:	access:public
+status	gsh.h	53;"	m	struct:GSH::__anon3::__anon4	access:public
+str	undo.c	47;"	m	struct:__anon10	file:	access:public
+string	y.tab.c	167;"	m	union:YYSTYPE	file:	access:public
+string	y.tab.h	65;"	m	union:YYSTYPE	access:public
+sub_cats	ptk-app-menu.c	60;"	m	struct:_CatInfo	file:	access:public
+submit_cb	form.c	37;"	f	file:
+switch_page_cb	terminal.c	190;"	f	file:
+system	callbacks.h	34;"	m	struct:GSHCBData	access:public
+system_cats	ptk-app-menu.c	141;"	v	file:
+tab_button_callback	terminal.c	199;"	f	file:
+tab_button_close_cb	terminal.c	171;"	f	file:
+tab_next	terminal.c	207;"	f	file:
+tab_prev	terminal.c	214;"	f	file:
+target_list	dragdrop.c	33;"	v	file:
+terminal	gsh.h	70;"	m	struct:GSH	typeref:struct:GSH::GSHTerminal	access:public
+terminal_feed	callbacks.c	35;"	f	file:
+test_checked	form.c	26;"	f	file:
+test_exit	callbacks.c	114;"	d	file:
+test_for_main_app_menus	menu.c	207;"	f	file:
+test_special_command	callbacks.c	64;"	f	file:
+text	undo.c	63;"	m	struct:__anon12::__anon13	file:	access:public
+title	ptk-app-menu.c	57;"	m	struct:_CatInfo	file:	access:public
+toolbar	gsh.h	52;"	m	struct:GSH::__anon3::__anon4	access:public
+tools	gsh.h	47;"	m	struct:GSH::__anon3::__anon4::__anon5	access:public
+total	row_struct.h	31;"	m	struct:GSHRows	access:public
+translate_exec_to_cmd	ptk-app-menu.c	344;"	f	file:
+ui_tmp	undo.c	81;"	m	struct:__anon12	file:	access:public
+undo	undo.c	61;"	m	struct:__anon12::__anon13	file:	access:public
+undo	undo.c	68;"	m	struct:__anon12::__anon14	file:	access:public
+undo	undo.c	82;"	v	typeref:struct:__anon12	file:
+undo_append_undo_info	undo.c	107;"	f	file:
+undo_check_modified_step	undo.c	256;"	f	file:
+undo_clear_info_list	undo.c	94;"	f	file:
+undo_create_undo_info	undo.c	133;"	f	file:
+undo_flush_temporal_buffer	undo.c	287;"	f	file:
+undo_gstr	undo.c	79;"	m	struct:__anon12	file:	access:public
+undo_set_sequency	undo.c	124;"	f	file:
+unput	lex.yy.c	180;"	d	file:
+update	gsh.h	69;"	m	struct:GSH	typeref:struct:GSH::GSHUpdateManager	access:public
+update	updated.h	31;"	m	struct:GSHUpdatedWidget	access:public
+update_clock	clock.c	55;"	f	file:
+updating	update_manager_struct.h	30;"	m	struct:GSHUpdateManager	access:public
+usage	gsh.h	73;"	m	struct:GSH	access:public
+utility_cats	ptk-app-menu.c	221;"	v	file:
+v	row_struct.h	29;"	m	struct:GSHRows	access:public
+values	undo.c	77;"	m	struct:__anon12	typeref:struct:__anon12::__anon15	file:	access:public
+view	gsh.h	48;"	m	struct:GSH::__anon3::__anon4::__anon5	access:public
+widget	gsh.h	62;"	m	struct:GSH::__anon6	access:public
+widget	guidl_dictionary.h	28;"	m	struct:GDLDictionaries	typeref:struct:GDLDictionaries::ARTupleVector	access:public
+widget	guidl_widgets.h	26;"	v
+widget	terminal_struct.h	28;"	m	struct:GSHTerminal	access:public
+widget	updated.h	28;"	m	struct:GSHUpdatedWidget	access:public
+widgets	command_shell.h	34;"	m	struct:GSHCommandShell	typeref:struct:GSHCommandShell::__anon1	access:public
+widgets	gsh.h	57;"	m	struct:GSH	typeref:struct:GSH::__anon3	access:public
+widgets	undo.c	64;"	m	struct:__anon12	typeref:struct:__anon12::__anon13	file:	access:public
+window	gsh.h	37;"	m	struct:GSH::__anon3	access:public
+window	gsh.h	84;"	m	struct:GSH::__anon7	access:public
+yy_accept	lex.yy.c	372;"	v	file:
+yy_at_bol	lex.yy.c	223;"	m	struct:yy_buffer_state	file:	access:public
+yy_base	lex.yy.c	420;"	v	file:
+yy_bs_column	lex.yy.c	226;"	m	struct:yy_buffer_state	file:	access:public
+yy_bs_lineno	lex.yy.c	225;"	m	struct:yy_buffer_state	file:	access:public
+yy_buf_pos	lex.yy.c	194;"	m	struct:yy_buffer_state	file:	access:public
+yy_buf_size	lex.yy.c	199;"	m	struct:yy_buffer_state	file:	access:public
+yy_buffer_stack	lex.yy.c	255;"	v	file:
+yy_buffer_stack_max	lex.yy.c	254;"	v	file:
+yy_buffer_stack_top	lex.yy.c	253;"	v	file:
+yy_buffer_state	lex.yy.c	189;"	s	file:
+yy_buffer_status	lex.yy.c	233;"	m	struct:yy_buffer_state	file:	access:public
+yy_c_buf_p	lex.yy.c	278;"	v	file:
+yy_ch_buf	lex.yy.c	193;"	m	struct:yy_buffer_state	file:	access:public
+yy_chk	lex.yy.c	451;"	v	file:
+yy_create_buffer	lex.yy.c	1385;"	f
+yy_create_buffer	lex.yy.c	289;"	p	file:
+yy_def	lex.yy.c	429;"	v	file:
+yy_delete_buffer	lex.yy.c	1413;"	f
+yy_delete_buffer	lex.yy.c	290;"	p	file:
+yy_did_buffer_switch_on_eof	lex.yy.c	285;"	v	file:
+yy_ec	lex.yy.c	381;"	v	file:
+yy_fatal_error	lex.yy.c	1675;"	f	file:
+yy_fatal_error	lex.yy.c	351;"	p	file:
+yy_fill_buffer	lex.yy.c	231;"	m	struct:yy_buffer_state	file:	access:public
+yy_flex_debug	lex.yy.c	468;"	v
+yy_flex_strlen	lex.yy.c	1842;"	f	file:
+yy_flex_strlen	lex.yy.c	572;"	p	file:
+yy_flex_strncpy	lex.yy.c	1833;"	f	file:
+yy_flex_strncpy	lex.yy.c	568;"	p	file:
+yy_flush_buffer	lex.yy.c	1464;"	f
+yy_flush_buffer	lex.yy.c	291;"	p	file:
+yy_get_next_buffer	lex.yy.c	1018;"	f	file:
+yy_get_next_buffer	lex.yy.c	350;"	p	file:
+yy_get_previous_state	lex.yy.c	1152;"	f	file:
+yy_get_previous_state	lex.yy.c	348;"	p	file:
+yy_hold_char	lex.yy.c	273;"	v	file:
+yy_init	lex.yy.c	279;"	v	file:
+yy_init_buffer	lex.yy.c	1436;"	f	file:
+yy_init_buffer	lex.yy.c	297;"	p	file:
+yy_init_globals	lex.yy.c	1778;"	f	file:
+yy_init_globals	lex.yy.c	522;"	p	file:
+yy_input_file	lex.yy.c	191;"	m	struct:yy_buffer_state	file:	access:public
+yy_is_interactive	lex.yy.c	217;"	m	struct:yy_buffer_state	file:	access:public
+yy_is_our_buffer	lex.yy.c	210;"	m	struct:yy_buffer_state	file:	access:public
+yy_last_accepting_cpos	lex.yy.c	465;"	v	file:
+yy_last_accepting_state	lex.yy.c	464;"	v	file:
+yy_load_buffer_state	lex.yy.c	1371;"	f	file:
+yy_load_buffer_state	lex.yy.c	296;"	p	file:
+yy_meta	lex.yy.c	413;"	v	file:
+yy_n_chars	lex.yy.c	204;"	m	struct:yy_buffer_state	file:	access:public
+yy_n_chars	lex.yy.c	274;"	v	file:
+yy_new_buffer	lex.yy.c	309;"	d	file:
+yy_nxt	lex.yy.c	370;"	m	struct:yy_trans_info	file:	access:public
+yy_nxt	lex.yy.c	438;"	v	file:
+yy_reduce_print	y.tab.c	798;"	f	file:
+yy_scan_buffer	lex.yy.c	1591;"	f
+yy_scan_buffer	lex.yy.c	301;"	p	file:
+yy_scan_bytes	lex.yy.c	1641;"	f
+yy_scan_bytes	lex.yy.c	303;"	p	file:
+yy_scan_string	lex.yy.c	1628;"	f
+yy_scan_string	lex.yy.c	302;"	p	file:
+yy_set_bol	lex.yy.c	321;"	d	file:
+yy_set_interactive	lex.yy.c	311;"	d	file:
+yy_size_t	lex.yy.c	184;"	t	file:
+yy_stack_print	y.tab.c	767;"	f	file:
+yy_start	lex.yy.c	280;"	v	file:
+yy_state_type	lex.yy.c	339;"	t	file:
+yy_switch_to_buffer	lex.yy.c	1340;"	f
+yy_switch_to_buffer	lex.yy.c	288;"	p	file:
+yy_symbol_print	y.tab.c	741;"	f	file:
+yy_symbol_value_print	y.tab.c	709;"	f	file:
+yy_trans_info	lex.yy.c	367;"	s	file:
+yy_try_NUL_trans	lex.yy.c	1184;"	f	file:
+yy_try_NUL_trans	lex.yy.c	349;"	p	file:
+yy_verify	lex.yy.c	369;"	m	struct:yy_trans_info	file:	access:public
+yyalloc	lex.yy.c	1852;"	f
+yyalloc	lex.yy.c	305;"	p	file:
+yyalloc	y.tab.c	346;"	u	file:
+yychar	y.tab.c	1116;"	v
+yycheck	y.tab.c	561;"	v	file:
+yyclearin	y.tab.c	577;"	d	file:
+yyconst	lex.yy.c	106;"	d	file:
+yyconst	lex.yy.c	108;"	d	file:
+yydebug	y.tab.c	830;"	v
+yydefact	y.tab.c	521;"	v	file:
+yydefgoto	y.tab.c	529;"	v	file:
+yydestruct	y.tab.c	1076;"	f	file:
+yyensure_buffer_stack	lex.yy.c	1542;"	f	file:
+yyensure_buffer_stack	lex.yy.c	295;"	p	file:
+yyerrok	y.tab.c	576;"	d	file:
+yyerror	y.tab.c	100;"	f
+yyfree	lex.yy.c	1869;"	f
+yyfree	lex.yy.c	307;"	p	file:
+yyget_debug	lex.yy.c	1768;"	f
+yyget_debug	lex.yy.c	529;"	p	file:
+yyget_extra	lex.yy.c	533;"	p	file:
+yyget_in	lex.yy.c	1712;"	f
+yyget_in	lex.yy.c	537;"	p	file:
+yyget_leng	lex.yy.c	1728;"	f
+yyget_leng	lex.yy.c	545;"	p	file:
+yyget_lineno	lex.yy.c	1703;"	f
+yyget_lineno	lex.yy.c	549;"	p	file:
+yyget_out	lex.yy.c	1720;"	f
+yyget_out	lex.yy.c	541;"	p	file:
+yyget_text	lex.yy.c	1737;"	f
+yyget_text	lex.yy.c	547;"	p	file:
+yyin	lex.yy.c	337;"	v
+yyinput	lex.yy.c	1246;"	f	file:
+yyinput	lex.yy.c	578;"	p	file:
+yyleng	lex.yy.c	275;"	v
+yyless	lex.yy.c	167;"	d	file:
+yyless	lex.yy.c	1683;"	d	file:
+yyless	lex.yy.c	1684;"	d	file:
+yylex	guidl_util.h	39;"	p
+yylex	lex.yy.c	660;"	p	file:
+yylex_destroy	lex.yy.c	1807;"	f
+yylex_destroy	lex.yy.c	527;"	p	file:
+yylineno	lex.yy.c	343;"	v
+yylval	y.tab.c	1119;"	v
+yymore	lex.yy.c	474;"	d	file:
+yynerrs	y.tab.c	1122;"	v
+yyout	lex.yy.c	337;"	v
+yypact	y.tab.c	537;"	v	file:
+yyparse	guidl_util.h	41;"	p
+yyparse	y.tab.c	1102;"	p	file:
+yyparse	y.tab.c	1104;"	p	file:
+yyparse	y.tab.c	1108;"	p	file:
+yyparse	y.tab.c	1110;"	p	file:
+yyparse	y.tab.c	1134;"	f
+yypgoto	y.tab.c	545;"	v	file:
+yypop_buffer_state	lex.yy.c	1523;"	f
+yypop_buffer_state	lex.yy.c	293;"	p	file:
+yyprhs	y.tab.c	453;"	v	file:
+yypush_buffer_state	lex.yy.c	1493;"	f
+yypush_buffer_state	lex.yy.c	292;"	p	file:
+yyr1	y.tab.c	503;"	v	file:
+yyr2	y.tab.c	511;"	v	file:
+yyrealloc	lex.yy.c	1857;"	f
+yyrealloc	lex.yy.c	306;"	p	file:
+yyrestart	lex.yy.c	1323;"	f
+yyrestart	lex.yy.c	287;"	p	file:
+yyrhs	y.tab.c	461;"	v	file:
+yyrline	y.tab.c	472;"	v	file:
+yyset_debug	lex.yy.c	1773;"	f
+yyset_debug	lex.yy.c	531;"	p	file:
+yyset_extra	lex.yy.c	535;"	p	file:
+yyset_in	lex.yy.c	1758;"	f
+yyset_in	lex.yy.c	539;"	p	file:
+yyset_lineno	lex.yy.c	1746;"	f
+yyset_lineno	lex.yy.c	551;"	p	file:
+yyset_out	lex.yy.c	1763;"	f
+yyset_out	lex.yy.c	543;"	p	file:
+yyss_alloc	y.tab.c	348;"	m	union:yyalloc	file:	access:public
+yystos	y.tab.c	569;"	v	file:
+yystpcpy	y.tab.c	884;"	d	file:
+yystpcpy	y.tab.c	891;"	f	file:
+yystrlen	y.tab.c	861;"	d	file:
+yystrlen	y.tab.c	867;"	f	file:
+yystype	y.tab.c	176;"	d	file:
+yystype	y.tab.h	74;"	d
+yysyntax_error	y.tab.c	966;"	f	file:
+yytable	y.tab.c	555;"	v	file:
+yyterminate	lex.yy.c	639;"	d	file:
+yytext	lex.yy.c	477;"	v
+yytext_ptr	lex.yy.c	346;"	d	file:
+yytname	y.tab.c	483;"	v	file:
+yytnamerr	y.tab.c	919;"	f	file:
+yytokentype	y.tab.c	142;"	g	file:
+yytokentype	y.tab.h	40;"	g
+yytoknum	y.tab.c	495;"	v	file:
+yytranslate	y.tab.c	419;"	v	file:
+yytype_int16	y.tab.c	213;"	t	file:
+yytype_int16	y.tab.c	215;"	t	file:
+yytype_int8	y.tab.c	198;"	t	file:
+yytype_int8	y.tab.c	201;"	t	file:
+yytype_int8	y.tab.c	203;"	t	file:
+yytype_uint16	y.tab.c	207;"	t	file:
+yytype_uint16	y.tab.c	209;"	t	file:
+yytype_uint8	y.tab.c	192;"	t	file:
+yytype_uint8	y.tab.c	194;"	t	file:
+yyunput	lex.yy.c	1207;"	f	file:
+yyunput	lex.yy.c	565;"	p	file:
+yyvs_alloc	y.tab.c	349;"	m	union:yyalloc	file:	access:public
+yywrap	lex.yy.c	559;"	p	file:
+yywrap	lex.yy.c	561;"	p	file:
+yywrap	y.tab.c	106;"	f

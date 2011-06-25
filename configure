@@ -1,0 +1,216 @@
+#!/bin/sh
+###############################################################################
+#
+#    GUIShell
+#    (c) 2004-2010 Jeffrey Bedard
+#    antiright@gmail.com
+# 
+#    This file is part of GUIShell.
+#
+#     GUIShell is free software; you can redistribute it and/or modify
+#     it under the terms of the GNU General Public License as published by
+#     the Free Software Foundation; either version 2 of the License, or
+#     (at your option) any later version.
+#
+#     GUIShell is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+#
+#     You should have received a copy of the GNU General Public License
+#     along with GUIShell; if not, write to the Free Software
+#     Foundation, Inc., 51 Franklin Street, Fifth Floor, 
+#     Boston, MA  02110-1301  USA
+#
+###############################################################################
+
+VERSION=3.11
+
+TRUE=0
+FALSE=1
+
+#USE_LIBGC=TRUE
+
+check_component()
+{
+	local COMPONENT=$1
+	local CMP_DEF=""
+
+	CMP_DEF=$2
+	if [ "$CMP_DEF" = "" ]; then
+		CMP_DEF=$COMPONENT
+	fi
+
+	echo -n "Checking for $COMPONENT...  "
+	if pkg-config --exists $COMPONENT; then
+		echo found
+		DEFS="$DEFS -DHAVE_$CMP_DEF"
+		echo "$CMP_DEF=1" >> config.mk
+		INCLUDE="$INCLUDE $(pkg-config --cflags $COMPONENT)"
+		LDFLAGS="$LDFLAGS $(pkg-config --libs $COMPONENT)"
+	else
+		echo not found
+	fi
+}
+
+check_path_for()
+{
+	local ITEM=$1
+	local ROOTPATHS="/ /usr/ /usr/local/ /usr/pkg/ /usr/X11R6/ /opt/"
+
+	echo -n "Checking for $ITEM...  "
+	# Return faster if WHICH can find ITEM.
+	if [ "`which $ITEM 2> /dev/null`" != "" ]; then
+		echo found
+		return $TRUE
+	fi
+	for ROOTPATH in $ROOTPATHS; do
+		for SUBPATH in bin lib include; do
+			if [ -f "${ROOTPATH}${SUBPATH}/$1" ]; then
+				echo found
+				return $TRUE
+			fi
+		done
+	done
+	echo not found
+	return $FALSE
+}
+
+set_if_found()
+{
+	if check_path_for $1; then
+		if [ "$3" != "" ]; then
+			local VAL="$3"
+		else
+			local VAL="$1"
+		fi
+		export $2="$VAL"
+	fi
+}
+
+set_debugging_options()
+{
+	echo 'Configuring with debug options...'
+	CFLAGS="-g3 -DDEBUG -DG_DEBUG -pg"
+	LDFLAGS="$LDFLAGS -pg"
+	CFLAGS="$CFLAGS -Wunreachable-code"
+	DEFS="$DEFS -DGC_DEBUG"
+	if check_path_for gdb; then
+		CFLAGS="$CFLAGS -ggdb"
+	fi
+}
+
+OPTS='dp:'
+print_usage()
+{
+	echo -e "Usage:  ./configure -[$OPTS]"
+	echo -e "\t-d\t\tEnable debugging options"
+	echo -e "\t-p\tPATH\tSet PATH for installation\n"
+	exit 1
+}
+
+# Handle command line arguments
+
+while getopts $OPTS opt; do
+	case "$opt" in
+		d)	set_debugging_options ;;
+		p) 	PATH="$OPTARG" ;;
+		\?)	print_usage
+	esac
+done
+shift $(( $OPTIND - 1 ))
+
+# For development branch
+CFLAGS="$CFLAGS -Wall -W"
+
+DEFS="$DEFS -DPACKAGE_STRING='\"GUIShell $VERSION\"'"
+
+if [ "$PREFIX" = "" ]; then
+	PREFIX=/usr/local
+fi
+DEFS="$DEFS -DPREFIX='\"$PREFIX\"'"
+
+echo "# Local Build Configuration" > config.mk
+
+CC=cc
+set_if_found cc CC
+set_if_found gcc CC
+set_if_found distcc CC "distcc $CC"
+set_if_found ccache CC "ccache $CC"
+MAKE=make
+set_if_found gmake MAKE
+
+if [ "$USE_GC" = "TRUE" ]; then
+  if check_path_for libgc.a || check_path_for libgc.so\
+	|| check_path_for libgc.so.1; then
+	if check_path_for gc.h; then
+		echo 'LIBGC=1' >> config.mk
+		DEFS="$DEFS -DLIBGC -DREDIRECT_MALLOC=GC_malloc -DIGNORE_FREE"
+		LDFLAGS="$LDFLAGS -lgc"
+	fi
+  fi
+fi
+
+set_if_found lex LEX 
+set_if_found flex LEX 
+set_if_found yacc YACC
+set_if_found bison YACC
+
+check_component "gtk+-2.0" "GTK"
+check_component "vte" "VTE"
+
+set_if_found as AS "as"
+
+XSHELL_BUILD='cd xshell && $(MAKE)'
+OSNAME="`uname | cut -d_ -f1`"
+#if [ "$OSNAME" = "MINGW32" ] || [ "$OSNAME" = "CYGWIN" ]; then
+echo Building for $OSNAME.
+if [ "$OSNAME" = "CYGWIN" ]; then
+	DEFS="$DEFS -DCYGWIN"
+elif [ "$OSNAME" = "MINGW32" ]; then
+	MINGW="TRUE"
+	DEFS="$DEFS -DWIN32"
+	CFLAGS="$CFLAGS -mms-bitfields"
+	# CC=mingw32-gcc
+	# AS=mingw32-as
+	XSHELL_BUILD='echo xshell unsupported, not built'
+fi
+
+INCLUDE="$INCLUDE -I/usr/pkg/include -I/usr/local/include -I/usr/X11R6/include"
+LIBDIR="$LIBDIR -L/usr/pkg/lib -L/usr/local/lib -L/usr/X11R6/lib"
+ARDATADIR=$PREFIX/share/antiright
+DEFS="$DEFS -D_GNU_SOURCE -DARDATADIR='\"$PREFIX/share/antiright\"'"
+
+INSTALL=/usr/bin/install
+
+echo Prefix is $PREFIX
+echo Creating config.mk
+echo "VERSION=$VERSION" >> config.mk
+echo "PREFIX=$PREFIX" >> config.mk
+echo "INCLUDE=$INCLUDE" >> config.mk
+echo "LIBDIR=$LIBDIR" >> config.mk
+echo "DEFS=$DEFS" >> config.mk
+echo "MAKE=$MAKE" >> config.mk
+echo "INSTALL=$INSTALL" >> config.mk
+echo "CFLAGS=$CFLAGS" >> config.mk
+echo "CC=$CC" >> config.mk
+echo "LDFLAGS=$LDFLAGS" >> config.mk
+echo "LEX=$LEX" >> config.mk
+echo "YACC=$YACC" >> config.mk
+echo "XSHELL_BUILD=$XSHELL_BUILD" >> config.mk
+echo "AS=$AS" >> config.mk
+echo "OS"=$OSNAME >> config.mk
+if [ "$WINDOWS" = "TRUE" ]; then
+	SUFFIX='.exe'
+else
+	SUFFIX=""
+fi
+echo "SUFFIX=$SUFFIX" >> config.mk
+
+if [ "$MINGW" = "TRUE" ]; then
+	sed 's_C:/cygwin/_/_g' < config.mk > config.mk.new
+	mv config.mk.new config.mk
+	sed 's___g' < config.mk > config.mk.new
+	mv config.mk.new config.mk
+fi
+

@@ -1,0 +1,93 @@
+#!/bin/sh
+
+OPTS_STRING="ae:g:f:hs:t"
+
+gshterm_usage()
+{
+	echo "gshterm -[$OPTS_STRING]"
+	exit $1
+}
+
+FONT=""
+GEOMETRY=""
+COMMAND=""
+#DEBUG="TRUE"
+APP_MODE=""
+TRANSPARENT=""
+SPCCMD="FALSE"
+
+if [ "$DEBUG" = "TRUE" ]; then
+	echo "INITIAL ARGS:  $@"
+fi
+
+while getopts "ae:g:f:hs:t" opt; do
+	case "$opt" in
+		a)
+			APP_MODE="-oa File::Exit___ 'Help::gtkshell -da &\
+		       		# About'"
+			;;
+		e)
+			shift $(( $OPTIND - 2 ))
+			COMMAND="$@"
+			break
+			;;
+		g)
+			GEOMETRY="$OPTARG"
+			;;
+		f)	
+			FONT="$OPTARG"
+			;;
+		h)	
+			gshterm_usage 0
+			;;
+		s)	
+			FONT="$FONT $OPTARG"
+			;;
+		t)
+			TRANSPARENT="-ott"
+			;;
+	esac
+done
+
+ARGS=""
+
+if [ "$TRANSPARENT" != "" ]; then
+	ARGS="$ARGS $TRANSPARENT"
+fi
+
+if [ "$GEOMETRY" != "" ]; then
+	SIZEARG="`echo $GEOMETRY | cut -d+ -f1`"
+	POSARG="`echo $GEOMETRY | cut -d+ -f2-`"
+	if [ "$POSARG" != "" ]; then
+		ARGS="$ARGS -og +$POSARG"
+	fi
+	if [ "$SIZEARG" != "" ]; then
+		WIDTH="`echo $SIZEARG | cut -dx -f1`"
+		HEIGHT="`echo $SIZEARG | cut -dx -f2`"
+		if [ "$WIDTH" != "" ]; then
+			ARGS="$ARGS -otw $WIDTH"
+		fi
+		if [ "$HEIGHT" != "" ]; then
+			ARGS="$ARGS -oth $HEIGHT"
+		fi
+	fi
+fi
+
+if [ "$FONT" != "" ]; then
+	ARGS="$ARGS -otf \"$FONT\""
+else
+	ARGS="$ARGS -otf 'Mono 10'"
+fi
+
+if [ "$COMMAND" = "" ]; then
+	COMMAND=$SHELL
+fi
+
+COMMAND="gtkshell $APP_MODE -oF $ARGS -oT '$COMMAND' -as '$COMMAND'"
+if [ "$DEBUG" = "TRUE" ]; then
+	echo $COMMAND
+	echo $@
+else
+	exec sh -c "$COMMAND"
+fi
+

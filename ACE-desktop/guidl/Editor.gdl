@@ -1,0 +1,19 @@
+// Text editor.
+
+option "rows" "2";
+option "application";
+option "geometry" "600x400";
+option "title" "Editor";
+
+option "icon size" "menu";
+// FIXME:  find out why open icon does not show.  
+add button "File::Open...___,gtk-open::Save___,gtk-save::\n
+	::Save_As...___,gtk-save-as::Exit___,gtk-quit";
+add button "Edit::Cut___,gtk-cut::Copy___,gtk-copy::Paste___,gtk-paste";
+add button "View::---";
+add button "Help::gtkshell -da & # About,gtk-about";
+
+add "text";
+//option "no fill";
+//add "prompt" "Find___";
+

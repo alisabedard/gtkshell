@@ -1,0 +1,4619 @@
+2010-08-23 21:13  jefbed
+
+	* gtkshell/Makefile, gtkshell/app_mode.c, gtkshell/button.h,
+	  gtkshell/gsh.h, gtkshell/gshterm, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/macros.h, gtkshell/menu.c,
+	  gtkshell/terminal.c, gtkshell/terminal.h,
+	  gtkshell/terminal_struct.h, libantiright/pipe.c,
+	  libantiright/system.c, rootcat/Makefile: Build directly to an
+	  executable, rather than building the libgtkshell.a intermediate
+	  library, resulting in smaller executable size.  Add a toolbar to
+	  the terminal notebook, with mnemonic-bound new, back, forward,
+	  and close buttons to allow for keyboard navigation between
+	  terminal tabs.
+
+2010-08-22 23:31  jefbed
+
+	* ACE-desktop/ACE, ACE-desktop/guidl/Administration_Panel.gdl,
+	  gtkshell/Makefile, gtkshell/gshterm, gtkshell/gtkshell.c,
+	  gtkshell/module_includes.h, gtkshell/option_options.c,
+	  gtkshell/option_options.h, gtkshell/terminal.c,
+	  gtkshell/terminal_options.c, gtkshell/updated.h,
+	  gtkshell/updated_label.c, gtkshell/updated_options.c,
+	  gtkshell/updated_options.h: Automated gtkshell Makefile object
+	  list.  Fixed missing GUIDL command in Administration_Panel.gdl.
+	  Removed updated_options.[ch].  Fixed improper setting of terminal
+	  width environment in terminal.c.  Start with gsh->terminal and
+	  gsh->update set to NULL, initialize on the fly as necessary.
+
+2010-08-22 21:56  jefbed
+
+	* Makefile, configure, gtkshell/about_dialog.c,
+	  gtkshell/about_dialog.h, gtkshell/app_mode.c, gtkshell/button.c,
+	  gtkshell/callbacks.c, gtkshell/containers.c, gtkshell/gsh.h,
+	  gtkshell/gtkshell.c, gtkshell/guidl.y, gtkshell/guidl_dialog.c,
+	  gtkshell/guidl_options.c, gtkshell/guidl_widgets.c,
+	  gtkshell/label.c, gtkshell/macros.h, gtkshell/main.c,
+	  gtkshell/options.c, gtkshell/ptk-app-menu.c, gtkshell/row.c,
+	  gtkshell/row.h, gtkshell/terminal.c, gtkshell/terminal_struct.h,
+	  gtkshell/text.c, libantiright/pipe.c, libantiright/string.c,
+	  libantiright/string.h, libantiright/tuple.c,
+	  libantiright/tuple.h, libantiright/util.h, rootcat/Makefile,
+	  rootcat/StringRenderer.c, rootcat/StringRenderer.h,
+	  rootcat/rootcat.c, rootcat/rootcat.h: Refactored configuration
+	  script, removed esoteric options and automated checks further.
+	  Switch to tabbed terminal by default.  Fix tab creation/deletion.
+	  Use SHELL environment variable in order to launch new terminal
+	  tab.	Various optimizations and deferences to library functions.
+
+2010-08-17 22:39  jefbed
+
+	* configure, libantiright/util.c, libantiright/util.h,
+	  xshell/Makefile: Add profiling options to debug configuration.
+	  Specify -W by default.  Simplify definition of armalloc/arfree.
+
+2010-08-17 22:17  jefbed
+
+	* gtkshell/: arguments.c, button.c, callbacks.c, containers.c,
+	  gsh.h, gtkshell.c, gtkshell.h, image_button.c, image_button.h,
+	  init.c, macros.h, main.c, menu.c, option_options.c,
+	  option_options.h, options.c, ptk-app-menu.c, ptk-app-menu.h,
+	  row.c, terminal.c, undo.c, updated.c: Fix segmentation faults due
+	  to invalid freeing of memory at program exit.  Further
+	  consolidate functions in options.c.  Reindent code.
+
+2010-08-17 18:21  jefbed
+
+	* gtkshell/: add_options.c, containers.c, gsh.h, gtkshell.c,
+	  gtkshell.h, image_button.c, main.c, row.c: Begin removing methods
+	  rarely used.	Simplified layout code.  Fixed row management bug
+	  yet again.
+
+2010-08-17 15:57  jefbed
+
+	* ACE-desktop/ACE, gtkshell/arguments.c, gtkshell/button.c,
+	  gtkshell/callbacks.c, gtkshell/guidl.y, gtkshell/image_button.c,
+	  gtkshell/image_button.h, gtkshell/macros.h, gtkshell/menu.c,
+	  gtkshell/option_options.c, gtkshell/option_options.h,
+	  gtkshell/options.c, gtkshell/ptk-app-menu.c,
+	  gtkshell/ptk-app-menu.h, gtkshell/terminal.c,
+	  libantiright/pipe.c, libantiright/string.c,
+	  libantiright/string.h, libantiright/system.c: Consolidated all
+	  image loading code, with core logic in image_button.c.
+	  Simplified and refactored image_button.c and ptk-app-menu.c.
+	  Removed usage of ar_asprintf--use glib functionality instead.
+	  Add option -oR, to remove the relief from image buttons.
+
+2010-08-16 17:23  jefbed
+
+	* gtkshell/: Makefile, ptk-app-menu.c: Remove unused ptk-app-menu
+	  code.  Further refactor.  Use "exec" for default icon, when icon
+	  file cannot be found for an entry.
+
+2010-08-16 14:51  jefbed
+
+	* gtkshell/: GSHWidget.c, GSHWidget.h, Makefile, about_dialog.c,
+	  about_dialog.h, add_options.c, add_options.h, app_mode.c,
+	  app_mode.h, applets.h, arguments.c, arguments.h, button.c,
+	  button.h, callbacks.c, callbacks.h, clock.c, clock.h, color.c,
+	  color.h, command_shell.c, command_shell.h, containers.c,
+	  containers.h, dialog.c, dialog.h, dialog_options.c,
+	  dialog_options.h, dragdrop.c, dragdrop.h, font.c, font.h, form.c,
+	  form.h, geometry.c, geometry.h, gsh.h, gtkshell.c, gtkshell.h,
+	  guidl.y, guidl_dialog.c, guidl_dialog.h, guidl_dictionary.c,
+	  guidl_dictionary.h, guidl_options.c, guidl_options.h,
+	  guidl_util.c, guidl_util.h, guidl_widgets.c, guidl_widgets.h,
+	  image_button.c, image_button.h, init.c, init.h, label.c, label.h,
+	  macros.h, main.c, menu.c, menu.h, option_options.c,
+	  option_options.h, options.c, options.h, pane.c, pane.h,
+	  ptk-app-menu.c, ptk-app-menu.h, row.c, row.h, row_struct.h,
+	  swallow.c, swallow.h, terminal.c, terminal.h, terminal_options.c,
+	  terminal_options.h, terminal_struct.h, text.c, text.h, tree.c,
+	  tree.h, undo.c, undo.h, update_manager.c, update_manager.h,
+	  update_manager_struct.h, updated.c, updated.h, updated_label.c,
+	  updated_label.h, updated_options.c, updated_options.h,
+	  updated_progress.c, updated_progress.h: Refactored do_load_dir
+	  method, splitting sub_menu setup by exec and by label presence.
+	  Simplified layout code.
+
+2010-08-16 12:38  jefbed
+
+	* gtkshell/ptk-app-menu.c: Fix application menu layout with -or 1
+	  once again.
+
+2010-08-16 01:23  jefbed
+
+	* gtkshell/ptk-app-menu.c, rootcat/Makefile,
+	  rootcat/StringRenderer.c, rootcat/StringRenderer.h,
+	  rootcat/rootcat.c, rootcat/rootcat.h: End of night commit.
+
+2010-08-15 21:52  jefbed
+
+	* libantiright/: arguments.c, gui.c, pipe.c, util.c, util.h: Code
+	  cleanups and refactorings.  Made malloc wrappers less potentially
+	  ambiguous.
+
+2010-08-15 21:44  jefbed
+
+	* gtkshell/: callbacks.c, callbacks.h, command_shell.c, gtkshell.c,
+	  guidl_util.c, macros.h, ptk-app-menu.c, row.c, terminal.c,
+	  text.c, update_manager.c, updated.c: Change names of xmalloc and
+	  xfree to armalloc and arfree, respectively.  Begin to refactor
+	  ptk-app-menu code further.  Update implemented sub-categories in
+	  order to conform with the current freedesktop.org specifications.
+
+2010-08-13 23:22  jefbed
+
+	* configure, gtkshell/Makefile, gtkshell/add_options.c,
+	  gtkshell/arguments.c, gtkshell/button.c, gtkshell/callbacks.c,
+	  gtkshell/clock.c, gtkshell/command_shell.c,
+	  gtkshell/dialog_options.c, gtkshell/dragdrop.c, gtkshell/form.c,
+	  gtkshell/guidl.lex, gtkshell/guidl.y, gtkshell/guidl_util.c,
+	  gtkshell/guidl_util.h, gtkshell/macros.h,
+	  gtkshell/module_includes.h, gtkshell/options.c,
+	  gtkshell/options.h, gtkshell/quickstart.c, gtkshell/quickstart.h,
+	  gtkshell/terminal_options.c, gtkshell/text.c, gtkshell/tree.c,
+	  gtkshell/undo.c, gtkshell/update_manager.c,
+	  libantiright/arguments.c, libantiright/macros.h,
+	  libantiright/util.h: Conducted various code cleanups.  Removed
+	  UNUSED macro, in favor of setting unused attribute.  Removed
+	  several macro definitions in favor of static methods and
+	  inlining.  Fixed parallel make.  Test for gdb in configure when
+	  -d option is specified.
+
+2010-08-11 15:03  jefbed
+
+	* configure, ACE-desktop/ACE, gtkshell/add_options.c,
+	  gtkshell/button.c, gtkshell/button.h, gtkshell/callbacks.c,
+	  gtkshell/color.c, gtkshell/color.h, gtkshell/containers.c,
+	  gtkshell/dragdrop.c, gtkshell/ptk-app-menu.c, gtkshell/row.c,
+	  gtkshell/swallow.c, gtkshell/swallow.h, gtkshell/undo.c,
+	  gtkshell/undo.h: Updated version to 3.8.  Fixed layout code for
+	  dealing with application menu.  Changed from use of gboolean to
+	  bool.  Use GtkSocket API for swallow.c.  Swallowing code is still
+	  a work in progress.  Removed unused code from ptk-app-menu.c.
+
+2010-08-07 19:51  jefbed
+
+	* libantiright/: library.h, typedef.h: Added typedef.h as the basis
+	  for usage of custom base types and convenience types.  Added
+	  typedef.h as an included file in library.h.
+
+2010-08-07 19:47  jefbed
+
+	* gtkshell/: row.c, row_struct.h: Removed preprocessor based logic,
+	  simplified comparisons in management tests.  Begin use of smaller
+	  bool type.
+
+2010-07-31 20:54  jefbed
+
+	* gtkshell/gshterm: Fixed proper quoting of multi-argument
+	  commands.  -e option must be the last, as all proceeding
+	  arguments are appended to the command.
+
+2010-07-31 16:41  jefbed
+
+	* gtkshell/gshterm: Fix underquoting of COMMAND.
+
+2010-07-31 16:06  jefbed
+
+	* gtkshell/: gshterm, option_options.c: Use getopts for option
+	  parsing in gshterm.
+
+2010-07-30 21:16  jefbed
+
+	* gtkshell/options.c: Added self-documentation to option addition.
+
+2010-07-30 20:47  jefbed
+
+	* ACE-desktop/hacks/deskbar.sh, gtkshell/clock.c: Added less
+	  intrusive deskbar that takes entire width of screen.	Updated
+	  copyrights.
+
+2010-07-22 22:50  jefbed
+
+	* configure, ACE-desktop/ACE, rootcat/Makefile, rootcat/rootcat.c:
+	  Make distcc only used as an explicit option.	Added font and
+	  color selection to rootcat.  Added consistant usage display.
+
+2010-07-22 00:47  jefbed
+
+	* gtkshell/options.c: Added facility to compile list of valid
+	  command line arguments.  Use this list for usage information
+	  display.
+
+2010-07-21 16:50  jefbed
+
+	* gtkshell/: module_includes.h, ptk-app-menu.h: Added missing file
+	  for app menu.  Fixed build in module_include.h.
+
+2009-03-31 03:44  jefbed
+
+	* ACE-desktop/: guidl/Horizontal_Deskbar.gdl, hacks/deskbar.sh: Add
+	  ability for user to add shortcut icons to the deskbar.  Fixed
+	  icon size settin for the application menu on the deskbar.
+
+2008-11-11 07:19  jefbed
+
+	* configure: Further consolidate configure script functionality.
+	  Remove unused settings.
+
+2008-11-11 01:04  jefbed
+
+	* Makefile, configure, gtkshell/containers.c, gtkshell/dialog.h,
+	  gtkshell/gtkshell.h, gtkshell/init.c: Consolidated tests in build
+	  system.  Use OK button instead of Close button on dialogs.
+
+2008-11-03 02:36  jefbed
+
+	* ACE-desktop/hacks/deskbar.sh, gtkshell/option_options.c,
+	  xshell/Makefile: Fixed deskbar script to prefix GUIDL with ACE
+	  -A.
+
+2008-11-02 23:10  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl,
+	  gtkshell/guidl_widgets.c, gtkshell/module_includes.h,
+	  gtkshell/options.c, gtkshell/ptk-app-menu.c: Switch application
+	  menu to autogenerated one for the deskbar.  Keep the ACE-specific
+	  options in the ACE menu.
+
+2008-11-02 22:30  jefbed
+
+	* gtkshell/: Makefile, options.c, ptk-app-menu.c: Add desktop file
+	  format menu to show all applications on system.
+
+2008-10-27 00:12  jefbed
+
+	* Makefile, gtkshell/swallow.c: Fix build errors on linux.  Fix
+	  annoying cleaning of xshell in all target of main Makefile.  Fix
+	  building of swallow.c on linux.
+
+2008-10-26 03:38  jefbed
+
+	* gtkshell/Makefile: Fix intall on non-MINGW32 systems.  This was
+	  failing due to quotes around the install command.
+
+2008-10-26 03:36  jefbed
+
+	* Makefile, gtkshell/Makefile, gtkshell/add_options.c,
+	  pygsh/pygui.py: Fixed compilation on MINGW32.  Added python
+	  Tkinter version beginnings.  Fixed installation on MINGW32.
+
+2008-10-26 03:18  jefbed
+
+	* Makefile, configure, rootcat/Makefile, xshell/Makefile: Fixed
+	  xshell and rootcat compilation on CYGWIN.
+
+2008-10-26 03:02  jefbed
+
+	* configure, gtkshell/Makefile, gtkshell/add_options.c,
+	  libantiright/tuple.c: Fix broken builds.
+
+2008-10-24 09:06  jefbed
+
+	* Makefile, configure, gtkshell/Makefile, gtkshell/add_options.c,
+	  gtkshell/clock.c: Port to WIN32.
+
+2008-10-24 08:50  jefbed
+
+	* configure, gtkshell/Makefile: Now compiles under MingW.
+
+2008-10-20 22:28  jefbed
+
+	* configure, gtkshell/swallow.c, gtkshell/swallow.h: Begin native
+	  windows porting work.
+
+2008-01-21 14:56  jefbed
+
+	* ACE-desktop/hacks/juke.sh, rootcat/rootcat.c, xshell/Makefile,
+	  xshell/arguments.c, xshell/button.c, xshell/button.h,
+	  xshell/dialog.c, xshell/dialog.h, xshell/events.c,
+	  xshell/layout.c, xshell/text.c, xshell/widget.c, xshell/xshell.c:
+	  Fix xshell layout and display error handling.  Added a control
+	  applet start option to juke.sh
+
+2008-01-17 00:33  jefbed
+
+	* gtkshell/: Makefile, option_options.c, option_options.h,
+	  options.c: Move setting over to option_options.c, work with ARWM
+	  to implement NET_WM hints properly, instead of using popup
+	  OverrideRedirect.
+
+2008-01-16 21:30  jefbed
+
+	* Makefile: Add rootcat necessary directives, typo fix.
+
+2008-01-16 20:48  jefbed
+
+	* rootcat/: rootcat.c, rootcat.py: Added python version of rootcat.
+
+2008-01-15 21:20  jefbed
+
+	* rootcat/: Makefile, rootcat.c: Use Xft for text rendering.
+
+2008-01-14 00:27  jefbed
+
+	* Makefile, rootcat/Makefile, rootcat/rootcat.c: Added the rootcat
+	  utility to display text on the root window.
+
+2008-01-10 05:14  jefbed
+
+	* gtkshell/gshterm: Set default font size to 10.
+
+2008-01-10 00:24  jefbed
+
+	* gtkshell/: terminal.c, terminal_struct.h: Fix multiple terminal
+	  widget support.  Make sure no tab code is built when tab support
+	  is not enabled.
+
+2007-12-20 18:09  jefbed
+
+	* gtkshell/: Makefile, macros.h, options.c, terminal_options.c,
+	  terminal_options.h: Fixed typo preventing terminal transparency.
+	  Begin to code option function definition shortcuts.  Extract
+	  terminal options from options.c to terminal_options.c.
+
+2007-12-20 03:21  jefbed
+
+	* ACE-desktop/ACE, ACE-desktop/hacks/deskbar.sh, gtkshell/Makefile,
+	  gtkshell/button.c, gtkshell/dragdrop.c, gtkshell/gshterm,
+	  gtkshell/gtkshell.c, gtkshell/main.c, gtkshell/menu.c,
+	  libantiright/macros.h, libantiright/tuple.c: Split deskbar into a
+	  separate script.
+
+2007-12-19 21:50  jefbed
+
+	* gtkshell/clock.c: Use correct size of buffer for framed versus
+	  unframed clock.
+
+2007-12-19 21:44  jefbed
+
+	* configure, gtkshell/Makefile, gtkshell/add_options.c,
+	  gtkshell/add_options.h, gtkshell/clock.c, gtkshell/color.c,
+	  gtkshell/guidl_dialog.c, gtkshell/guidl_widgets.c,
+	  gtkshell/menu.c, gtkshell/options.c, gtkshell/swallow.c,
+	  gtkshell/undo.c, gtkshell/update_manager.c: Code cleanup and
+	  consolidations.  Use unframed clock by default.
+
+2007-12-18 05:19  jefbed
+
+	* configure, gtkshell/button.c, gtkshell/menu.c: Use determining
+	  code for menubar menus in button.c.  Consolidate this code in
+	  menu.c with testing macro.
+
+2007-12-15 05:55  jefbed
+
+	* gtkshell/main.c, libantiright/arguments.c,
+	  libantiright/arguments.h: Free option argument storage.
+
+2007-12-13 20:20  jefbed
+
+	* doc/TODO, gtkshell/Makefile, gtkshell/add_options.c,
+	  gtkshell/arguments.c, gtkshell/dialog_options.c,
+	  gtkshell/dialog_options.h, gtkshell/main.c,
+	  gtkshell/option_options.c, gtkshell/option_options.h,
+	  gtkshell/options.c, gtkshell/options.h,
+	  gtkshell/updated_options.c: Switch from switch-based command line
+	  option handling to hash table callback dictionary.
+
+2007-12-13 06:31  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl, gtkshell/options.c,
+	  libantiright/system.c: Further define options for new hashtable
+	  design.  Revert antiright_system to 1.8.
+
+2007-12-12 03:19  jefbed
+
+	* gtkshell/options.c: Define more options--finished defining add
+	  options, now defining option options.
+
+2007-12-12 01:20  jefbed
+
+	* ACE-desktop/: ACE, guidl/Horizontal_Deskbar.gdl: Make it so that
+	  the ampersand is not appended to browser.
+
+2007-12-11 23:31  jefbed
+
+	* gtkshell/gsh.h, gtkshell/gtkshell.c, gtkshell/options.c,
+	  libantiright/tuple.h: Begin converting command line option
+	  handling from switch tree to hash table.
+
+2007-12-11 21:05  jefbed
+
+	* gtkshell/: Makefile, options.c, undo.c: Consolidate undo
+	  functions further.  Begin work on hash table based command line
+	  option parsing.
+
+2007-12-10 18:14  jefbed
+
+	* gtkshell/: add_options.c, dialog_options.c, gtkshell.h: Removed
+	  duplicate and harmful code.
+
+2007-12-10 18:14  jefbed
+
+	* gtkshell/: color.c, color.h: Split out color functions.
+
+2007-12-10 18:13  jefbed
+
+	* configure, ACE-desktop/guidl/Horizontal_Deskbar.gdl,
+	  gtkshell/Makefile, gtkshell/add_options.c, gtkshell/app_mode.c,
+	  gtkshell/button.c, gtkshell/gtkshell.c, gtkshell/gtkshell.h,
+	  gtkshell/module_includes.h, gtkshell/option_options.c,
+	  gtkshell/quickstart.c, gtkshell/text.c, gtkshell/text.h,
+	  gtkshell/undo.c, gtkshell/undo.h, gtkshell/view.h,
+	  libantiright/system.c: Remove duplicate text editor code.  Use
+	  GtkToolItem base class for toolbar items.  Clean up undo code.
+	  Build without libpthread.
+
+2007-12-07 23:00  jefbed
+
+	* gtkshell/add_options.c, gtkshell/gsh.h, gtkshell/gtkshell.c,
+	  gtkshell/main.c, gtkshell/option_options.c, gtkshell/swallow.c,
+	  gtkshell/terminal.c, gtkshell/text.c, libantiright/system.c: Add
+	  the ability to specify the color of text and clock widgets.
+
+2007-12-06 17:40  jefbed
+
+	* ACE-desktop/ACE, ACE-desktop/system.antiright,
+	  ACE-desktop/guidl/Horizontal_Deskbar.gdl,
+	  ACE-desktop/icons/Calculator_16.png,
+	  ACE-desktop/icons/Deck_16.png, gtkshell/clock.c,
+	  gtkshell/guidl_options.c, gtkshell/macros.h,
+	  gtkshell/option_options.c: Add desktop icons.  Add option for
+	  single-line clock.
+
+2007-12-05 02:45  jefbed
+
+	* configure, gtkshell/main.c, gtkshell/terminal.c,
+	  gtkshell/terminal.h: Add support for multiple top-level windows,
+	  as --- separated arguments.
+
+2007-12-03 22:40  jefbed
+
+	* gtkshell/: terminal.c, terminal_struct.h: Work on tab code.  Do
+	  not create tabbed terminal by default.
+
+2007-11-29 23:56  jefbed
+
+	* ACE-desktop/ACE, gtkshell/terminal.c, xshell/button.c: Begin
+	  working on code to improve child exit behavior for terminal.
+
+2007-11-29 21:22  jefbed
+
+	* gtkshell/: add_options.c, options.c, swallow.c, swallow.h:
+	  Further refine app swallowing.  Add to add_options switch.
+
+2007-11-27 01:40  jefbed
+
+	* gtkshell/: options.c, swallow.c, swallow.h: Make the swallow code
+	  actually work.  Use a GtkSocket instead of the non-working hack
+	  previously used.
+
+2007-11-25 04:55  jefbed
+
+	* configure, gtkshell/update_manager.c: Resolve merge conflicts.
+	  Fix to compile with gcc 2.95.3.
+
+2007-11-25 03:01  jefbed
+
+	* xshell/: Makefile, button.c, decoration.c, decoration.h,
+	  layout.c, text.c: Fix boolean store for layout processing end
+	  flag.  Fixed CVS merge conflicts.
+
+2007-11-24 13:53  jefbed
+
+	* gtkshell/: add_options.c, terminal.c, terminal.h,
+	  terminal_options.c, terminal_struct.h: Add tabbed terminal
+	  widgets.
+
+2007-11-24 02:34  jefbed
+
+	* ChangeLog: Update ChangeLog for GUIShell 3.6.
+
+2007-11-24 02:15  jefbed
+
+	* gtkshell/clock.c, gtkshell/updated_label.c, xshell/Makefile,
+	  xshell/decoration.c: Removed unnecessary macros to improve code
+	  readability.	Removed indicator from xshell buttons, as it is
+	  useless.
+
+2007-11-15 06:21  jefbed
+
+	* ACE-desktop/guidl/Editor.gdl: Added FIXME for wrong 'Open...'
+	  icon.
+
+2007-11-15 06:17  jefbed
+
+	* gtkshell/: button.c, menu.c, menu.h, text.c: Remove labels from
+	  toolbar items.  Split menubar menu detection code from menu
+	  pointer assignment, export detection.  Use detection for not
+	  removing labels from buttons considered for toolbar addition, in
+	  case one happens to be the menubar button.  This prevents the
+	  menubar button from being added as a toolbar button.
+
+2007-11-13 01:36  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl,
+	  ACE-desktop/icons/screen_16.png, ACE-desktop/icons/screen_32.png,
+	  gtkshell/test: Fixed merge conflicts, remove gtkshell/test.
+
+2007-11-12 14:34  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl: Fix Lock menu item.
+
+2007-11-12 14:30  jefbed
+
+	* ACE-desktop/: system.antiright, hacks/calculator.sh: Use file
+	  shell instead of file manager by default since it works.  Add a
+	  simple calculator using bc, a temporary file, and the updated
+	  label.
+
+2007-11-12 13:51  jefbed
+
+	* doc/AUTHORS, gtkshell/text.c: Make undo feature accessable from
+	  all text areas.  Give credit to leafpad project for undo code.
+
+2007-11-12 13:28  jefbed
+
+	* gtkshell/: gtkshell.c, text.c: Implement undo feature.
+
+2007-11-12 05:13  jefbed
+
+	* ACE-desktop/: guidl/Horizontal_Deskbar.gdl,
+	  icons/gnome_medium/chat_32.png, icons/gnome_small/chat_16.png:
+	  Final chat icons, for now.
+
+2007-11-12 04:35  jefbed
+
+	* ACE-desktop/icons/: gnome_medium/chat_32.png,
+	  gnome_small/chat_16.png: New chat icon look, again.
+
+2007-11-12 04:21  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl,
+	  ACE-desktop/icons/gnome_medium/chat_32.png,
+	  ACE-desktop/icons/gnome_medium/terminal_32.png,
+	  ACE-desktop/icons/gnome_small/chat_16.png,
+	  ACE-desktop/icons/gnome_small/terminal_16.png, gtkshell/Makefile,
+	  gtkshell/add_options.c, gtkshell/text.c, gtkshell/undo.c,
+	  gtkshell/undo.h, gtkshell/view.h: Begin to add undo support to
+	  text editor.	Updated icon for chat to one of my own design.
+
+2007-11-12 03:16  jefbed
+
+	* gtkshell/text.c: Fixed scrolling.
+
+2007-11-12 02:22  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl: Use new chat icon
+	  instead of pidgin icon.
+
+2007-11-12 02:20  jefbed
+
+	* ACE-desktop/icons/: gnome_medium/chat_32.png,
+	  gnome_small/chat_16.png: Use better looking chat icons.
+
+2007-11-12 02:11  jefbed
+
+	* ACE-desktop/: guidl/Horizontal_Deskbar.gdl, icons/gaim_16.png,
+	  icons/gaim_32.png: Added Chat entry to Deskbar.  Add and use gaim
+	  icon.
+
+2007-11-12 02:07  jefbed
+
+	* ACE-desktop/: ACE, guidl/File_Shell.gdl,
+	  guidl/Horizontal_Deskbar.gdl, icons/system_monitor_16.png,
+	  icons/system_monitor_32.png: Added file management interface that
+	  actually works.  Added new system monitor icons.  Use pidgin icon
+	  for pidgin in Deskbar.
+
+2007-11-12 01:18  jefbed
+
+	* gtkshell/: about_dialog.c, callbacks.c: Fixed icon location for
+	  about dialog.
+
+2007-11-12 00:00  jefbed
+
+	* ACE-desktop/ACE: Fixed missing entry handler.  Prompt user for
+	  definition when invoked.
+
+2007-11-11 06:42  jefbed
+
+	* ACE-desktop/: ACE, system.antiright,
+	  guidl/Horizontal_Deskbar.gdl, icons/pidgin_16.png,
+	  icons/pidgin_32.png, icons/gnome_medium/terminal_32.png,
+	  icons/gnome_small/terminal_16.png: Use better icons for terminal.
+	  Use Pidgin icon for ACE Chat.
+
+2007-11-08 09:41  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl, gtkshell/arguments.c,
+	  gtkshell/button.c, gtkshell/button.h, gtkshell/dialog.c,
+	  gtkshell/guidl_options.c, gtkshell/macros.h, gtkshell/menu.c,
+	  gtkshell/option_options.c, xshell/button.c: Began initial code
+	  for command checking of items.  This will allow for dynamic menus
+	  in ACE's deskbar.
+
+2007-11-08 08:54  jefbed
+
+	* ACE-desktop/: ACE, hacks/xsh_panel.sh: Add xshell-based panel.
+
+2007-11-02 22:00  jefbed
+
+	* ACE-desktop/: guidl/Horizontal_Deskbar.gdl, icons/Screen_32.png,
+	  icons/System_Monitor_32.png: Use only deck icon for ACE menu.
+
+2007-11-02 21:56  jefbed
+
+	* gtkshell/button.c: Left-align menu labels.
+
+2007-11-02 21:01  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl, gtkshell/arguments.c,
+	  gtkshell/macros.h, gtkshell/option_options.c: Automatically use
+	  menu-sized stock images, if no custom icon size has been set.
+	  Begin using stock items in ACE menu.
+
+2007-11-02 19:49  jefbed
+
+	* ACE-desktop/: Makefile, guidl/Horizontal_Deskbar.gdl: Remove aqua
+	  icon set.
+
+2007-11-02 19:46  jefbed
+
+	* ACE-desktop/icons/: ACE.png, Browser.png, Browser_32.png,
+	  Calculator.png, Deck.png, File_Sharing.png, Image_Editor.png,
+	  Screen.png, Sticky_Note.png, Sticky_Note_32.png,
+	  System_Monitor.png, Terminal.png, Word_Processor.png,
+	  gnome_medium/www_32.png: Begin icon consolidation, weeding out
+	  unused icons.
+
+2007-11-02 17:23  jefbed
+
+	* ACE-desktop/guidl/ACE_Panel.gdl: Used GTK stock icons where
+	  possible.  Switch to GNOME icons for all else.
+
+2007-11-02 16:39  jefbed
+
+	* ACE-desktop/: Makefile, guidl/Horizontal_Deskbar.gdl: Use new
+	  todo icon for sticky note launcher.
+
+2007-11-02 16:37  jefbed
+
+	* ACE-desktop/icons/: Sticky_Note_32.png, gnome_medium/todo_32.png,
+	  gnome_small/todo_16.png: Added new todo icon from gartoon set.
+
+2007-11-02 02:11  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl: Use gnome icons.
+
+2007-11-02 02:01  jefbed
+
+	* ACE-desktop/icons/gnome_medium/: amusement_32.png,
+	  calculator_32.png, chat_32.png, clock_32.png, colors_32.png,
+	  configuration_32.png, development_32.png, disk-cd_32.png,
+	  disk-floppy_32.png, disk_32.png, display_32.png, editor_32.png,
+	  empty_32.png, file_32.png, folder_32.png, font_32.png,
+	  game-board_32.png, game-cards_32.png, game_32.png,
+	  ghostview_32.png, gimp_32.png, gnome_32.png, gnu_32.png,
+	  graphics_32.png, help_32.png, home_32.png, information_32.png,
+	  item_32.png, kde_32.png, keyboard_32.png, linux_32.png,
+	  lock_32.png, mail_32.png, modules_32.png, monitoring_32.png,
+	  mouse_32.png, multimedia_32.png, music_32.png, netscape_32.png,
+	  network_32.png, news_32.png, printing_32.png, programs_32.png,
+	  quit_32.png, refresh_32.png, restart_32.png, science_32.png,
+	  system_32.png, terminal-remote_32.png, terminal-special_32.png,
+	  terminal_32.png, themes_32.png, todo_32.png, unknown_32.png,
+	  utility_32.png, video_32.png, viewer_32.png,
+	  window-destroy_32.png, window-identify_32.png,
+	  window-maximize_32.png, window-move_32.png, window-raise_32.png,
+	  window-shade_32.png, window_32.png, windows_32.png,
+	  word-processor_32.png, www_32.png, xv_32.png: Add 32x32 versions
+	  of the gnome icons.
+
+2007-10-31 16:57  jefbed
+
+	* gtkshell/: GSHWidget.c, GSHWidget.h, Makefile, module_includes.h,
+	  text.c, text.h: Began objectifying widget code, starting with
+	  text widget.	Added GSHWidget interface class.  Fixed merge
+	  conflicts.
+
+2007-10-30 21:31  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl: Use imported gnome icon
+	  set for deskbar and menus.
+
+2007-10-30 21:08  jefbed
+
+	* ACE-desktop/: Makefile, icons/gnome_small/amusement_16.png,
+	  icons/gnome_small/calculator_16.png,
+	  icons/gnome_small/chat_16.png,
+	  icons/gnome_small/choice-no_16.png,
+	  icons/gnome_small/choice-yes_16.png,
+	  icons/gnome_small/clock_16.png, icons/gnome_small/colors_16.png,
+	  icons/gnome_small/configuration_16.png,
+	  icons/gnome_small/development_16.png,
+	  icons/gnome_small/disk-cd_16.png,
+	  icons/gnome_small/disk-floppy_16.png,
+	  icons/gnome_small/disk_16.png, icons/gnome_small/display_16.png,
+	  icons/gnome_small/editor_16.png, icons/gnome_small/empty_16.png,
+	  icons/gnome_small/file_16.png, icons/gnome_small/folder_16.png,
+	  icons/gnome_small/font_16.png,
+	  icons/gnome_small/game-board_16.png,
+	  icons/gnome_small/game-cards_16.png,
+	  icons/gnome_small/game_16.png,
+	  icons/gnome_small/ghostview_16.png,
+	  icons/gnome_small/gimp_16.png, icons/gnome_small/gnome_16.png,
+	  icons/gnome_small/gnu_16.png, icons/gnome_small/graphics_16.png,
+	  icons/gnome_small/help_16.png, icons/gnome_small/home_16.png,
+	  icons/gnome_small/information_16.png,
+	  icons/gnome_small/item_16.png, icons/gnome_small/kde_16.png,
+	  icons/gnome_small/keyboard_16.png,
+	  icons/gnome_small/linux_16.png, icons/gnome_small/lock_16.png,
+	  icons/gnome_small/mail_16.png, icons/gnome_small/modules_16.png,
+	  icons/gnome_small/monitoring_16.png,
+	  icons/gnome_small/mouse_16.png,
+	  icons/gnome_small/multimedia_16.png,
+	  icons/gnome_small/music_16.png,
+	  icons/gnome_small/netscape_16.png,
+	  icons/gnome_small/network_16.png, icons/gnome_small/news_16.png,
+	  icons/gnome_small/printing_16.png,
+	  icons/gnome_small/programs_16.png, icons/gnome_small/quit_16.png,
+	  icons/gnome_small/refresh_16.png,
+	  icons/gnome_small/restart_16.png,
+	  icons/gnome_small/science_16.png,
+	  icons/gnome_small/system_16.png,
+	  icons/gnome_small/terminal-remote_16.png,
+	  icons/gnome_small/terminal-special_16.png,
+	  icons/gnome_small/terminal_16.png,
+	  icons/gnome_small/themes_16.png, icons/gnome_small/todo_16.png,
+	  icons/gnome_small/unknown_16.png,
+	  icons/gnome_small/utility_16.png, icons/gnome_small/video_16.png,
+	  icons/gnome_small/viewer_16.png,
+	  icons/gnome_small/window-close_16.png,
+	  icons/gnome_small/window-delete_16.png,
+	  icons/gnome_small/window-destroy_16.png,
+	  icons/gnome_small/window-identify_16.png,
+	  icons/gnome_small/window-maximize_16.png,
+	  icons/gnome_small/window-move_16.png,
+	  icons/gnome_small/window-raise_16.png,
+	  icons/gnome_small/window-shade_16.png,
+	  icons/gnome_small/window_16.png,
+	  icons/gnome_small/windows_16.png,
+	  icons/gnome_small/word-processor_16.png,
+	  icons/gnome_small/www_16.png, icons/gnome_small/xv_16.png: Add
+	  gnome icons, for use within applications, and for use as a more
+	  standard icon set than the aqua icons.
+
+2007-10-25 20:33  jefbed
+
+	* gtkshell/updated.c: Removed extraneous macro.
+
+2007-10-25 04:07  jefbed
+
+	* gtkshell/: Makefile, add_options.c, module_includes.h, pane.c,
+	  pane.h, quickstart.c, quickstart.h: Commit initial quickstart
+	  applet code.	Does not function properly currently.
+
+2007-10-25 04:02  jefbed
+
+	* gtkshell/: gsh.h, gtkshell.h: Split out GSH structure from
+	  gtkshell.h
+
+2007-10-24 00:22  jefbed
+
+	* ACE-desktop/guidl/ACE_Panel.gdl: Add icons, use in ACE Panel.
+
+2007-10-23 03:46  jefbed
+
+	* ACE-desktop/: Makefile, guidl/Horizontal_Deskbar.gdl: Added new
+	  icon set from wm-icons.  Use with Horizontal_Deskbar.gdl.
+
+2007-10-23 00:03  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl: Remove Audio/Video menu
+	  as it is redundant.
+
+2007-10-21 04:28  jefbed
+
+	* ACE-desktop/hacks/juke.sh: Display title of each song shortly
+	  after it starts.
+
+2007-10-21 04:24  jefbed
+
+	* ACE-desktop/hacks/juke.sh: Split control applet into separate
+	  function.  Use control applet if osd_cat is installed on default
+	  invocation.
+
+2007-10-21 04:22  jefbed
+
+	* ACE-desktop/hacks/juke.sh: Only start juke applet by default if
+	  osd_cat does not exist.
+
+2007-10-21 04:19  jefbed
+
+	* ACE-desktop/hacks/juke.sh: Added missing parentheses.
+
+2007-10-21 04:17  jefbed
+
+	* ACE-desktop/hacks/juke.sh: Added support for osd_cat display of
+	  current song.
+
+2007-10-15 17:26  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl: Added abiword menu
+	  item, removed oowriter.
+
+2007-10-02 17:35  jefbed
+
+	* ACE-desktop/ACE, gtkshell/add_options.c, gtkshell/applets.h,
+	  gtkshell/terminal.c, gtkshell/tree.c: Added output support to
+	  list code based on GTK documentation example.  Use list to
+	  display values in new View All Settings option in ACE Settings.
+	  Improved add_options commenting.
+
+2007-09-09 22:03  jefbed
+
+	* gtkshell/: menu.c, option_options.c: Split out submenu opening
+	  code from item iteration.
+
+2007-09-06 18:38  jefbed
+
+	* configure, libantiright/arguments.c, libantiright/macros.h:
+	  Bumped version to 3.6.  Commented OOP portion of macros.h.
+	  Updated copyright date on arguments.c.
+
+2007-09-05 22:19  jefbed
+
+	* xshell/button.c: Fixed button layout.
+
+2007-09-05 21:36  jefbed
+
+	* xshell/button.c: Print layout data only when DEBUG defined.
+
+2007-09-01 22:13  jefbed
+
+	* xshell/: arguments.c, button.c, layout.h, xshell.c:
+	  Use layout comprising of a compromise between fixed dimensions
+	  and font-based spacing.
+
+2007-08-28 23:39  jefbed
+
+	* xshell/: Makefile, arguments.c, button.c, dialog.c, dialog.h,
+	  text.c, xshell.h: Added initial dialog code, not yet functional.
+	  Split out code for definition of free-floating buttons.
+
+2007-08-20 23:55  jefbed
+
+	* xshell/: button.c, font.c, layout.c, layout.h, text.c, xshell.c,
+	  xshell_struct.h: Calculate geometries based on font properties.
+	  Store reference to entire font structure.  Only perform layout on
+	  initial mapping.  Began code to allow text widget to properly
+	  display text containing nonprinting characters.
+
+2007-08-20 20:18  jefbed
+
+	* xshell/: arguments.c, layout.c, text.c: Bug fixes (and
+	  additions).
+
+2007-08-20 20:12  jefbed
+
+	* gtkshell/label.c, xshell/arguments.c, xshell/arguments.h,
+	  xshell/button.c, xshell/decoration.c, xshell/decoration.h,
+	  xshell/events.c, xshell/events.h, xshell/font.c, xshell/font.h,
+	  xshell/text.c, xshell/widget.c, xshell/xshell.c,
+	  xshell/xshell_struct.h: XShell improvements.
+
+2007-08-15 04:32  jefbed
+
+	* ACE-desktop/guidl/ACE_Panel.gdl, gtkshell/button.c,
+	  gtkshell/button.h: Removed test menu from ACE panel.	Use a
+	  mapping structure rather than nested conditionals to assign icons
+	  to labels.  Store definitions in header file.
+
+2007-08-13 15:08  jefbed
+
+	* gtkshell/: Makefile, module_includes.h, options.c, swallow.c,
+	  swallow.h: Add initial code for containment of external
+	  applications.  Once completed, this will help phase out vte in
+	  favor of rxvt.
+
+2007-08-13 12:24  jefbed
+
+	* gtkshell/: add_options.c, text.c: Set GSH_IN_SECONDARY_WIN when
+	  new window created.  Split file save procedure for case where
+	  filename already set.  Check for empty filename on open, restore
+	  old filename in this case.
+
+2007-08-13 11:12  jefbed
+
+	* gtkshell/: Makefile, dialog.c, dialog.h, dialog_options.c,
+	  file_dialog.c, file_dialog.h, macros.h, module_includes.h:
+	  Consolidated common functionality in dialogs to
+	  gsh_common_dialog_executioner.  Wrote code using this as macros.
+	  Use dialog.c for dialog callbacks.
+
+2007-08-07 20:25  jefbed
+
+	* ACE-desktop/hacks/simple_load_applet.sh, xshell/Makefile,
+	  xshell/arguments.c, xshell/button.c, xshell/button.h,
+	  xshell/color.c, xshell/color.h, xshell/decoration.c,
+	  xshell/decoration.h, xshell/font.c, xshell/font.h,
+	  xshell/layout.c, xshell/text.c, xshell/text.h, xshell/xshell.c,
+	  xshell/xshell.h, xshell/xshell_struct.h: Added font selection
+	  utility function for xshell.	Added support for multiple line
+	  text display in xshell.  Set fonts for buttons and text.  Allow
+	  widget width to be specified at runtime.  Fixed label arg counter
+	  increment.  Added simple_load_applet.sh, which displays the
+	  system load on a panel.
+
+2007-08-07 16:49  jefbed
+
+	* xshell/: arguments.c, decoration.c, decoration.h, layout.c,
+	  xshell.c, xshell.h: Code refactorings done for xshell, duplicate
+	  functions eliminated and made publically accessable.	Added
+	  convenience macro for default GC initialization.
+
+2007-08-07 00:26  jefbed
+
+	* xshell/: button.c, decoration.c, decoration.h: Began bitmap
+	  rendering code, to be used for gradient store/acceleration, as
+	  well as desktop icon set.
+
+2007-08-05 06:18  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl, xshell/arguments.c,
+	  xshell/button.c, xshell/decoration.c: Fixed conflicts with local
+	  changes.
+
+2007-08-04 00:24  jefbed
+
+	* xshell/: arguments.c, xshell.c: Refactord option handling code,
+	  split out addition and option selection.  Added usage display
+	  function.
+
+2007-08-04 00:13  jefbed
+
+	* gtkshell/gshterm: Use smaller font size by default.
+
+2007-08-02 22:57  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl: Fix misspelling.
+
+2007-08-02 22:52  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl: Removed icons from
+	  application submenus.
+
+2007-08-02 22:38  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl: Simplified deskbar
+	  panel.
+
+2007-07-31 17:55  jefbed
+
+	* configure, ACE-desktop/ACE, ACE-desktop/Makefile,
+	  ACE-desktop/system.antiright.5, ACE-desktop/hacks/open_file.sh,
+	  gtkshell/about_dialog.c, gtkshell/image_button.c: Fixed paths to
+	  use XDG dirs.
+
+2007-07-28 23:40  jefbed
+
+	* xshell/Makefile: Disable gradient rendering by default.
+
+2007-07-27 05:13  jefbed
+
+	* ACE-desktop/ACE, ACE-desktop/hacks/juke.sh,
+	  ACE-desktop/hacks/local_loads.sh, ACE-desktop/hacks/open_file.sh,
+	  gtkshell/main.c: Added license headers to hack scripts.  Began
+	  consolidating globals for threaded gtkshell.	Split ACE -A ARO to
+	  open_file.sh (ACE -A Hack open_file).
+
+2007-07-27 04:25  jefbed
+
+	* ACE-desktop/ACE: Remove non-GUIDL Deskbar panel.
+
+2007-07-25 08:42  jefbed
+
+	* ACE-desktop/guidl/ACE_Panel.gdl,
+	  ACE-desktop/guidl/Horizontal_Deskbar.gdl,
+	  ACE-desktop/guidl/Old_Deskbar.gdl, ACE-desktop/hacks/juke.sh,
+	  ACE-desktop/icons/File_Manager.png,
+	  ACE-desktop/icons/File_Manager_32.png,
+	  ACE-desktop/icons/Lock_Display.png,
+	  ACE-desktop/icons/Lock_Display_32.png,
+	  ACE-desktop/icons/Text_Editor.png,
+	  ACE-desktop/icons/Text_Editor_32.png, doc/gtkshell.1,
+	  gtkshell/add_options.c, gtkshell/gtkshell.h,
+	  gtkshell/guidl_util.c, gtkshell/options.c, gtkshell/tree.c:
+	  Removed redundant icons.  Added gtk list/tree support.  Fixed
+	  premature freeing of non-option argument strings from guidl
+	  results.  Icon fixups.  Added manual page for list addition
+	  option.
+
+2007-07-25 05:58  jefbed
+
+	* gtkshell/guidl.lex: Added conditional support to GUIDL.
+
+2007-07-23 05:58  jefbed
+
+	* xshell/: Makefile, button.c, button.h, widget.c, widget.h,
+	  xshell.c, xshell.h: Sync, again.
+
+2007-07-23 01:54  jefbed
+
+	* xshell/: arguments.c, arguments.h, decoration.c, decoration.h,
+	  events.c, events.h, layout.c, layout.h, shell.c, shell.h, text.c,
+	  text.h: Sync new version.
+
+2007-07-22 23:07  jefbed
+
+	* gtkshell/: clock.c, gtkshell.c, gtkshell.h: Added color setting
+	  function, gsh_widget_set_color().  Split clock container
+	  management and color setting to separate methods.
+
+2007-07-22 21:51  jefbed
+
+	* gtkshell/: Makefile, clock.c, updated.h, updated_label.c,
+	  updated_progress.c: Consolidated updater add procedure to
+	  convenience macro.  Allocate clock time string into stack buffer,
+	  rather than heap.
+
+2007-07-22 20:22  jefbed
+
+	* ACE-desktop/hacks/juke.sh: Split applet into two windows, to fix
+	  resizing issues on song title display.  Use small icons on
+	  control panel.  Add close button.  Fix song title query function.
+	  Added option to kill song applet.
+
+2007-07-22 12:15  jefbed
+
+	* ACE-desktop/: ACE, system.antiright, hacks/juke.sh,
+	  hacks/local_loads.sh: Fixed loop termination code in juke.
+
+2007-07-22 11:10  jefbed
+
+	* ACE-desktop/ACE: Added Hack() function for running parts of the
+	  hack collection.
+
+2007-07-22 10:58  jefbed
+
+	* ACE-desktop/Makefile: Remove old monitor script install command.
+
+2007-07-22 10:56  jefbed
+
+	* ACE-desktop/: ACE_host_monitor.sh, Makefile,
+	  hacks/host_monitor.sh: Added hacks infrastructure, for a more
+	  extensive collection of gtkshell applications.
+
+2007-07-22 10:41  jefbed
+
+	* ACE-desktop/Makefile: Added install target for host monitor
+	  script.
+
+2007-07-22 10:39  jefbed
+
+	* ACE-desktop/: ACE_host_monitor.sh, system.antiright: Added a
+	  multiple host monitoring system based on ssh.
+
+2007-07-22 00:19  jefbed
+
+	* gtkshell/updated.c: Added comment for function pointer call.	Do
+	  not allocate a duplicate command string, as command strings
+	  originate from argument list.
+
+2007-07-22 00:15  jefbed
+
+	* gtkshell/font.c: Added comment for macro.
+
+2007-07-21 20:18  jefbed
+
+	* gtkshell/terminal_options.c: Fixed duplicate case labels.
+
+2007-07-21 20:16  jefbed
+
+	* configure, ACE-desktop/ACE, ACE-desktop/system.antiright,
+	  ACE-desktop/guidl/File_Manager.gdl, gtkshell/guidl_options.c,
+	  gtkshell/terminal.c, gtkshell/terminal_options.c: Fix merge
+	  conflicts.
+
+2007-07-20 05:26  jefbed
+
+	* Makefile, gtkshell/gtkshell.h, gtkshell/main.c,
+	  libantiright/library.h, libantiright/util.c, xshell/arguments.c,
+	  xshell/arguments.h, xshell/decoration.c, xshell/decoration.h,
+	  xshell/events.c, xshell/events.h, xshell/layout.c,
+	  xshell/layout.h, xshell/shell.c, xshell/shell.h, xshell/text.c,
+	  xshell/text.h: Integrated xshell into build system.  Fixed
+	  boehm-gc include file resolution.  Added license headers to
+	  xshell files.  Make xshell bail out if no arguments have been
+	  specified.
+
+2007-07-20 04:57  jefbed
+
+	* configure, xshell/arguments.c, xshell/arguments.h,
+	  xshell/decoration.c, xshell/decoration.h, xshell/events.c,
+	  xshell/events.h, xshell/layout.c, xshell/layout.h,
+	  xshell/shell.c, xshell/shell.h, xshell/text.c, xshell/text.h:
+	  Added xshell code.
+
+2007-07-09 06:12  jefbed
+
+	* gtkshell/: Makefile, add_options.c, form.c, form.h, gshterm,
+	  module_includes.h: Added radio button selection support (option
+	  -af).
+
+2007-06-20 17:37  jefbed
+
+	* gtkshell/Makefile: Fixed linking order prior to libshell removal.
+
+2007-06-12 01:32  jefbed
+
+	* Makefile, configure, doc/TODO, gtkshell/Makefile,
+	  gtkshell/about_dialog.c, gtkshell/about_dialog.h,
+	  gtkshell/add_options.c, gtkshell/add_options.h,
+	  gtkshell/app_mode.c, gtkshell/app_mode.h, gtkshell/applets.h,
+	  gtkshell/arguments.c, gtkshell/arguments.h, gtkshell/button.c,
+	  gtkshell/button.h, gtkshell/callbacks.c, gtkshell/callbacks.h,
+	  gtkshell/clock.c, gtkshell/clock.h, gtkshell/command_shell.c,
+	  gtkshell/command_shell.h, gtkshell/containers.c,
+	  gtkshell/containers.h, gtkshell/dialog_options.c,
+	  gtkshell/dialog_options.h, gtkshell/dragdrop.c,
+	  gtkshell/dragdrop.h, gtkshell/file_dialog.c,
+	  gtkshell/file_dialog.h, gtkshell/font.c, gtkshell/font.h,
+	  gtkshell/geometry.c, gtkshell/geometry.h, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/guidl.lex, gtkshell/guidl.y,
+	  gtkshell/guidl_dialog.c, gtkshell/guidl_dialog.h,
+	  gtkshell/guidl_dictionary.c, gtkshell/guidl_dictionary.h,
+	  gtkshell/guidl_options.c, gtkshell/guidl_options.h,
+	  gtkshell/guidl_util.c, gtkshell/guidl_util.h,
+	  gtkshell/guidl_widgets.c, gtkshell/guidl_widgets.h,
+	  gtkshell/image_button.c, gtkshell/image_button.h,
+	  gtkshell/init.c, gtkshell/init.h, gtkshell/label.c,
+	  gtkshell/label.h, gtkshell/macros.h, gtkshell/main.c,
+	  gtkshell/menu.c, gtkshell/menu.h, gtkshell/module_includes.h,
+	  gtkshell/option_options.c, gtkshell/option_options.h,
+	  gtkshell/options.c, gtkshell/options.h, gtkshell/pane.c,
+	  gtkshell/pane.h, gtkshell/row.c, gtkshell/row.h,
+	  gtkshell/row_struct.h, gtkshell/terminal.c, gtkshell/terminal.h,
+	  gtkshell/terminal_options.c, gtkshell/terminal_options.h,
+	  gtkshell/terminal_struct.h, gtkshell/test, gtkshell/text.c,
+	  gtkshell/text.h, gtkshell/tree.c, gtkshell/tree.h,
+	  gtkshell/update_manager.c, gtkshell/update_manager.h,
+	  gtkshell/update_manager_struct.h, gtkshell/updated.c,
+	  gtkshell/updated.h, gtkshell/updated_label.c,
+	  gtkshell/updated_label.h, gtkshell/updated_options.c,
+	  gtkshell/updated_options.h, gtkshell/updated_progress.c,
+	  gtkshell/updated_progress.h: Re-added gtkshell files.   Updated
+	  TODO.
+
+2007-06-11 01:18  jefbed
+
+	* gtkshell/: Makefile, gshterm, main.c: Re-added.
+
+2007-06-11 01:16  jefbed
+
+	* gtkshell/: Makefile, about_dialog.c, about_dialog.h,
+	  add_options.c, add_options.h, app_mode.c, app_mode.h, applets.h,
+	  arguments.c, arguments.h, button.c, button.h, callbacks.c,
+	  callbacks.h, clock.c, clock.h, command_shell.c, command_shell.h,
+	  containers.c, containers.h, dialog_options.c, dialog_options.h,
+	  dragdrop.c, dragdrop.h, file_dialog.c, file_dialog.h, font.c,
+	  font.h, geometry.c, geometry.h, gshterm, gtkshell.c, gtkshell.h,
+	  guidl.lex, guidl.y, guidl_dialog.c, guidl_dialog.h,
+	  guidl_dictionary.c, guidl_dictionary.h, guidl_options.c,
+	  guidl_options.h, guidl_util.c, guidl_util.h, guidl_widgets.c,
+	  guidl_widgets.h, image_button.c, image_button.h, init.c, init.h,
+	  label.c, label.h, macros.h, main.c, menu.c, menu.h,
+	  module_includes.h, option_options.c, option_options.h, options.c,
+	  options.h, pane.c, pane.h, row.c, row.h, row_struct.h,
+	  terminal.c, terminal.h, terminal_options.c, terminal_options.h,
+	  terminal_struct.h, text.c, text.h, update_manager.c,
+	  update_manager.h, update_manager_struct.h, updated.c, updated.h,
+	  updated_label.c, updated_label.h, updated_options.c,
+	  updated_options.h, updated_progress.c, updated_progress.h:
+	  Removed, moved to libshell.
+
+2007-06-11 00:53  jefbed
+
+	* Makefile, configure, gtkshell/Makefile, gtkshell/gshterm,
+	  gtkshell/main.c, xshell/Makefile, xshell/button.c,
+	  xshell/button.h, xshell/widget.c, xshell/widget.h,
+	  xshell/xshell.c, xshell/xshell.h: Separate gtkshell class
+	  hierarchy to separate library.  Added xshell, which is to be an
+	  xlib version of gtkshell for use on low memory systems.
+
+2007-06-03 09:53  jefbed
+
+	* ACE-desktop/guidl/: ACE_Panel.gdl, Horizontal_Deskbar.gdl,
+	  Manual_Browser.gdl: Added more networking items.  Defined more
+	  icons.  Use app mode for ACE.
+
+2007-06-02 00:15  jefbed
+
+	* ACE-desktop/: ACE, guidl/IDE.gdl: Removed updater in IDE status
+	  bar.
+
+2007-06-01 22:51  jefbed
+
+	* configure, ACE-desktop/system.antiright,
+	  ACE-desktop/guidl/ACE_Panel.gdl,
+	  ACE-desktop/guidl/Administration_Panel.gdl,
+	  ACE-desktop/guidl/Clock.gdl,
+	  ACE-desktop/guidl/File_System_Panel.gdl,
+	  ACE-desktop/guidl/Horizontal_Deskbar.gdl,
+	  ACE-desktop/guidl/Manual_Browser.gdl,
+	  ACE-desktop/guidl/Monitoring_Panel.gdl,
+	  ACE-desktop/guidl/Network_Panel.gdl,
+	  ACE-desktop/guidl/Old_Deskbar.gdl,
+	  ACE-desktop/guidl/Publishing_Panel.gdl, gtkshell/Makefile,
+	  gtkshell/menu.c, libantiright/Makefile: Updated static interface
+	  panels to have icons.  Added missing items to system.antiright.
+	  Added ability to set roff flags and file from Publishing_Panel.
+	  Added manual browser link to deskbar.
+
+2007-06-01 08:04  jefbed
+
+	* ACE-desktop/system.antiright, gtkshell/image_button.c: Added
+	  Terminal to configuration file.
+
+2007-05-27 01:46  jefbed
+
+	* ACE-desktop/guidl/: ACE_Panel.gdl, Horizontal_Deskbar.gdl: Added
+	  icon for each ACE panel member.  Added more deskbar menu items.
+
+2007-05-27 01:24  jefbed
+
+	* gtkshell/: add_options.c, callbacks.c, callbacks.h, text.c,
+	  text.h: Implemented clipboard operations for text editor.
+
+2007-05-26 20:02  jefbed
+
+	* configure, gtkshell/Makefile, gtkshell/add_options.c: Sync
+	  repository, nothing to report though.
+
+2007-05-25 01:29  jefbed
+
+	* ACE-desktop/guidl/Editor.gdl, gtkshell/about_dialog.c,
+	  gtkshell/button.c: Nothing to report.
+
+2007-05-23 18:57  jefbed
+
+	* ACE-desktop/guidl/Editor.gdl, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/menu.c, gtkshell/terminal.c,
+	  gtkshell/text.c: Added recent file switcher feature for editors
+	  with view menu defined.
+
+2007-05-22 23:33  jefbed
+
+	* gtkshell/button.c: Split out function to set icon for toolbar
+	  button.
+
+2007-05-22 23:12  jefbed
+
+	* ACE-desktop/icons/: Deck.png, Deck_32.png: Added icon based on
+	  deck of death cards.
+
+2007-05-21 22:29  jefbed
+
+	* Makefile: No change.
+
+2007-05-21 17:38  jefbed
+
+	* configure, gtkshell/Makefile: Call pkg-config in configure script
+	  to generate INCLUDES, so that it will not have to be called for
+	  each source file.  Should reduce build time.
+
+2007-05-21 04:11  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl, gtkshell/add_options.c,
+	  gtkshell/clock.c, gtkshell/update_manager.c,
+	  gtkshell/update_manager_struct.h, gtkshell/updated_options.c: Use
+	  date format as was used with previous deskbar clock.	Use clock
+	  applet with deskbar.	Removed start method from update manager,
+	  as called internally.
+
+2007-05-21 02:45  jefbed
+
+	* configure, gtkshell/update_manager.c, gtkshell/updated_options.c:
+	  Fixed updating sentinel initialization.  Automatically start
+	  updates on first updater add.
+
+2007-05-20 22:46  jefbed
+
+	* configure, gtkshell/main.c: Fixed typo in debugging flags
+	  specification.  Define GC_DEBUG with debugging flags.  Call
+	  GC_INIT from main when building with boehm-gc.
+
+2007-05-20 22:29  jefbed
+
+	* configure, gtkshell/Makefile, gtkshell/add_options.c,
+	  gtkshell/applets.h, gtkshell/arguments.c, gtkshell/button.c,
+	  gtkshell/callbacks.c, gtkshell/clock.c, gtkshell/clock.h,
+	  gtkshell/gtkshell.h, gtkshell/guidl_widgets.c, gtkshell/main.c,
+	  gtkshell/module_includes.h, gtkshell/options.c,
+	  gtkshell/update_manager.c, gtkshell/update_manager_struct.h,
+	  gtkshell/updated_options.c, libantiright/Makefile,
+	  libantiright/util.c: Added clock applet.  Do checking for
+	  previously started updating within update manager.
+
+2007-05-20 05:04  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl,
+	  gtkshell/image_button.c, gtkshell/image_button.h,
+	  gtkshell/menu.c: Added support for specifying icons for submenus.
+	  Made the image retrieval utility function accessable as
+	  gsh_get_image().  Added many menu items to horizontal deskbar
+	  standardized menu.
+
+2007-05-20 03:32  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl, gtkshell/menu.c: Added
+	  continuation line support for menus.	Added menus corresponding
+	  to freedesktop.org's main application categories.
+
+2007-05-20 03:13  jefbed
+
+	* gtkshell/menu.c: Added separator support to menus, as specified
+	  by the menu item '---'.
+
+2007-05-19 09:07  jefbed
+
+	* ACE-desktop/guidl/Editor.gdl, gtkshell/Makefile,
+	  gtkshell/app_mode.c, gtkshell/app_mode.h, gtkshell/menu.c,
+	  gtkshell/module_includes.h: Added submenu supporrt.  Submenus can
+	  be opened and closed with --> and <-- as :: separated menu items,
+	  respectively.  Split out app mode code.  Added text editor.
+
+2007-05-19 07:29  jefbed
+
+	* configure, ACE-desktop/system.antiright, gtkshell/Makefile,
+	  gtkshell/callbacks.c, gtkshell/text.c: Fix merge conflicts.
+
+2007-05-17 20:19  jefbed
+
+	* gtkshell/font.c: Conditionally compile VTE-specific code.
+
+2007-05-17 20:18  jefbed
+
+	* gtkshell/add_options.c: Fix typo.
+
+2007-05-17 20:17  jefbed
+
+	* gtkshell/: add_options.c, callbacks.c: Use conditional
+	  compilation for VTE-specific code.  Fixed argc/argv mixup.
+
+2007-05-17 20:12  jefbed
+
+	* gtkshell/gtkshell.h: Test for VTE before using its header.
+
+2007-05-17 20:11  jefbed
+
+	* gtkshell/Makefile: Test for VTE when setting GTKFLAGS.
+
+2007-05-17 20:09  jefbed
+
+	* configure, gtkshell/Makefile: Added conditionals for VTE tests to
+	  build system.
+
+2007-05-17 20:04  jefbed
+
+	* configure, gtkshell/add_options.c, gtkshell/terminal.c: Added
+	  checking for presence of VTE, to allow gtkshell to be compiled
+	  where VTE is not supported, such as cygwin.
+
+2007-05-17 19:41  jefbed
+
+	* ACE-desktop/ACE: Used ability to specify startup directory in
+	  IDE_CD.
+
+2007-05-17 19:39  jefbed
+
+	* ACE-desktop/ACE: Allow startup directory to be specified for IDE.
+
+2007-05-17 19:38  jefbed
+
+	* gtkshell/button.c: Fixed extraneous function call, not used
+	  elsewhere.  Fixed unused parameter warning.
+
+2007-05-17 08:42  jefbed
+
+	* libantiright/pipe.c: Fixed file open flags, fixing segfault in
+	  case of read only file.
+
+2007-05-17 08:32  jefbed
+
+	* gtkshell/button.c, gtkshell/command_shell.c, gtkshell/macros.h,
+	  gtkshell/terminal.c, gtkshell/terminal_struct.h, gtkshell/text.c,
+	  libantiright/pipe.c: Text editor functionality added to app mode
+	  text area.  Better reporting for pipe read performed.
+
+2007-05-17 00:39  jefbed
+
+	* configure, ACE-desktop/guidl/IDE.gdl, gtkshell/Makefile,
+	  gtkshell/about_dialog.c, gtkshell/add_options.c,
+	  gtkshell/button.c, gtkshell/command_shell.c,
+	  gtkshell/command_shell.h, gtkshell/guidl_widgets.c,
+	  gtkshell/menu.c, gtkshell/module_includes.h, gtkshell/terminal.c,
+	  gtkshell/updated_label.c: Use label to stock icon conditional
+	  translation for toolbar.  Reenable IDE status bar updater.  Use
+	  gtk statusbar widget for status bar, rather than the label within
+	  a frame.  Added a command shell widget, as an eventual substitute
+	  for vte widget, particularly on the cygwin port.
+
+2007-05-15 23:04  jefbed
+
+	* gtkshell/: about_dialog.c, callbacks.c, terminal.c: Converted
+	  author setting macro to static function.
+
+2007-05-15 21:59  jefbed
+
+	* gtkshell/: button.c, gtkshell.c, image_button.c, init.c,
+	  macros.h, menu.c, terminal.c, terminal_struct.h: Added support
+	  for title and status bar updating driven by terminal.  Only add
+	  appropriate toolbuttons from menubar.  Refactored button code.
+	  Added a signal connection macro, GSHCONNECT, to macros.h.  Store
+	  a pointer to GSH in GSH_Terminal.
+
+2007-05-15 00:23  jefbed
+
+	* gtkshell/: arguments.c, button.c, button.h, containers.c, font.c,
+	  gtkshell.c, gtkshell.h, guidl_dictionary.c, init.c, label.c,
+	  macros.h, menu.c, option_options.c: Added preliminary toolbar
+	  support to app mode.	Further conversion from macros, and
+	  standardization of duplicate macros.
+
+2007-05-14 22:06  jefbed
+
+	* configure, gtkshell/add_options.c, gtkshell/add_options.h,
+	  gtkshell/arguments.c, gtkshell/arguments.h,
+	  gtkshell/containers.c, gtkshell/dialog_options.c,
+	  gtkshell/dialog_options.h, gtkshell/dragdrop.c,
+	  gtkshell/gtkshell.h, gtkshell/guidl.y, gtkshell/guidl_dialog.c,
+	  gtkshell/main.c, gtkshell/option_options.c,
+	  gtkshell/option_options.h, gtkshell/options.c,
+	  gtkshell/options.h, gtkshell/pane.c, gtkshell/terminal.c,
+	  gtkshell/terminal_options.c, gtkshell/terminal_options.h,
+	  gtkshell/terminal_struct.h, gtkshell/update_manager.c,
+	  gtkshell/updated_options.c, gtkshell/updated_options.h,
+	  libantiright/Makefile, libantiright/gui.c, libantiright/gui.h,
+	  libantiright/library.h, libantiright/util.c, libantiright/util.h:
+	  Added ARDimension structure for storing dimensions.  Refactored
+	  code previously split as macros, re-added UNUSED declarations,
+	  and fixed type specification for argv.  Use glib types where
+	  appropriate.
+
+2007-05-14 16:16  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl, gtkshell/add_options.c,
+	  gtkshell/add_options.h, gtkshell/arguments.c,
+	  gtkshell/containers.c, gtkshell/font.c, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/label.c, gtkshell/menu.c,
+	  gtkshell/option_options.c, gtkshell/option_options.h,
+	  gtkshell/options.c, gtkshell/options.h, gtkshell/pane.c,
+	  gtkshell/terminal.c, gtkshell/text.c, gtkshell/updated_label.c,
+	  gtkshell/updated_progress.c: Began refactoring of code split as
+	  macros.  Added a few more deskbar menu items.
+
+2007-05-12 03:28  jefbed
+
+	* ACE-desktop/guidl/IDE.gdl, gtkshell/callbacks.c,
+	  gtkshell/containers.c, gtkshell/gtkshell.c, gtkshell/gtkshell.h,
+	  gtkshell/guidl_options.c, gtkshell/guidl_util.c,
+	  gtkshell/macros.h, gtkshell/menu.c, gtkshell/option_options.c,
+	  gtkshell/pane.c, gtkshell/pane.h, gtkshell/row.c,
+	  gtkshell/text.c, gtkshell/text.h, libantiright/macros.h,
+	  libantiright/string.c, libantiright/string.h,
+	  libantiright/util.c, libantiright/util.h: Add option -op and
+	  guidl option "pane next" to use a pane between next and previous
+	  widgets.  Use in IDE, between terminals.  Fixed all warnings.
+
+2007-05-11 17:29  jefbed
+
+	* gtkshell/guidl_util.c: Fixed corruption of logic due to macro
+	  usage.
+
+2007-05-10 04:08  jefbed
+
+	* gtkshell/Makefile, gtkshell/about_dialog.c,
+	  gtkshell/add_options.c, gtkshell/arguments.c,
+	  gtkshell/callbacks.c, gtkshell/callbacks.h,
+	  gtkshell/dialog_options.c, gtkshell/dragdrop.c,
+	  gtkshell/file_dialog.c, gtkshell/gtkshell.c,
+	  gtkshell/guidl_util.c, gtkshell/init.c, gtkshell/init.h,
+	  gtkshell/menu.c, gtkshell/menu.h, gtkshell/module_includes.h,
+	  gtkshell/options.c, gtkshell/pane.c, gtkshell/pane.h,
+	  gtkshell/terminal.c, gtkshell/text.c, gtkshell/update_manager.c,
+	  gtkshell/updated.c, gtkshell/updated_options.c,
+	  libantiright/Makefile, libantiright/arguments.c,
+	  libantiright/arguments.h, libantiright/library.h,
+	  libantiright/macros.h, libantiright/util.c, libantiright/util.h:
+	  Continued refactoring such to make functions easier to read yet
+	  not increase function call overhead.	Separated paned container
+	  setup functions.
+
+2007-05-10 00:00  jefbed
+
+	* gtkshell/: about_dialog.c, button.c, containers.c,
+	  dialog_options.c, file_dialog.c, file_dialog.h, geometry.c,
+	  init.c, main.c, row.c, update_manager.c: Resolved conflicts from
+	  merge.  Consolidated dialog code with macros.
+
+2007-05-09 23:53  jefbed
+
+	* gtkshell/add_options.c, gtkshell/button.c, gtkshell/gtkshell.c,
+	  gtkshell/guidl_util.c, gtkshell/image_button.c, gtkshell/init.c,
+	  gtkshell/menu.c, gtkshell/options.c, gtkshell/terminal.c,
+	  gtkshell/text.c, gtkshell/text.h, gtkshell/updated_label.c,
+	  libantiright/macros.h: Fixed conflicts, reduced excessive
+	  function splitting in single use cases.
+
+2007-05-09 21:45  jefbed
+
+	* gtkshell/: image_button.c, terminal.c: Fixed double free in
+	  terminal class destructor.  Simplified image button code by
+	  eliminating function stubs.
+
+2007-05-09 21:20  jefbed
+
+	* gtkshell/: dialog_options.c, guidl_dictionary.c, guidl_util.c,
+	  image_button.c, updated.c, updated_options.c, updated_progress.c:
+	  Continued removal of stub static functions in favor of macros,
+	  where such functions are only used once and waste symbol table
+	  space.
+
+2007-05-09 20:13  jefbed
+
+	* ACE-desktop/guidl/IDE.gdl, gtkshell/callbacks.c,
+	  gtkshell/dragdrop.c, gtkshell/init.c, gtkshell/macros.h,
+	  gtkshell/terminal.c: Do not display object files in IDE recent
+	  file list in status bar.  Show a FIXME dialog until special
+	  callbacks for editor are implemented.  Added macro for displaying
+	  such a dialog.  Call gtk_main_quit() in the Exit___ special
+	  command section, so that control is returned to main, which calls
+	  the GSH destructor.  Do not free term->widget in terminal
+	  destructor, as it is freed by the gobject system once its last
+	  reference has been destroyed.
+
+2007-05-09 00:40  jefbed
+
+	* ACE-desktop/guidl/IDE.gdl, gtkshell/button.c,
+	  gtkshell/callbacks.c, gtkshell/callbacks.h, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/menu.c, gtkshell/terminal.c,
+	  gtkshell/terminal_struct.h, gtkshell/text.c,
+	  gtkshell/updated_label.c: Added terminal special callback
+	  commands.  Various refactorings to improve code size and
+	  readability.
+
+2007-05-08 17:05  jefbed
+
+	* ACE-desktop/guidl/IDE.gdl: Use new terminal commands with IDE.
+
+2007-05-06 10:23  jefbed
+
+	* ACE-desktop/ACE, ACE-desktop/guidl/IDE.gdl, gtkshell/button.c,
+	  gtkshell/callbacks.c, gtkshell/gtkshell.c, gtkshell/gtkshell.h,
+	  gtkshell/guidl_options.c, gtkshell/image_button.c,
+	  gtkshell/macros.h, gtkshell/option_options.c: Added special
+	  command handling to command callback, to allow for functions to
+	  be bound to specific buttons through the existing mechanisms.
+	  Added option to change icon size.  Use icons and application mode
+	  for IDE.  Fixed IDE CD when canceled.
+
+2007-05-06 09:00  jefbed
+
+	* configure, ACE-desktop/guidl/IDE.gdl, gtkshell/containers.c,
+	  gtkshell/gtkshell.c, gtkshell/gtkshell.h,
+	  gtkshell/guidl_dialog.c, gtkshell/guidl_dialog.h,
+	  gtkshell/guidl_dictionary.c, gtkshell/guidl_dictionary.h,
+	  gtkshell/guidl_options.c, gtkshell/guidl_options.h,
+	  gtkshell/guidl_widgets.c, gtkshell/guidl_widgets.h,
+	  gtkshell/macros.h, gtkshell/menu.c, gtkshell/option_options.c,
+	  gtkshell/options.c, gtkshell/updated_label.c: Use generic macros
+	  for guidl item addition function definition.	Added application
+	  mode support, which provides for a menubar and status bar around
+	  the main interface.
+
+2007-05-06 03:38  jefbed
+
+	* gtkshell/: add_options.c, arguments.c, button.c, containers.c,
+	  dialog_options.c, file_dialog.c, geometry.c, gtkshell.c,
+	  gtkshell.h, image_button.c, init.c, module_includes.h,
+	  option_options.c: Restructured GSH members by adding appropriate
+	  subcategories, widgets and add.  Stored include statements for
+	  all the files in module_includes.h to improve readability of
+	  gtkshell.h.
+
+2007-05-06 02:33  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl, gtkshell/arguments.c,
+	  gtkshell/button.c, gtkshell/callbacks.c, gtkshell/containers.c,
+	  gtkshell/containers.h, gtkshell/geometry.c: Code cleanups.
+	  Removed custom updater from horizontal deskbar by default.
+
+2007-05-04 05:03  jefbed
+
+	* ACE-desktop/guidl/IDE.gdl: Use new pane code for separation of
+	  major portions of display.
+
+2007-05-04 04:59  jefbed
+
+	* gtkshell/: about_dialog.c, about_dialog.h, add_options.c,
+	  button.c, dialog_options.c, guidl_widgets.c, menu.c,
+	  option_options.c, options.c, options.h, terminal_options.c,
+	  updated_options.c: Added vertical pane support.  Changed
+	  gsh_count to the macro GSH_COUNT.  Use preprocessor macros and
+	  standard constant string concatenation to set about dialog text
+	  fields.  Added a widget reparenting procedure.
+
+2007-05-04 02:55  jefbed
+
+	* gtkshell/: add_options.c, button.c, containers.c, gtkshell.c,
+	  gtkshell.h, guidl_dialog.c, guidl_options.c, guidl_util.c,
+	  guidl_widgets.c, label.c, terminal.c, updated_label.c,
+	  updated_progress.c: Continued combination of singly used and/or
+	  minimally sized functions.  Used DICT define to make DEF and
+	  selected dictionary easily modifiable.  Simplified button
+	  creation logic steps, particularly for image buttons.
+
+2007-05-04 01:23  jefbed
+
+	* ACE-desktop/guidl/IDE.gdl, gtkshell/add_options.c,
+	  gtkshell/containers.c, gtkshell/gtkshell.c, gtkshell/gtkshell.h,
+	  gtkshell/init.c, gtkshell/init.h, gtkshell/options.c,
+	  gtkshell/row.c, gtkshell/row.h, gtkshell/row_struct.h: Began
+	  setting up and using methods for GSHRows row manager class.
+
+2007-05-04 00:49  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl, gtkshell/add_options.c,
+	  gtkshell/arguments.c, gtkshell/button.c, gtkshell/button.h,
+	  gtkshell/gtkshell.c, gtkshell/gtkshell.h, gtkshell/guidl_util.c,
+	  gtkshell/image_button.c, gtkshell/label.c, gtkshell/text.c:
+	  Simplified and combined code in several areas.
+
+2007-05-03 08:36  jefbed
+
+	* gtkshell/: update_manager.c, update_manager.h,
+	  update_manager_struct.h, updated.c, updated.h, updated_options.c,
+	  updated_progress.c: Finished up changes to updater code.  Added
+	  new manager class for updater list.
+
+2007-05-03 07:42  jefbed
+
+	* configure, gtkshell/Makefile, gtkshell/add_options.c,
+	  gtkshell/font.c, gtkshell/font.h, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/guidl.y, gtkshell/guidl_dialog.c,
+	  gtkshell/guidl_dictionary.c, gtkshell/guidl_options.c,
+	  gtkshell/guidl_util.c, gtkshell/guidl_util.h,
+	  gtkshell/guidl_widgets.c, gtkshell/label.c, gtkshell/options.c,
+	  gtkshell/terminal.c, gtkshell/terminal.h,
+	  gtkshell/terminal_struct.h, gtkshell/text.c, gtkshell/updated.c,
+	  gtkshell/updated.h, gtkshell/updated_label.c,
+	  gtkshell/updated_progress.c, libantiright/macros.h,
+	  libantiright/util.c, libantiright/util.h: Reworking terminal and
+	  updater data structures.  Added function to append data to an
+	  argument list such that the most recently appended item is at
+	  argv[0].  Build is currently broken, work in progress.
+
+2007-05-02 18:55  jefbed
+
+	* gtkshell/: add_options.c, arguments.c, button.c, containers.c,
+	  gtkshell.c, gtkshell.h, image_button.c, init.c, init.h, macros.h,
+	  main.c, menu.c, option_options.c, row.c, terminal.c,
+	  terminal_options.c, terminal_struct.h, updated.c: Changed stack
+	  allocation to heap based allocation following antiright object
+	  system conventions.  Changed initialization to use object
+	  methods.
+
+2007-04-30 22:43  jefbed
+
+	* gtkshell/guidl_util.c, gtkshell/guidl_util.h, gtkshell/options.c,
+	  libantiright/util.c, libantiright/util.h: Switched ARArguments
+	  use to follow antiright class system.
+
+2007-04-30 22:15  jefbed
+
+	* ACE-desktop/guidl/IDE.gdl, gtkshell/add_options.c,
+	  gtkshell/button.c, gtkshell/guidl_options.c, gtkshell/label.c,
+	  gtkshell/label.h, gtkshell/macros.h, gtkshell/option_options.c,
+	  gtkshell/row.c, gtkshell/row.h, gtkshell/text.c,
+	  gtkshell/updated_progress.c: Changed management fill behavior.
+	  Option to affect fill of label now affects everything.  Options
+	  "no label fill" and "label fill" have been changed to "no fill"
+	  and "fill", respectively.
+
+2007-04-30 21:39  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl: Use correct eclipse
+	  command.
+
+2007-04-29 02:26  jefbed
+
+	* gtkshell/about_dialog.c, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/guidl_dialog.c,
+	  gtkshell/guidl_dictionary.c, gtkshell/guidl_dictionary.h,
+	  gtkshell/guidl_options.c, gtkshell/guidl_util.c,
+	  gtkshell/guidl_util.h, gtkshell/guidl_widgets.c, gtkshell/init.c,
+	  gtkshell/menu.c, gtkshell/options.c, gtkshell/row.c,
+	  gtkshell/terminal.c, gtkshell/terminal.h, gtkshell/text.c,
+	  gtkshell/text.h, libantiright/macros.h, libantiright/pipe.c,
+	  libantiright/pipe.h, libantiright/tuple.c, libantiright/tuple.h,
+	  libantiright/util.c, libantiright/util.h: Major refactoring and
+	  splitting out functionality to static procedures.  Started using
+	  class system extensively through dictionary code.  Began
+	  modifying base structure classes to follow class conventions.
+
+2007-04-28 01:46  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl, gtkshell/button.c,
+	  libantiright/Makefile, libantiright/library.h,
+	  libantiright/macros.h, libantiright/string.c,
+	  libantiright/string.h: Fixed button creation.  Only use
+	  assertions when DEBUG is set.  Removed passing of length variable
+	  in antiright_beautify_label subroutines.
+
+2007-04-28 01:33  jefbed
+
+	* gtkshell/: button.c, guidl.lex, menu.c: Debugging guidl button
+	  addition.
+
+2007-04-28 00:51  jefbed
+
+	* gtkshell/: button.c, guidl.lex, guidl.y, image_button.c, menu.c,
+	  row.c: Fixed menu support on broken gtk implementations by using
+	  a menubar as the base for the menu launcher button.  This
+	  eliminates the necessity for popup handler code.  Readded the
+	  button token to guidl.  Added more tests for widget type for menu
+	  support.
+
+2007-04-27 23:22  jefbed
+
+	* gtkshell/geometry.c: Fixed geometry check.
+
+2007-04-27 06:02  jefbed
+
+	* ACE-desktop/guidl/IDE.gdl, doc/gtkshell.1,
+	  gtkshell/add_options.c, gtkshell/button.c, gtkshell/button.h,
+	  gtkshell/guidl.lex, gtkshell/guidl.y, gtkshell/guidl_util.c,
+	  gtkshell/guidl_util.h, gtkshell/guidl_widgets.c,
+	  gtkshell/guidltest, gtkshell/label.c, gtkshell/label.h,
+	  libantiright/Makefile, libantiright/library.h,
+	  libantiright/macros.h, libantiright/pipe.c, libantiright/pipe.h:
+	  Added command-generated buttons and labels to command line
+	  argument syntax to ensure that system buttons and labels can be
+	  defined using the widget dictionary in GUIDL.  Switch to const
+	  gchar * type where appropriate.  Removed unneeded tokens and
+	  rules from guidl grammar.  Updated manual page.
+
+2007-04-27 03:12  jefbed
+
+	* ACE-desktop/guidl/IDE.gdl: Added a label to the top of the IDE
+	  screen displaying the current directory.
+
+2007-04-25 02:39  jefbed
+
+	* gtkshell/geometry.c: Added assertion for application structure.
+	  Combined identical conditional.
+
+2007-04-25 02:33  jefbed
+
+	* gtkshell/callbacks.c: Cleaned up callback function blocked tight
+	  scoping.
+
+2007-04-25 01:54  jefbed
+
+	* gtkshell/: button.c, callbacks.c, callbacks.h, menu.c, text.c:
+	  Unified callback data structure initialization, following the API
+	  conventions of antiright's class system.  Inlined function calls
+	  which were used to initialize variables used only once in text
+	  editor setup code.  Use antiright_read_named_file for text buffer
+	  setup.  Split out combo box default item addition, added items
+	  for IDE and Settings.  Use macro bflag modifiers in place of
+	  tests in button.c.  Eliminated useless final condition in this
+	  portion.
+
+2007-04-24 23:31  jefbed
+
+	* gtkshell/: button.c, callbacks.c, callbacks.h, guidl.y, text.c:
+	  Modified callback functions to follow the gsh_ naming prefix
+	  convention.
+
+2007-04-24 04:17  jefbed
+
+	* gtkshell/: guidl_dictionary.c, guidl_dictionary.h,
+	  guidl_options.c, guidl_options.h, guidltest: Added missing files.
+
+2007-04-23 04:51  jefbed
+
+	* ACE-desktop/: system.antiright, guidl/Horizontal_Deskbar.gdl:
+	  Added Custom_Updater field to Horizontal_Deskbar and asociated
+	  setting.
+
+2007-04-22 02:21  jefbed
+
+	* configure, ACE-desktop/guidl/IDE.gdl, gtkshell/arguments.c,
+	  gtkshell/macros.h, gtkshell/option_options.c, gtkshell/options.c:
+	  Branched 3.3, version of current is now 3.4-alpha.  Switched
+	  interface definitions to new widget addition format.	Added
+	  option to not insert dummy "guidl" argument when parsing
+	  interface definitions.  Refactored/split out some code in
+	  argument handler and guidl option handler sections.
+
+2007-04-22 02:19  jefbed
+
+	* ACE-desktop/guidl/IDE.gdl, gtkshell/arguments.c,
+	  gtkshell/macros.h, gtkshell/option_options.c, gtkshell/options.c:
+	  Added option for removal of dummy guidl argument.  Split out
+	  guidl argument handler and menubutton/button argument handler
+	  code to static subroutines.
+
+2007-04-16 06:35  jefbed
+
+	* gtkshell/button.c: Memory for the callback command string of the
+	  command button is now allocated for the callback structure, as
+	  the storage location is destroyed in case of GUIDL button.
+
+2007-04-16 06:23  jefbed
+
+	* ACE-desktop/guidl/Clock.gdl, ACE-desktop/guidl/File_Manager.gdl,
+	  ACE-desktop/guidl/Horizontal_Deskbar.gdl,
+	  ACE-desktop/guidl/IDE.gdl, ACE-desktop/guidl/Manual_Browser.gdl,
+	  ACE-desktop/guidl/Old_Deskbar.gdl, gtkshell/guidl.lex,
+	  gtkshell/guidl.y, gtkshell/guidl_widgets.c: Switched GUIDL
+	  definition format to that of looked up widgets, for the most
+	  part.
+
+2007-04-16 05:50  jefbed
+
+	* gtkshell/Makefile, gtkshell/gtkshell.h, gtkshell/guidl_util.c,
+	  gtkshell/guidl_util.h, gtkshell/guidl_widgets.c,
+	  gtkshell/guidl_widgets.h, libantiright/tuple.c,
+	  libantiright/tuple.h: Added tuple files and the initial
+	  guidl_widgets dictionary-based widget addition code.
+
+2007-04-16 05:19  jefbed
+
+	* gtkshell/button.c, gtkshell/gtkshell.c, gtkshell/guidl.y,
+	  gtkshell/guidl_dialog.c, gtkshell/guidl_util.c,
+	  gtkshell/options.c, gtkshell/row.c, gtkshell/terminal.c,
+	  libantiright/Makefile, libantiright/library.h,
+	  libantiright/util.c: Added a Tuple and a TupleVector class, which
+	  is used for storing definitions within GUIDL's dictionaries.	Set
+	  COLUMNS and LINES in terminal command script.
+
+2007-04-14 02:49  jefbed
+
+	* libantiright/: util.c, util.h: Created data structure/class for
+	  string tupules.
+
+2007-04-14 02:48  jefbed
+
+	* gtkshell/: Makefile, gtkshell.h, guidl.y, guidl_dialog.c,
+	  guidl_util.c, guidl_util.h, options.c: Use dictionaries for
+	  keyword to option mapping in GUIDL.  Use a common structure for
+	  parser data.
+
+2007-04-13 19:06  jefbed
+
+	* gtkshell/guidl_dialog.c, gtkshell/options.c,
+	  libantiright/Makefile, libantiright/library.h: Use GTree data
+	  structure for storage of key-value pairs in dictionaries.
+
+2007-04-13 18:41  jefbed
+
+	* libantiright/: Makefile, library.h: Added string to string
+	  mapping API.
+
+2007-04-13 18:23  jefbed
+
+	* gtkshell/button.c, gtkshell/dragdrop.c, libantiright/string.c:
+	  Split out string substitution portion of
+	  antiright_beautified_label().
+
+2007-04-13 07:58  jefbed
+
+	* gtkshell/: Makefile, gtkshell.h, guidl.y, guidl_dialog.c,
+	  guidl_dialog.h, guidl_util.c: Split out dialog specification code
+	  from guidl_util.c.  Made code unified by using an option lookup.
+	  Modified gsh_guidl_add such that it can be used for single
+	  options.
+
+2007-04-13 07:15  jefbed
+
+	* configure: 3.2-beta.
+
+2007-04-13 07:14  jefbed
+
+	* configure: 3.3_alpha.
+
+2007-04-13 07:05  jefbed
+
+	* configure: Changed version from alpha to beta.
+
+2007-04-13 07:00  jefbed
+
+	* gtkshell/: guidl.lex, guidl.y, guidl_util.c, guidl_util.h: Added
+	  support for command-initialized labels and buttons to guidl.
+	  This will allow for more flexible interface definitions.
+
+2007-04-13 06:37  jefbed
+
+	* configure, ACE-desktop/Makefile: Make sure manual section 5
+	  exists.  Bumped version number in configure.
+
+2007-04-13 06:36  jefbed
+
+	* ACE-desktop/Makefile: Make sure manual section 5 directory
+	  exists.
+
+2007-04-11 02:48  jefbed
+
+	* libantiright/system.c: Simplified test for backgrounding
+	  necessity.
+
+2007-04-11 02:38  jefbed
+
+	* libantiright/string.c: Split out per-character substitutions from
+	  formatted string character substitution routine.
+
+2007-04-11 02:32  jefbed
+
+	* ACE-desktop/Makefile: Make sure manual section 5 directory is
+	  correctly created.
+
+2007-04-10 01:09  jefbed
+
+	* ACE-desktop/guidl/ACE_Panel.gdl: Change ACE Panel per-column row
+	  count.  Added Image_Editor button to panel.
+
+2007-04-10 01:01  jefbed
+
+	* ACE-desktop/: ACE, system.antiright, guidl/ACE_Panel.gdl,
+	  guidl/Clock.gdl: Added a new row of buttons to ACE main panel
+	  containing system.antiright bindings.  Use direct GUIDL
+	  subroutine parameters instead of functions that basically amount
+	  to singleton stubs.  Added Clock.gdl, a desktop clock applet.
+
+2007-04-10 00:40  jefbed
+
+	* ACE-desktop/: ACE, guidl/File_System_Panel.gdl,
+	  guidl/Publishing_Panel.gdl: Used previously defined static user
+	  interface definitions in place of the ACE-embedded definitions.
+	  Added definitions for the File_System_Panel and the
+	  Publishing_Panel.
+
+2007-04-10 00:25  jefbed
+
+	* gtkshell/: arguments.c, guidl.y, guidl_util.c, guidl_util.h:
+	  Added dialog type handler functions to guidl_util.c, from
+	  guidl.y.
+
+2007-04-09 19:27  jefbed
+
+	* gtkshell/: guidl.lex, guidl.y: Added grammar definition for
+	  dialog support.
+
+2007-04-09 19:12  jefbed
+
+	* ACE-desktop/system.antiright, ACE-desktop/guidl/IDE.gdl,
+	  gtkshell/guidl.y: Hard coded IDE editor in order to avoid errors
+	  on linux related to vi not being runable outside of a terminal.
+	  Fixed missing OR in grammar definition.
+
+2007-04-09 03:44  jefbed
+
+	* gtkshell/: guidl.lex, guidl.y: Added row token to guidl grammar.
+
+2007-04-09 03:42  jefbed
+
+	* ACE-desktop/ACE: Rewrote chmod code, so that it is actually
+	  useful for something.
+
+2007-04-08 05:44  jefbed
+
+	* ACE-desktop/ACE: Began adding titles to all titled interfaces.
+	  Fixed [ error in Manual Browse Section.  Use Prompt_User function
+	  for Command.
+
+2007-04-07 20:43  jefbed
+
+	* ACE-desktop/: ACE, Makefile, guidl/ACE_Panel,
+	  guidl/ACE_Panel.gdl, guidl/Administration_Panel,
+	  guidl/Administration_Panel.gdl, guidl/Horizontal_Deskbar,
+	  guidl/Horizontal_Deskbar.gdl, guidl/Manual_Browser,
+	  guidl/Manual_Browser.gdl, guidl/Monitoring_Panel,
+	  guidl/Monitoring_Panel.gdl, guidl/Old_Deskbar,
+	  guidl/Old_Deskbar.gdl: Fixed GUIDL file installation and launch,
+	  by adding file type extension.
+
+2007-04-06 19:42  jefbed
+
+	* ACE-desktop/: ACE, guidl/Network_Panel.gdl: Added static
+	  definition for ACE Network Panel.  Use File Manager static
+	  definition for initial UI of File_Manager.
+
+2007-04-06 19:32  jefbed
+
+	* gtkshell/: Makefile, gtkshell.c, gtkshell.h, init.c, init.h,
+	  main.c: Commented initialization routines.
+
+2007-04-06 19:05  jefbed
+
+	* gtkshell/: Makefile, arguments.c, button.c, button.h, gtkshell.h,
+	  menu.c, menu.h: Split button and menu code from arguments.c.
+	  Created menu.[ch].  Added gsh_new_button function for generic
+	  button creation using a comma-separated pair.
+
+2007-04-06 18:06  jefbed
+
+	* ACE-desktop/guidl/: ACE_Panel.gdl, Horizontal_Deskbar.gdl:
+	  Modified panel for proper functionality with overrideRedirect.
+
+2007-04-02 22:42  jefbed
+
+	* gtkshell/: arguments.c, dialog_options.c: Refactored button
+	  string parsing code and dialog selection code.
+
+2007-04-02 22:31  jefbed
+
+	* gtkshell/Makefile, gtkshell/about_dialog.c,
+	  gtkshell/about_dialog.h, gtkshell/dialog_options.c,
+	  gtkshell/gtkshell.h, libantiright/pipe.c, libantiright/pipe.h:
+	  Split out about dialog code to a separate file.  Display entire
+	  license in license section of dialog.  Split out static
+	  functions.  Added utility function to retrieve text from named
+	  file, rather than just the file pointer.
+
+2007-04-02 19:37  jefbed
+
+	* gtkshell/: callbacks.c, text.c: Switched text field to combo box
+	  text entry, in order to preserve a history of entered commands.
+	  */
+
+2007-04-02 18:54  jefbed
+
+	* gtkshell/guidl.y: Added SEPARATOR token to token index of yacc
+	  file.
+
+2007-04-01 21:50  jefbed
+
+	* gtkshell/: gshterm, option_options.c: Split out nondecorated
+	  panel option into static function.  Used title option with
+	  gshterm.
+
+2007-04-01 09:34  jefbed
+
+	* ACE-desktop/guidl/File_Manager.gdl,
+	  ACE-desktop/guidl/Horizontal_Deskbar.gdl, gtkshell/add_options.c,
+	  gtkshell/guidl.lex, gtkshell/guidl.y, gtkshell/guidl_util.c,
+	  gtkshell/main.c, gtkshell/option_options.c: Added separator
+	  widget feature.  Added widget to GUIDL.  Added oT option to set
+	  the window title.  Use separator in File_Manager and
+	  Horizontal_Deskbar.
+
+2007-03-29 18:55  jefbed
+
+	* ACE-desktop/: ACE, guidl/IDE.gdl: Fixed ordering of GUIDL
+	  function and used GUIDL for execution of Administration_Panel.
+
+2007-03-26 17:09  jefbed
+
+	* ACE-desktop/guidl/File_Manager.gdl,
+	  ACE-desktop/guidl/Horizontal_Deskbar.gdl,
+	  ACE-desktop/icons/File_Manager.png,
+	  ACE-desktop/icons/File_Manager_32.png,
+	  ACE-desktop/icons/Screen.png, ACE-desktop/icons/Screen_32.png,
+	  ACE-desktop/icons/Sticky_Note.png,
+	  ACE-desktop/icons/Sticky_Note_32.png,
+	  ACE-desktop/icons/Terminal.png,
+	  ACE-desktop/icons/Terminal_32.png,
+	  ACE-desktop/icons/Text_Editor.png,
+	  ACE-desktop/icons/Text_Editor_32.png, gtkshell/terminal.c:
+	  Updated ACE-desktop icons for better appearance.  Added static
+	  definition for file manager boilerplate.  Removed excess
+	  separators from horizontal deskbar.  Removed process grouping of
+	  forked terminal processes.
+
+2007-03-24 07:17  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl, gtkshell/Makefile,
+	  gtkshell/callbacks.c, gtkshell/callbacks.h,
+	  gtkshell/dialog_options.c, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/main.c, gtkshell/option_options.c,
+	  gtkshell/terminal.c, gtkshell/terminal_struct.h: Use 'make' by
+	  default in configure.  Added a launcher for the IDE to
+	  Horizontal_Deskbar.gdl Tuned lex/yacc dependency building in
+	  Makefile.  Removed gsh_quit_cb and signal group code.  Fixed
+	  integer signedness warning in dialog_options.c.  Added an
+	  initialization routine for GSH_Terminal and used in gsh_GSH.
+	  Refactored main(), removed setting of -os from main, as parenting
+	  is delayed, thus allowing it to be done as a regular option.
+
+2007-03-22 11:32  jefbed
+
+	* ACE-desktop/guidl/Horizontal_Deskbar.gdl: Set orientation of
+	  deskbar to bottom left corner.  Grouped labeled items.  Added
+	  separators.
+
+2007-03-22 10:45  jefbed
+
+	* ChangeLog, Makefile: Updated ChangeLog and fixed bzball target of
+	  Makefile.
+
+2007-03-22 10:39  jefbed
+
+	* ACE-desktop/ACE: Added missing exit call on verification dialog.
+
+2007-03-22 10:38  jefbed
+
+	* ChangeLog: Updated ChangeLog.
+
+2007-03-22 10:13  jefbed
+
+	* ACE-desktop/ACE: Added missing exit statement for verification
+	  dialog command line switch.
+
+2007-03-22 09:41  jefbed
+
+	* ACE-desktop/ACE: Removed CVS_Commit function, as it is
+	  implemented within the IDE code fully.
+
+2007-03-22 09:41  jefbed
+
+	* README, ACE-desktop/ACE, ACE-desktop/ACE.1, ACE-desktop/AUTHORS,
+	  ACE-desktop/system.antiright, ACE-desktop/system.antiright.5,
+	  ACE-desktop/guidl/IDE.gdl, doc/INSTALL, doc/TODO: Merged
+	  revisions from antiright-3-1 of documentation.  Removed duplicate
+	  AUTHORS.  Added CVS utility buttons to IDE.gdl.  Added CVS_Commit
+	  to ACE.
+
+2007-03-22 09:37  jefbed
+
+	* ACE-desktop/ACE.1, ACE-desktop/AUTHORS,
+	  ACE-desktop/system.antiright, ACE-desktop/system.antiright.5,
+	  doc/INSTALL, doc/TODO: Pulled up some changes from antiright-3.
+	  Removed done TODO entry.  Removed duplicate AUTHORS.
+
+2007-03-22 09:29  jefbed
+
+	* README: Merged from antiright-3-0
+
+2007-03-22 09:17  jefbed
+
+	* configure: Bumped version to 3.0.3
+
+2007-03-22 09:16  jefbed
+
+	* README, doc/INSTALL: Reorganized and improved accuracy.
+
+2007-03-22 09:04  jefbed
+
+	* ACE-desktop/: system.antiright, system.antiright.5: Removed some
+	  redundant entries from system.antiright.  Improved usefulness and
+	  accuracy of its manual page.
+
+2007-03-22 08:56  jefbed
+
+	* ACE-desktop/ACE.1: Updated ACE.1 manual page, improving accuracy
+	  of information.
+
+2007-03-22 02:15  jefbed
+
+	* ACE-desktop/: ACE, system.antiright, guidl/IDE.gdl: gtkshell -al
+	  Message: -at echo -oe Close
+
+2007-03-21 13:34  jefbed
+
+	* configure, ACE-desktop/Makefile, gtkshell/Makefile,
+	  libantiright/Makefile: Improved build targets to avoid
+	  unnecessary relinking.
+
+2007-03-21 13:23  jefbed
+
+	* ACE-desktop/: guidl/IDE.gdl, icons/System_Monitor_32.png: Added
+	  needed pixmap.
+
+2007-03-20 21:14  jefbed
+
+	* ACE-desktop/ACE: Reindented case statement handling getopt
+	  arguments.  Added the -g option to launch a static GUI
+	  definition.
+
+2007-03-20 21:06  jefbed
+
+	* ACE-desktop/guidl/: Horizontal_Deskbar.gdl, IDE.gdl: Set default
+	  terminal size in IDE to 24 height, for editor component, in order
+	  for it to be usable on smaller screens.  Set the icons that are
+	  self-evident to not have labels.
+
+2007-03-19 13:18  jefbed
+
+	* ACE-desktop/ACE, ACE-desktop/guidl/IDE.gdl, gtkshell/Makefile,
+	  gtkshell/guidl.lex, gtkshell/guidl.y, gtkshell/guidl_util.c,
+	  gtkshell/label.c, gtkshell/macros.h, gtkshell/option_options.c,
+	  gtkshell/terminal.c: Added option for nonexpanding labels.  Added
+	  TODO list to IDE.  Added text area to guidl.	Added IDE launch
+	  function to ACE.
+
+2007-03-19 12:33  jefbed
+
+	* ACE-desktop/guidl/IDE.gdl, gtkshell/Makefile,
+	  gtkshell/gtkshell.h, gtkshell/guidl.lex, gtkshell/guidl.y,
+	  gtkshell/guidl_util.c, gtkshell/guidl_util.h,
+	  gtkshell/image_button.c, gtkshell/options.c, gtkshell/terminal.c:
+	  Added a vte-based IDE.  Split out functionality from grammar.
+	  Reduced duplication.	Added tokens for terminal and window.
+
+2007-03-19 10:09  jefbed
+
+	* configure, ACE-desktop/ACE, ACE-desktop/Makefile,
+	  ACE-desktop/guidl/ACE_Panel, ACE-desktop/guidl/ACE_Panel.gdl,
+	  ACE-desktop/guidl/Administration_Panel,
+	  ACE-desktop/guidl/Administration_Panel.gdl,
+	  ACE-desktop/guidl/Horizontal_Deskbar,
+	  ACE-desktop/guidl/Horizontal_Deskbar.gdl,
+	  ACE-desktop/guidl/Manual_Browser,
+	  ACE-desktop/guidl/Manual_Browser.gdl,
+	  ACE-desktop/guidl/Monitoring_Panel,
+	  ACE-desktop/guidl/Monitoring_Panel.gdl,
+	  ACE-desktop/guidl/Old_Deskbar, ACE-desktop/guidl/Old_Deskbar.gdl,
+	  ACE-desktop/icons/ACE_32.png, ACE-desktop/icons/Browser_32.png,
+	  ACE-desktop/icons/Calculator_32.png,
+	  ACE-desktop/icons/File_Manager_32.png,
+	  ACE-desktop/icons/File_Sharing_32.png,
+	  ACE-desktop/icons/Image_Editor_32.png,
+	  ACE-desktop/icons/Lock_Display_32.png,
+	  ACE-desktop/icons/Screen_32.png,
+	  ACE-desktop/icons/Sticky_Note_32.png,
+	  ACE-desktop/icons/Terminal_32.png,
+	  ACE-desktop/icons/Text_Editor_32.png,
+	  ACE-desktop/icons/Word_Processor_32.png, gtkshell/Makefile,
+	  gtkshell/gshterm, gtkshell/gtkshell.h, gtkshell/guidl.y,
+	  gtkshell/image_button.c, gtkshell/macros.h, gtkshell/main.c,
+	  gtkshell/option_options.c, gtkshell/terminal.c,
+	  gtkshell/terminal.h, gtkshell/terminal_options.c,
+	  gtkshell/terminal_options.h, gtkshell/terminal_struct.h,
+	  libantiright/library.h, libantiright/macros.h: Added 32x32
+	  versions of deskbar icons.  Split out macros from primary
+	  headers.  Bumped version to 3.2-alpha.  Added static user
+	  interface definitions, and added their use to ACE.  Split some
+	  functions in terminal.c.  Fixed font specification for gshterm
+	  script.  Added tertiary options for the terminal widget: -otf,
+	  -oth and -otw.  Added file for handling these options.
+
+2007-03-17 00:13  jefbed
+
+	* gtkshell/: terminal.c, terminal.h: Added terminal files.
+
+2007-03-17 00:12  jefbed
+
+	* gtkshell/: terminal.c, terminal.h: Added terminal widget files.
+
+2007-03-17 00:09  jefbed
+
+	* Makefile: Fix makefile targets.
+
+2007-03-16 05:01  jefbed
+
+	* ACE-desktop/guidl/ACE_Panel,
+	  ACE-desktop/guidl/Administration_Panel,
+	  ACE-desktop/guidl/Horizontal_Deskbar,
+	  ACE-desktop/guidl/Manual_Browser,
+	  ACE-desktop/guidl/Monitoring_Panel,
+	  ACE-desktop/guidl/Old_Deskbar, gtkshell/Makefile,
+	  gtkshell/gshterm: Added gshterm script, install target too.
+	  Added guidl scripts.
+
+2007-03-16 03:48  jefbed
+
+	* gtkshell/Makefile: Removed gshterm target.
+
+2007-03-16 03:44  jefbed
+
+	* ACE-desktop/ACE: Fixed duplicate entry in ACE_Panel.
+
+2007-03-16 03:39  jefbed
+
+	* Makefile, configure, ACE-desktop/ACE, ACE-desktop/Makefile,
+	  doc/gtkshell.1, gtkshell/Makefile, gtkshell/add_options.c,
+	  gtkshell/containers.c, gtkshell/containers.h, gtkshell/font.c,
+	  gtkshell/gtkshell.h, gtkshell/guidl.lex, gtkshell/guidl.y,
+	  gtkshell/image_button.c, gtkshell/main.c,
+	  gtkshell/option_options.c, gtkshell/options.c,
+	  libantiright/Makefile, libantiright/library.h: Added GUI
+	  definition language.	Is now functional.  Integrated terminal and
+	  gtkshell.  gshterm is now a wrapper script.  Fixed makefile
+	  dependencies to avoid unnecessary relinking.	Updated gtkshell.1
+	  manual page.	Added -oF option to specify no base frame.  Added
+	  -oS option to specify terminal font.	Added -as option to add a
+	  terminal widget.  Added -p option to read a guidl formatted piped
+	  stream.  Added -f option to read a guidl formatted piped file.
+	  Removed -Werr option in CFLAGS.
+
+2007-03-12 00:58  jefbed
+
+	* gtkshell/add_options.c: Fixed warning of unreachable code by
+	  adding default case containing warning for invalid option.
+
+2007-03-10 22:47  jefbed
+
+	* ChangeLog: Updated ChangeLog.
+
+2007-03-10 22:40  jefbed
+
+	* Makefile, configure: Fixed a ctags build problem on Slackware
+	  with exuberant ctags by separating ctags generation from the main
+	  build and removing the -t option.  Bumped version to 3.0.1.
+
+2007-03-10 05:25  jefbed
+
+	* ACE-desktop/Makefile: Add antiright-3 changes to
+	  ACE-desktop/Makefile.  This fixes icon dir problem.
+
+2007-03-10 05:15  jefbed
+
+	* ACE-desktop/Makefile: Fixed install path for icons.
+
+2007-03-10 05:09  jefbed
+
+	* Makefile: Fixed Makefile bzball target to include the correct
+	  branch.
+
+2007-03-10 04:45  jefbed
+
+	* Makefile, README: Merged README from antiright-3.  Added COPYING
+	  information.
+
+2007-03-10 03:19  jefbed
+
+	* README: Updated README
+
+2007-03-10 03:12  jefbed
+
+	* Makefile: Remove backup files on distclean.
+
+2007-03-10 03:00  jefbed
+
+	* description-pak: Removed extraneous whitespace from
+	  description-pak.
+
+2007-03-10 02:58  jefbed
+
+	* configure, ACE-desktop/Makefile, gtkshell/Makefile,
+	  gtkshell/arguments.c, gtkshell/button.c, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h: Removed use of splint, as it was having
+	  internal errors.  Changed version to 3.0.
+
+2007-03-10 02:18  jefbed
+
+	* ChangeLog: Make ChangeLog only reflect this branch and historical
+	  revisions.
+
+2007-03-10 02:14  jefbed
+
+	* ChangeLog: Updated ChangeLog
+
+2007-03-10 02:10  jefbed
+
+	* Makefile: Merge from HEAD.
+
+2007-03-10 01:52  jefbed
+
+	* configure, doc/gshterm.1: Added gshterm.1
+
+2007-03-10 01:50  jefbed
+
+	* Makefile, doc/gshterm.1, doc/gtkshell.1: Added gshterm manual
+	  page.  Added install target for it to Makefile.
+
+2007-03-10 01:21  jefbed
+
+	* doc/gtkshell.1: Merged gtkshell.1 from HEAD.
+
+2007-03-10 01:17  jefbed
+
+	* doc/gtkshell.1: Added description of menu specification to manual
+	  page.
+
+2007-03-10 01:12  jefbed
+
+	* doc/gtkshell.1, gtkshell/option_options.c: Updated gtkshell
+	  manual page.
+
+2007-03-09 23:06  jefbed
+
+	* configure: Changed version string to 3.1-alpha
+
+2007-03-09 23:02  jefbed
+
+	* gtkshell/Makefile: Updated Makefile.
+
+2007-03-09 23:00  jefbed
+
+	* configure, gtkshell/Makefile, gtkshell/arguments.c,
+	  gtkshell/gtkshell.c, gtkshell/gtkshell.h: Fixed Splint Makefile
+	  target to disable warnings resulting only from use of GTK.  Fixed
+	  splint parse errors.	Changed version in configure.
+
+2007-03-08 09:07  jefbed
+
+	* gtkshell/: arguments.c, gtkshell.c, guidl.lex, guidl.y: Fix some
+	  splint warnings.  Added guidl.lex and guidl.y.  These are
+	  currently just skeleton files and are not built.  They will be
+	  the definition of the GUI Definition Language, which will allow a
+	  formalization of the GUI construction procedure.  This will allow
+	  programs that use the gtkshell library to define GUIs internally,
+	  GUIs to be defined via pipes to increase security (and serve as
+	  the basis of ACE security features), and allow GUI definitions to
+	  be statically stored (decreasing the size of ACE).
+
+2007-03-07 09:44  jefbed
+
+	* Makefile, configure, ACE-desktop/Makefile, gtkshell/Makefile,
+	  gtkshell/add_options.c, gtkshell/arguments.c,
+	  gtkshell/dialog_options.c, gtkshell/dragdrop.c,
+	  gtkshell/file_dialog.h, gtkshell/font.c, gtkshell/font.h,
+	  gtkshell/gtkshell.h, gtkshell/text.c: Pull up some changes from
+	  antiright-3.
+
+2007-03-07 09:28  jefbed
+
+	* gtkshell/arguments.c, gtkshell/button.c, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, libantiright/string.h: Added splint
+	  annotations and changed code to fix warnings where appropriate.
+
+2007-03-07 06:58  jefbed
+
+	* configure, gtkshell/arguments.c, gtkshell/dialog_options.c,
+	  gtkshell/dragdrop.c, gtkshell/file_dialog.c,
+	  gtkshell/file_dialog.h, gtkshell/font.c, gtkshell/font.h,
+	  gtkshell/gtkshell.h, gtkshell/text.c: Increased warning level and
+	  fixed warnings.
+
+2007-03-06 02:42  jefbed
+
+	* configure, description-pak, ACE-desktop/AUTHORS, doc/AUTHORS,
+	  doc/antiright.lsm: Removed duplicate AUTHORS.  Updated package
+	  descriptions.
+
+2007-03-05 19:28  jefbed
+
+	* gtkshell/arguments.c, libantiright/string.c: Split
+	  antiright_beautified_string into subfunctions.
+
+2007-03-05 18:38  jefbed
+
+	* configure, ACE-desktop/Makefile: Fixed installation of directory
+	  that is no longer existant.  Added --disable-ccache and
+	  --disable-distcc options to configure.
+
+2007-03-05 04:12  jefbed
+
+	* gtkshell/add_options.c: Used function pointer specified generic
+	  to eliminate duplicate code.
+
+2007-03-05 04:05  jefbed
+
+	* ACE-desktop/ACE, gtkshell/add_options.c, gtkshell/arguments.c,
+	  gtkshell/button.c, gtkshell/image_button.c,
+	  gtkshell/image_button.h, gtkshell/row.c, gtkshell/text.c,
+	  gtkshell/text.h: Set text widgets to mono font by default.
+	  Consolidate text buffer setting.  Removed -ai and -aI options,
+	  and related functions.  Refactored button creation functions.
+	  Use new icon button definition format in ACE.  Fix spurious ! in
+	  row.c.
+
+2007-03-05 02:23  jefbed
+
+	* gtkshell/: arguments.c, button.c, gtkshell.h: Do not add command
+	  callback if button launches a menu.
+
+2007-03-05 02:12  jefbed
+
+	* gtkshell/arguments.c: Use constant string for button command.
+
+2007-03-05 02:11  jefbed
+
+	* ACE-desktop/ACE, gtkshell/add_options.c, gtkshell/arguments.c,
+	  gtkshell/button.c, gtkshell/image_button.c,
+	  gtkshell/image_button.h, gtkshell/row.c: Added support for menu
+	  buttons, along with menu items with icons.  Menus and items are
+	  specified as a "::" separated list.  Icons are specified after
+	  the command, separated by a comma.  Stock icons are used if a
+	  file name for an icon cannot be resolved, so the individual stock
+	  item addition option has been removed.
+
+2007-03-04 06:20  jefbed
+
+	* ChangeLog, Makefile, configure, ACE-desktop/ACE,
+	  ACE-desktop/Makefile, gtkshell/updated_options.c: Updated
+	  ChangeLog.  Fixed display settings of some ACE system monitoring
+	  panel functions.  Removed debug messages from updated_options.
+	  Changed Makefiles to work when building as a pkgsrc package.
+
+2007-03-02 22:12  jefbed
+
+	* gtkshell/button.c, gtkshell/callbacks.c, gtkshell/dragdrop.c,
+	  gtkshell/image_button.h, gtkshell/text.c, gtkshell/updated.c,
+	  gtkshell/updated.h, gtkshell/updated_label.c,
+	  gtkshell/updated_options.c, gtkshell/updated_progress.c,
+	  libantiright/pipe.c: Fixed off-by-one error in add_updater.  Use
+	  const gchar * in various places that do not require data to be
+	  changed.  Fixed warnings.
+
+2007-03-02 19:41  jefbed
+
+	* gtkshell/: add_options.c, containers.c, gtkshell.c, updated.c,
+	  updated_label.c, updated_label.h, updated_options.c,
+	  updated_progress.c, updated_progress.h: Refactored updater
+	  argument handling code, using generic add function with pointer
+	  to widget add funcction.  Split out functions embedded in
+	  add_options and gtkshell.c.
+
+2007-03-02 18:44  jefbed
+
+	* ACE-desktop/ACE, gtkshell/image_button.c: Stock button.
+
+2007-03-02 18:40  jefbed
+
+	* gtkshell/: add_options.c, image_button.c, image_button.h: Added
+	  stock icon support with -aS.	Use generic argument handler for
+	  image button.  Add functions implemented using pointer function
+	  to the button type.  Use generic image button creation function,
+	  with image widget passed.
+
+2007-03-02 18:04  jefbed
+
+	* gtkshell/: image_button.c, image_button.h: Split out image button
+	  functions.
+
+2007-03-02 06:56  jefbed
+
+	* ACE-desktop/ACE, ACE-desktop/ACE.1, ACE-desktop/Makefile,
+	  gtkshell/Makefile, gtkshell/add_options.c, gtkshell/button.c,
+	  gtkshell/button.h, gtkshell/callbacks.c, gtkshell/containers.c,
+	  gtkshell/dragdrop.c, gtkshell/geometry.c, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/label.c, gtkshell/main.c,
+	  gtkshell/option_options.c, gtkshell/text.c,
+	  gtkshell/updated_options.c, libantiright/pipe.c,
+	  libantiright/pipe.h, libantiright/util.h: Replaced GSH_Flags with
+	  gsh->bflags, which stores bitmasks.  Added pipe opening support
+	  for label and text area.  Added generic file open function to
+	  libantiright.  Used to implement text viewer and
+	  antiright_pipe_read.	Added generic bitmasks to util.h.  Added
+	  GSH_ bitmask definitions to gtkshell.h.  Invert meaning of
+	  scrolling flag.  Updated ACE.1 manual page.  Specifically install
+	  manual pages in ACE-desktop Makefile, rather than using shell
+	  metacharacter.
+
+2007-03-01 21:54  jefbed
+
+	* gtkshell/: add_options.c, gtkshell.c, main.c, row.c: Count rows
+	  base one.  Add support for multiple main windows.  Only geometry
+	  of last created window is managed.
+
+2007-03-01 09:18  jefbed
+
+	* ACE-desktop/ACE: Fixed stray temp file write in manual browser.
+
+2007-03-01 09:13  jefbed
+
+	* ACE-desktop/ACE, ACE-desktop/system.antiright,
+	  libantiright/string.c: Reimplemented antiright_beautify_label().
+	  Reimplemented ACE's Deskbar, Settings utility, File Manager, and
+	  manual page browser to use variable command construction rather
+	  than temporary files.  This should improve security, speed, and
+	  ease of development.
+
+2007-02-28 09:55  jefbed
+
+	* ACE-desktop/ACE, gtkshell/add_options.c, gtkshell/callbacks.c,
+	  gtkshell/dragdrop.c, gtkshell/gtkshell.c, gtkshell/main.c,
+	  gtkshell/text.c: Added command to find cd commands in strings.
+	  May be adapted to a generic command lexer.
+
+2007-02-28 06:53  jefbed
+
+	* doc/indent.pro, gtkshell/add_options.c, gtkshell/add_options.h,
+	  gtkshell/arguments.c, gtkshell/arguments.h, gtkshell/button.c,
+	  gtkshell/button.h, gtkshell/callbacks.c, gtkshell/callbacks.h,
+	  gtkshell/containers.c, gtkshell/containers.h,
+	  gtkshell/dialog_options.c, gtkshell/dialog_options.h,
+	  gtkshell/dragdrop.c, gtkshell/dragdrop.h, gtkshell/file_dialog.c,
+	  gtkshell/file_dialog.h, gtkshell/font.c, gtkshell/font.h,
+	  gtkshell/geometry.c, gtkshell/geometry.h, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/label.c, gtkshell/label.h,
+	  gtkshell/main.c, gtkshell/option_options.c,
+	  gtkshell/option_options.h, gtkshell/options.c,
+	  gtkshell/options.h, gtkshell/row.c, gtkshell/row.h,
+	  gtkshell/text.c, gtkshell/text.h, gtkshell/updated.c,
+	  gtkshell/updated.h, gtkshell/updated_label.c,
+	  gtkshell/updated_label.h, gtkshell/updated_options.c,
+	  gtkshell/updated_options.h, gtkshell/updated_progress.c,
+	  gtkshell/updated_progress.h, libantiright/library.h,
+	  libantiright/pipe.c, libantiright/pipe.h, libantiright/string.c,
+	  libantiright/string.h, libantiright/system.c,
+	  libantiright/system.h, libantiright/util.c, libantiright/util.h:
+	  Fixed bug involving comparison between integer and pointer.
+	  Reindented source.
+
+2007-02-28 06:23  jefbed
+
+	* configure: Added support for NetBSD linkfarm prefix
+	  /usr/local/packages/antiright.
+
+2007-02-28 06:22  jefbed
+
+	* ACE-desktop/ACE: Set style if 1 by default.
+
+2007-02-28 02:38  jefbed
+
+	* gtkshell/options.c: Backed out last feature, as modification is
+	  useless.
+
+2007-02-28 02:31  jefbed
+
+	* gtkshell/: button.c, dragdrop.c, dragdrop.h, options.c: Added
+	  support for redefining a button's label once it has already been
+	  initialized.	Check for button_exits flag on drag_end signal.
+
+2007-02-28 02:08  jefbed
+
+	* ACE-desktop/ACE: Added chmod interface.  Check if file manager is
+	  running before respawning one.
+
+2007-02-28 01:54  jefbed
+
+	* ACE-desktop/ACE, gtkshell/dragdrop.c: Began implementation of
+	  drag and drop file manager.  Set gtkshell to exit on drop if
+	  button_exits flag is set.
+
+2007-02-26 22:51  jefbed
+
+	* doc/TODO: Added item, work on session management.
+
+2007-02-26 22:50  jefbed
+
+	* gtkshell/button.c: Split out label setting code.
+
+2007-02-26 19:39  jefbed
+
+	* ACE-desktop/ACE, doc/TODO, gtkshell/label.c,
+	  gtkshell/option_options.c, gtkshell/updated.c: Reindented various
+	  functions.  Fixed horizontal labels (again).	Fixed crash on
+	  linux involving updaters.
+
+2007-02-26 18:30  jefbed
+
+	* ACE-desktop/ACE: Fixed a bug that occurs when bash executes ACE,
+	  where the empty Debug function was indicated as a syntax error.
+	  Added checking of the SHELL environment variable in order to
+	  execute the user's default shell by default.
+
+2007-02-26 00:33  jefbed
+
+	* Makefile, ACE-desktop/ACE, ACE-desktop/Makefile,
+	  ACE-desktop/dateload.c, doc/gtkshell.1: Replaced dateload.  Fixed
+	  default font setting on gshterm.
+
+2007-02-25 13:48  jefbed
+
+	* doc/HACKING, doc/gtkshell.1, gtkshell/add_options.c,
+	  gtkshell/arguments.c: Removed HACKING as it is largely
+	  irrelevant.  Began the process of updating the gtkshell manual
+	  page.
+
+2007-02-25 12:35  jefbed
+
+	* gtkshell/: dragdrop.c, gtkshell.h: Implemented commandline
+	  specification of button commands by drag and drop.
+
+2007-02-24 11:50  jefbed
+
+	* ACE-desktop/ACE: Added temporary file utility functions.  Console
+	  script displays multiple files.
+
+2007-02-24 11:49  jefbed
+
+	* gtkshell/: Makefile, button.c, dragdrop.c, dragdrop.h,
+	  gtkshell.h, label.c: Added preliminary drag and drop support.
+
+2007-02-24 03:05  jefbed
+
+	* gtkshell/callbacks.c, gtkshell/geometry.c,
+	  libantiright/library.h: Changed use of asprintf to ar_asprintf.
+	  Parenthesized AR[BP]BOOL macros.
+
+2007-02-24 01:52  jefbed
+
+	* libantiright/string.h: Fixed a bug in gshterm command
+	  construction involving an inverse boolean condition.	Changed
+	  asprintf instances to ar_asprintf.
+
+2007-02-24 00:23  jefbed
+
+	* ACE-desktop/ACE, gtkshell/gtkshell.h, libantiright/pipe.c,
+	  libantiright/string.c, libantiright/system.c,
+	  libantiright/system.h: Reimplemented antiright_system.  Added
+	  ar_asprintf.
+
+2007-02-23 22:15  jefbed
+
+	* ACE-desktop/ACE, gtkshell/containers.c, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/label.c, gtkshell/option_options.c,
+	  gtkshell/text.c: Added option to support frames around labels.
+	  Use option with Console.  Add frame if window is managed without
+	  scrolled window.  Allow specification of logfile for Console.
+
+2007-02-23 18:57  jefbed
+
+	* libantiright/: pipe.c, util.c: Added check of data in vsysprintf.
+	  Reimplement pipe reader using fread.
+
+2007-02-23 18:30  jefbed
+
+	* libantiright/system.c: Reimplemented antiright_system using
+	  glib_spawn_command_line_asyncc().
+
+2007-02-23 06:13  jefbed
+
+	* gtkshell/dialog_options.c: Fixed case fall-through.
+
+2007-02-23 06:11  jefbed
+
+	* gtkshell/add_options.c, gtkshell/arguments.c, gtkshell/button.c,
+	  gtkshell/callbacks.c, gtkshell/containers.c,
+	  gtkshell/dialog_options.c, gtkshell/geometry.c,
+	  gtkshell/gtkshell.c, gtkshell/gtkshell.h, gtkshell/main.c,
+	  gtkshell/options.c, gtkshell/row.c, gtkshell/text.c,
+	  gtkshell/updated.c, gtkshell/updated.h, gtkshell/updated_label.c,
+	  gtkshell/updated_label.h, gtkshell/updated_options.c,
+	  gtkshell/updated_progress.c, gtkshell/updated_progress.h,
+	  libantiright/library.h: Use libantiright assertion macros.
+	  Declare functions static where appropriate.  Change command
+	  assignment in callback structure of command button to reference.
+	  Added libantiright conditional macros.
+
+2007-02-23 02:20  jefbed
+
+	* libantiright/library.h: Added pointer and gboolean assertion
+	  wrappers, ARPASSERT and ARBASSERT.
+
+2007-02-23 02:19  jefbed
+
+	* gtkshell/font.c: Fixed failure to pass parameter in
+	  gsh_widget_set_font.	Added assertions of parameters.
+
+2007-02-23 02:16  jefbed
+
+	* gtkshell/: Makefile, button.c, font.c, font.h, label.c, text.c:
+	  Split out font setting code from text.c into font.c for use by
+	  other widgets.  Set default label font to monospaced.  Split out
+	  setting of label options.
+
+2007-02-23 01:13  jefbed
+
+	* gtkshell/: Makefile, callbacks.c, dialog_options.c, gtkshell.c,
+	  gtkshell.h, options.c, updated.c, updated.h: Added lint target to
+	  gtkshell Makefile.  This requires 'splint'.  Began resolution of
+	  problems reported.  Began change from assertion checks to
+	  warnings and function cancelation on test failure.  Use stronger
+	  typing for updater structure.
+
+2007-02-22 01:35  jefbed
+
+	* ACE-desktop/ACE: Added desktop clock app.  Useful for buggy gtk
+	  on linux, which does not correctly display multilined labels.
+
+2007-02-22 00:39  jefbed
+
+	* gtkshell/: callbacks.c, gtkshell.c, main.c, text.c, updated.c,
+	  updated_label.c: Fixed updater list initialization, fixing a
+	  crash on linux.  Fixed assignment warning in text.c.	Fixed
+	  inappropriate calls of UNUSED.  Added more extensive assertions
+	  and debugging messages to the updater code.
+
+2007-02-21 22:44  jefbed
+
+	* configure, ACE-desktop/ACE, gtkshell/button.c,
+	  gtkshell/callbacks.c, gtkshell/main.c: Changed layout of ACE
+	  Settings window.  Changed allocation of application structure for
+	  gtkshell to main stack.  Added detection of distcc to configure.
+
+2007-02-21 19:15  jefbed
+
+	* configure, ACE-desktop/ACE, ACE-desktop/Makefile,
+	  gtkshell/gtkshell.c, gtkshell/label.c, gtkshell/option_options.c:
+	  Fixed horizontal labels.  Added check for ccache to configure.
+
+2007-02-20 07:29  jefbed
+
+	* ACE-desktop/dateload.c, doc/indent.pro, gtkshell/add_options.h,
+	  gtkshell/arguments.c, gtkshell/arguments.h, gtkshell/button.c,
+	  gtkshell/button.h, gtkshell/callbacks.c, gtkshell/callbacks.h,
+	  gtkshell/containers.c, gtkshell/containers.h,
+	  gtkshell/dialog_options.c, gtkshell/dialog_options.h,
+	  gtkshell/file_dialog.c, gtkshell/file_dialog.h,
+	  gtkshell/geometry.c, gtkshell/geometry.h, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/label.c, gtkshell/label.h,
+	  gtkshell/main.c, gtkshell/option_options.c,
+	  gtkshell/option_options.h, gtkshell/options.c,
+	  gtkshell/options.h, gtkshell/row.c, gtkshell/row.h,
+	  gtkshell/text.c, gtkshell/text.h, gtkshell/updated.c,
+	  gtkshell/updated.h, gtkshell/updated_label.c,
+	  gtkshell/updated_label.h, gtkshell/updated_options.c,
+	  gtkshell/updated_options.h, gtkshell/updated_progress.c,
+	  gtkshell/updated_progress.h, libantiright/library.h,
+	  libantiright/pipe.c, libantiright/pipe.h, libantiright/string.c,
+	  libantiright/string.h, libantiright/system.c,
+	  libantiright/system.h, libantiright/util.c, libantiright/util.h:
+	  Reindented all sources.  Added indentation profile to doc dir.
+
+2007-02-20 06:59  jefbed
+
+	* ACE-desktop/ACE, ACE-desktop/dateload.c, gtkshell/add_options.c,
+	  gtkshell/callbacks.c, gtkshell/gtkshell.c, gtkshell/gtkshell.h,
+	  gtkshell/label.c, gtkshell/option_options.c, gtkshell/row.c,
+	  gtkshell/text.c, gtkshell/updated_label.c: Modified layout to be
+	  unexpanded on certain widgets.  Do not do this with only one
+	  vertical row.  Removed printing of newline from ctime output in
+	  dateload, formatted output improved.	Clear text when entered
+	  into text entry.  Make text entry exit when -oe set, remove -ap.
+	  Make text entry echo when -oE is set.  Reindent add_options.c.
+	  Stop using pango markup for label update, as certain input causes
+	  errors, even when encapsulated as documented.  Set max label
+	  width to 80 chars.  Changed ACE according to these changes.
+
+2007-02-19 23:58  jefbed
+
+	* ACE-desktop/ACE, gtkshell/button.c, gtkshell/gtkshell.h,
+	  gtkshell/label.c, gtkshell/row.c, gtkshell/row.h,
+	  gtkshell/text.c, gtkshell/updated_progress.c: Fixed layout, such
+	  that labels, single line text areas, and buttons do not expand to
+	  fill empty space.  This should allow more complex and condensed
+	  layouts.
+
+2007-02-19 04:43  jefbed
+
+	* configure, gtkshell/add_options.c, gtkshell/dialog_options.c,
+	  gtkshell/gtkshell.h, gtkshell/option_options.c, gtkshell/text.c,
+	  gtkshell/text.h: Bumped version to 2.99.8.  Removed icon box
+	  stub.  Added about dialog.  Check gsh->geometry before setting,
+	  to avoid memory leak.  Added text file viewer.
+
+2007-02-19 01:43  jefbed
+
+	* ACE-desktop/ACE, ACE-desktop/dateload.c,
+	  ACE-desktop/system.antiright, gtkshell/button.c,
+	  gtkshell/dialog_options.c, gtkshell/geometry.c, gtkshell/row.c,
+	  gtkshell/updated.c, libantiright/library.h: Removed newline in
+	  dateload output.  Changed geometry specification in ACE Deskbar.
+	  Rewrote awk command to determine screen dimensions.  Modified
+	  ACE_Verification function to not use scrolled window, to format
+	  prompt, and to only show yes and no in the choices.  Added color
+	  selection dialog to gtkshell.  Added ARBUG, ARWARN, and ARERR
+	  macros to libantiright.  Split out the check portion of
+	  gsh_check_and_set_geometry.  Added a missing, though unnecessary,
+	  break statement to the dialog option switch.
+
+2007-02-18 02:55  jefbed
+
+	* gtkshell/containers.c: Indentation.
+
+2007-02-18 02:34  jefbed
+
+	* gtkshell/option_options.c: Differences merged.
+
+2007-02-18 02:32  jefbed
+
+	* gtkshell/gtkshell.h: Added horizontal_labels flag.
+
+2007-02-18 02:32  jefbed
+
+	* gtkshell/updated_label.c: Resolve conflicts.
+
+2007-02-18 02:29  jefbed
+
+	* gtkshell/: label.c, label.h: Support vertical labels.  Return the
+	  widget.
+
+2007-02-18 02:19  jefbed
+
+	* gtkshell/updated_label.c: Resolved conflicts.
+
+2007-02-18 02:13  jefbed
+
+	* configure: Modified compiler selection, to be selected by user if
+	  not cc.
+
+2007-02-18 02:12  jefbed
+
+	* ACE-desktop/: dateload.c, system.antiright: Updated
+	  system.antiright for Deskbar changes.
+
+2007-02-18 02:10  jefbed
+
+	* ACE-desktop/ACE: Added another Deskbar syle.
+
+2007-02-18 02:07  jefbed
+
+	* gtkshell/button.c, gtkshell/geometry.c, gtkshell/gtkshell.c,
+	  gtkshell/gtkshell.h, gtkshell/option_options.c, gtkshell/row.c,
+	  gtkshell/updated.c, gtkshell/updated.h, gtkshell/updated_label.c,
+	  gtkshell/updated_options.c, gtkshell/updated_progress.c,
+	  libantiright/util.c: Converted the updater code to use the new
+	  application structure framework.  Unified debugging message
+	  formats.  Changed xmalloc to a raw g_malloc call, as g_malloc
+	  will terminate if memory allocation unsuccessful.
+
+2007-02-17 03:54  jefbed
+
+	* ACE-desktop/: COPYING, Makefile: Removed duplicate COPYING file
+	  and installation instruction.
+
+2007-02-17 02:43  jefbed
+
+	* ChangeLog: Updated ChangeLog
+
+2007-02-17 01:18  jefbed
+
+	* gtkshell/: button.c, gtkshell.c, gtkshell.h, main.c, row.c: Fixed
+	  row layout bug in gtkshell.  Added file unlinking to gshterm main
+	  method and used gtk_main_quit for the terminal client exit
+	  callback, removing exit.[ch] functions.  Fixed memory leaks by
+	  recursively deleting application structures before gtk_main.
+
+2007-02-13 06:23  jefbed
+
+	* configure, gtkshell/arguments.h, gtkshell/button.c,
+	  gtkshell/dialog_options.c, gtkshell/file_dialog.c,
+	  gtkshell/geometry.c, gtkshell/gtkshell.c, gtkshell/gtkshell.h,
+	  gtkshell/option_options.h, gtkshell/row.c, gtkshell/row.h,
+	  gtkshell/text.c, gtkshell/text.h, gtkshell/updated_label.c,
+	  gtkshell/updated_label.h, gtkshell/updated_options.c,
+	  gtkshell/updated_options.h, gtkshell/updated_progress.c,
+	  gtkshell/updated_progress.h: Finished global structuring.
+
+2007-02-12 19:36  jefbed
+
+	* gtkshell/: add_options.c, add_options.h, arguments.c,
+	  arguments.h, button.c, button.h, callbacks.c, callbacks.h,
+	  containers.c, containers.h, dialog_options.c, dialog_options.h,
+	  file_dialog.c, file_dialog.h, geometry.c, geometry.h, gtkshell.c,
+	  gtkshell.h, label.c, label.h, main.c, option_options.c,
+	  option_options.h, options.c, options.h, row.h: Began global
+	  variable elimination and structuring.
+
+2007-02-12 00:42  jefbed
+
+	* gtkshell/geometry.c: Organized gsh_check_and_set_geometry() to be
+	  less redundant internally.
+
+2007-02-11 07:23  jefbed
+
+	* gtkshell/Makefile, gtkshell/geometry.c, gtkshell/geometry.h,
+	  gtkshell/gtkshell.c, gtkshell/gtkshell.h, libantiright/util.c,
+	  libantiright/util.h: Split out geometry parsing functions in
+	  gtkshell.  Added random number generation functions to
+	  libantiright.
+
+2007-02-10 21:54  jefbed
+
+	* configure, ACE-desktop/Makefile, gtkshell/Makefile: Build with
+	  distcc, if present.
+
+2007-02-09 19:40  jefbed
+
+	* ACE-desktop/Makefile, ACE-desktop/dateload.c,
+	  libantiright/library.h: Set up dateload build to link to
+	  libantiright.a and glib.
+
+2007-02-09 19:28  jefbed
+
+	* libantiright/: Makefile, library.h, string.c, system.c, util.c:
+	  Link libantiright.a to glib.	Use g_malloc instead of malloc in
+	  xmalloc.  Reindent antiright_system(). Remove commented code in
+	  string.c.
+
+2007-02-09 19:10  jefbed
+
+	* gtkshell/updated_label.c: Split out functions performed at exit
+	  in gshterm.  Split out result verification in updated_label
+	  updater function.
+
+2007-02-09 06:16  jefbed
+
+	* ChangeLog, Makefile, ACE-desktop/dateload.c, gtkshell/Makefile,
+	  gtkshell/arguments.c, gtkshell/callbacks.c,
+	  gtkshell/containers.c, gtkshell/containers.h,
+	  gtkshell/gtkshell.c, gtkshell/gtkshell.h, gtkshell/row.c,
+	  gtkshell/row.h, gtkshell/updated.c, gtkshell/updated_options.c,
+	  libantiright/library.h, libantiright/system.c,
+	  libantiright/system.h, libantiright/util.h: Updated ChangeLog.
+	  Added ctags generation to Makefile.  Added UNUSED macro.  Added
+	  sysprintf() and vsysprintf().  Refactored gshterm command
+	  generation.  Split out container management code in gtkshell.[ch]
+	  to containers.[ch].
+
+2007-02-09 02:22  jefbed
+
+	* Makefile, gtkshell/callbacks.c, gtkshell/callbacks.h,
+	  gtkshell/text.c, libantiright/util.c: Added tags generation to
+	  main makefile.  Added geometry support to gshterm.  Removed
+	  gshedit.
+
+2007-02-07 19:44  jefbed
+
+	* doc/TODO, doc/gtkshell.1, gtkshell/options.c, gtkshell/row.c,
+	  gtkshell/row.h: Began revision of manual page.  Added stub for
+	  help option.	Added files row.[ch] to store row container
+	  handling functions.
+
+2007-02-07 19:28  jefbed
+
+	* configure: Bumped version to 2.99.6
+
+2007-02-07 19:27  jefbed
+
+	* gtkshell/: options.c, updated_options.c: Refactored
+	  updated_options.c switch.  Use g_printerr for undefined error in
+	  options.c.
+
+2007-02-07 19:05  jefbed
+
+	* gtkshell/: add_options.c, updated_label.c: A check for empty
+	  output was added to updated_label.c to prevent a gtk warning.
+
+2007-02-05 18:55  jefbed
+
+	* configure: Fixed stow path in -s option to configure.
+
+2007-02-04 09:58  jefbed
+
+	* ChangeLog, Makefile, config.mk, configure, ACE-desktop/Makefile:
+	  Removed gshedit.  gshterm is fully functional.
+
+2007-02-04 07:44  jefbed
+
+	* Makefile, config.mk, ACE-desktop/Makefile, ACE-desktop/config.mk,
+	  ACE-desktop/configure, gtkshell/gtkshell.c, gtkshell/gtkshell.h,
+	  gtkshell/main.c: Added the gshedit and gshterm utilities, based
+	  on gtksourceview and libvte, respectively.  Make ACE-desktop use
+	  the base build system.
+
+2007-02-03 23:11  jefbed
+
+	* ChangeLog, ACE-desktop/ACE, ACE-desktop/ACE.1,
+	  ACE-desktop/AUTHORS, ACE-desktop/COPYING, ACE-desktop/Makefile,
+	  ACE-desktop/config.mk, ACE-desktop/configure,
+	  ACE-desktop/dateload.c, ACE-desktop/postinstall-pak,
+	  ACE-desktop/system.antiright, ACE-desktop/system.antiright.5,
+	  ACE-desktop/icons/ACE.png, ACE-desktop/icons/Browser.png,
+	  ACE-desktop/icons/Calculator.png,
+	  ACE-desktop/icons/File_Manager.png,
+	  ACE-desktop/icons/File_Sharing.png,
+	  ACE-desktop/icons/Image_Editor.png,
+	  ACE-desktop/icons/Lock_Display.png, ACE-desktop/icons/Screen.png,
+	  ACE-desktop/icons/Sticky_Note.png,
+	  ACE-desktop/icons/System_Monitor.png,
+	  ACE-desktop/icons/Terminal.png,
+	  ACE-desktop/icons/Text_Editor.png,
+	  ACE-desktop/icons/Word_Processor.png: Reintegrated ACE-desktop.
+
+2007-02-01 23:45  jefbed
+
+	* ACE, Makefile, configure, description-pak, postinstall-pak,
+	  system.antiright, doc/ACE.1, doc/TODO, doc/antiright.lsm,
+	  doc/flshell.1, doc/gtkshell.1, doc/system.antiright.5,
+	  gtkshell/Makefile, gtkshell/add_options.c,
+	  gtkshell/add_options.h, gtkshell/arguments.c,
+	  gtkshell/arguments.h, gtkshell/button.c, gtkshell/button.h,
+	  gtkshell/callbacks.c, gtkshell/callbacks.h,
+	  gtkshell/dialog_options.c, gtkshell/dialog_options.h,
+	  gtkshell/file_dialog.c, gtkshell/file_dialog.h,
+	  gtkshell/gtkshell.c, gtkshell/gtkshell.h, gtkshell/label.c,
+	  gtkshell/label.h, gtkshell/main.c, gtkshell/option_options.c,
+	  gtkshell/option_options.h, gtkshell/options.c,
+	  gtkshell/options.h, gtkshell/text.c, gtkshell/text.h,
+	  gtkshell/updated.c, gtkshell/updated.h, gtkshell/updated_label.c,
+	  gtkshell/updated_label.h, gtkshell/updated_options.c,
+	  gtkshell/updated_options.h, gtkshell/updated_progress.c,
+	  gtkshell/updated_progress.h, libantiright/Makefile,
+	  libantiright/util.c: Brought CVS up to date.	This syncs with the
+	  antiright-2.99.4 source tree.  ACE has been separated into
+	  ACE-desktop, but will be reintegrated into the tree soon.
+
+2006-08-23 11:15  jefbed
+
+	* gtkshell/: Makefile, main.c: Changed to GTK2.
+
+2006-08-12 07:52  jefbed
+
+	* Makefile, config.mk, description-pak, libantiright/Makefile,
+	  libantiright/library.h, libantiright/pipe.c, libantiright/pipe.h,
+	  libantiright/string.c, libantiright/string.h,
+	  libantiright/system.c, libantiright/system.h,
+	  libantiright/util.c, libantiright/util.h: Changed description to
+	  indicate FLTK as being the toolkit.
+
+2006-07-25 01:53  jefbed
+
+	* ACE, Makefile, Makefile.in, configure, system.antiright,
+	  doc/arshell.1, doc/flshell.1: Establish flshell as arshell
+	  replacement.
+
+2006-07-23 08:00  jefbed
+
+	* Makefile.in, configure, doc/arshell.1: Begin antiright 3.0
+	  development, based on FLTK.
+
+2006-04-21 13:34  jefbed
+
+	* ChangeLog, configure: Updated ChangeLog.  Improved graph
+	  appearance through use of lighter colors.  Graphing of equation
+	  commands now works.  Desktop publishing, IRC, and disk space
+	  admin commands were added to ACE.  Functions were moved into
+	  clockload.c after futher extraction from update.c.  Handling of
+	  nonexistant and read-only files has been added to file.c.
+
+2006-04-15 06:47  jefbed
+
+	* configure: Fixed a long-standing memory leak in
+	  antiright_pipe_read.	Bumped version number to 2.15.	Refactored
+	  clockload applet code.
+
+2006-03-29 05:09  jefbed
+
+	* Makefile.in, postinstall-pak: Integrated AR and ARO scripts into
+	  ACE.
+
+2006-03-29 05:06  jefbed
+
+	* doc/: ACE.1, AR.1, ARO.1, arshell.1, system.antiright.5: Removed
+	  unneeded manual pages.  Removed references to nonextant manual
+	  pages.
+
+2006-03-27 04:21  jefbed
+
+	* Makefile.in: Removed appendage code because of its utterly
+	  useless state and purpose.
+
+2006-03-27 03:59  jefbed
+
+	* Makefile.in: Removed the interface file language code, for the
+	  same functionality can be implemented in awk.  It was originally
+	  implemented to overcome the limitation on the number of command
+	  line arguments, but the allowed amount on most unix systems is
+	  definately not a limiting factor.
+
+2006-03-27 03:33  jefbed
+
+	* configure: Version number bumped to 2.14.  Yaclib was removed in
+	  order to ensure license purity of package and to reduce package
+	  size.
+
+2006-03-19 06:46  jefbed
+
+	* README: Updated README to indicate the necessity of GNU Make for
+	  building.  Fixed a problem with misplaced parentheses in ACE.
+
+2006-03-14 05:58  jefbed
+
+	* ChangeLog: Updated ChangeLog for release 2.13.
+
+2006-03-13 07:11  jefbed
+
+	* Makefile.in: Fixed distribution build target for bzball and zip
+	  to include distclean.  Removed Desktop().
+
+2006-03-13 06:38  jefbed
+
+	* configure, doc/TODO: Updated TODO, Updated version in configure,
+	  fixed Command button in ACE panel, and enabled word wrap on the
+	  text work area.
+
+2006-01-27 06:50  jefbed
+
+	* doc/antiright.lsm: Initial BASH removal.
+
+2006-01-27 01:10  jefbed
+
+	* configure: Added support for libraries and headers located in
+	  /usr/pkg
+
+2005-11-24 04:36  jefbed
+
+	* Makefile.in, configure: Added support for the tcc compiler,
+	  though linking still needs to be debugged, as the compiler
+	  segfaults.
+
+2005-11-14 04:56  jefbed
+
+	* Makefile.in, configure: Fixed prefixes.
+
+2005-11-14 04:43  jefbed
+
+	* configure: Changed path setup to allow for home directory and
+	  stow installation.
+
+2005-09-27 03:37  jefbed
+
+	* ChangeLog: Updated for version 2.12.
+
+2005-09-27 03:26  jefbed
+
+	* doc/arcd.1: Removed unneeded manual page.
+
+2005-09-27 01:52  jefbed
+
+	* README, doc/AUTHORS, doc/HACKING, doc/INSTALL, doc/antiright.lsm:
+	  Removed unnecessary files, updated documentation, and added a
+	  Debian panel to ACE.
+
+2005-09-24 01:37  jefbed
+
+	* Makefile.in: Removed unused targets.
+
+2005-09-24 01:35  jefbed
+
+	* configure: Removed unneeded files and increased antiright version
+	  to 2.12.
+
+2005-07-31 20:27  jefbed
+
+	* configure: Increased version to 2.11.  Removed Xlt and yaclib
+	  detection code, as Xlt is no longer used and yaclib is included.
+	  Removed define of HAVE_YACLIB.
+
+2005-07-31 20:25  jefbed
+
+	* description-pak: Added detail to the description with a special
+	  emphasis on arshell.
+
+2005-07-31 20:22  jefbed
+
+	* ChangeLog: Updated ChangeLog using cvs2cl.
+
+2005-07-26 05:17  jefbed
+
+	* ChangeLog: Updated for GUIShell 2.10.
+
+2005-07-23 21:10  jefbed
+
+	* ChangeLog, Makefile.in, configure, doc/ACE.1, doc/AR.1,
+	  doc/ARO.1, doc/AUTHORS, doc/antiright.lsm, doc/arcd.1,
+	  doc/arshell.1, doc/system.antiright.5: Changed email address from
+	  jefbed@e-list.net to antiright@gmail.com.  Fixed lowering on
+	  fvwm.  Removed unused pixmaps.
+
+2005-07-10 16:39  jefbed
+
+	* Makefile.in: 2.10 initial checkin.  New icons and ACE
+	  functionality (noicon support).
+
+2005-07-07 08:36  jefbed
+
+	* Makefile.in: Removed xbm installation.
+
+2005-07-07 08:34  jefbed
+
+	* Makefile.in, configure: Redesigned icons.  They are now original,
+	  rather than KDE1 icons.  Removed kde 1 icons and xbm icons.
+
+2005-07-04 03:21  jefbed
+
+	* Makefile.in, configure: Added pongr and yetanotherclib to source
+	  tree.
+
+2005-07-03 23:56  jefbed
+
+	* ChangeLog: Updated.
+
+2005-07-03 22:05  jefbed
+
+	* Makefile.in, configure: 2.9 Release
+
+2005-06-25 10:13  jefbed
+
+	* Makefile.in, configure, postinstall-pak: Updated FSF address.
+
+2005-06-24 01:44  jefbed
+
+	* Makefile.in: Added release convenience target.
+
+2005-06-24 01:33  jefbed
+
+	* Makefile.in: Temporarily removed wmarmon from the programs list
+	  due to memory leak issues.
+
+2005-06-18 05:59  jefbed
+
+	* Makefile.in, configure: Added wmar slit utility.
+
+2005-06-04 05:04  jefbed
+
+	* Makefile.in: Added rules for building graphing code.
+
+2005-02-24 05:24  jefbed
+
+	* ChangeLog: Updated for GUIShell 2.7.
+
+2005-02-24 04:22  jefbed
+
+	* README: Fixed to make accurate.
+
+2005-01-24 19:07  jefbed
+
+	* Makefile.in: Added buffer and selection filling.
+
+2005-01-22 23:11  jefbed
+
+	* configure: Changed VERSION to 2.7.  Included 2005 in copyright.
+
+2005-01-22 22:20  jefbed
+
+	* ChangeLog: Updated for 2.6.  Refilled.
+
+2005-01-22 22:14  jefbed
+
+	* ChangeLog: Updated for pre-2.6.
+
+2005-01-22 01:35  jefbed
+
+	* Makefile.in: Added rules for resource.o, string.o, system.o, and
+	  xmstring.o.
+
+2004-12-27 10:55  jefbed
+
+	* Makefile.in, configure: Added support for the mpg script from
+	  BitchX's bain.irc package in the Jukebox.  This allows the
+	  current song to be displayed in a bitchx session with the /mp3
+	  command.
+
+2004-12-26 02:43  jefbed
+
+	* doc/arshell.1: Updated manpage to contain new clockload and fifo
+	  options.
+
+2004-12-25 03:56  jefbed
+
+	* ChangeLog: Updated for GUIShell 2.5.
+
+2004-12-22 05:39  jefbed
+
+	* Makefile.in: Added clockload.o and pixmap.o to the arshell object
+	  list.
+
+2004-12-19 20:15  jefbed
+
+	* configure: Changed version to 2.5.
+
+2004-12-17 02:55  jefbed
+
+	* configure: Final checkin for release 2.4 of GUIShell.  Window
+	  lowering was fixed, so that all nonmanaged panels are not
+	  lowered, but, rather, arshell started with -l lowers itself.
+
+2004-11-07 02:05  jefbed
+
+	* ChangeLog: Last minute update for 2.3.
+
+2004-11-07 02:02  jefbed
+
+	* configure: Changed the version back to 2.3.
+
+2004-11-07 02:00  jefbed
+
+	* Makefile.in: Fixed a typo in the bzball target.
+
+2004-11-07 01:54  jefbed
+
+	* ChangeLog: Updated and refilled for the release of GUIShell 2.3.
+
+2004-11-07 01:52  jefbed
+
+	* Makefile.in: Code cleanups and refactorings for 2.3 release.
+
+2004-11-01 00:25  jefbed
+
+	* configure: Changed VERSION to 2.4.
+
+2004-10-22 20:19  jefbed
+
+	* doc/arshell.1: Documented -t option.
+
+2004-09-11 09:33  jefbed
+
+	* doc/TODO: All tasks are complete.
+
+2004-09-05 05:56  jefbed
+
+	* Makefile.in: Added -fno-strict-aliasing to CFLAGS.
+
+2004-09-05 05:45  jefbed
+
+	* configure: Changed VERSION	to 2.3.
+
+2004-09-01 02:20  jefbed
+
+	* ChangeLog: Updated for GUIShell 2.2.1.  Refilled buffer.
+
+2004-08-31 05:20  jefbed
+
+	* configure: Rewrote test for libcdaudio-config.
+
+2004-08-30 04:10  jefbed
+
+	* ChangeLog: Updated for 2.2 release.
+
+2004-08-30 04:03  jefbed
+
+	* configure: Changed VERSION to 2.2.
+
+2004-08-30 02:52  jefbed
+
+	* doc/arshell.1: Minor fixes.
+
+2004-08-29 07:17  jefbed
+
+	* Makefile.in: Removed installation of antiright-mail.awk.
+
+2004-08-28 22:35  jefbed
+
+	* doc/ARO.1: Added the manual page for ARO.
+
+2004-08-28 22:34  jefbed
+
+	* doc/AR.1: Added an AUTHORS section.
+
+2004-08-28 22:29  jefbed
+
+	* doc/AR.1: Escaped the dash after AR in the NAME section.
+
+2004-08-28 22:28  jefbed
+
+	* doc/AR.1: Added the manual page for AR.
+
+2004-08-28 05:50  jefbed
+
+	* ChangeLog: Updated for GUIShell 2.1 release.
+
+2004-08-28 05:16  jefbed
+
+	* Makefile.in, configure: Added support for interface files using
+	  yetanotherclib's parsing functions.  The file format is that of a
+	  standard yaclib parser input file, its grammar defined in
+	  interface_file.c.
+
+2004-08-26 03:50  jefbed
+
+	* COPYING, Makefile.in, README: Added comment and uncomment
+	  features.  Refined edit menu appearance by separating relevent
+	  items.  The toolbar widget was removed and the toolbar buttons
+	  are now simply created right on top of arshell.layout.row_manager
+	  instead.  Debug messages were removed.  No changes were made to
+	  COPYING, it was just replaced with exactly the same file.
+	  Convenience functions were added to the popup menu, allowing
+	  certain predefined text clippings to be inserted and code to be
+	  quickly be commented and uncommented.
+
+2004-08-26 03:45  jefbed
+
+	* configure: Fixed bug in which MAKE is defined as $CC.
+
+2004-08-23 05:15  jefbed
+
+	* configure: Added an IGNORE CASE option to the search and replace
+	  dialog.  Changed the updating code to use a linked list to store
+	  updaters, allowing an indefinite amount of such.  Fixed a scope
+	  issue with the pixmap transparency code.
+
+2004-08-20 04:13  jefbed
+
+	* doc/antiright.lsm: Updated to represent current project
+	  information.
+
+2004-08-20 01:51  jefbed
+
+	* doc/: ACE.1, arshell.1: Autodetection of the window manager was
+	  added to AR.	Updating of the title bar and the work area was
+	  added to update.c.  An updating flag was added to the flags
+	  structure in arshell.h for future use.  A manual page for arshell
+	  was written.
+
+2004-08-19 04:31  jefbed
+
+	* COPYING, Makefile.in, README, configure, doc/README: Moved README
+	  to root of source tree.  Added a games menu and renamed the
+	  "Popular Applications" menu to the "Applications" menu.  Restored
+	  the www.xpm icon as it is easilly corruptable by modifications.
+
+2004-08-19 03:57  jefbed
+
+	* configure: The resource directory is now determined
+	  automatically.  The icon directory is set.  The version has been
+	  changed to 2.1.
+
+2004-08-16 22:00  jefbed
+
+	* configure: Only define -D_GNU_SOURCE, not including -D__USE_GNU.
+
+2004-08-16 21:27  jefbed
+
+	* COPYING, Makefile.in, configure, doc/README: Pixmap icons were
+	  added.  A unified search and replace dialog was added to the text
+	  editor.   A series of pixmap/bitmap convenience functions were
+	  added.  Label-less icon buttons were added to arshell, invoked by
+	  the -Ai option.  Various pixmaps were added.	Find at cursor,
+	  find selected, revert file, insert file, select all, and
+	  show/hide toolbar features were added.  The line counter in the
+	  status bar of the text editor was fixed, giving an accurate line
+	  count.  A font selector was added and is usable for changing the
+	  font of the work area.
+
+2004-08-13 23:32  jefbed
+
+	* Makefile.in: Functions have been split from textedit.c into
+	  menubar.c, file.c, and search.c.
+
+2004-08-13 04:04  jefbed
+
+	* configure: Changed -D__GNU_SOURCE to -D_GNU_SOURCE.
+
+2004-08-12 04:54  jefbed
+
+	* Makefile.in: Nothing new to report.
+
+2004-08-10 02:54  jefbed
+
+	* ChangeLog: Updated for 2.0.
+
+2004-08-10 02:45  jefbed
+
+	* configure: Changed version to 2.0.
+
+2004-08-10 02:45  jefbed
+
+	* Makefile.in, doc/TODO: Checkin for GUIShell 2.0.
+
+2004-08-07 21:13  jefbed
+
+	* Makefile.in, configure, doc/TODO, doc/antiright.lsm: This is a
+	  the update for the 2.0rc1 release.  A new data structure scheme
+	  for libantiright and arshell has been implemented.  Arshell now
+	  makes use of the XmMainWindow  widget.  The text editor is now
+	  usable and now has find and replace.	Library files were updated
+	  according to the changes in the data structures.  The
+	  XmIconButton is now used if available.  Tooltips are enabled if
+	  available, except on override panels such as the desk bar.
+	  Mnemonics, accelerators and label string values were further
+	  defined in GUIShell.
+
+2004-07-25 06:43  jefbed
+
+	* doc/antiright.lsm: Updated description to correspond with current
+	  state of GUIShell.
+
+2004-07-24 03:47  jefbed
+
+	* configure: Changed VERSION to 2.0-pre12.
+
+2004-07-24 03:46  jefbed
+
+	* Makefile.in: Moved cleanup of backup files to distclean.
+
+2004-07-24 03:19  jefbed
+
+	* Makefile.in: Fixed clean target in makefile and commit needed
+	  files.
+
+2004-07-24 02:55  jefbed
+
+	* ChangeLog: Updated for 2.0-pre12.  The text has been
+	  reformatted/filled.
+
+2004-07-24 02:50  jefbed
+
+	* doc/ACE.1: Spelling corrections.
+
+2004-07-23 05:43  jefbed
+
+	* ChangeLog, Makefile.in: Updated for 2.0-pre12 and refined removal
+	  of files on clean.
+
+2004-07-23 00:56  jefbed
+
+	* Makefile.in, configure, doc/TODO: Updated build files and
+	  documentation for 2.0-pre12.	Added an arshell utility written in
+	  Xlib.
+
+2004-07-23 00:47  jefbed
+
+	* doc/arcd.1: Added extra information about CD-ROM device
+	  configuration and fixed up SEE ALSO references.
+
+2004-07-23 00:44  jefbed
+
+	* doc/ACE.1: The manual page is now accurate.  It thoroughly
+	  documents GUIShell version 2.0-pre12 and should remain
+	  relatively current.
+
+2004-07-09 01:21  jefbed
+
+	* ChangeLog: Updated.
+
+2004-07-09 01:12  jefbed
+
+	* configure: Removed unused BSDMAKEOPTIONS and defined VERSION in
+	  Makefile.
+
+2004-07-09 00:19  jefbed
+
+	* ChangeLog: Updated for 2.0-pre11.
+
+2004-07-09 00:07  jefbed
+
+	* Makefile.in: Fixed tarball target so that it depends on distclean
+	  and it goes to the directory above the source directory before
+	  making the tarball.
+
+2004-07-08 23:55  jefbed
+
+	* description-pak: Made the description more brief and accurate.
+
+2004-07-08 23:29  jefbed
+
+	* README, description-pak, description-pak.in, postinstall-pak,
+	  postinstall-pak.in: Renamed and removed.
+
+2004-07-08 23:13  jefbed
+
+	* doc/system.antiright.5: Added.
+
+2004-07-08 23:11  jefbed
+
+	* GUIShell, aclocal.m4, configure.ac, install-sh,
+	  intltool-extract.in, intltool-merge.in, intltool-update.in,
+	  mkinstalldirs, system.antiright, doc/antifile.1: Removed.
+
+2004-07-08 22:57  jefbed
+
+	* Makefile.in, configure, doc/README: Rewrote build system and
+	  restructured tree.
+
+2004-07-08 04:56  jefbed
+
+	* ChangeLog, Makefile.in, aclocal.m4, configure, configure.ac:
+	  Restructuring.
+
+2004-07-06 03:39  jefbed
+
+	* AR, GUIShell, COPYING, Makefile.in, configure, configure.ac,
+	  system.antiright, doc/ACE.1, doc/TODO, doc/TUTORIAL.in,
+	  doc/anticlock.1, doc/antifile.1, doc/antiload.1, doc/antiright.1,
+	  doc/antiright.lsm, doc/arcalc.1, doc/arcd.1, doc/arhelp.1,
+	  doc/minileft.1, doc/xmsticky.1, doc/xmtextedit.1: This is the
+	  final phase of the redesigning of GUIShell.	All GUI operations
+	  in GUIShell are now handled by arshell.  The color selector,
+	  which uses the Motif 2.2 color selection widget if available, is
+	  now part of arshell.	The file manager and the configuration tool
+	  have been rewritten to use arshell through ACE.  The pager has
+	  been modified to contain 8 desktops, a run button, a 12 hour
+	  clock, a user counter, and a load meter, while taking up less
+	  space.
+
+2004-06-20 05:26  jefbed
+
+	* GUIShell, COPYING, ChangeLog, Makefile.in, README, aclocal.m4,
+	  configure, configure.ac, system.antiright, doc/TUTORIAL.in:
+	  ACE-based rearchitecturing.  Much of the environment has been
+	  rewritten with a data-centric goal.  Through arshell, the
+	  environment can be defined at the command line, making the entire
+	  environment scriptable.  Through system.antiright and ACE, the
+	  applications and actions of arshell interfaces are defined.
+	  arconfig allows the actions to be configured by the user.
+
+2004-06-11 21:32  jefbed
+
+	* GUIShell, Makefile.in, configure, configure.ac: Periodic checkin
+	  on the way to GUIShell 2.0-pre8.  Work has started on the
+	  configuration utility, that will replace hard-coded program
+	  preferences.
+
+2004-06-01 00:06  jefbed
+
+	* ChangeLog, Makefile.in, aclocal.m4, configure, configure.ac,
+	  description-pak.in, install-sh, intltool-extract.in,
+	  intltool-merge.in, intltool-update.in, mkinstalldirs,
+	  postinstall-pak.in, doc/TODO: 2.0 preliminary checkin of autoconf
+	  support, gettext support, improved xmtextedit stdin paging, and
+	  an improved pager.
+
+2004-05-28 23:46  jefbed
+
+	* GUIShell, COPYING, doc/HACKING, doc/TODO: Arcolor, a file
+	  selector has been added.  -- GUIShell's background dialog and
+	  resource file have been updated to accompany several new colors
+	  and the color selector.  HACKING has been updated, further
+	  defining naming conventions.
+
+2004-05-23 03:18  jefbed
+
+	* ChangeLog: This is the final checkin before the release of
+	  GUIShell 2.0-pre7.
+
+2004-05-22 07:35  jefbed
+
+	* configure: This checkin introduces libantiright.so, which is now
+	  produced, and to it all antiright programs are now linked.  This
+	  greatly decreases executable size, with some programs as as small
+	  as six kilobytes.
+
+2004-05-22 06:58  jefbed
+
+	* GUIShell, COPYING, README, doc/HACKING, doc/TODO,
+	  doc/antiright.lsm: GUIShell-pre7 preparations.  Initialization
+	  verification with assertions has been performed.  A process
+	  display is accessable from the load meter.  Changes to the
+	  Makefile were made due to the new library-src scheme.
+
+2004-04-18 03:36  jefbed
+
+	* ChangeLog: Updated.
+
+2004-04-18 03:32  jefbed
+
+	* ChangeLog: Update for GUIShell 2.0-pre5.
+
+2004-04-13 02:28  jefbed
+
+	* doc/xmsticky.1: The initial unique manual page for xmsticky has
+	  been written.
+
+2004-04-12 04:39  jefbed
+
+	* doc/TODO: Completed a few items.  Added an item stating the
+	  desire to finish the current translations.
+
+2004-04-10 21:07  jefbed
+
+	* doc/arcd.1: Made this manual page unique to arcd.
+
+2004-04-10 20:22  jefbed
+
+	* doc/xmtextedit.1: Made the manual page specific to xmtextedit.
+
+2004-04-09 23:24  jefbed
+
+	* Makefile.in, config.in, description-pak.in, postinstall-pak.in:
+	  These files have been removed.
+
+2004-04-09 23:01  jefbed
+
+	* doc/TUTORIAL: Removed TUTORIAL.
+
+2004-04-09 22:35  jefbed
+
+	* doc/: AUTHORS, HACKING, INSTALL, TODO, TUTORIAL, anticlock.1,
+	  antifile.1, antiload.1, antiright.lsm, arcalc.1, arcd.1,
+	  arhelp.1, minileft.1, xmsticky.1, xmtextedit.1: The documentation
+	  has been split from the project root dircetory.
+
+2004-04-08 21:29  jefbed
+
+	* AUTHORS, HACKING, INSTALL, TODO, TUTORIAL.in, antiright.1,
+	  antiright.lsm, configure, doc/antiright.1: The documentation has
+	  been separated from the antiright root directory.  The template
+	  files used during configuration have been placed in configure.d.
+	  Appropriate modifications to configure and Makefile.in have been
+	  made.  Some formatting improvements in code have been done, along
+	  with some improvements to minileft.
+
+2004-04-08 08:36  jefbed
+
+	* TODO: Updated to reflect current development.
+
+2004-04-05 05:44  jefbed
+
+	* GUIShell: Defined mnemonics for Yes and No.
+
+2004-04-05 04:39  jefbed
+
+	* GUIShell: Fixed acceleratorText for *Exit.
+
+2004-03-27 19:47  jefbed
+
+	* HACKING: Added in an extra permissive message for ARCD developers
+	  and external libraries.
+
+2004-03-27 19:39  jefbed
+
+	* config.in: Updated version to GUIShell 2.0-pre4.
+
+2004-03-27 19:21  jefbed
+
+	* config.in: Added comment-out ANTIRIGHT_MINILEFT_MAIL definition.
+
+2004-03-27 19:19  jefbed
+
+	* GUIShell: Added color theme for ARCD.
+
+2004-03-27 19:13  jefbed
+
+	* AUTHORS: Removed credits to the Xlt developers due to the recent
+	  removal of the XltNumentry-based calculator.
+
+2004-03-27 19:10  jefbed
+
+	* GUIShell: A color theme has been added for arcalc.  Various
+	  button labels for arcalc have been defined.
+
+2004-03-21 19:50  jefbed
+
+	* ChangeLog, config.in: Updated for GUIShell 2.0-r3
+
+2004-03-21 19:48  jefbed
+
+	* Makefile.in: The new calculator is now the only calculator.
+
+2004-03-21 19:15  jefbed
+
+	* ChangeLog, Makefile.in, TODO: A new calculator has been added.
+	  It will be used instead of the XltNumEntry-based one.  This is
+	  considered both a major code cleanup and a major feature
+	  enhancement.
+
+2004-02-10 05:17  jefbed
+
+	* AUTHORS: Removed extra lines at the beginning of the file.
+
+2004-02-10 03:05  jefbed
+
+	* ChangeLog: Updated for 2.0-pre2.
+
+2004-02-10 02:04  jefbed
+
+	* ChangeLog: Updated.
+
+2004-02-10 02:00  jefbed
+
+	* config.in: Updated version to 2.0-pre1
+
+2004-02-07 03:04  jefbed
+
+	* antiright.1: Updated to contain information about arhelp instead
+	  of arbrowse.
+
+2004-02-03 06:41  jefbed
+
+	* ChangeLog: Updated for GUIShell 2.0-pre1
+
+2004-02-03 06:22  jefbed
+
+	* Makefile.in, antiright.lsm, config.in: These changes are for
+	  GUIShell 2.0-pre1.  10 mandatory -pre releases will be made.
+
+2004-01-26 06:31  jefbed
+
+	* GUIShell: MiniLeft's geometry is now specified.  This probably
+	  doesn't work, so it was also hard coded into GUIShell's library.
+
+2004-01-26 06:30  jefbed
+
+	* AR: MiniLeft is now started as part of the default session.  The
+	  default background is now slate grey, which is much easier on the
+	  eyes.  ~/.Xdefaults is now read on startup.
+
+2004-01-26 06:27  jefbed
+
+	* Makefile.in: Added rules for arhelp.
+
+2004-01-26 06:26  jefbed
+
+	* TODO: Added a documentation suggestion stating the need for a man
+	  page for each GUIShell application.
+
+2004-01-26 06:23  jefbed
+
+	* config.in: Added xlock configuration option which allows one to
+	  choose whether or not xlock should be used by minileft for a
+	  launcher.  GUIShell's version has been updated to 1.111.
+
+2004-01-24 03:08  jefbed
+
+	* ChangeLog: Updated once again.
+
+2004-01-24 02:30  jefbed
+
+	* ChangeLog: Updated for GUIShell 1.110.
+
+2004-01-24 02:28  jefbed
+
+	* GUIShell, ChangeLog, TODO, configure: Internationalization has
+	  started for Spanish and Italian messages.  Code has been cleaned
+	  and restructured where appropriate.
+
+2004-01-23 23:54  jefbed
+
+	* config.in: Updated to GUIShell version 1.110.
+
+2004-01-21 01:05  jefbed
+
+	* antiright.1: Updated to contain KNOWN ISSUES.  The copyright
+	  message was expanded, per that of df's manual page.  The AUTHORS
+	  section was placed before KNOWN ISSUES.
+
+2004-01-21 01:02  jefbed
+
+	* Makefile.in: Binaries are now stripped by install.  Binaries are
+	  now handled differently than scripts, such as AR.
+
+2004-01-19 21:21  jefbed
+
+	* config.in: ANTIRIGHT_LPR defines the lpr command.
+
+2004-01-19 01:13  jefbed
+
+	* GUIShell: Background of browser work area and labels within are
+	  now white.
+
+2004-01-15 05:24  jefbed
+
+	* TODO: Added desire to display load average in AntiLoad.
+
+2004-01-14 02:04  jefbed
+
+	* configure: Changed instruction telling the builder to start make,
+	  to indicate need for GNU make.
+
+2004-01-11 08:06  jefbed
+
+	* TODO: Added info about desire for relative urls and their status
+	  as a dependency for the 2.0-alpha release.
+
+2004-01-11 07:34  jefbed
+
+	* config.in: GUIShell version is now 1.108.
+
+2004-01-11 06:53  jefbed
+
+	* HACKING: Fixed some erraneous statements.  Updated to match
+	  current development philosophies.
+
+2004-01-04 03:43  jefbed
+
+	* config.in: Defined preprocessor symbols now have the ANTIRIGHT_
+	  prefix.  ARBrowse is niced.
+
+2004-01-04 03:17  jefbed
+
+	* antiright.lsm, header.txt: Removed header.txt.  Added
+	  antiright.lsm.  Fixed an asthetic regression in library.c.
+
+2004-01-04 03:10  jefbed
+
+	* Makefile.in: config.status is now removed in the distclean
+	  target.
+
+2004-01-03 19:46  jefbed
+
+	* HACKING: Updated for current development positions.  Reasoning
+	  for no new libraries is provided.
+
+2004-01-03 19:42  jefbed
+
+	* TODO: Some updates performed for version 1.108.
+
+2004-01-03 00:13  jefbed
+
+	* TODO: Replaced antiright_cancel_cb and antiright_ok_cb with
+	  antiright_close_cb.
+
+2004-01-02 23:11  jefbed
+
+	* configure: config.status is now created.  An incorrect comment
+	  was corrected.
+
+2004-01-01 04:25  jefbed
+
+	* ChangeLog: Updated for GUIShell 1.107.
+
+2004-01-01 04:08  jefbed
+
+	* AR: No changes.
+
+2003-12-30 23:11  jefbed
+
+	* antiright.1: Updated to reflect current state of GUIShell.
+
+2003-12-29 07:29  uid68742
+
+	* configure: Removed usage of XtSetArg and XmCreateRowColumn in all
+	  instances except library wrappers.  Added some translations.
+	  Brought some files in antiright-src up to date in terms of
+	  current GUIShell development style and APIs.
+
+2003-12-29 02:52  uid68742
+
+	* COPYING, Makefile.in, Makefile.template, TUTORIAL.in,
+	  TUTORIAL.template, config.in, config.template,
+	  description-pak.in, description-pak.template, postinstall-pak.in,
+	  postinstall-pak.template: Renamed.  Otherwise nothing to report.
+
+2003-12-28 18:36  uid68742
+
+	* ChangeLog: Updated for 1.106
+
+2003-12-27 01:49  uid68742
+
+	* AR, GUIShell, Makefile.template, config.template, configure,
+	  header.txt, postinstall-pak.template: Updated headers to include
+	  2004 in copyright for New Year's release.  Did some more
+	  internationalization.  Removed some more usage of XtSetArg.
+	  Updated initialization function to set icon and titles of icon
+	  and window.  The size of the icon for an application is now
+	  assumed and forced to 48x48.	internationalize() now checks if
+	  the language is correctly initialized.
+
+2003-12-24 17:51  uid68742
+
+	* TODO, config.template: Fixed bug in antiright_strcat that was
+	  causing antiload to crash.  Fixed a potential bug in antiload.
+	  Updated TODO.  ARBrowse is now managed by a form.
+	  Internationalization has started.
+
+2003-12-02 02:50  jefbed
+
+	* ChangeLog: Updated for 1.103
+
+2003-12-02 02:46  jefbed
+
+	* config.template: Updated version for 1.103.
+
+2003-11-29 01:53  jefbed
+
+	* config.template: The parser in arbrowse has been optimized by
+	  testing less conditionals per cycle.	Lynx is no longer used.
+
+2003-11-26 01:22  jefbed
+
+	* ChangeLog: Updated for 1.102
+
+2003-11-25 04:40  jefbed
+
+	* config.template: Update version to 1.102.
+
+2003-11-25 03:04  jefbed
+
+	* Makefile.template: A mkdirp is now performed for the manual page
+	  installation directory.
+
+2003-11-25 02:29  jefbed
+
+	* configure: The C compiler is now detected and defined in
+	  Makefile.
+
+2003-11-25 02:24  jefbed
+
+	* GUIShell: Font specifications have been removed as they create
+	  problems on 640x480 displays.  The background of anticlock and
+	  antiload are white now.
+
+2003-11-20 01:51  jefbed
+
+	* Makefile.template: Added a verification dialog to xmtextedit with
+	  verification utility function in library.c.  This is only a
+	  preliminary verification dialog API.	Warnings with -W have been
+	  cleaned up.
+
+2003-11-18 02:41  jefbed
+
+	* ChangeLog: Updated for 1.101.
+
+2003-11-18 02:21  jefbed
+
+	* GUIShell, Makefile.template, TODO, config.template: Various GUI
+	  name improvements have been made.  a Help button has been added
+	  to the panel.  A mnemonic for Processes has been added to
+	  GUIShell.  TODO has been updated.  AntiRight's verison in
+	  config.template has been updated to 1.101.  The icon of antifile
+	  has been made more attractive.
+
+2003-11-16 20:13  jefbed
+
+	* TODO: xmtextedit now supports the -m option allowing it to be
+	  used in place of xmmessage.  ARBrowse now has a list on the left
+	  side for topic selection.
+
+2003-11-14 02:34  jefbed
+
+	* NEWS: Nothing to report.
+
+2003-11-14 02:33  jefbed
+
+	* ChangeLog: Updated for 1.100.
+
+2003-11-14 02:31  jefbed
+
+	* config.template: Changed version to 1.100.
+
+2003-11-14 02:26  jefbed
+
+	* Makefile.template: Distclean now removes emacs backup files from
+	  the root project directory.
+
+2003-11-14 02:07  jefbed
+
+	* Makefile.template: Changed installation of NEWS to installation
+	  of ChangeLog.
+
+2003-11-14 01:45  jefbed
+
+	* config.template: Correct updatedb for NetBSD is now chosen
+	  automatically through configure and cpp.
+
+2003-11-05 01:33  jefbed
+
+	* ChangeLog: Updated for GUIShell 1.99.
+
+2003-11-05 01:02  jefbed
+
+	* Makefile.template: Removed some line breaks in target
+	  dependencies.
+
+2003-11-05 00:59  jefbed
+
+	* config.template: Updated version to 1.99.
+
+2003-11-04 05:49  jefbed
+
+	* GUIShell, TODO, config.template: A help browser has been added
+	  and will soon replace help.c.
+
+2003-11-04 05:27  jefbed
+
+	* Makefile.template: Added targets for arbrowse.  Separated
+	  documentation installation and installed all documentation files,
+	  not just previous.  PREFIX is now used for documentation
+	  installation since it is defined in config.h.
+
+2003-10-27 03:11  jefbed
+
+	* ChangeLog: Updated for GUIShell 1.98
+
+2003-10-27 03:07  jefbed
+
+	* GUIShell, COPYING: Nothing to report.
+
+2003-10-21 21:54  jefbed
+
+	* GUIShell: Added mnemonic for Open SFTP Connection.
+
+2003-10-21 18:56  jefbed
+
+	* Makefile.template, configure, postinstall-pak,
+	  postinstall-pak.template: postinstall-pak is now created with
+	  configure using postinstall-pak.template.  This is to fix the
+	  PREFIX problem due to the removal of the definition of PREFIX in
+	  Makefile.template.
+
+2003-10-20 02:13  jefbed
+
+	* TUTORIAL.template: Updated the descriptions for the new
+	  components of GUIShell.  This tutorial is far form complete.
+
+2003-10-20 00:37  jefbed
+
+	* config.template: Updated for GUIShell 1.98.
+
+2003-10-20 00:32  jefbed
+
+	* GUIShell, Makefile.template: Added separate filemanager,
+	  antifile.
+
+2003-10-19 20:54  jefbed
+
+	* ChangeLog: Updated.
+
+2003-10-19 20:42  jefbed
+
+	* TODO: Added desires for more launchers, an authentication dialog,
+	  a browser and an email client.  Removed desire for more extensive
+	  error checking.
+
+2003-10-19 20:36  jefbed
+
+	* configure: PREFIX is now defined in config.h
+
+2003-10-19 19:52  jefbed
+
+	* postinstall-pak: #!/bin/sh is now produced on first line and
+	  column.
+
+2003-10-19 19:10  jefbed
+
+	* config.template: Updated version for GUIShell 1.97.	Changed
+	  PPPON to use ppp-up.	Changed PPPOFF to use ppp-down as these are
+	  probably more standard.
+
+2003-10-19 19:03  jefbed
+
+	* ChangeLog: Updated for GUIShell 1.97
+
+2003-10-18 03:32  jefbed
+
+	* Makefile.template: ARCD resource file no longer used.
+	  antiright_create_popup and antiright_create_frame have been added
+	  and changes have been made to files accordingly.
+
+2003-10-15 07:52  jefbed
+
+	* README: The versioning guidelines in README have been relaxed.
+	  Xm/Frame.h is now included in antiright.h
+
+2003-10-15 05:22  jefbed
+
+	* AR: The conditional has been removed.  ~/.antirightrc is now
+	  created and executed after default session properties are set up.
+
+2003-10-15 00:07  jefbed
+
+	* ChangeLog: Updated for 1.96.
+
+2003-10-14 00:32  jefbed
+
+	* GUIShell: Popup menus have been added to the text fields in
+	  antiright's panel.  The cut, copy, and paste callbacks have been
+	  added to library.c.  They are now used by xmtextedit and the
+	  popup menus.	NumEntry has been streamlined.
+
+2003-10-13 05:58  jefbed
+
+	* GUIShell: Update application panel fonts for new layout.
+
+2003-10-12 22:54  jefbed
+
+	* configure: This really does work with NetBSD.
+
+2003-10-12 08:45  jefbed
+
+	* configure: This should now work on NetBSD.
+
+2003-10-12 08:40  jefbed
+
+	* configure: Updated sedding.
+
+2003-10-12 08:32  jefbed
+
+	* Makefile.template: Use INSTALL, set through configure.
+	  INSTALL_PROGRAM and INSTALL_DATA have been added, in accordance
+	  with the GNU Makefile conventions.  MKDIRP has been added to make
+	  directories.
+
+2003-10-12 08:14  jefbed
+
+	* configure: INSTALL and MAKE commands are now set.  Sedding has
+	  been updated in an effort to tune it.
+
+2003-10-12 06:57  jefbed
+
+	* configure: Updated in an effort to make work on NetBSD.
+
+2003-10-12 01:22  jefbed
+
+	* GUIShell, Makefile.template, NEWS, TUTORIAL, TUTORIAL.template,
+	  config.template, configure: Changed configure to use sed instead
+	  of grep in an effort to enter into greater compliance with GNU
+	  Makefile standards.  Make is determined through conditionals.
+	  Install is determined by conditionals.  GUIShell has mnemonics
+	  for Cancel.  antiright.c's menus have been rearranged.  A
+	  View->Netowrk menu has been added.  The View->Applications menu
+	  has been removed.  The new launcher functions are used to give
+	  access to xhost, ftp, telnet, and ssh.  The VERSION declaration
+	  in Makefile has been removed.
+
+2003-10-11 20:18  jefbed
+
+	* configure: Use sed to append the variables to Makefile and
+	  config.h instead of echo.  This allows for cleaner build files.
+	  The method for finding the version has been made more robust by
+	  eliminating the cutting of hard-coded character ranges.  This is
+	  necessary both for cleanliness and for the fact that GUIShell
+	  will soon go over version 1.100, breaking the range selection.
+
+2003-10-11 04:03  jefbed
+
+	* ChangeLog: Updated for GUIShell 1.95.
+
+2003-10-11 01:22  jefbed
+
+	* Makefile.template, config.template: Added a separate load
+	  monitor.
+
+2003-10-10 01:42  jefbed
+
+	* AR, GUIShell, Makefile.template: The AR script has been fixed.
+	  More menu mnemonics were added to GUIShell.	A DEBUG(arg) macro
+	  was added.  antiright_strcat was fixed and is more robust.
+
+2003-10-08 01:46  jefbed
+
+	* description-pak, description-pak.template: Added
+	  description-pak.template to generate description-pak.
+
+2003-10-08 01:42  jefbed
+
+	* configure: Added generation of description-pak from
+	  description-pak.template.
+
+2003-10-08 01:40  jefbed
+
+	* Makefile.template: Added remove target for description-pak.
+
+2003-10-08 01:23  jefbed
+
+	* Makefile.template, description-pak: Xm/ToggleB.h added to
+	  antiright.h.	Warnings were cleaned in xmtextedit.
+
+2003-10-08 01:02  jefbed
+
+	* config.template: Niced updatedb and wvdial.  Removed background
+	  setting options.
+
+2003-10-08 00:37  jefbed
+
+	* AR: Set up a more flexible initialization that tests the
+	  existance of ~/.antirightrc and runs it if it exists.  If it does
+	  not exist, then default commands are run.
+
+2003-10-06 03:17  jefbed
+
+	* Makefile.template: Nothing to report.
+
+2003-10-05 19:53  jefbed
+
+	* ChangeLog: Updated for GUIShell 1.90
+
+2003-10-05 19:15  jefbed
+
+	* GUIShell: Files were updated to used simplified initialization
+	  functions in libarary.c.  Files were updated to use standardized
+	  help menu setup in libarary.c xmsticky has a new icon.
+
+2003-10-05 19:02  jefbed
+
+	* HACKING: Eased some requirements.
+
+2003-10-05 16:25  jefbed
+
+	* config.template: Updated VERSION to 1.90 because of recent
+	  functionality boost.
+
+2003-10-05 16:11  jefbed
+
+	* Makefile.template: Access times of COPYING are preserved during
+	  installation.
+
+2003-10-05 09:31  jefbed
+
+	* postinstall-pak: postinstall-pak has been added so that packages
+	  generated with checkinstall can install an GUIShell session in
+	  gdm.	XmDrawingArea's include was added to
+	  antiright-src/antiright.h
+
+2003-10-05 04:27  jefbed
+
+	* AUTHORS: Added Joe Klemmer to AUTHORS
+
+2003-10-05 03:01  jefbed
+
+	* Makefile.template: AntiClock simplified to ease lesstif memory
+	  leaks.
+
+2003-10-02 03:28  jefbed
+
+	* config.template: Updated VERSION to 1.85
+
+2003-10-02 03:26  jefbed
+
+	* antiright.1, TUTORIAL: Initial checkin.
+
+2003-10-02 01:52  jefbed
+
+	* GUIShell: Removed tutorial.
+
+2003-10-02 00:55  jefbed
+
+	* configure: Added check for NetBSD.
+
+2003-10-02 00:12  jefbed
+
+	* Makefile.template, configure: Started os detection/portability
+	  work.
+
+2003-10-01 05:05  jefbed
+
+	* Makefile.template: Includes are now appended to CFLAGS.
+
+2003-10-01 05:00  jefbed
+
+	* Makefile.template: Debugging makefile for gmake on NetBSD.
+
+2003-10-01 04:39  jefbed
+
+	* Makefile.template: Eleminated break characters that were breaking
+	  bsd build.
+
+2003-10-01 03:36  jefbed
+
+	* TODO: xmtextedit was fixed.  File->Print now makes use of
+	  antiright_strcat.
+
+2003-09-30 01:55  jefbed
+
+	* ChangeLog: Updated.
+
+2003-09-30 01:50  jefbed
+
+	* Makefile.template: Consolidated includes to antiright.h to allow
+	  better dependency tracking.
+
+2003-09-28 23:48  jefbed
+
+	* NumEntry.c, NumEntry.h, NumEntryP.h, antiright.c, antiright.h,
+	  antiright.xbm, background.c, background.h, calc.c, calc.h,
+	  disk.c, disk.h, filemanage.c, filemanage.h, help.c, help.h,
+	  library.c, library.h, main.c, security.c, security.h, themes.c,
+	  themes.h, xhost.c, xhost.h: Moved *.c, *.h, and *.xbm to
+	  antiright-src
+
+2003-09-28 23:32  jefbed
+
+	* Makefile.template, TODO, antiright.c: Added source-file
+	  dependencies to the Makefile.
+
+2003-09-28 22:20  jefbed
+
+	* ChangeLog: Updated to for latest changes.
+
+2003-09-28 22:13  jefbed
+
+	* GUIShell, ChangeLog, Makefile.template, antiright.c,
+	  antiright.h, clock.c, clock.h, config.template, description-pak:
+	  Made clock an independent program, anticlock.  Added checkinstall
+	  project description to cvs.  Simplified GUIShell.  Made
+	  xmtextedit use functions from antiright's library.
+
+2003-09-28 06:41  jefbed
+
+	* antiright.c: Help->Tutorial now opens up the GNU General Public
+	  License in xmmessage.
+
+2003-09-28 06:25  jefbed
+
+	* TODO: Added text to comment stating to modify the configure
+	  script to check for gettext.
+
+2003-09-28 06:20  jefbed
+
+	* security.c: Added button to perform portscan of 127.0.0.1.
+
+2003-09-28 06:08  jefbed
+
+	* Makefile.template, help.c: Use common library functions.  Add
+	  menubar and proper formatting to xmmessage.
+
+2003-09-28 04:35  jefbed
+
+	* main.c: Reordered running of ~/.antirightrc to allow it to change
+	  the desktop background.
+
+2003-09-28 04:28  jefbed
+
+	* TODO, antiright.c, config.template: Added support for mutt and
+	  more program cutomization in config.template.
+
+2003-09-28 04:05  jefbed
+
+	* ChangeLog, TODO, config.template: Updated ChangeLog.	Removed
+	  items calling for xhost.c and a static library version of
+	  library.c.  Updated GUIShell version in config.template.
+
+2003-09-27 00:45  jefbed
+
+	* config.template: Changed VERSION to  "GUIShell 1.83"
+
+2003-09-27 00:42  jefbed
+
+	* filemanage.c: Added antiright_file_open_ok_cb to handle opening
+	  of files with xmtextedit.
+
+2003-09-27 00:39  jefbed
+
+	* antiright.c: Temporarily removed File->Open.
+
+2003-09-27 00:28  jefbed
+
+	* GUIShell: Changed to work with Disk Manager button.
+
+2003-09-25 03:15  jefbed
+
+	* antiright.c: Reeplaced Image Editor button front panel with Disk
+	  Manager button, as it likely to be used more often.
+
+2003-09-25 01:22  jefbed
+
+	* themes.c: Added blues theme.
+
+2003-09-25 01:04  jefbed
+
+	* background.c: Added another row of background colors.
+
+2003-09-24 02:10  jefbed
+
+	* ChangeLog~, Makefile, TODO~, arcd, config.h, xhost.c~, xhost.h~,
+	  xmmessage, xmsticky, xmtextedit: Removed
+
+2003-09-23 04:08  jefbed
+
+	* ChangeLog: Updated Changelog.
+
+2003-09-23 04:05  jefbed
+
+	* Makefile.template: Added bzball and balls makefile targets.
+	  Ensured that no output lines violate the 80x24 rule.	cvs:
+	  ----------------------------------------------------------------------
+
+2003-09-23 03:25  jefbed
+
+	* antiright.c.test: This file is useless.
+
+2003-09-23 03:21  jefbed
+
+	* antiright: Binary file removed.
+
+2003-09-23 03:20  jefbed
+
+	* ChangeLog, themes.c: Many new themes have been added to the theme
+	  selector.  The changelog has at last been updated.
+
+2003-09-22 23:43  jefbed
+
+	* Makefile.template: Separated install into multiple targets for
+	  each GUIShell component.
+
+2003-09-22 03:00  jefbed
+
+	* Makefile.template: distclean now removes corefiles.
+
+2003-09-22 02:14  jefbed
+
+	* GUIShell, Makefile.template, antiright.c, antiright.h,
+	  background.c, config.template, configure, disk.c, library.c: The
+	  tutorial has been updated to reflect the current status of
+	  GUIShell The PREFIX environment variable can now be passed to
+	  configure to determine install location.  The broken "Reverse"
+	  background option has been removed and two new colors, "Olive
+	  Green" and "Rose", have been added.  The status bar's display of
+	  commands has been fixed Includes have been consolidated into
+	  antiright.h where feasible.
+
+2003-09-21 00:04  jefbed
+
+	* xhost.c, xhost.c~, xhost.h, xhost.h~: Initial checkin.
+
+2003-09-20 19:25  jefbed
+
+	* AR, AUTHORS, GUIShell, COPYING, ChangeLog, ChangeLog~, HACKING,
+	  INSTALL, Makefile, Makefile.template, NEWS, NumEntry.c,
+	  NumEntry.h, NumEntryP.h, README, TODO, TODO~, antiright,
+	  antiright.c, antiright.c.test, antiright.h, antiright.xbm, arcd,
+	  background.c, background.h, calc.c, calc.h, clock.c, clock.h,
+	  config.h, config.template, configure, disk.c, disk.h,
+	  filemanage.c, filemanage.h, header.txt, help.c, help.h,
+	  library.c, library.h, main.c, security.c, security.h, themes.c,
+	  themes.h, xmmessage, xmsticky, xmtextedit: This is the initial
+	  CVS checkin
+

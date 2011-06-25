@@ -1,0 +1,6 @@
+option "rows" 4;
+add buttons	"ACE -A Secure_Permissions,gtk-dialog-authentication", 
+		"ACE Root_Shell,Terminal_32.png",
+		"ACE -A GUIDL Monitoring_Panel,System_Monitor_32.png", 
+		"ACE -A OS_Specific,gtk-open";
+

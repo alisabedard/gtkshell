@@ -1,0 +1,13 @@
+// Static definition for ACE Network Panel.  
+option "rows" 5;
+
+add buttons "ACE -A Open_Display,gtk-open",
+    	    "ACE -A Open_URL,gtk-jump-to",
+	    "ACE -A ACE_peer_operation ftp,gtk-connect",
+	    "ACE -A ACE_peer_operation sftp,gtk-dialog-authentication",
+	    "ACE -A ACE_peer_operation ssh,gtk-dialog-authentication",
+	    "ACE -A ACE_peer_operation telnet,gtk-connect",
+	    "ACE -A See_Open_Ports,gtk-network",
+	    "ACE PPP_On,gtk-connect", "ACE PPP_Off,gtk-disconnect";
+
+

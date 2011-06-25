@@ -1,0 +1,50 @@
+#! /bin/sh
+
+#    postinstall-pak
+#    (c) 2003-2004 Joe Klemmer
+#
+#    This file is part of GUIShell.
+#
+#     GUIShell is free software; you can redistribute it and/or modify
+#     it under the terms of the GNU General Public License as published by
+#     the Free Software Foundation; either version 2 of the License, or
+#     (at your option) any later version.
+#
+#     GUIShell is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+#
+#     You should have received a copy of the GNU General Public License
+#     along with GUIShell; if not, write to the Free Software
+#     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+echo "Installing GUIShell into GDM sessions..."
+
+mkdir -p /etc/X11/gdm/Sessions
+cat > /etc/X11/gdm/Sessions/GUIShell <<-EOF
+#!/bin/sh
+
+	# /etc/X11/gdm/Sessions/GUIShell
+	# (c) 2003-2004 Joe Klemmer
+
+ 
+	# This file is part of GUIShell.
+
+	# GUIShell is free software; you can redistribute it and/or modify
+	# it under the terms of the GNU General Public License as published by
+	# the Free Software Foundation; either version 2 of the License, or
+	# (at your option) any later version.
+
+	# GUIShell is distributed in the hope that it will be useful,
+	# but WITHOUT ANY WARRANTY; without even the implied warranty of
+	# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	# GNU General Public License for more details.
+
+	# You should have received a copy of the GNU General Public License
+	# along with GUIShell; if not, write to the Free Software
+	# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+	      
+EOF
+echo "exec $PREFIX/bin/ACE -A AR" >> /etc/X11/gdm/Sessions/GUIShell
+

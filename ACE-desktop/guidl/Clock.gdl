@@ -1,0 +1,6 @@
+option "rows" 1;
+option "undecorated";
+option "title" "Clock";
+option "geometry" "-0-0";
+add "clock applet";
+

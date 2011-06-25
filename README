@@ -1,0 +1,41 @@
+GUIShell Desktop Environment - README
+by Jeffrey E. Bedard
+
+INTRODUCTION
+
+GUIShell is a lightwieght, scriptable GUI shell, terminal, 
+and desktop enivironment for the gtk2 environment.  It provides 
+a small and practical desktop environment, defined in the 
+ACE (GUIShell Configuration Environment) script.
+
+COPYING
+
+See COPYING for licensing terms.  This program is licensed under the
+GNU General Public License.  It provides no warranty nor formal claim
+of fitness for any particular purpose.
+
+
+REQUIREMENTS
+
+To build you must have a functioning gtk2 installation, 
+pkg-config, vte, and a development system for C. 
+
+
+INSTALL
+
+See doc/INSTALL for detailed installation instructions.  
+
+
+TO RUN:
+
+AR &			# full desktop session
+ACE &                   # main panel
+ACE -A Deskbar &        # desktop panel
+ACE -A IDE &            # sample IDE
+ACE -A Manual_Browser   # manual browser
+ACE -A Settings         # configuration manager for ~/.antiright
+ACE Text_Editor         # text editor, configured in ~/.antiright
+ACE Browser             # configured browser
+gshterm                 # antiright's terminal program
+gtkshell		# antiright's GUI creation utility
+

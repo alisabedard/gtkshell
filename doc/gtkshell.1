@@ -1,0 +1,271 @@
+.DD March 14, 2007
+.TH gtkshell 1
+.SH NAME
+gtkshell \- invocation configurable GUI shell
+.SH SYNOPSIS
+.B gtkshell
+.B [[-a[[c[bl]
+command
+.B ][e 
+file
+.B ][l 
+label
+.B ]PS[s
+command
+.B ]T[t
+command
+.B ]u[[L
+list
+.B ][l
+command
+.B ][p
+command
+.B ]]]] [-d[acDd[e
+message
+.B ]Ff[i 
+message
+.B ]s[w
+message
+.B ]]] [-f
+file
+.B ] [-o[DEeFfghLln[r
+rows
+.B ][T
+title
+.B ][t[[w
+width
+.B ][h
+height
+.B ][f
+font
+.B ][s
+size
+.B ]]][u
+miliseconds
+.B ]]]] [
+command
+.B ] [
+command
+.B [,
+image
+.B ][::
+command
+.B [,
+image
+.B ][...]]] [...]
+.SH DESCRIPTION
+.I gtkshell
+is a GUI shell that is defined at its invocation through command line 
+arguments.  It was developed as the primary interface to the GUI toolkit in 
+the GUIShell project, as part of ACE, the AntiRight Configuration 
+Environment.  A user interface is defined at invocation and gtkshell handles 
+user input and program output.  It is very useful
+for providing a user interface for shell scripts.  
+.I ACE 
+is such a script, defining the GUIShell environment and its core logic. 
+.SH OPTIONS
+.PP
+A non option argument in its most basic form creats a button which launches
+the command passed.  The last word is used as a label.  Use the underscore (_)
+character to indicate whitespace in the label.  If a non option argument is
+followed immediately by a comma, the text immediately following the comma is an
+image specification.  This specification can be either an image file name or the
+name of a gtk stock icon.  The second format for non option
+arguments is for menu button specification.  A menu button will be created for
+the first item if followed by '::'.  Menu items take the same form as command
+buttons, and they are separated by '::'.  
+.TP
+.B \-acb command
+Add a button with its command and label initialized by the execution of
+.B command.
+.TP
+.B \-acl command
+Add a label with its text being the result of
+.B command.
+.TP
+.B \-ae file
+Adds a text viewer widget, showing
+.B file
+in the text buffer.
+.TP
+.B \-aL list
+Add a list.  The format of this list is as follows:  comma separated 
+key-value pairs, each separated by colons.
+
+.I Example:
+gtkshell -aL "key1:value1,2:2,apple:orange,foo:bar"
+.TP
+.B \-al label
+Adds a label with
+.B label
+as its text.
+.TP
+.B \-aP
+Adds a text area with contents derived from a pipe.  The output of a command
+piped into gtkshell with this option will be shown in a text area.
+.TP
+.B \-aS
+Add a separator.
+.TP
+.B \-as command
+Adds a terminal widget running
+.B command.
+.TP
+.B \-aT 
+Adds an empty text area.
+.B \-at [command]
+Adds a text field.  Text entered is passed as an argument of
+.B command.
+If command is not specified and this is the last option specified,
+.I echo
+is used as the default command.  If you wish to use the
+.I echo
+behavior while not having this as the last option, either pass the
+.I echo
+command or specify option
+.B \-oE.  
+If option
+.B \-oe
+is passed, 
+.I gtkshell 
+exits on completion of text entry.
+.TP
+.B \-aul command
+Adds an updating label.
+.B command
+is executed repeatedly, at a rate determined by the
+.B \-ou
+option.  The standard output of the command is displayed in a label.
+.TP
+.B \-aup command
+Adds an updating progress bar.  The command must output a floating point value
+between 0 and 1.  
+.TP
+.B \-aw
+Adds a new window.  Widgets added after this option will be added to this
+window.  
+.TP
+.B \-da
+Displays an output dialog.  Note:
+.I gtkshell
+exits after dialogs are closed.
+.TP
+.B \-dc
+Displays a color selection dialog.  The selected color is printed to standard
+output.
+.TP
+.B \-dD
+Displays a directory creation dialog, based on the GTK file chooser.  Once the
+user enters a directory name and presses the OK button, the directory will be
+created if it does not exist and the name of the directory will be printed to
+standard output.  This should be used for explicit directory creation
+operations.
+.TP
+.B \-dd
+Displays a directory selection dialog.  The functionality of this dialog is the
+same as the directory creation dialog, except that it is missing the 'Create in folder' combo box.  This should be used when you are pretty sure that a directory will already exist.
+.TP
+.B \-de message
+Displays an error dialog, with
+.B message
+as its text.
+.TP
+.B \-dF
+Displays a font selection dialog.  The selected font is in fontconfig format,
+and is displayed to standard output.
+.TP
+.B \-df
+Displays a standard file selection dialog.  The selected file is displayed to
+standard output.
+.TP
+.B \-di message
+Displays an information dialog, with
+.B message
+as its text.
+.TP
+.B \-ds
+Displays a file save dialog.  The selected file is displayed to standard output.
+This is appropriate for saving a file which is already open to a different name
+or for saving a file not yet saved.
+.TP
+.B \-dw message
+Displays a warning dialog with
+.B message
+as its text.
+.TP
+.B \-f file
+Parses a file in the GUIDL format.  If
+.B file
+is
+.I -
+, the input file will be a standard input pipe.  
+.TP
+.B \-oD
+Do not use dummy argument
+.I guidl
+for GUIDL parsed input.
+.TP
+.B \-oE
+Make a text entry only print the text to standard output, rather than executing
+a command.
+.TP
+.B \-oe
+Make command execution callbacks exit on activation.  This includes buttons and
+text fields.
+.TP
+.B \-oF
+Do not use base frame.
+.TP
+.B \-of
+Use framed labels.
+.TP
+.B \-og geometry
+Specify
+.B geometry
+for primary application window.
+.TP
+.B \-oh
+Use vertical labels, with a vertical horizontal base for text direction.
+.TP
+.B \-oL
+Use expanded labels, which grow with window size changes.
+.TP
+.B \-ol
+Do not use expanded labels.
+.TP
+.B \-on
+Use undecorated main window.
+.TP
+.B \-or number
+Use
+.B number
+rows in grid layout.
+.TP
+.B \-oT title
+Set the window title to
+.B title.
+.TP
+.B \-otf font
+Set the font to use with the terminal widget.
+.TP
+.B \-oth height
+Set the height of the terminal widget.
+.TP
+.B \-ots size
+Set the font size of the terminal widget.
+.B \-otw width
+Set the width of the terminal widget.
+.TP
+.B \-ou miliseconds
+Specify refresh frequency of updater widgets.
+
+.SH AUTHORS
+gtkshell was written by Jeffrey Bedard <antiright@gmail.com>.  
+.SH REPORTING BUGS
+Report bugs to <antiright@gmail.com>
+.SH COPYRIGHT
+Copyright 2002-2007, Jeffrey E. Bedard
+This  is  free software; see the source for copying conditions.  There is NO 
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+.SH SEE ALSO
+ACE (1) gshterm(1) system.antiright(5) X(7)

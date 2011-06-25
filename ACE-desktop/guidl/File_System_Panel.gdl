@@ -1,0 +1,8 @@
+// Static definition for ACE File System Panel follows.
+option "rows" 2;
+add buttons "ACE -A Mount_File_System,gtk-connect",
+	    "ACE -A Unmount_File_System,gtk-disconnect",
+	    "ACE See_Free_Space,gtk-info",
+	    "ACE -A Show_All_File_Systems,gtk-harddisk",
+	    "ACE -A Diff,gtk-info";
+

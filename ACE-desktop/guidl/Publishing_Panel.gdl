@@ -1,0 +1,13 @@
+// Static definition for runoff-based publishing utilties.
+option "rows" 3;
+
+add buttons "ACE -A Preview_roff,gtk-print-preview",
+	    "ACE -A Print_roff,gtk-print-preview",
+	    "ACE -A Save_PDF,gtk-save",
+	    "ACE -A Save_PS,gtk-save",
+	    "ACE -A Save_TEXT,gtk-save",
+	    "ACE -A Save_JPEG,gtk-save",
+	    "ACE -A Word_Count_roff & # Count_Words,gtk-info",
+	    "ACE -A Settings_Node roff_file,gtk-file",
+	    "ACE -A Settings_Node roff_flags,gtk-preferences";
+

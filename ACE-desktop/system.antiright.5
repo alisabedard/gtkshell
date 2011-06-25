@@ -1,0 +1,33 @@
+.TH SYSTEM.ANTIRIGHT 1
+.SH NAME
+system.antiright \- GUIShell's configuration file
+.SH DESCRIPTION
+.I system.antiright
+is the configuration file defining the bindings for the 
+GUIShell Configuration Environment.  The format of this file is 
+that of a colon-separated name-value pairing.
+The last value that appears in the file will be used.  Because of this, a
+change history is kept, and value modification is simplistic.
+The names in the configuration file can be passed as an argument to ACE,
+which will execute the command assigned to the name.  
+.SH EXAMPLE
+Terminal: gshterm
+Browser: ACE Terminal -e lynx
+Background: echo darkslategrey
+.SH FILES
+.TP
+.B $PREFIX/share/antiright/system.antiright
+Default configuration file.
+.TP
+.B $XDG_CONFIG_HOME/antiright/antiright.conf
+Local user configuration file.
+.SH AUTHORS
+Written by Jeffrey Bedard <antiright@gmail.com>.  
+.SH REPORTING BUGS
+Report bugs to <antiright@gmail.com>
+.SH COPYRIGHT
+Copyright 2002-2007, Jeffrey E. Bedard
+This  is  free software; see the source for copying conditions.  There is NO 
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+.SH SEE ALSO
+ACE(1)
