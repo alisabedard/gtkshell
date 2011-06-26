@@ -28,7 +28,7 @@ include ./config.mk
 CFLAGS += $(INCLUDE) $(DEFS) -Wall -W -g
 
 all: 
-	cd libantiright && $(MAKE)
+	cd libaceutil && $(MAKE)
 	cd gtkshell && $(MAKE)
 	cd ACE-desktop && $(MAKE)
 ifneq ($(OS),MINGW32)
@@ -39,7 +39,7 @@ ctags:
 	ctags -w */*.[ch] ACE-desktop/ACE
 
 clean:
-	cd libantiright && $(MAKE) clean
+	cd libaceutil && $(MAKE) clean
 	cd gtkshell && $(MAKE) clean
 	cd ACE-desktop && $(MAKE) clean
 	$(XSHELL_BUILD) clean
