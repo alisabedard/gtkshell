@@ -140,14 +140,11 @@ set_if_found ccache CC "ccache $CC"
 MAKE=make
 set_if_found gmake MAKE
 
-if [ "$USE_GC" = "TRUE" ]; then
+if [ "$USE_LIBGC" = "TRUE" ]; then
   if check_path_for libgc.a || check_path_for libgc.so\
 	|| check_path_for libgc.so.1; then
-	if check_path_for gc.h; then
-		echo 'LIBGC=1' >> config.mk
-		DEFS="$DEFS -DLIBGC -DREDIRECT_MALLOC=GC_malloc -DIGNORE_FREE"
-		LDFLAGS="$LDFLAGS -lgc"
-	fi
+	DEFS="$DEFS -DLIBGC -DREDIRECT_MALLOC=GC_malloc -DIGNORE_FREE"
+	LDFLAGS="$LDFLAGS -lgc"
   fi
 fi
 
