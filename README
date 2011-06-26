@@ -1,12 +1,12 @@
-GUIShell Desktop Environment - README
+gtkshell Desktop Environment - README
 by Jeffrey E. Bedard
 
 INTRODUCTION
 
-GUIShell is a lightwieght, scriptable GUI shell, terminal, 
+gtkshell is a lightwieght, scriptable GUI shell, terminal, 
 and desktop enivironment for the gtk2 environment.  It provides 
 a small and practical desktop environment, defined in the 
-ACE (GUIShell Configuration Environment) script.
+ACE (gtkshell Configuration Environment) script.
 
 COPYING
 

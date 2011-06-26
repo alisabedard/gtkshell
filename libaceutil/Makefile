@@ -1,8 +1,8 @@
 ###############################################################################
 #
-#    GUIShell
-#    (c) 2004-2010 Jeffrey Bedard
-#    antiright@gmail.com
+#    gtkshell
+#    (c) 2004-2011 Jeffrey Bedard
+#    jefbed@gmail.com
 # 
 #    This file is part of GUIShell.
 #
@@ -29,12 +29,12 @@ include ../config.mk
 
 CFLAGS+=$(DEFS) $(INCLUDE)
 
-all: libantiright.a
+all: libaceutil.a
 
 objects=$(patsubst %.c,%.o,$(wildcard *.c)) 
 
-libantiright.a: ${objects}
-	ar rcs libantiright.a ${objects}
+libaceutil.a: ${objects}
+	ar rcs libaceutil.a ${objects}
 clean:
 	rm -f *.o *.a *~
 

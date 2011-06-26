@@ -1,8 +1,8 @@
 ###############################################################################
 #
 #    GUIShell
-#    (c) 2004-2010 Jeffrey Bedard
-#    antiright@gmail.com
+#    (c) 2004-2011 Jeffrey Bedard
+#    jefbed@gmail.com
 # 
 #    This file is part of GUIShell.
 #
@@ -26,7 +26,7 @@
 include ../config.mk
 
 CFLAGS+=$(DEFS) $(INCLUDE)
-ARFLAGS=-L../libantiright -lantiright
+ARFLAGS=-L../libaceutil -laceutil
 GTKFLAGS=$(ARFLAGS) $(LDFLAGS)
 
 objects=$(patsubst %.c,%.o,$(wildcard *.c)) 

@@ -1,4 +1,4 @@
 
-GUIShell is a lightweight, scripted desktop environment which utilizes the GTK toolkit.  The gtkshell utility allows for graphical applications to be created from within shell scripts.  It is upon this utility that the sample desktop environment, ACE, is defined.   
+gtkshell is a lightweight, scripted desktop environment which utilizes the GTK toolkit.  The gtkshell utility allows for graphical applications to be created from within shell scripts.  It is upon this utility that the sample desktop environment, ACE, is defined.   
 
 

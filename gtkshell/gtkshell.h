@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -39,7 +39,7 @@
 #include <panel-applet.h>
 #endif /* HAVE_PANEL_APPLET */
 
-#include "../libantiright/library.h"
+#include "../libaceutil/library.h"
 
 #ifndef YYFILE
 #include "y.tab.h"

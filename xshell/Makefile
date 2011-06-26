@@ -1,8 +1,8 @@
 ###############################################################################
 #
-#    GUIShell
-#    (c) 2004-2007 Jeffrey Bedard
-#    antiright@gmail.com
+#    xshell
+#    (c) 2004-2011 Jeffrey Bedard
+#    jefbed@gmail.com
 # 
 #    This file is part of GUIShell.
 #

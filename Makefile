@@ -1,8 +1,8 @@
 ###############################################################################
 #
 #    GUIShell
-#    (c) 2004-2008 Jeffrey Bedard
-#    antiright@gmail.com
+#    (c) 2004-2011 Jeffrey Bedard
+#    jefbed@gmail.com
 # 
 #    This file is part of GUIShell.
 #
@@ -63,20 +63,20 @@ man1dir=$(mandir)/man1
 man5dir=$(mandir)/man5
 datadir=$(PREFIX)/share
 docdir=$(datadir)/doc
-PKGBASE=antiright
+PKGBASE=aceutil
 
 install: all
 	${INSTALL_DIR} $(PREFIX)
 	${INSTALL_DIR} $(bindir)
 	${INSTALL_DIR} $(man1dir)
-	${INSTALL_DIR} $(docdir)/antiright
+	${INSTALL_DIR} $(docdir)/aceutil
 	$(INSTALL_DATA) doc/gtkshell.1 $(man1dir)
 	$(INSTALL_DATA) doc/gshterm.1 $(man1dir)
-	$(INSTALL_DATA) COPYING $(docdir)/antiright
-	$(INSTALL_DATA) doc/AUTHORS $(docdir)/antiright
-	$(INSTALL_DATA) README $(docdir)/antiright
-	$(INSTALL_DATA) doc/TODO $(docdir)/antiright
-	$(INSTALL_DATA) doc/INSTALL $(docdir)/antiright
+	$(INSTALL_DATA) COPYING $(docdir)/aceutil
+	$(INSTALL_DATA) doc/AUTHORS $(docdir)/aceutil
+	$(INSTALL_DATA) README $(docdir)/aceutil
+	$(INSTALL_DATA) doc/TODO $(docdir)/aceutil
+	$(INSTALL_DATA) doc/INSTALL $(docdir)/aceutil
 	cd gtkshell && $(MAKE) install
 	cd ACE-desktop && $(MAKE) install
 	$(XSHELL_BUILD) install
@@ -86,7 +86,7 @@ ifneq ($(OS),MINGW32)
 endif
 
 bzball: distclean
-	cd .. && cp -R antiright guishell-$(VERSION) \
+	cd .. && cp -R aceutil guishell-$(VERSION) \
 	&& tar cjf guishell-$(VERSION).tar.bz2 guishell-$(VERSION) \
 	&& rm -rf guishell-$(VERSION)
 
