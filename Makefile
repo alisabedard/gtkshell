@@ -86,7 +86,7 @@ ifneq ($(OS),MINGW32)
 endif
 
 bzball: distclean
-	cd .. && cp -R aceutil guishell-$(VERSION) \
-	&& tar cjf guishell-$(VERSION).tar.bz2 guishell-$(VERSION) \
-	&& rm -rf guishell-$(VERSION)
+	cd .. && cp -R aceutil gtkshell-$(VERSION) \
+	&& tar cjf gtkshell-$(VERSION).tar.bz2 gtkshell-$(VERSION) \
+	&& rm -rf gtkshell-$(VERSION)
 
