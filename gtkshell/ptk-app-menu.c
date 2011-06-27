@@ -343,9 +343,6 @@ on_app_menu_item_activate (GtkMenuItem * item __attribute__ ((unused)),
 static char *
 translate_exec_to_cmd (const char *exec, const char *icon,
 		       const char *title)
-#if 0
-                       , const char *fpath)
-#endif
 {
   GString *cmd = g_string_new (NULL);
 
@@ -370,18 +367,6 @@ translate_exec_to_cmd (const char *exec, const char *icon,
 		  APPENDS (icon);
 		}
 	      break;
-#if 0
-	    case 'U':
-	    case 'u':
-	    case 'F':
-	    case 'k':
-	      {
-		char *uri = g_filename_to_uri (fpath, NULL, NULL);
-		APPENDS (uri);
-		g_free (uri);
-		break;
-	      }
-#endif
 	    case '%':
 	      APPENDC ('%');
 	      break;
@@ -521,16 +506,6 @@ do_load_dir (int prefix_len, const char *path, GList ** sub_menus)
 	  || g_key_file_get_boolean (file, desktop_ent, "NoDisplay", NULL))
 	SKIP;
 #define GETLIST(x) g_key_file_get_string_list(file,desktop_ent,x,NULL,NULL)
-      {
-	char **only_show_in;
-
-	only_show_in = GETLIST ("OnlyShowIn");
-	if (only_show_in)
-	  {
-	    g_strfreev (only_show_in);
-	    SKIP;
-	  }
-      }
       if ((cats = GETLIST ("Categories")))
 	{
 	  int i = find_cat (cats);

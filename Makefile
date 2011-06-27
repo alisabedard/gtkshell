@@ -86,7 +86,7 @@ ifneq ($(OS),MINGW32)
 endif
 
 bzball: distclean
-	cd .. && cp -R aceutil gtkshell-$(VERSION) \
+	cd .. && cp -R gtkshell gtkshell-$(VERSION) \
 	&& tar cjf gtkshell-$(VERSION).tar.bz2 gtkshell-$(VERSION) \
 	&& rm -rf gtkshell-$(VERSION)
 
