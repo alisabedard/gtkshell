@@ -66,7 +66,7 @@ button_press(XWidget * text)
 	XMSG("PRESSED");
 	data=(XSHTextData *)text->data;
 	/*draw_label((XShell *)(text->xsh), text);*/
-	system(data->command); 
+	SYSTEM(data->command); 
 }
 
 static void

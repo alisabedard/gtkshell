@@ -24,7 +24,7 @@
 #define LIBAR_SYSTEM_H
 
 int
-    antiright_system(char *field_string);
+    gtkshell_system(char *field_string);
 
 int
     sysprintf(const char *format,...);

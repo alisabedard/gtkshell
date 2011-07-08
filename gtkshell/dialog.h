@@ -38,6 +38,6 @@ void gsh_color_dialog_submit (GtkWidget * dialog);
 	gsh_common_dialog_executioner(gsh, gtk_message_dialog_new(\
 		GTK_WINDOW(gsh->widgets.window),\
                 GTK_DIALOG_DESTROY_WITH_PARENT,\
-		type, GTK_BUTTONS_OK, (gchar *) text), NULL)
+		type, GTK_BUTTONS_OK, "%s", (gchar *) text), NULL)
 
 #endif /* GSH_DIALOG_H */

@@ -27,7 +27,7 @@
  (MUST_REFORMAT(f)?g_strconcat(f, " &", NULL):g_strdup(f))
 
 int
-antiright_system(char *field_string)
+gtkshell_system(char *field_string)
 {
 	char *command;
 	int return_status;
@@ -46,7 +46,7 @@ vsysprintf(const char *format, va_list list)
 	int return_value;
 
 	g_vasprintf(&command, format, list);
-	return_value = antiright_system(command);
+	return_value = gtkshell_system(command);
 	g_free(command);
 
 	return (return_value);

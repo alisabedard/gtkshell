@@ -46,7 +46,7 @@ button_press(XWidget * button)
 
 	XMSG("PRESSED");
 	data=(XSHButtonData *)button->data;
-	system(data->command);
+	SYSTEM(data->command);
 }
 
 static void

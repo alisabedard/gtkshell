@@ -74,7 +74,7 @@ test_special_command (struct GSHCBData *cb)
   switch(tolower(command[0]))
     {
     case 'a':
-      antiright_system ("gtkshell -da &");
+      gtkshell_system ("gtkshell -da &");
       break;
     case 'c':
       TESTEDITOR();
@@ -121,7 +121,7 @@ gsh_system_cb (GtkWidget * widget __attribute__ ((unused)), gpointer data)
       struct GSHCBData *cb = data;
 
       if (!test_special_command (cb))
-	(void) antiright_system (cb->data);
+	(void) gtkshell_system (cb->data);
       test_exit (cb->gsh);
     }
 #ifdef LIBGC

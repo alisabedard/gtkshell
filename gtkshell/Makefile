@@ -54,7 +54,7 @@ y.tab.c: y.tab.h
 parser-clean:
 	rm -f *.yy.c *.tab.c *.tab.h
 
-clean: parser-clean
+clean: # parser-clean
 	rm -f gtkshell *.o libgtkshell.a 
 
 distclean: clean

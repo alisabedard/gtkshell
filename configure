@@ -30,6 +30,7 @@ TRUE=0
 FALSE=1
 
 USE_LIBGC=TRUE
+DEBUG=FALSE
 
 check_component()
 {
@@ -98,6 +99,7 @@ set_debugging_options()
 	if check_path_for gdb; then
 		CFLAGS="$CFLAGS -ggdb"
 	fi
+	DEBUG=TRUE
 }
 
 OPTS='dp:'
@@ -171,6 +173,13 @@ elif [ "$OSNAME" = "MINGW32" ]; then
 	# CC=mingw32-gcc
 	# AS=mingw32-as
 	XSHELL_BUILD='echo xshell unsupported, not built'
+fi
+
+if [ "$DEBUG" = "FALSE" ]; then
+	echo "Setting optimization flags..."
+	#CFLAGS="$CFLAGS -O3 -fomit-frame-pointer -ftree-loop-linear"
+	CFLAGS="$CFLAGS -Os -fomit-frame-pointer"
+	echo $CFLAGS
 fi
 
 INCLUDE="$INCLUDE -I/usr/pkg/include -I/usr/local/include -I/usr/X11R6/include"

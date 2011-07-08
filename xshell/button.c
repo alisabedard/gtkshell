@@ -60,16 +60,10 @@ special_command(const char * command)
 }
 
 static void
-xshell_system(const char * command)
-{
-	if(!special_command(command))
-		system(command);
-}
-
-static void
 button_press(XWidget * button)
 {
-	XSHButtonData * data;
+	XSHButtonData * data=(XSHButtonData *)button->data;
+	const char * command=data->command;
 
 	XMSG("PRESSED");
 	data=(XSHButtonData *)button->data;
@@ -77,7 +71,8 @@ button_press(XWidget * button)
 	xsh_decorate(button, XSH_DECOR_IN);
 #endif /* XSH_DECORATE */
 	draw_label((XShell *)(button->xsh), button);
-	xshell_system(data->command);
+	if(!special_command(command))
+		SYSTEM(command);
 }
 
 static void

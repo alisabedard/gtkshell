@@ -332,7 +332,7 @@ static void
 on_app_menu_item_activate (GtkMenuItem * item __attribute__ ((unused)),
 			   PtkAppMenuItem * data)
 {
-  antiright_system (data->exec);
+  gtkshell_system (data->exec);
 }
 
 #define SETUP_MENU_ITEM_SIGNALS(menu_item, data)\

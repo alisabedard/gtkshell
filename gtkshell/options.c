@@ -188,8 +188,8 @@ static ARTupleVector *
 gsh_define_command_line_options (GSH * gsh)
 {
   ARTupleVector *dictionary;
-  const bool usage_defined=(gsh->usage);
   gchar *usage;
+  const bool usage_defined=(usage=gsh->usage);
   
   if(!usage_defined)
     usage = g_strdup ("Usage:  ");

@@ -49,6 +49,10 @@
 #include "color.h"
 #include "dialog.h"
 
+#define SYSTEM(command)\
+	 if(system(command))\
+	 	fprintf(stderr, "ERROR:  %s\n", command);
+
 #endif /* XSHELL_H */
 
 
