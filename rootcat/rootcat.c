@@ -23,6 +23,14 @@
 
 #include "rootcat.h"
 
+inline static void
+clear_screen(void)
+{
+	StringRenderer * rc;
+
+	rc = new_StringRenderer_root (NULL, NULL);
+        $(rc, delete);
+}
 
 int
 main (int argc, char **argv)
@@ -50,10 +58,7 @@ main (int argc, char **argv)
                 goto print_usage;
 	      break;
 	    case 'c':		/* Clean up previous invocations.  */
-              rc = new_StringRenderer_root (NULL, NULL);
-              $(rc, clear);
-              $(rc, delete);
-              rc=NULL;
+	      clear_screen();
 	      break;
 	    case 'F':		/* Set font */
 	      counter++;
@@ -80,7 +85,6 @@ print_usage:
 	  if (!rc)
 	    {
 	      rc = new_StringRenderer_root (font, color);
-	      $ (rc, clear);
 	    }
 	  {
 	    const unsigned int height = $ (rc, get_line_height, string);

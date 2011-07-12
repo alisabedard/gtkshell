@@ -34,7 +34,6 @@ typedef struct _StringRenderer
   void (*delete) (struct _StringRenderer *);
   unsigned int (*draw) (struct _StringRenderer *,
 			const int, const int, const char *);
-  void (*clear) (struct _StringRenderer *);
   unsigned int (*get_line_height) (struct _StringRenderer *, const char *);
 } StringRenderer;
 

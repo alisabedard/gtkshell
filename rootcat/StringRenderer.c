@@ -22,12 +22,6 @@
 
 #include "rootcat.h"
 
-static void
-StringRenderer_clear (StringRenderer * rc)
-{
-  XClearWindow (rc->dpy, rc->window);
-}
-
 static unsigned int
 StringRenderer_get_line_height (StringRenderer * rc, const char *string)
 {
@@ -80,13 +74,11 @@ delete_StringRenderer (StringRenderer * rc)
   free (rc);
 }
 
-StringRenderer *
-new_StringRenderer (Display * dpy, Window w,
-		    const char *font, const char *color)
+static Display *
+try_open_display(Display * dpy)
 {
-  /* Validate inputs.  */
   if (!dpy)
-    {
+    { 
       dpy = XOpenDisplay (getenv ("DISPLAY"));
       if (!dpy)
 	{
@@ -94,12 +86,31 @@ new_StringRenderer (Display * dpy, Window w,
 	  exit (1);
 	}
     }
-  if (!font)
-    font = SR_DEFAULT_FONT;
-  if (!color)
-    color = SR_DEFAULT_COLOR;
-  if (w == 0)
-    w = DefaultRootWindow (dpy);
+
+  return dpy;
+}
+
+static void
+validate_inputs(Display **dpy,
+		Window * w,
+		const char **font, 
+		const char **color)
+{
+  *dpy=try_open_display(*dpy);
+  /* Validate inputs.  */
+  if (!*font)
+    *font = SR_DEFAULT_FONT;
+  if (!*color)
+    *color = SR_DEFAULT_COLOR;
+  if (*w == 0)
+    *w = DefaultRootWindow (*dpy);
+}
+
+StringRenderer *
+new_StringRenderer (Display * dpy, Window w,
+		    const char *font, const char *color)
+{
+  validate_inputs(&dpy, &w, &font, &color);
 
   /* Allocate class.  */
   StringRenderer *rc = malloc (sizeof (StringRenderer));
@@ -108,7 +119,6 @@ new_StringRenderer (Display * dpy, Window w,
   rc->delete = (&delete_StringRenderer);
   rc->draw = (&StringRenderer_draw);
   rc->get_line_height = (&StringRenderer_get_line_height);
-  rc->clear = (&StringRenderer_clear);
 
   rc->dpy = dpy;
   rc->window = w;
@@ -123,6 +133,8 @@ new_StringRenderer (Display * dpy, Window w,
     }
     rc->font = XftFontOpenName (dpy, screen, font);
   }
+  /* Clear previous OSD text from the screen.  */
+  XClearWindow (rc->dpy, rc->window);
 
   return rc;
 }
