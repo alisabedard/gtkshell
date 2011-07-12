@@ -30,11 +30,12 @@ main (int argc, char **argv)
   StringRenderer *rc = NULL;
   register int counter = 0;
   unsigned int line = 0;
+  unsigned int y = 0;
   char *color = NULL;
   char *font = NULL;
 
   while (++counter < argc)
-    {
+  {
       const char *string = argv[counter];
 
       if (string[0] == '-')
@@ -61,6 +62,10 @@ main (int argc, char **argv)
 		  font = (char*)argv[counter];
                   break;
                 }
+	    case 'y':
+	      counter++;
+	      y=atoi(argv[counter]);
+	      break;
 	    default:
 print_usage:
               fprintf (stderr, 
@@ -81,7 +86,7 @@ print_usage:
 	    const unsigned int height = $ (rc, get_line_height, string);
 
 	    $ (rc, draw, (height / 2),
-	       ((++line) * LINE_SPACING * height), string);
+	       y+((++line) * LINE_SPACING * height), string);
 	  }
 	}
     }
