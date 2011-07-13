@@ -1,6 +1,6 @@
 
 option "rows" 1;
-option "icon size" "toolbar";
+option "icon size" "large toolbar";
 option "undecorated";
 option "no fill";
 
