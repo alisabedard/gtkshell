@@ -245,7 +245,7 @@ AR_Prepare_Environment()
 
 Deskbar()
 {
-  GUIDL Deskbar -og "1024x16+208-0"
+  GUIDL Deskbar -og  "+0-0" # "1024x16+208-0"
 }
 
 AR()

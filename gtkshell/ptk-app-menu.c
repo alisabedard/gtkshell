@@ -69,13 +69,13 @@ typedef struct _PtkAppMenuItem
 
 static const char *development_cats[] = {
   "Development",
-  "Translation",
   "Building",
   "Debugger",
   "IDE",
   "GUIDesigner",
   "Profiling",
   "RevisionControl",
+  "Translation",
   "WebDevelopment",
   "ProjectManagement",
   NULL
@@ -86,6 +86,7 @@ static const char *office_cats[] = {
   "Dictionary",
   "Chart",
   "Calendar",
+  "Email",
   "ContactManagement",
   "Database",
   "Finance",
@@ -94,6 +95,7 @@ static const char *office_cats[] = {
   "Spreadsheet",
   "WordProcessor",
   "Publishing",
+  "FlowChart",
   NULL
 };
 
@@ -230,7 +232,16 @@ static const char *utility_cats[] = {
   "TextEditor",
   "Accessibility",
   "File Management",
+  "ConsoleOnly",
+  "Core",
   NULL
+};
+
+static const char *other_cats[] = {
+	"Other",
+	"Documentation",
+	"Help",
+	NULL
 };
 
 static const CatInfo known_cats[] = {
@@ -251,7 +262,8 @@ static const CatInfo known_cats[] = {
   {N_("Office"), "Office", "applications-office", office_cats},
   {N_("Office"), "X-Debian-Applications-Office", 
 	  "applications-office", office_cats},
-  {N_("Utilities"), "Utilities", "applications-accessories", utility_cats}
+  {N_("Utilities"), "Utilities", "applications-accessories", utility_cats},
+  {N_("Other"), "Other", "applications-other", other_cats}
 };
 
 static int

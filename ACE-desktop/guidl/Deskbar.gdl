@@ -1,28 +1,30 @@
 
 option "rows" 1;
-option "icon size" "menu";
+option "icon size" "toolbar";
 option "undecorated";
 option "no fill";
 
 add "app menu";
 add buttons
-  "ACE & # Ace,start-here"
-  "ACE -A Settings & # Cfg,gtk-preferences"
-  "ACE Lock_Display & # Lck,gnome-lockscreen"
-  "ACE File_Manager & # Fmr,file-manager"
-  "ACE Terminal & # Trm,terminal"
-  "ACE Browser & # Www,web-browser"
-  "ACE Sticky & # Snt,gtk-copy"
-  "ACE Calculator & # Clc,calc"
-  "ACE Editor & # Edt,text-editor"
-  "ACE Chat & # Cht,network-transmit-receive"
-  "ACE Word & # Wpr,wordprocessing"
-  "ACE Spreadsheet & # Sst,spreadsheet"
-  "ACE CD_Player & # Mus,audio-x-generic";
+  "ACE & # ACE,start-here"
+  "ACE -A Settings & # Cfg ,gtk-preferences"
+  "ACE Lock_Display & # Lck ,gnome-lockscreen"
+  "ACE File_Manager & # Fmr ,file-manager"
+  "ACE Terminal & # Trm ,terminal"
+  "ACE Browser & # Www ,web-browser"
+  "ACE Sticky & # Snt ,gtk-copy"
+  "ACE Calculator & # Clc ,calc"
+  "ACE Editor & # Edt ,text-editor"
+  "ACE Chat & # Cht ,network-transmit-receive"
+  "ACE Word & # Wpr ,wordprocessing"
+  "ACE Spreadsheet & # Sst ,spreadsheet"
+  "ACE CD_Player & # Mus ,audio-x-generic";
 
 option "horizontal clock";
+add "label" " ";
 add "clock applet";
+add "label" " ";
 
 option "fill";
-add button "killall gtkshell arwm # Die,gtk-quit";
+add button "killall gtkshell arwm # Die ,gtk-quit";
 
