@@ -424,7 +424,7 @@ Settings_Node()
 {
     new_value=$($ARSHELL -og 256x154\
     	-al 'Current command:'\
-	-al "$(ACE -r $1)"\
+	-al "$($ARSHELL -cg $1)"\
 	-al 'Enter a new command:'\
 	-oE -oe -at "echo"\
 	'# Close')
