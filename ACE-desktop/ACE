@@ -372,7 +372,7 @@ Man_Browse_Section()
 	cd $manual_root/man$1
 	CMD="$CMD -al \"Manual Section $1\""
 	CMD="$CMD Exit___,gtk-quit"
-	CMD="$CMD \"ACE -A Man_Browse_Section $1 # Back,gtk-go-back\""
+	CMD="$CMD \"ACE -A Man_Browse_Section $1\""
 	for MANPAGE in *.$1; do
 		MANPAGE="$(echo $MANPAGE | cut -d'.' -f1)"
 		CMD="$CMD \"ACE -A Read_Man_Page $MANPAGE\""

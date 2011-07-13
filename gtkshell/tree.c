@@ -1,22 +1,22 @@
 /*
-  GUIShell
-  (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  gtkshell
+  (c) 2002-2011 Jeffrey Bedard
+  jefbed@gmail.com
 
-  This file is part of GUIShell.
+  This file is part of gtkshell.
 
-  GUIShell is free software; you can redistribute it and/or modify
+  gtkshell is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
 
-  GUIShell is distributed in the hope that it will be useful,
+  gtkshell is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with GUIShell; if not, write to the Free Software
+  along with gtkshell; if not, write to the Free Software
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
@@ -85,31 +85,33 @@ setup_model (const gchar * input)
 		-1, name, renderer, "text", id, NULL)
 
 static void
-selection_handler (GtkTreeSelection * selection,
-		   gpointer data __attribute__ ((unused)))
+selection_handler (GtkTreeSelection * selection, gpointer data)
 {
   GtkTreeModel *model;
   GtkTreeIter iter;
   gchar *key;
+  GSH * gsh = (GSH*)data;
 
   gtk_tree_selection_get_selected (selection, &model, &iter);
   gtk_tree_model_get (model, &iter, KEY_COLUMN, &key, -1);
   puts (key);
+  if(GSH_FLAG(GSH_CBEXIT))
+	  exit(0);
 }
 
 static void
-setup_signals (GtkWidget * tree_view)
+setup_signals (GSH * gsh, GtkWidget * tree_view)
 {
   GtkTreeSelection *selection;
 
   selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (tree_view));
   gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
   g_signal_connect (G_OBJECT (selection), "changed",
-		    G_CALLBACK (selection_handler), NULL);
+		    G_CALLBACK (selection_handler), gsh);
 }
 
 GtkWidget *
-gsh_tree_view_new (GSH * gsh __attribute__ ((unused)), const gchar * input)
+gsh_tree_view_new (GSH * gsh, const gchar * input)
 {
   GtkTreeModel *model;
   GtkCellRenderer *renderer;
@@ -122,7 +124,7 @@ gsh_tree_view_new (GSH * gsh __attribute__ ((unused)), const gchar * input)
   ADD_COLUMN (view, "VALUE", VALUE_COLUMN);
   gtk_tree_view_set_model (GTK_TREE_VIEW (view), model);
   g_object_unref (model);
-  setup_signals (view);
+  setup_signals (gsh, view);
 
   return view;
 }

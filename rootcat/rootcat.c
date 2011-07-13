@@ -39,6 +39,7 @@ main (int argc, char **argv)
   register int counter = 0;
   unsigned int line = 0;
   unsigned int y = 0;
+  unsigned int x = 0;
   char *color = NULL;
   char *font = NULL;
 
@@ -67,6 +68,10 @@ main (int argc, char **argv)
 		  font = (char*)argv[counter];
                   break;
                 }
+	    case 'x':
+	      counter++;
+	      x=atoi(argv[counter]);
+	      break;
 	    case 'y':
 	      counter++;
 	      y=atoi(argv[counter]);
@@ -89,7 +94,7 @@ print_usage:
 	  {
 	    const unsigned int height = $ (rc, get_line_height, string);
 
-	    $ (rc, draw, (height / 2),
+	    $ (rc, draw, (height / 2)+x,
 	       y+((++line) * LINE_SPACING * height), string);
 	  }
 	}
