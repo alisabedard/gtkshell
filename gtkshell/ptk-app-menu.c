@@ -170,9 +170,11 @@ static const char *audiovideo_cats[] = {
 
 static const char *game_cats[] = {
   "Game",
+  "Games",
   "Amusement",
   "ActionGame",
   "AdventureGame",
+  "Adventure",
   "ArcadeGame",
   "BoardGame",
   "BlocksGame",
@@ -226,13 +228,18 @@ static const char *utility_cats[] = {
   "Calculator",
   "Clock",
   "TextEditor",
+  "Accessibility",
+  "File Management",
   NULL
 };
 
 static const CatInfo known_cats[] = {
-  {N_("Other"), "Other", "applications-other", NULL},
-  {N_("Game"), "Games", "applications-games", game_cats},
-  {N_("Education"), "Education", "applications-other", education_cats},
+	/* FIXME:  For some reason, these two UNUSED entries need to be
+	   inserted here in order for the Games menu to show up.  */
+  {N_("UNUSED"), "UNUSED", "applications-other", NULL},
+  {N_("UNUSED"), "UNUSED", "applications-other", NULL},
+  {N_("Games"), "Games", "applications-games", game_cats},
+  {N_("Education"), "Education", "applications-science", education_cats},
   {N_("Development"), "Development", "applications-development", 
     development_cats},
   {N_("Audio & Video"), "Multimedia", "applications-multimedia", 
@@ -242,7 +249,9 @@ static const CatInfo known_cats[] = {
   {N_("System Tools"), "System-Tools", "applications-system", system_cats},
   {N_("Network"), "Internet", "applications-internet", network_cats},
   {N_("Office"), "Office", "applications-office", office_cats},
-  {N_("Accessories"), "Accessories", "applications-accessories", utility_cats}
+  {N_("Office"), "X-Debian-Applications-Office", 
+	  "applications-office", office_cats},
+  {N_("Utilities"), "Utilities", "applications-accessories", utility_cats}
 };
 
 static int
@@ -260,8 +269,9 @@ find_cat (char **cats)
 	    {
 	      if (0 == strncmp (*cat, "X-", 2))	/*  Desktop specific */
 		return -1;
-	      if (0 == strncmp (*sub_cats, *cat, 4))
+	      if(0 == strncmp (*sub_cats, *cat, 4))
 		return i;
+
 	      ++sub_cats;
 	    }
 	}
