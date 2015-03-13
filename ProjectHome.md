@@ -1,0 +1,1 @@
+gtkshell is suitable for use by third party applications to aid in rapid development. It is in line with the Unix philosophy of applications which do one thing and do it well. In this regard, it is an interface definition tool, which allows the creation of desktop applications in combination with other utilities.
