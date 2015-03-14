@@ -36,7 +36,7 @@ gsh_dialog_color_cb (GSH * gsh,
 		     const gchar ** argv __attribute__ ((unused)))
 {
   gsh_common_dialog_executioner(gsh, 
-                                gtk_font_selection_dialog_new("Select Color"),
+                                gtk_color_selection_dialog_new("Select Color"),
                                 &gsh_color_dialog_submit);
 }
 
