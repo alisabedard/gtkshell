@@ -23,6 +23,7 @@
 
 
 #include "gtkshell.h"
+#include "y.tab.h"
 
 
 %}

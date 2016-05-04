@@ -1,7 +1,7 @@
 ###############################################################################
 #
 #    GUIShell
-#    (c) 2004-2011 Jeffrey Bedard
+#    (c) 2004-2015 Jeffrey Bedard
 #    jefbed@gmail.com
 # 
 #    This file is part of GUIShell.
@@ -29,7 +29,6 @@ CFLAGS+=$(DEFS) $(INCLUDE)
 ARFLAGS=-L../libaceutil -laceutil
 GTKFLAGS=$(ARFLAGS) $(LDFLAGS)
 
-objects=$(patsubst %.c,%.o,$(wildcard *.c)) 
 
 ifeq ($(OS),MINGW32)
 	INSTALLPROG=cp
@@ -38,33 +37,28 @@ else
 endif
 
 all: y.tab.c
+	$(LEX) -o lex.yy.c guidl.lex
+	$(YACC) -d -o y.tab.c guidl.y
 	$(MAKE) gtkshell
 
-gtkshell: $(objects)
+objects=$(patsubst %.c,%.o,$(wildcard *.c)) 
+
+gtkshell: $(objects) 
 	cc -o gtkshell $(objects) $(GTKFLAGS)
-
-lex.yy.c: guidl.lex
-	$(LEX) -o lex.yy.c guidl.lex
-
-y.tab.h: lex.yy.c guidl.y
-	$(YACC) -d -o y.tab.c guidl.y
-
-y.tab.c: y.tab.h
 
 parser-clean:
 	rm -f *.yy.c *.tab.c *.tab.h
 
-clean: # parser-clean
+clean:
 	rm -f gtkshell *.o libgtkshell.a 
 
-distclean: clean
+distclean: clean parser-clean
 	rm -f *~
 
 install:
 	mkdir -p $(PREFIX)/bin
 	$(INSTALLPROG) gtkshell$(SUFFIX) $(PREFIX)/bin
 	install gshterm $(PREFIX)/bin
-
 
 indent: 
 	indent *.[ch]

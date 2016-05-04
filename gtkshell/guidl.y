@@ -32,8 +32,8 @@ yyerror(const char *string)
 	g_error("error:  %s\n", string);
 }
 
-inline guint8
-yywrap()
+int
+yywrap(void)
 {
 	return 1;
 }
