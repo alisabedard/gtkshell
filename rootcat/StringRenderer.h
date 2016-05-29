@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2008-2010 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,22 +23,22 @@
 #ifndef __STRINGRENDERER_H__
 #define __STRINGRENDERER_H__
 
-typedef struct _StringRenderer
-{
-  Display *dpy;
-  Window window;
-  XftDraw *__draw;
-  XftColor color;
-  XftFont *font;
+typedef struct _StringRenderer {
+	Display *dpy;
+	Window window;
+	XftDraw *__draw;
+	XftColor color;
+	XftFont *font;
 
-  void (*delete) (struct _StringRenderer *);
-  unsigned int (*draw) (struct _StringRenderer *,
-			const int, const int, const char *);
-  unsigned int (*get_line_height) (struct _StringRenderer *, const char *);
+	void (*delete) (struct _StringRenderer *);
+	unsigned int (*draw) (struct _StringRenderer *,
+			      const int, const int, const char *);
+	unsigned int (*get_line_height) (struct _StringRenderer *,
+					 const char *);
 } StringRenderer;
 
-StringRenderer *new_StringRenderer (Display * dpy, Window w,
-				    const char *font, const char *color);
+StringRenderer *new_StringRenderer(Display * dpy, Window w,
+				   const char *font, const char *color);
 
 #define new_StringRenderer_root(f,c) new_StringRenderer(NULL, 0, f, c)
 

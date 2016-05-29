@@ -2,7 +2,7 @@
 #
 #    GUIShell
 #    (c) 2008 Jeffrey Bedard
-#    antiright@gmail.com
+#    jefbed@gmail.com
 # 
 #    This file is part of GUIShell.
 #
