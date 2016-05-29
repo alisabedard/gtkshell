@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,13 +23,10 @@
 #ifndef LIBAR_SYSTEM_H
 #define LIBAR_SYSTEM_H
 
-int
-    gtkshell_system(char *field_string);
+int gtkshell_system(char *field_string);
 
-int
-    sysprintf(const char *format,...);
+int sysprintf(const char *format, ...);
 
-int
-    vsysprintf(const char *format, va_list list);
+int vsysprintf(const char *format, va_list list);
 
-#endif				/* LIBAR_SYSTEM_H */
+#endif /* LIBAR_SYSTEM_H */

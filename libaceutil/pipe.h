@@ -1,5 +1,5 @@
 /*
- * GUIShell (c) 2002-2006 Jeffrey Bedard antiright@gmail.com
+ * GUIShell (c) 2002-2006 Jeffrey Bedard jefbed@gmail.com
  *
  * This file is part of GUIShell.
  *
@@ -21,14 +21,11 @@
 #ifndef LIBAR_PIPE_H
 #define LIBAR_PIPE_H
 
-gchar *
-antiright_pipe_read(const gchar *command_string);
+gchar *antiright_pipe_read(const gchar * command_string);
 
-gchar *
-antiright_read_file(FILE *file);
+gchar *antiright_read_file(FILE * file);
 
-gchar *
-antiright_read_named_file(const gchar * filename);
+gchar *antiright_read_named_file(const gchar * filename);
 
 /* void */
 /* antiright_pipe_write(char *command_string, char* data); */

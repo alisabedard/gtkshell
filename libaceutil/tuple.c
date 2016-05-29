@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -22,9 +22,7 @@
 
 #include "library.h"
 
-
-static void
-ar_delete_ARTupleVector(struct ARTupleVector * vector)
+static void ar_delete_ARTupleVector(struct ARTupleVector *vector)
 {
 #if !defined(WIN32) & !defined(CYGWIN)
 	g_hash_table_remove_all(vector->__hash);
@@ -34,31 +32,28 @@ ar_delete_ARTupleVector(struct ARTupleVector * vector)
 }
 
 static void
-ar_add_ARTupleVector(struct ARTupleVector * vector,
+ar_add_ARTupleVector(struct ARTupleVector *vector,
 		     const gchar * key, const gchar * value)
 {
-	g_hash_table_insert(vector->__hash, (gpointer)key, (gpointer)value);
+	g_hash_table_insert(vector->__hash, (gpointer) key, (gpointer) value);
 }
 
-static const gchar *
-ar_find_ARTupleVector(struct ARTupleVector * vector,
-		      const gchar * term)
+static const gchar *ar_find_ARTupleVector(struct ARTupleVector *vector,
+					  const gchar * term)
 {
-	return (const gchar *)g_hash_table_lookup(vector->__hash, 
-						  (gconstpointer)term);
+	return (const gchar *)g_hash_table_lookup(vector->__hash,
+						  (gconstpointer) term);
 }
 
-struct ARTupleVector *
-ar_new_ARTupleVector()
+struct ARTupleVector *ar_new_ARTupleVector()
 {
-	struct ARTupleVector * vector;
+	struct ARTupleVector *vector;
 
-	vector=armalloc(sizeof(struct ARTupleVector));
-	vector->__hash=g_hash_table_new(&g_str_hash, &g_str_equal);
-	vector->add=&ar_add_ARTupleVector;
-	vector->find=&ar_find_ARTupleVector;
-	vector->delete=&ar_delete_ARTupleVector;
+	vector = armalloc(sizeof(struct ARTupleVector));
+	vector->__hash = g_hash_table_new(&g_str_hash, &g_str_equal);
+	vector->add = &ar_add_ARTupleVector;
+	vector->find = &ar_find_ARTupleVector;
+	vector->delete = &ar_delete_ARTupleVector;
 
 	return vector;
 }
-

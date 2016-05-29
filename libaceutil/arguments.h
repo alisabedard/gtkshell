@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2005 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,24 +20,19 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
-
 #ifndef AR_ARGUMENTS_H
 #define AR_ARGUMENTS_H
 
 /* argument structure */
-struct ARArguments
-{
-	gchar ** argv;
+struct ARArguments {
+	gchar **argv;
 	gint argc;
-	void (*add)(struct ARArguments *, const gchar *);
-	void (*prepend)(struct ARArguments *, const gchar *);
-	void (*delete)(struct ARArguments *);
-	void (*delete_options)(struct ARArguments *);
+	void (*add) (struct ARArguments *, const gchar *);
+	void (*prepend) (struct ARArguments *, const gchar *);
+	void (*delete) (struct ARArguments *);
+	void (*delete_options) (struct ARArguments *);
 };
 
-struct ARArguments *
-ar_new_ARArguments();
+struct ARArguments *ar_new_ARArguments();
 
 #endif /* AR_ARGUMENTS_H */
-

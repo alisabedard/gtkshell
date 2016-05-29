@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2010 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -26,21 +26,19 @@
 #define GET_COMMAND_STRING(f)\
  (MUST_REFORMAT(f)?g_strconcat(f, " &", NULL):g_strdup(f))
 
-int
-gtkshell_system(char *field_string)
+int gtkshell_system(char *field_string)
 {
 	char *command;
 	int return_status;
 
 	command = GET_COMMAND_STRING(field_string);
-	return_status=system(command);
+	return_status = system(command);
 	g_free(command);
 
 	return return_status;
 }
 
-int
-vsysprintf(const char *format, va_list list)
+int vsysprintf(const char *format, va_list list)
 {
 	char *command;
 	int return_value;
@@ -52,8 +50,7 @@ vsysprintf(const char *format, va_list list)
 	return (return_value);
 }
 
-int
-sysprintf(const char *format,...)
+int sysprintf(const char *format, ...)
 {
 	va_list list;
 	int return_value;
@@ -63,4 +60,3 @@ sysprintf(const char *format,...)
 	va_end(list);
 	return (return_value);
 }
-

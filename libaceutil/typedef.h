@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2010 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 

@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2010 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -25,10 +25,8 @@
 
 #include <glib/gprintf.h>
 
-gchar *
-antiright_beautified_label(const gchar *text);
+gchar *antiright_beautified_label(const gchar * text);
 
-gchar *
-ar_dtostr(const gdouble d);
+gchar *ar_dtostr(const gdouble d);
 
 #endif

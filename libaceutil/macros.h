@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2007-2010 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -45,7 +45,7 @@
 #ifdef DEBUG
 #define ARASSERT g_assert
 #else /* not DEBUG */
-#define ARASSERT /* undefined */
+#define ARASSERT		/* undefined */
 #endif /* DEBUG */
 
 #ifdef DEBUG
@@ -55,8 +55,8 @@
 #define ARPASSERT(x) \
 	ARASSERT(ARPBOOL(x))
 #else /* not DEBUG */
-#define ARBASSERT(x) /* undefined */
-#define ARPASSERT(x) /* undefined */
+#define ARBASSERT(x)		/* undefined */
+#define ARPASSERT(x)		/* undefined */
 #endif /* DEBUG */
 
 #define ARIFB(x) \
@@ -98,4 +98,3 @@
 	parent->member=child->member
 
 #endif /* not LIBAR_MACROS_H */
-

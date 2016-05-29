@@ -31,10 +31,10 @@
    version 2.2 of Bison.  */
 
 #ifndef YY_YY_Y_TAB_H_INCLUDED
-#define YY_YY_Y_TAB_H_INCLUDED
+# define YY_YY_Y_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
-#define YYDEBUG 0
+# define YYDEBUG 0
 #endif
 #if YYDEBUG
 extern int yydebug;
@@ -42,42 +42,45 @@ extern int yydebug;
 
 /* Token type.  */
 #ifndef YYTOKENTYPE
-#define YYTOKENTYPE
-enum yytokentype {
-	IFS = 258,
-	SC = 259,
-	COMMA = 260,
-	OPTION = 261,
-	DIALOG = 262,
-	END = 263,
-	ADD = 264,
-	BUTTONS = 265,
-	BUTTON = 266,
-	TOKEN_ECHO = 267,
-	STRING = 268,
-	NUM = 269
-};
+# define YYTOKENTYPE
+  enum yytokentype
+  {
+    IFS = 258,
+    SC = 259,
+    COMMA = 260,
+    OPTION = 261,
+    DIALOG = 262,
+    END = 263,
+    ADD = 264,
+    BUTTONS = 265,
+    BUTTON = 266,
+    TOKEN_ECHO = 267,
+    STRING = 268,
+    NUM = 269
+  };
 #endif
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 
-union YYSTYPE {
-#line 45 "guidl.y"		/* yacc.c:1909  */
+union YYSTYPE
+{
+#line 45 "guidl.y" /* yacc.c:1909  */
 
-	gchar *string;
+	gchar * string;
 	gint number;
 
-#line 74 "y.tab.h"		/* yacc.c:1909  */
+#line 74 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
-#define YYSTYPE_IS_TRIVIAL 1
-#define YYSTYPE_IS_DECLARED 1
+# define YYSTYPE_IS_TRIVIAL 1
+# define YYSTYPE_IS_DECLARED 1
 #endif
+
 
 extern YYSTYPE yylval;
 
-int yyparse(void);
+int yyparse (void);
 
 #endif /* !YY_YY_Y_TAB_H_INCLUDED  */

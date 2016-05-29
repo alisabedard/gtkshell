@@ -2,7 +2,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -24,32 +24,29 @@
 #include "library.h"
 
 /* FREE RETURNED STRING.  */
-gchar *
-antiright_read_file(FILE *file)
+gchar *antiright_read_file(FILE * file)
 {
 	gchar buffer[BUFSIZ];
 	gchar *text;
 	size_t total, read;
 
-	text=NULL;
-	total=0;
-	read=0;
+	text = NULL;
+	total = 0;
+	read = 0;
 
-	text=g_strdup("\0");
-	while((read = fread(buffer, sizeof(gchar), BUFSIZ, file)) != 0)
-	{
+	text = g_strdup("\0");
+	while ((read = fread(buffer, sizeof(gchar), BUFSIZ, file)) != 0) {
 		total += read;
-		text = (gchar *) g_realloc(text, total*sizeof(gchar));
+		text = (gchar *) g_realloc(text, total * sizeof(gchar));
 		g_strlcat(text, buffer, total);
 	}
 
 	return text;
 }
 
-gchar *
-antiright_read_named_file(const gchar * filename)
+gchar *antiright_read_named_file(const gchar * filename)
 {
-	gchar * contents;
+	gchar *contents;
 
 	g_file_get_contents(filename, &contents, NULL, NULL);
 
@@ -57,17 +54,15 @@ antiright_read_named_file(const gchar * filename)
 }
 
 /* Make sure that you free the returned string.  */
-gchar *
-antiright_pipe_read(const gchar *command_string)
+gchar *antiright_pipe_read(const gchar * command_string)
 {
 	/* Declare.  */
-	gchar *command_stdout=NULL;
-	
+	gchar *command_stdout = NULL;
+
 	/* Check arguments.  */
 	ARPASSERT(command_string);
-	
-	g_spawn_command_line_sync(command_string, &command_stdout, NULL,
-			NULL, NULL);
-        return command_stdout ? g_strchomp(command_stdout) : g_strdup("");
-}
 
+	g_spawn_command_line_sync(command_string, &command_stdout, NULL,
+				  NULL, NULL);
+	return command_stdout ? g_strchomp(command_stdout) : g_strdup("");
+}

@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2006 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,38 +23,37 @@
 #include "library.h"
 #include <strings.h>
 
-static inline gchar*
-substitute(const gchar *c)
+static inline gchar *substitute(const gchar * c)
 {
-        gchar *s=strdup(c);
-        gchar *i=s;
+	gchar *s = strdup(c);
+	gchar *i = s;
 
-        while(*i++)
-          switch(*i)
-            {
-            case '_': *i=' '; break;
-            case '@': *i='_'; break;
-            }
+	while (*i++)
+		switch (*i) {
+		case '_':
+			*i = ' ';
+			break;
+		case '@':
+			*i = '_';
+			break;
+		}
 
 	return s;
 }
 
 /* Free the returned value!  */
-gchar *
-antiright_beautified_label(const gchar *text)
+gchar *antiright_beautified_label(const gchar * text)
 {
-  const char *nospace=strrchr(text, ' ');
-  
-  return substitute(nospace?nospace:text);
+	const char *nospace = strrchr(text, ' ');
+
+	return substitute(nospace ? nospace : text);
 }
 
-gchar *
-ar_dtostr(const gdouble d)
+gchar *ar_dtostr(const gdouble d)
 {
-	gchar *s=g_malloc(G_ASCII_DTOSTR_BUF_SIZE);
+	gchar *s = g_malloc(G_ASCII_DTOSTR_BUF_SIZE);
 
 	g_ascii_dtostr(s, G_ASCII_DTOSTR_BUF_SIZE, d);
 
 	return s;
 }
-

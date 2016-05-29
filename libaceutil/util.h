@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2005 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -50,34 +50,32 @@
 #include <sys/mman.h>
 #include <unistd.h>
 
-typedef void(*ARActionFunction)(gint *, gchar **);
+typedef void (*ARActionFunction) (gint *, gchar **);
 
-struct ARFunctionDictionary
-{
-	struct ARArguments * __data;
-	void (*define)(struct ARFunctionDictionary *, const gchar *,
-		ARActionFunction);
-	ARActionFunction (*lookup)(struct ARFunctionDictionary *,
-		const gchar *);
-	void (*exec)(struct ARFunctionDictionary *, const gchar *,
-		gint *, gchar **);
-	void (*delete)(struct ARFunctionDictionary *);
+struct ARFunctionDictionary {
+	struct ARArguments *__data;
+	void (*define) (struct ARFunctionDictionary *, const gchar *,
+			ARActionFunction);
+	 ARActionFunction(*lookup) (struct ARFunctionDictionary *,
+				    const gchar *);
+	void (*exec) (struct ARFunctionDictionary *, const gchar *,
+		      gint *, gchar **);
+	void (*delete) (struct ARFunctionDictionary *);
 };
 
-struct ARFunctionDictionary *
-ar_new_ARFunctionDictionary();
+struct ARFunctionDictionary *ar_new_ARFunctionDictionary();
 
-struct ARCommandLineParser
-{
-	struct ARArguments * __args;
-	struct ARFunctionDictionary * __dict;
-	void (*set_args)(struct ARCommandLineParser *, 
-		const struct ARArguments * args);
-	void (*parse)(struct ARCommandLineParser *);
-	void (*delete)(struct ARCommandLineParser *);
+struct ARCommandLineParser {
+	struct ARArguments *__args;
+	struct ARFunctionDictionary *__dict;
+	void (*set_args) (struct ARCommandLineParser *,
+			  const struct ARArguments * args);
+	void (*parse) (struct ARCommandLineParser *);
+	void (*delete) (struct ARCommandLineParser *);
 };
 
-struct ARCommandLineParser *
-ar_new_ARCommandLineParser(struct ARFunctionDictionary * dict);
+struct ARCommandLineParser *ar_new_ARCommandLineParser(struct
+						       ARFunctionDictionary
+						       *dict);
 
 #endif

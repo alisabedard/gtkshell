@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,18 +23,15 @@
 #ifndef AR_TUPLE_H
 #define AR_TUPLE_H
 
-struct ARTupleVector
-{
-	GHashTable * __hash;
-	void (*add)(struct ARTupleVector *, const gchar *, const gchar *);
-	const gchar * (*find)(struct ARTupleVector *, const gchar *);
-	void (*delete)(struct ARTupleVector *);
+struct ARTupleVector {
+	GHashTable *__hash;
+	void (*add) (struct ARTupleVector *, const gchar *, const gchar *);
+	const gchar *(*find) (struct ARTupleVector *, const gchar *);
+	void (*delete) (struct ARTupleVector *);
 };
 
 typedef struct ARTupleVector ARTupleVector;
 
-struct ARTupleVector *
-ar_new_ARTupleVector();
+struct ARTupleVector *ar_new_ARTupleVector();
 
 #endif /* AR_TUPLE_H */
-
