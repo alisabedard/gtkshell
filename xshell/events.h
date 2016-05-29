@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,7 +20,6 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #ifndef XSH_EVENTS_H
 #define XSH_EVENTS_H
 
@@ -33,9 +32,6 @@
 	widget->events.configure=NULL;\
 }
 
-void
-xsh_event_loop(XShell * xsh);
+void xsh_event_loop(XShell * xsh);
 
 #endif
-
-

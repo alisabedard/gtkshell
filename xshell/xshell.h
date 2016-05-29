@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,7 +20,6 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #ifndef XSHELL_H
 #define XSHELL_H
 
@@ -33,7 +32,7 @@
 #ifdef DEBUG
 #define XMSG(msg) fprintf(stderr, "%s:%d:  %s\n", __FILE__, __LINE__, msg);
 #else /* not DEBUG */
-#define XMSG(msg) /* unused */
+#define XMSG(msg)		/* unused */
 #endif /* DEBUG */
 
 #include "xshell_struct.h"
@@ -54,5 +53,3 @@
 	 	fprintf(stderr, "ERROR:  %s\n", command);
 
 #endif /* XSHELL_H */
-
-

@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,15 +23,13 @@
 #ifndef XSH_COLOR_H
 #define XSH_COLOR_H
 
-unsigned long 
-xsh_get_color(Display * display, 
-	unsigned short r, unsigned short g, unsigned short b);
+unsigned long
+xsh_get_color(Display * display,
+	      unsigned short r, unsigned short g, unsigned short b);
 
-void
-xsh_set_foreground(Display * display, GC gc, unsigned long color);
+void xsh_set_foreground(Display * display, GC gc, unsigned long color);
 
 #define XSH_SET_COLOR(dpy, gc, r, g, b)\
 	xsh_set_foreground(dpy, gc, xsh_get_color(dpy, r, g, b))
 
 #endif /* not XSH_COLOR_H */
-

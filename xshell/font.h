@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,11 +23,8 @@
 #ifndef XSH_FONT_H
 #define XSH_FONT_H
 
-void
-xsh_set_font(XShell * xsh, const char * name);
+void xsh_set_font(XShell * xsh, const char *name);
 
-void
-xsh_free_font(XShell * xsh);
+void xsh_free_font(XShell * xsh);
 
 #endif /* not XSH_FONT_H */
-

@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,28 +20,22 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #ifndef XSH_BUTTON_H
 #define XSH_BUTTON_H
 
-struct XSHButtonData
-{
-	char * command;
-	char * label;
+struct XSHButtonData {
+	char *command;
+	char *label;
 	Pixmap bitmap;
 };
 
 typedef struct XSHButtonData XSHButtonData;
 
-void
-xshell_button_new(XShell * xsh, XWidget * parent,
-	const char * command);
+void xshell_button_new(XShell * xsh, XWidget * parent, const char *command);
 
 void
-xshell_floating_button_new(XShell * xsh, XWidget * parent, 
-	const char * command, int x, int y, 
-	unsigned int width, unsigned int height);
+xshell_floating_button_new(XShell * xsh, XWidget * parent,
+			   const char *command, int x, int y,
+			   unsigned int width, unsigned int height);
 
 #endif /* XSH_BUTTON_H */
-
-

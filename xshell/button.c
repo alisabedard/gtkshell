@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -22,129 +22,117 @@
 
 #include "xshell.h"
 
-static void
-draw_label(XShell * xsh, XWidget * button)
+static void draw_label(XShell * xsh, XWidget * button)
 {
-	XSHButtonData * data = (XSHButtonData *)button->data;
-	const char * label=data->label;
-	XShellGUI * gui = &(xsh->gui);
-	Display * dpy = gui->display;
+	XSHButtonData *data = (XSHButtonData *) button->data;
+	const char *label = data->label;
+	XShellGUI *gui = &(xsh->gui);
+	Display *dpy = gui->display;
 	GC gc = gui->gc;
 
 	XSH_SET_COLOR(dpy, gc, 0, 0, 0);
-	XDrawString(dpy, button->window, gc, XSH_FONT_WIDTH(xsh), 
-		XSH_FONT_HEIGHT(xsh)-XSH_WIDGET_PADDING, 
-		label, strlen(label));
+	XDrawString(dpy, button->window, gc, XSH_FONT_WIDTH(xsh),
+		    XSH_FONT_HEIGHT(xsh) - XSH_WIDGET_PADDING,
+		    label, strlen(label));
 }
 
-static void
-expose(XWidget * button)
+static void expose(XWidget * button)
 {
 #ifdef XSH_DECORATE
-	if(button->events.button_press)
+	if (button->events.button_press)
 		xsh_decorate(button, XSH_DECOR_OUT);
-	else /* for label  */
+	else			/* for label  */
 		xsh_decorate(button, XSH_DECOR_FLAT);
 #endif /* XSH_DECORATE */
-	draw_label((XShell *)(button->xsh), button);
+	draw_label((XShell *) (button->xsh), button);
 }
 
-static Bool
-special_command(const char * command)
+static Bool special_command(const char *command)
 {
-	if(!strcmp(command, "Exit___"))
+	if (!strcmp(command, "Exit___"))
 		exit(0);
 	else
 		return False;
 	return True;
 }
 
-static void
-button_press(XWidget * button)
+static void button_press(XWidget * button)
 {
-	XSHButtonData * data=(XSHButtonData *)button->data;
-	const char * command=data->command;
+	XSHButtonData *data = (XSHButtonData *) button->data;
+	const char *command = data->command;
 
 	XMSG("PRESSED");
-	data=(XSHButtonData *)button->data;
+	data = (XSHButtonData *) button->data;
 #ifdef XSH_DECORATE
 	xsh_decorate(button, XSH_DECOR_IN);
 #endif /* XSH_DECORATE */
-	draw_label((XShell *)(button->xsh), button);
-	if(!special_command(command))
+	draw_label((XShell *) (button->xsh), button);
+	if (!special_command(command))
 		SYSTEM(command);
 }
 
-static void
-button_release(XWidget * button)
+static void button_release(XWidget * button)
 {
 	expose(button);
 }
 
-static void
-configure(XWidget * button)
+static void configure(XWidget * button)
 {
 	expose(button);
 }
 
-
-static void
-setup_button_events(XWidget * button)
+static void setup_button_events(XWidget * button)
 {
-	button->events.expose=&expose;
-	button->events.configure=&configure;
-	button->events.key_press=NULL;
-	button->events.button_press=&button_press;
-	button->events.button_release=&button_release;
+	button->events.expose = &expose;
+	button->events.configure = &configure;
+	button->events.key_press = NULL;
+	button->events.button_press = &button_press;
+	button->events.button_release = &button_release;
 }
 
 /* The result must be freed.  */
-static char *
-setup_label(const char * command)
+static char *setup_label(const char *command)
 {
-	char * label;
+	char *label;
 
-	label=strdup(command);
+	label = strdup(command);
 	/* Start label after comment character, if any.  */
-	label=strchr(label, '#')?label+1:(char*)label;
+	label = strchr(label, '#') ? label + 1 : (char *)label;
 	{
 		/* Replace underscore characters in label with spaces.  */
-		char * iter=label;
-		while((iter=strchr(iter, '_')))
-			iter[0]=' ';
+		char *iter = label;
+		while ((iter = strchr(iter, '_')))
+			iter[0] = ' ';
 	}
 
 	return label;
 }
 
 void
-xshell_floating_button_new(XShell * xsh, XWidget * parent, 
-	const char * command, int x, int y, 
-	unsigned int width, unsigned int height)
+xshell_floating_button_new(XShell * xsh, XWidget * parent,
+			   const char *command, int x, int y,
+			   unsigned int width, unsigned int height)
 {
-	XWidget * button;
-	XSHButtonData * data;
+	XWidget *button;
+	XSHButtonData *data;
 
 	xshell_XWidget_new(xsh, parent, x, y, width, height);
-	button=xsh->gui.last_widget;
-	button->data=data=malloc(sizeof(XSHButtonData));
-	data->label=setup_label(data->command=(char *)command);
+	button = xsh->gui.last_widget;
+	button->data = data = malloc(sizeof(XSHButtonData));
+	data->label = setup_label(data->command = (char *)command);
 	setup_button_events(button);
 }
 
-void
-xshell_button_new(XShell * xsh, XWidget * parent, const char * command)
+void xshell_button_new(XShell * xsh, XWidget * parent, const char *command)
 {
-	XShellGUILayout *layout=&(xsh->gui.layout);
+	XShellGUILayout *layout = &(xsh->gui.layout);
 
 	xshell_floating_button_new(xsh, parent, command,
-		XSH_WIDGET_WIDTH*layout->column_count, 
-		XSH_WIDGET_HEIGHT*layout->row_count,
-		XSH_WIDGET_WIDTH, XSH_WIDGET_HEIGHT);
-	if(++(layout->row_count) > layout->max_row_count)
-	{
-		layout->column_count++; 
-		layout->row_count=0;
+				   XSH_WIDGET_WIDTH * layout->column_count,
+				   XSH_WIDGET_HEIGHT * layout->row_count,
+				   XSH_WIDGET_WIDTH, XSH_WIDGET_HEIGHT);
+	if (++(layout->row_count) > layout->max_row_count) {
+		layout->column_count++;
+		layout->row_count = 0;
 	}
 }
-

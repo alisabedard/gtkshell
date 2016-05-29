@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -43,8 +43,6 @@
 
 #define XSH_STOP_LAYOUT (1<<31)
 
-void
-xsh_layout_widgets(XShell * xsh);
+void xsh_layout_widgets(XShell * xsh);
 
 #endif /* XSH_LAYOUT_H */
-

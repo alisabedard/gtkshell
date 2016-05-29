@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -24,8 +24,6 @@
 #define XSH_DIALOG_H
 
 void
-xshell_handle_dialog_options(XShell * xsh, 
-	char ** argv, unsigned int * counter);
+xshell_handle_dialog_options(XShell * xsh, char **argv, unsigned int *counter);
 
 #endif /* XSH_DIALOG_H */
-

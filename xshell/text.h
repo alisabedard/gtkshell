@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,14 +20,12 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #ifndef XSH_TEXT_H
 #define XSH_TEXT_H
 
-struct XSHTextData
-{
-	char * command;
-	char * label;
+struct XSHTextData {
+	char *command;
+	char *label;
 	unsigned int font_height, font_width, rows;
 };
 
@@ -35,8 +33,6 @@ typedef struct XSHTextData XSHTextData;
 
 void
 xshell_text_new(XShell * xsh, XWidget * parent, int x, int y, unsigned int rows,
-	const char * command);
+		const char *command);
 
 #endif /* XSH_TEXT_H */
-
-

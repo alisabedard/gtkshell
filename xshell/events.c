@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,7 +20,6 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #include "xshell.h"
 
 #ifndef DEBUG_EVENTS
@@ -35,18 +34,16 @@
 }
 
 #ifdef DEBUG_EVENTS
-unsigned int xsh_expose_count=0;
-unsigned int xsh_configure_count=0;
+unsigned int xsh_expose_count = 0;
+unsigned int xsh_configure_count = 0;
 #endif /* DEBUG_EVENTS */
 
-static void
-select_event(XWidget * iter, XEvent * event)
+static void select_event(XWidget * iter, XEvent * event)
 {
-	iter->events.event=event;
-	switch(event->type)
-	{
+	iter->events.event = event;
+	switch (event->type) {
 	case Expose:
-		if(event->xexpose.count<1)
+		if (event->xexpose.count < 1)
 			XSH_EVENT(iter, expose);
 		break;
 	case KeyPress:
@@ -61,52 +58,45 @@ select_event(XWidget * iter, XEvent * event)
 	};
 }
 
-static void
-xshell_foreach_XWidget(XWidget * head, XEvent * event)
+static void xshell_foreach_XWidget(XWidget * head, XEvent * event)
 {
-	XWidget * iter;
+	XWidget *iter;
 
-	iter=head;
-	while(iter)
-	{
+	iter = head;
+	while (iter) {
 		/* Only process event if it occurs on a particular window.  */
-		if(event->xany.window!=iter->window)
-		{
-			iter=iter->next;
+		if (event->xany.window != iter->window) {
+			iter = iter->next;
 			continue;
 		}
 		select_event(iter, event);
-		iter=iter->next;
+		iter = iter->next;
 	}
 }
 
-
-void
-xsh_event_loop(XShell * xsh)
+void xsh_event_loop(XShell * xsh)
 {
 	XEvent event;
-	Display *dpy=xsh->gui.display;
-        
-	for(dpy=xsh->gui.display;;XNextEvent(dpy, &event))	
-	{
-          switch(event.type)
-            {
-            case ConfigureNotify:
+	Display *dpy = xsh->gui.display;
+
+	for (dpy = xsh->gui.display;; XNextEvent(dpy, &event)) {
+		switch (event.type) {
+		case ConfigureNotify:
 #ifdef DEBUG_EVENTS
-              XMSG("ConfigureNotify");
+			XMSG("ConfigureNotify");
 #endif /* DEBUG_EVENTS */
-	      xsh->gui.widgets->geometry.width=event.xconfigure.width;
-	      if(event.xany.window == xsh->gui.widgets->window) 
-                xsh->gui.widgets->geometry.height=event.xconfigure.height; 
-	      xsh_layout_widgets(xsh);
-              break;
-            case DestroyNotify:
-              exit(0);
-              break;
-            default:
-	      xshell_foreach_XWidget(xsh->gui.widgets, &event);
-            }
+			xsh->gui.widgets->geometry.width =
+			    event.xconfigure.width;
+			if (event.xany.window == xsh->gui.widgets->window)
+				xsh->gui.widgets->geometry.height =
+				    event.xconfigure.height;
+			xsh_layout_widgets(xsh);
+			break;
+		case DestroyNotify:
+			exit(0);
+			break;
+		default:
+			xshell_foreach_XWidget(xsh->gui.widgets, &event);
+		}
 	}
 }
-
-

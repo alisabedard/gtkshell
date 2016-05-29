@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,20 +20,15 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #ifndef XSH_WIDGET_H
 #define XSH_WIDGET_H
 
 void
-xshell_XWidget_new(XShell * xsh, XWidget * parent, 
-	int x, int y, int width, int height);
+xshell_XWidget_new(XShell * xsh, XWidget * parent,
+		   int x, int y, int width, int height);
 
-XShell *
-xsh_get_XShell_for_widget(XWidget * widget);
+XShell *xsh_get_XShell_for_widget(XWidget * widget);
 
-Display *
-xsh_get_display_for_widget(XWidget * widget);
+Display *xsh_get_display_for_widget(XWidget * widget);
 
 #endif /* XSH_WIDGET_H */
-
-

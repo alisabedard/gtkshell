@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -22,9 +22,6 @@
 
 #ifndef XSH_ARGS_H
 #define XSH_ARGS_H
-void
-xsh_show_usage_and_exit();
-void
-xsh_parse_arguments(XShell * xsh, int argc, char ** argv);
-#endif 
-
+void xsh_show_usage_and_exit();
+void xsh_parse_arguments(XShell * xsh, int argc, char **argv);
+#endif

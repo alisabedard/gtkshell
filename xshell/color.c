@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -22,28 +22,27 @@
 
 #include "xshell.h"
 
-unsigned long 
-xsh_get_color(Display * display, 
-	unsigned short r, unsigned short g, unsigned short b)
+unsigned long
+xsh_get_color(Display * display,
+	      unsigned short r, unsigned short g, unsigned short b)
 {
 	XColor color;
 
-	color.red=r*256;
-	color.green=g*256;
-	color.blue=b*256;
-	color.flags=DoRed|DoGreen|DoBlue;
-	XAllocColor(display, DefaultColormap(display, DefaultScreen(display)), 
-		&color);
+	color.red = r * 256;
+	color.green = g * 256;
+	color.blue = b * 256;
+	color.flags = DoRed | DoGreen | DoBlue;
+	XAllocColor(display, DefaultColormap(display, DefaultScreen(display)),
+		    &color);
 
 	return color.pixel;
 }
 
-void
-xsh_set_foreground(Display * display, GC gc, unsigned long color)
+void xsh_set_foreground(Display * display, GC gc, unsigned long color)
 {
 	XGCValues values;
 
 	/* Set up GC.  */
-	values.foreground=color;
+	values.foreground = color;
 	XChangeGC(display, gc, GCForeground, &values);
 }

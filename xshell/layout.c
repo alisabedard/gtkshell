@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,22 +20,20 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #include "xshell.h"
 
-void
-xsh_layout_widgets(XShell * xsh)
+void xsh_layout_widgets(XShell * xsh)
 {
-	XShellGUI * gui = &(xsh->gui);
-	XShellGUILayout *layout=&(gui->layout);
+	XShellGUI *gui = &(xsh->gui);
+	XShellGUILayout *layout = &(gui->layout);
 	unsigned int column_count = layout->column_count;
 
-	if(!(xsh->options & XSH_STOP_LAYOUT))
+	if (!(xsh->options & XSH_STOP_LAYOUT))
 		XResizeWindow(gui->display, gui->widgets->window,
-			layout->widget_width*(column_count+1),
-			XSH_WIDGET_HEIGHT*((column_count>0 
-			? layout->max_row_count : layout->row_count)));
+			      layout->widget_width * (column_count + 1),
+			      XSH_WIDGET_HEIGHT * ((column_count > 0
+						    ? layout->
+						    max_row_count : layout->
+						    row_count)));
 /*	xsh->options|=XSH_STOP_LAYOUT; */
 }
-
-

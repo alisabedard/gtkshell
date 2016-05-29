@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,7 +20,6 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #ifndef XSH_DECOR_H
 #define XSH_DECOR_H
 
@@ -33,12 +32,10 @@
 #define XSH_SETUP_GC(display, window)\
 	XCreateGC(display, window, 0, NULL);
 
-void
-xsh_decorate(XWidget * widget, int order);
+void xsh_decorate(XWidget * widget, int order);
 
 #if 0
-void
-xsh_setup_gradients(XShell * xsh);
+void xsh_setup_gradients(XShell * xsh);
 #endif
 
 #ifdef XSH_USE_INDICATORS
@@ -55,20 +52,15 @@ xsh_setup_gradients(XShell * xsh);
 
 /* These functions are used elsewhere regardless of decorated widgets.  */
 
-GC
-xsh_setup_gc(Display * display, Window window);
+GC xsh_setup_gc(Display * display, Window window);
 
-unsigned long 
-xsh_get_color(Display * display, 
-	unsigned short r, unsigned short g, unsigned short b);
+unsigned long
+xsh_get_color(Display * display,
+	      unsigned short r, unsigned short g, unsigned short b);
 
-void
-xsh_set_foreground(Display * display, GC gc, unsigned long color);
+void xsh_set_foreground(Display * display, GC gc, unsigned long color);
 
 #define XSH_SET_COLOR(dpy, gc, r, g, b)\
 	xsh_set_foreground(dpy, gc, xsh_get_color(dpy, r, g, b))
 
 #endif /* XSH_DECOR_H */
-
-
-

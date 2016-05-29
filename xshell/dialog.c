@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -22,25 +22,21 @@
 
 #include "xshell.h"
 
-static void
-xshell_message_dialog(XShell * xsh, const char * message)
+static void xshell_message_dialog(XShell * xsh, const char *message)
 {
-	xsh->gui.widgets->geometry.width=200;
-	xsh->gui.widgets->geometry.height=100;
-	xshell_floating_button_new(xsh, xsh->gui.widgets, "OK",
-		0, 0, 100, 50);
+	xsh->gui.widgets->geometry.width = 200;
+	xsh->gui.widgets->geometry.height = 100;
+	xshell_floating_button_new(xsh, xsh->gui.widgets, "OK", 0, 0, 100, 50);
 	xshell_floating_button_new(xsh, xsh->gui.widgets, "Cancel",
-		100, 0, 100, 50);
+				   100, 0, 100, 50);
 	xshell_floating_button_new(xsh, xsh->gui.widgets, message,
-		0, 50, 100, 50);
+				   0, 50, 100, 50);
 }
 
 void
-xshell_handle_dialog_options(XShell * xsh,
-	char ** argv, unsigned int * counter)
+xshell_handle_dialog_options(XShell * xsh, char **argv, unsigned int *counter)
 {
-	switch(argv[*counter][2])
-	{
+	switch (argv[*counter][2]) {
 	case 'm':
 		(*counter)++;
 		xshell_message_dialog(xsh, argv[*counter]);
@@ -50,4 +46,3 @@ xshell_handle_dialog_options(XShell * xsh,
 			argv[0]);
 	}
 }
-

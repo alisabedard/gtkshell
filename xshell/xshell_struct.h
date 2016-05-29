@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,20 +23,19 @@
 #ifndef XSH_STRUCT_H
 #define XSH_STRUCT_H
 
-struct XWidget
-{
+struct XWidget {
 	Window window;
 	XWindowAttributes geometry;
 	struct {
-		XEvent * event;
-		void (*expose)(struct XWidget *);
-		void (*button_press)(struct XWidget *);
-		void (*button_release)(struct XWidget *);
-		void (*key_press)(struct XWidget *);
-		void (*configure)(struct XWidget *);
+		XEvent *event;
+		void (*expose) (struct XWidget *);
+		void (*button_press) (struct XWidget *);
+		void (*button_release) (struct XWidget *);
+		void (*key_press) (struct XWidget *);
+		void (*configure) (struct XWidget *);
 	} events;
-	void * data;
-	void * xsh; /* Ensure root access.  */
+	void *data;
+	void *xsh;		/* Ensure root access.  */
 	struct XWidget *next;
 };
 
@@ -47,42 +46,37 @@ typedef unsigned int XSHBitmask;
 #define XSH_OVERRIDE_REDIRECT 1
 
 #ifdef XSH_USE_GRADIENT
-typedef struct 
-{
+typedef struct {
 	Pixmap outset;
 	Pixmap inset;
-}XShellGUIPixbufs;
+} XShellGUIPixbufs;
 #endif /* XSH_USE_GRADIENT */
 
-typedef struct 
-{
+typedef struct {
 	unsigned int row_count;
 	unsigned int max_row_count;
 	unsigned int column_count;
 	unsigned int widget_width;
-}XShellGUILayout;
+} XShellGUILayout;
 
-typedef struct 
-{
-	Display * display;
-	XWidget * widgets;
-	XWidget * last_widget;
-	XWidget * last_toplevel;
+typedef struct {
+	Display *display;
+	XWidget *widgets;
+	XWidget *last_widget;
+	XWidget *last_toplevel;
 	unsigned int widget_count;
 	GC gc;
-	XFontStruct * font;
+	XFontStruct *font;
 
 #ifdef XSH_USE_GRADIENT
 	XShellGUIPixbufs pixbufs;
-#endif /* XSH_USE_GRADIENT */
+#endif				/* XSH_USE_GRADIENT */
 	XShellGUILayout layout;
 } XShellGUI;
 
-typedef struct 
-{
+typedef struct {
 	XShellGUI gui;
 	XSHBitmask options;
 } XShell;
 
 #endif /* not XSH_STRUCT_H */
-

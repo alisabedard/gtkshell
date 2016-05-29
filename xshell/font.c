@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -22,26 +22,23 @@
 
 #include "xshell.h"
 
-void
-xsh_set_font(XShell * xsh, const char * name)
+void xsh_set_font(XShell * xsh, const char *name)
 {
 	XGCValues values;
-	XFontStruct * font;
-	XShellGUI * gui = &(xsh->gui);
+	XFontStruct *font;
+	XShellGUI *gui = &(xsh->gui);
 
-	xsh->gui.font=font=XLoadQueryFont(gui->display, name);
-	values.font=font->fid;
+	xsh->gui.font = font = XLoadQueryFont(gui->display, name);
+	values.font = font->fid;
 
 	XChangeGC(gui->display, gui->gc, GCFont, &values);
 }
 
-void
-xsh_free_font(XShell * xsh)
+void xsh_free_font(XShell * xsh)
 {
 	XGCValues values;
-	Display * dpy = xsh->gui.display;
+	Display *dpy = xsh->gui.display;
 
 	XGetGCValues(dpy, xsh->gui.gc, GCFont, &values);
 	XFreeFont(dpy, xsh->gui.font);
 }
-

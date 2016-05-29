@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,7 +20,6 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #ifndef XSH_SHELL_H
 #define XSH_SHELL_H
 
@@ -28,8 +27,6 @@ typedef struct XSHShellData XSHShellData;
 
 void
 xshell_shell_new(XShell * xsh, XWidget * parent, int x, int y,
-	const char * command);
+		 const char *command);
 
 #endif /* XSH_SHELL_H */
-
-
