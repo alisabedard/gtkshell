@@ -3284,9 +3284,8 @@
 
 	* ChangeLog, Makefile.in, configure, doc/ACE.1, doc/AR.1,
 	  doc/ARO.1, doc/AUTHORS, doc/antiright.lsm, doc/arcd.1,
-	  doc/arshell.1, doc/system.antiright.5: Changed email address from
-	  jefbed@e-list.net to antiright@gmail.com.  Fixed lowering on
-	  fvwm.  Removed unused pixmaps.
+	  doc/arshell.1, doc/system.antiright.5: Changed email address
+	  Fixed lowering on fvwm.  Removed unused pixmaps.
 
 2005-07-10 16:39  jefbed
 
