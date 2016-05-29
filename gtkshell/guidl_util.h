@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,21 +23,20 @@
 #ifndef GSH_GUIDL_UTIL_H
 #define GSH_GUIDL_UTIL_H
 
-struct GDLEnvironment
-{
-  struct GDLDictionaries *dictionaries;
-  struct ARArguments *args;
-  /* destructor */
-  void (*delete) (struct GDLEnvironment *);
-  /* First argument to ADD is not freed.  If dynamically allocated, 
-     you must free.  */
-  void (*add) (struct GDLEnvironment *, const gchar *, gchar *);
+struct GDLEnvironment {
+	struct GDLDictionaries *dictionaries;
+	struct ARArguments *args;
+	/* destructor */
+	void (*delete) (struct GDLEnvironment *);
+	/* First argument to ADD is not freed.  If dynamically allocated, 
+	   you must free.  */
+	void (*add) (struct GDLEnvironment *, const gchar *, gchar *);
 };
 
-struct GDLEnvironment *gsh_new_GDLEnvironment ();
+struct GDLEnvironment *gsh_new_GDLEnvironment();
 
-int yylex ();
+int yylex();
 
-int yyparse ();
+int yyparse();
 
 #endif /* not GSH_GUIDL_UTIL_H */

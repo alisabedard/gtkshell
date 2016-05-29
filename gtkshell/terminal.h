@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -28,8 +28,7 @@
 
 #define GSH_DEFAULT_SHELL "/bin/sh"
 
-GSHTerminal *gsh_new_GSH_Terminal (GSH * gsh);
+GSHTerminal *gsh_new_GSH_Terminal(GSH * gsh);
 
 #endif /* HAVE_VTE */
 #endif /* not GSH_TERMINAL_H */
-

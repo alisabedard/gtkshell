@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2010 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,80 +23,77 @@
 #include "gtkshell.h"
 
 void
-gsh_dialog_about_cb (GSH * gsh __attribute__ ((unused)),
+gsh_dialog_about_cb(GSH * gsh __attribute__ ((unused)),
+		    gint * counter __attribute__ ((unused)),
+		    const gchar ** argv __attribute__ ((unused)))
+{
+	gsh_about_dialog();
+}
+
+void
+gsh_dialog_color_cb(GSH * gsh,
+		    gint * counter __attribute__ ((unused)),
+		    const gchar ** argv __attribute__ ((unused)))
+{
+	gsh_common_dialog_executioner(gsh,
+				      gtk_color_selection_dialog_new
+				      ("Select Color"),
+				      &gsh_color_dialog_submit);
+}
+
+void
+gsh_dialog_folder_cb(GSH * gsh,
 		     gint * counter __attribute__ ((unused)),
 		     const gchar ** argv __attribute__ ((unused)))
 {
-  gsh_about_dialog ();
+	GSH_FILE_DIALOG(gsh, GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
 }
 
 void
-gsh_dialog_color_cb (GSH * gsh,
-		     gint * counter __attribute__ ((unused)),
-		     const gchar ** argv __attribute__ ((unused)))
+gsh_dialog_folder_open_cb(GSH * gsh,
+			  gint * counter __attribute__ ((unused)),
+			  const gchar ** argv __attribute__ ((unused)))
 {
-  gsh_common_dialog_executioner(gsh, 
-                                gtk_color_selection_dialog_new("Select Color"),
-                                &gsh_color_dialog_submit);
+	GSH_FILE_DIALOG(gsh, GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
+}
+
+void gsh_dialog_error_cb(GSH * gsh, gint * counter, const gchar ** argv)
+{
+	GSH_MESSAGE_DIALOG(gsh, GTK_MESSAGE_ERROR, argv[++(*counter)]);
 }
 
 void
-gsh_dialog_folder_cb (GSH * gsh,
-		      gint * counter __attribute__ ((unused)),
-		      const gchar ** argv __attribute__ ((unused)))
+gsh_dialog_font_cb(GSH * gsh,
+		   gint * counter __attribute__ ((unused)),
+		   const gchar ** argv __attribute__ ((unused)))
 {
-  GSH_FILE_DIALOG(gsh, GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
+	gsh_common_dialog_executioner(gsh,
+				      gtk_font_selection_dialog_new
+				      ("Select Font"), &gsh_font_dialog_submit);
 }
 
 void
-gsh_dialog_folder_open_cb (GSH * gsh,
-			   gint * counter __attribute__ ((unused)),
-			   const gchar ** argv __attribute__ ((unused)))
+gsh_dialog_file_cb(GSH * gsh,
+		   gint * counter __attribute__ ((unused)),
+		   const gchar ** argv __attribute__ ((unused)))
 {
-  GSH_FILE_DIALOG(gsh, GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
+	GSH_FILE_DIALOG(gsh, GTK_FILE_CHOOSER_ACTION_OPEN);
+}
+
+void gsh_dialog_information_cb(GSH * gsh, gint * counter, const gchar ** argv)
+{
+	GSH_MESSAGE_DIALOG(gsh, GTK_MESSAGE_INFO, argv[++(*counter)]);
+}
+
+void gsh_dialog_warning_cb(GSH * gsh, gint * counter, const gchar ** argv)
+{
+	GSH_MESSAGE_DIALOG(gsh, GTK_MESSAGE_WARNING, argv[++(*counter)]);
 }
 
 void
-gsh_dialog_error_cb (GSH * gsh, gint * counter, const gchar ** argv)
+gsh_dialog_save_cb(GSH * gsh,
+		   gint * counter __attribute__ ((unused)),
+		   const gchar ** argv __attribute__ ((unused)))
 {
-  GSH_MESSAGE_DIALOG (gsh, GTK_MESSAGE_ERROR, argv[++(*counter)]);
+	GSH_FILE_DIALOG(gsh, GTK_FILE_CHOOSER_ACTION_SAVE);
 }
-
-void
-gsh_dialog_font_cb (GSH * gsh,
-		    gint * counter __attribute__ ((unused)),
-		    const gchar ** argv __attribute__ ((unused)))
-{
-  gsh_common_dialog_executioner(gsh, 
-                                gtk_font_selection_dialog_new("Select Font"),
-                                &gsh_font_dialog_submit);
-}
-
-void
-gsh_dialog_file_cb (GSH * gsh,
-		    gint * counter __attribute__ ((unused)),
-		    const gchar ** argv __attribute__ ((unused)))
-{
-  GSH_FILE_DIALOG(gsh, GTK_FILE_CHOOSER_ACTION_OPEN);
-}
-
-void
-gsh_dialog_information_cb (GSH * gsh, gint * counter, const gchar ** argv)
-{
-  GSH_MESSAGE_DIALOG (gsh, GTK_MESSAGE_INFO, argv[++(*counter)]);
-}
-
-void
-gsh_dialog_warning_cb (GSH * gsh, gint * counter, const gchar ** argv)
-{
-  GSH_MESSAGE_DIALOG (gsh, GTK_MESSAGE_WARNING, argv[++(*counter)]);
-}
-
-void
-gsh_dialog_save_cb (GSH * gsh,
-		    gint * counter __attribute__ ((unused)),
-		    const gchar ** argv __attribute__ ((unused)))
-{
-  GSH_FILE_DIALOG(gsh, GTK_FILE_CHOOSER_ACTION_SAVE);
-}
-

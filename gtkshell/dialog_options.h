@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,34 +23,24 @@
 #ifndef GSH_DIALOG_OPTIONS
 #define GSH_DIALOG_OPTIONS
 
-void 
-gsh_dialog_about_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_dialog_about_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_dialog_color_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_dialog_color_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_dialog_folder_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_dialog_folder_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void
-gsh_dialog_folder_open_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_dialog_folder_open_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_dialog_error_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_dialog_error_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_dialog_font_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_dialog_font_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_dialog_file_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_dialog_file_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void
-gsh_dialog_information_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_dialog_information_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_dialog_warning_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_dialog_warning_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_dialog_save_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_dialog_save_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
 #endif

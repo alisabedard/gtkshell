@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -27,51 +27,49 @@
 #define CHECKTERM if(!(gsh->terminal))\
   gsh->terminal = ARNEW (gsh, GSH_Terminal, gsh);
 void
-gsh_option_terminal_width_cb (GSH * gsh, gint * counter, const gchar ** argv)
+gsh_option_terminal_width_cb(GSH * gsh, gint * counter, const gchar ** argv)
 {
-  CHECKTERM;
-  gsh->terminal->dimensions.width = atoi (argv[++(*counter)]);
+	CHECKTERM;
+	gsh->terminal->dimensions.width = atoi(argv[++(*counter)]);
 }
 
 void
-gsh_option_terminal_height_cb (GSH * gsh, gint * counter, const gchar ** argv)
+gsh_option_terminal_height_cb(GSH * gsh, gint * counter, const gchar ** argv)
 {
-  CHECKTERM;
-  gsh->terminal->dimensions.height = atoi (argv[++(*counter)]);
+	CHECKTERM;
+	gsh->terminal->dimensions.height = atoi(argv[++(*counter)]);
+}
+
+void gsh_option_terminal_font_cb(GSH * gsh, gint * counter, const gchar ** argv)
+{
+	CHECKTERM;
+	gsh->terminal->font = (gchar *) argv[++(*counter)];
 }
 
 void
-gsh_option_terminal_font_cb (GSH * gsh, gint * counter, const gchar ** argv)
+gsh_option_terminal_transparent_cb(GSH * gsh,
+				   gint * counter __attribute__ ((unused)),
+				   const gchar ** argv __attribute__ ((unused)))
 {
-  CHECKTERM;
-  gsh->terminal->font = (gchar *) argv[++(*counter)];
+	GSH_SET(GSH_TERM_TRANSPARENT);
 }
 
 void
-gsh_option_terminal_transparent_cb (GSH * gsh,
-				    gint * counter __attribute__ ((unused)),
-				    const gchar ** argv
-				    __attribute__ ((unused)))
+gsh_option_terminal_not_transparent_cb(GSH * gsh,
+				       gint * counter
+				       __attribute__ ((unused)),
+				       const gchar ** argv
+				       __attribute__ ((unused)))
 {
-  GSH_SET (GSH_TERM_TRANSPARENT);
+	GSH_UNSET(GSH_TERM_TRANSPARENT);
 }
 
 void
-gsh_option_terminal_not_transparent_cb (GSH * gsh,
-					gint * counter
-					__attribute__ ((unused)),
-					const gchar ** argv
-					__attribute__ ((unused)))
+gsh_option_terminal_not_tab_cb(GSH * gsh,
+			       gint * counter __attribute__ ((unused)),
+			       const gchar ** argv __attribute__ ((unused)))
 {
-  GSH_UNSET (GSH_TERM_TRANSPARENT);
-}
-
-void
-gsh_option_terminal_not_tab_cb (GSH * gsh,
-				gint * counter __attribute__ ((unused)),
-				const gchar ** argv __attribute__ ((unused)))
-{
-  gsh->terminal = NULL;
+	gsh->terminal = NULL;
 }
 
 #endif /* HAVE_VTE */

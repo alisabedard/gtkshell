@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2006 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -22,41 +22,39 @@
 
 #include "gtkshell.h"
 
-static void
-gsh_update_label (const gchar * command, gpointer widget)
+static void gsh_update_label(const gchar * command, gpointer widget)
 {
-  gchar *results;
+	gchar *results;
 
-  results = antiright_pipe_read (command);
-  /* This ensures that the result string is not empty, avoiding
-   * certain formatting problems.
-   * Otherwise, a GTK warning and termination occurs.  */
-  if (results[0] == '\0')
-    {
-      g_free (results);
-      results = g_strdup ("(empty)");
-    }
-  if (GTK_IS_LABEL (widget))
-    gtk_label_set_markup (GTK_LABEL (widget), results);
-  else if (GTK_IS_STATUSBAR (widget))
-    gtk_statusbar_push (GTK_STATUSBAR (widget),
-			gtk_statusbar_get_context_id (GTK_STATUSBAR (widget),
-						      "updater"), results);
-  g_free (results);
+	results = antiright_pipe_read(command);
+	/* This ensures that the result string is not empty, avoiding
+	 * certain formatting problems.
+	 * Otherwise, a GTK warning and termination occurs.  */
+	if (!results[0]) {
+		g_free(results);
+		results = g_strdup("(empty)");
+	}
+	if (GTK_IS_LABEL(widget))
+		gtk_label_set_markup(GTK_LABEL(widget), results);
+	else if (GTK_IS_STATUSBAR(widget))
+		gtk_statusbar_push(GTK_STATUSBAR(widget),
+				   gtk_statusbar_get_context_id(
+				   GTK_STATUSBAR (widget), "updater"),
+				   results);
+	g_free(results);
 }
 
-void
-gsh_add_updated_label (struct GSH *gsh, const gchar * command)
+void gsh_add_updated_label(struct GSH *gsh, const gchar * command)
 {
-  GtkWidget *update_target;
+	GtkWidget *update_target;
 
 #define GSH_STATUS_WIDGET gsh->widgets.app.status
-  if (!(GSH_FLAG (GSH_APP_MODE) && (update_target = GSH_STATUS_WIDGET)))
-    update_target = gsh_add_label (gsh, (char *) command);
-  GSH_NEW_UPDATER_WITH_COMMAND (gsh, gsh_update_label,
-				update_target, command);
-  GSH_UNSET (GSH_APP_MODE);
-  /* Prevent two updaters from being 
-     assigned to the status bar label.  */
-  GSH_STATUS_WIDGET = NULL;
+	if (!(GSH_FLAG(GSH_APP_MODE) && (update_target = GSH_STATUS_WIDGET)))
+		update_target = gsh_add_label(gsh, (char *)command);
+	GSH_NEW_UPDATER_WITH_COMMAND(gsh, gsh_update_label,
+				     update_target, command);
+	GSH_UNSET(GSH_APP_MODE);
+	/* Prevent two updaters from being
+	   assigned to the status bar label.  */
+	GSH_STATUS_WIDGET = NULL;
 }

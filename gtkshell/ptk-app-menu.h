@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2010 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,10 +20,9 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #ifndef PTK_APP_MENU_H
 #define PTK_APP_MENU_H
 
-void gsh_add_app_menu_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_add_app_menu_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
 #endif

@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2006 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,8 +23,7 @@
 #ifndef GSH_BUTTON_H
 #define GSH_BUTTON_H
 
-GtkWidget *gsh_add_button (struct GSH * gsh, const gchar * string);
-
+GtkWidget *gsh_add_button(struct GSH *gsh, const gchar * string);
 
 #define GSH_LABEL_TO_ICON_MAPPINGS \
 {\
@@ -39,6 +38,6 @@ GtkWidget *gsh_add_button (struct GSH * gsh, const gchar * string);
 	{ "Close", GTK_STOCK_CLOSE }\
 }
 
-bool gsh_check_command_exists (GSH * gsh, const gchar * command);
+bool gsh_check_command_exists(GSH * gsh, const gchar * command);
 
 #endif

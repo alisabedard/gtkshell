@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -25,28 +25,26 @@
 
 extern struct GDLEnvironment *gsh_guidl_env;
 
-
-static void
-setup_dictionary ()
+static void setup_dictionary()
 {
-  ARTupleVector * dict;
+	ARTupleVector *dict;
 
-  dict = ARNEW (ar, ARTupleVector);
-  /* Begin adding mappings between keys and values.  */
+	dict = ARNEW(ar, ARTupleVector);
+	/* Begin adding mappings between keys and values.  */
 #define DEF(a, b) GSH_GUIDL_DEFINE(dict, a, b)
-  DEF ("file", "-df");
-  DEF ("font", "-dF");
-  DEF ("about", "-da");
-  DEF ("folder", "-dd");
-  DEF ("create folder", "-dD");
-  DEF ("save", "-ds");
-  DEF ("color", "-dc");
-  DEF ("info", "-di");
-  DEF ("warning", "-dw");
-  DEF ("error", "-de");
+	DEF("file", "-df");
+	DEF("font", "-dF");
+	DEF("about", "-da");
+	DEF("folder", "-dd");
+	DEF("create folder", "-dD");
+	DEF("save", "-ds");
+	DEF("color", "-dc");
+	DEF("info", "-di");
+	DEF("warning", "-dw");
+	DEF("error", "-de");
 #define DICT gsh_guidl_env->dictionaries->dialog
-  DICT=dict;
+	DICT = dict;
 }
 
 /* Generate public function to access these definitions.  */
-GSH_GUIDL_ITEM_FUNC (dialog, DICT);
+GSH_GUIDL_ITEM_FUNC(dialog, DICT);

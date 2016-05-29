@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2010 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,8 +23,8 @@
 #ifndef GSH_IMAGE_BUTTON_H
 #define GSH_IMAGE_BUTTON_H
 
-GtkWidget *gsh_get_image (const gchar * name, const guint icon_size);
+GtkWidget *gsh_get_image(const gchar * name, const guint icon_size);
 
-void gsh_image_button (struct GSH *gsh, char *command, char *name);
+void gsh_image_button(struct GSH *gsh, char *command, char *name);
 
 #endif /* GSH_IMAGE_BUTTON_H */

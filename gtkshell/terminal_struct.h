@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,16 +23,15 @@
 #ifndef GSH_TERMINAL_STRUCT_H
 #define GSH_TERMINAL_STRUCT_H
 
-struct GSHTerminal
-{
-  GtkWidget *widget;
-  gchar *font;
-  struct ARArguments *scripts;
-  GdkRectangle dimensions;
-  void (*delete) (struct GSHTerminal *);
-  GtkWidget *(*add) (struct GSHTerminal *, const gchar *);
-  gpointer gsh;
-  GtkWidget *__notebook;
+struct GSHTerminal {
+	GtkWidget *widget;
+	gchar *font;
+	struct ARArguments *scripts;
+	GdkRectangle dimensions;
+	void (*delete) (struct GSHTerminal *);
+	GtkWidget *(*add) (struct GSHTerminal *, const gchar *);
+	gpointer gsh;
+	GtkWidget *__notebook;
 };
 
 typedef struct GSHTerminal GSHTerminal;

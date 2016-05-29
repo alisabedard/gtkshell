@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2006-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -24,22 +24,19 @@
 #ifndef GSH_MENU_H
 #define GSH_MENU_H
 
-typedef enum
-{
-  GMT_NONE,
-  GMT_FILE,
-  GMT_EDIT,
-  GMT_TOOLS,
-  GMT_VIEW,
-  GMT_HELP
+typedef enum {
+	GMT_NONE,
+	GMT_FILE,
+	GMT_EDIT,
+	GMT_TOOLS,
+	GMT_VIEW,
+	GMT_HELP
 } GSHMenuType;
 
-GSHMenuType gsh_is_menubar_item (const gchar * label);
+GSHMenuType gsh_is_menubar_item(const gchar * label);
 
-void
-gsh_add_tearoff(GtkWidget *submenu);
+void gsh_add_tearoff(GtkWidget * submenu);
 
-void 
-gsh_menubutton_parse (struct GSH *gsh, gchar ** tokens);
+void gsh_menubutton_parse(struct GSH *gsh, gchar ** tokens);
 
 #endif /* GSH_MENU_H */

@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,16 +23,15 @@
 #ifndef GSH_ROW_STRUCT_H
 #define GSH_ROW_STRUCT_H
 
-struct GSHRows
-{
-  GtkWidget *h;
-  GtkWidget *v;
-  unsigned int current;
-  unsigned int total;
-  gpointer gsh;
-  void (*delete) (struct GSHRows *);
-  void (*new) (struct GSHRows *);
-  void (*check) (struct GSHRows *);
+struct GSHRows {
+	GtkWidget *h;
+	GtkWidget *v;
+	unsigned int current;
+	unsigned int total;
+	gpointer gsh;
+	void (*delete) (struct GSHRows *);
+	void (*new) (struct GSHRows *);
+	void (*check) (struct GSHRows *);
 };
 
 #endif /* GSH_ROW_STRUCT */

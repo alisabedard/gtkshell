@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,6 +23,6 @@
 #ifndef GSH_TREE_H
 #define GSH_TREE_H
 
-GtkWidget *gsh_tree_view_new (GSH * gsh, const gchar * input);
+GtkWidget *gsh_tree_view_new(GSH * gsh, const gchar * input);
 
 #endif /* GSH_TREE_H */

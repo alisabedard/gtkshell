@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -25,80 +25,73 @@
 
 #define SPLIT_ALL -1
 
-static void
-menubar_parse (GSH * gsh, const gchar * string)
+static void menubar_parse(GSH * gsh, const gchar * string)
 {
-  gchar **tokens;
+	gchar **tokens;
 
 #ifdef DEBUG
-  ARPASSERT (gsh);
-  ARPASSERT (string);
+	ARPASSERT(gsh);
+	ARPASSERT(string);
 #endif /* DEBUG */
-  tokens = g_strsplit (string, "::", SPLIT_ALL);
-  /* Determine if the button is a regular button or a menu button.  */
-  if (tokens[1])
-    {
-      if (!GSH_FLAG (GSH_ICON_SIZE_IS_CUSTOM))
-	gsh->icon_size = GTK_ICON_SIZE_MENU;
-      gsh_menubutton_parse (gsh, tokens);
-    }
-  else
-    {
-      if (!GSH_FLAG (GSH_ICON_SIZE_IS_CUSTOM))
-	gsh->icon_size = GTK_ICON_SIZE_DND;
-      $ (gsh, add.button, string);
-    }
-  g_strfreev (tokens);
+	tokens = g_strsplit(string, "::", SPLIT_ALL);
+	/* Determine if the button is a regular button or a menu button.  */
+	if (tokens[1]) {
+		if (!GSH_FLAG(GSH_ICON_SIZE_IS_CUSTOM))
+			gsh->icon_size = GTK_ICON_SIZE_MENU;
+		gsh_menubutton_parse(gsh, tokens);
+	} else {
+		if (!GSH_FLAG(GSH_ICON_SIZE_IS_CUSTOM))
+			gsh->icon_size = GTK_ICON_SIZE_DND;
+		$(gsh, add.button, string);
+	}
+	g_strfreev(tokens);
 }
 
-static void
-add_each_menu (GSH * gsh, gchar ** menubar_tokens)
+static void add_each_menu(GSH * gsh, gchar ** menubar_tokens)
 {
-  guint i;
+	guint i;
 
 #ifdef DEBUG
-  ARPASSERT (gsh);
-  ARPASSERT (menubar_tokens);
+	ARPASSERT(gsh);
+	ARPASSERT(menubar_tokens);
 #endif /* DEBUG */
 
-  for (i = 0; menubar_tokens[i]; i++)
-    menubar_parse (gsh, menubar_tokens[i]);
+	for (i = 0; menubar_tokens[i]; i++)
+		menubar_parse(gsh, menubar_tokens[i]);
 }
 
 /* Decide whether to use a regular button or a menu button.  */
-static void
-button_parse (GSH * gsh, const gchar * string)
+static void button_parse(GSH * gsh, const gchar * string)
 {
-  gchar **menubar_tokens;
+	gchar **menubar_tokens;
 
 #ifdef DEBUG
-  ARPASSERT (gsh);
-  ARPASSERT (string);
+	ARPASSERT(gsh);
+	ARPASSERT(string);
 #endif /* DEBUG */
 
-  /* 
-     This allows a group of buttons and menu buttons to be specified
-     as one argument.  This is particularly useful in eliminating the
-     need for the ADD BUTTONS tokens in GUIDL, though that feature
-     will remain as it improves readability of an interface definition.
-   */
-  menubar_tokens = g_strsplit (string, ":::", SPLIT_ALL);
-  /* If ":::" is not found, STRING will be contained in
-     menubar_tokens[0].  */
-  add_each_menu (gsh, menubar_tokens);
-  g_strfreev (menubar_tokens);
+	/* 
+	   This allows a group of buttons and menu buttons to be specified
+	   as one argument.  This is particularly useful in eliminating the
+	   need for the ADD BUTTONS tokens in GUIDL, though that feature
+	   will remain as it improves readability of an interface definition.
+	 */
+	menubar_tokens = g_strsplit(string, ":::", SPLIT_ALL);
+	/* If ":::" is not found, STRING will be contained in
+	   menubar_tokens[0].  */
+	add_each_menu(gsh, menubar_tokens);
+	g_strfreev(menubar_tokens);
 }
 
-void
-gsh_parse_arguments (GSH * gsh, const gint argc, const gchar ** argv)
+void gsh_parse_arguments(GSH * gsh, const gint argc, const gchar ** argv)
 {
-  gint counter;
+	gint counter;
 
-  for (counter = 1; counter < argc; counter++)
-    (argv[counter][0] == '-') ?
-      gsh_handle_switch_argument (gsh, argv, &counter)
-      : button_parse (gsh, argv[counter]);
+	for (counter = 1; counter < argc; counter++)
+		(argv[counter][0] == '-') ?
+		    gsh_handle_switch_argument(gsh, argv, &counter)
+		    : button_parse(gsh, argv[counter]);
 #ifdef LIBGC
-  GC_gcollect ();
+	GC_gcollect();
 #endif /* LIBGC */
 }

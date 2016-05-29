@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2006 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,6 +23,6 @@
 #ifndef GSH_UPD_MAN_H
 #define GSH_UPD_MAN_H
 
-struct GSHUpdateManager *gsh_new_GSHUpdateManager ();
+struct GSHUpdateManager *gsh_new_GSHUpdateManager();
 
 #endif /* GSH_UPD_MAN_H */

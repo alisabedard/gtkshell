@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2010 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -22,24 +22,23 @@
 
 #include "gtkshell.h"
 
-int
-main (int argc, char **argv)
+int main(int argc, char **argv)
 {
-  GSH *gsh;
+	GSH *gsh;
 
 #ifdef LIBGC
-  GC_INIT();
+	GC_INIT();
 #endif /* LIBGC */
-  gtk_init (&argc, &argv);
-  gsh = g_newa(GSH, 1);
-  gsh_GSH (gsh);
-  $ (gsh, parse, (const gint) argc, (const gchar **) argv);
-  $ (gsh, finalize);
+	gtk_init(&argc, &argv);
+	gsh = g_newa(GSH, 1);
+	gsh_GSH(gsh);
+	$(gsh, parse, (const gint)argc, (const gchar **)argv);
+	$(gsh, finalize);
 #ifdef LIBGC
-  GC_gcollect();
+	GC_gcollect();
 #endif /* LIBGC */
-  gtk_main ();			/* application main loop  */
-  $ (gsh, delete);
+	gtk_main();		/* application main loop  */
+	$(gsh, delete);
 
-  return 0;
+	return 0;
 }

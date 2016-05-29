@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2006 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -31,6 +31,5 @@
 		  GTK_RESPONSE_CANCEL, GTK_STOCK_OPEN,\
                   GTK_RESPONSE_ACCEPT, NULL),\
 		  gsh_file_dialog_submit)
-
 
 #endif /* !GSH_FILE_DIALOG_H */

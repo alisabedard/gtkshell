@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2010 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,10 +23,8 @@
 #ifndef GSH_GEOMETRY_H
 #define GSH_GEOMETRY_H
 
-void 
-gsh_set_geometry (struct GSH *gsh);
+void gsh_set_geometry(struct GSH *gsh);
 
-void 
-gsh_check_and_set_geometry (struct GSH *gsh);
+void gsh_check_and_set_geometry(struct GSH *gsh);
 
 #endif /* GSH_GEOMETRY_H */

@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -24,33 +24,31 @@
 
 extern struct GDLEnvironment *gsh_guidl_env;
 
-static void
-setup_dictionary ()
+static void setup_dictionary()
 {
-  ARTupleVector *dict;
+	ARTupleVector *dict;
 
-  dict = ARNEW (ar, ARTupleVector);
+	dict = ARNEW(ar, ARTupleVector);
 #define DEF(a, b) GSH_GUIDL_DEFINE(dict, a, b)
-  DEF ("label", "-al");
-  DEF ("prompt", "-at");
-  DEF ("terminal", "-as");
-  DEF ("window", "-aw");
-  DEF ("separator", "-aS");
-  DEF ("updating label", "-aul");
-  DEF ("updating progress", "-aup");
-  DEF ("row", "-ar");
-  DEF ("viewer", "-ae");
-  DEF ("text", "-aT");
-  DEF ("system label", "-acl");
-  DEF ("system button", "-acb");
-  DEF ("vertical pane", "-ab");
-  DEF ("command shell", "-aC");
-  DEF ("clock applet", "-aAc");
-  DEF ("app menu", "-aAm");
-  DEF ("embedded", "-aX");
+	DEF("label", "-al");
+	DEF("prompt", "-at");
+	DEF("terminal", "-as");
+	DEF("window", "-aw");
+	DEF("separator", "-aS");
+	DEF("updating label", "-aul");
+	DEF("updating progress", "-aup");
+	DEF("row", "-ar");
+	DEF("viewer", "-ae");
+	DEF("text", "-aT");
+	DEF("system label", "-acl");
+	DEF("system button", "-acb");
+	DEF("vertical pane", "-ab");
+	DEF("command shell", "-aC");
+	DEF("clock applet", "-aAc");
+	DEF("app menu", "-aAm");
+	DEF("embedded", "-aX");
 #define DICT gsh_guidl_env->dictionaries->widget
-  DICT=dict;
+	DICT = dict;
 }
 
-GSH_GUIDL_ITEM_FUNC (widget, DICT);
-
+GSH_GUIDL_ITEM_FUNC(widget, DICT);

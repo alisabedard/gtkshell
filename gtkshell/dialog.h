@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2010 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,19 +20,18 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #ifndef GSH_DIALOG_H
 #define GSH_DIALOG_H
 
 void
-gsh_common_dialog_executioner (GSH * gsh, GtkWidget * dialog,
-			       void (*callback) (GtkWidget *));
+gsh_common_dialog_executioner(GSH * gsh, GtkWidget * dialog,
+			      void (*callback) (GtkWidget *));
 
-void gsh_file_dialog_submit (GtkWidget * dialog);
+void gsh_file_dialog_submit(GtkWidget * dialog);
 
-void gsh_font_dialog_submit (GtkWidget * dialog);
+void gsh_font_dialog_submit(GtkWidget * dialog);
 
-void gsh_color_dialog_submit (GtkWidget * dialog);
+void gsh_color_dialog_submit(GtkWidget * dialog);
 
 #define GSH_MESSAGE_DIALOG(gsh, type, text)\
 	gsh_common_dialog_executioner(gsh, gtk_message_dialog_new(\

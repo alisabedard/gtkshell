@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -24,22 +24,20 @@
 #define GSH_CMDSHELL_H
 #ifndef HAVE_VTE
 
-struct GSHCommandShell
-{
-  struct
-  {
-    GtkWidget *input;
-    GtkWidget *output;
-    GtkWidget *row;
-  } widgets;
-  void (*delete) (struct GSHCommandShell *);
-  void (*run) (struct GSHCommandShell *, const gchar *);
-  GtkWidget *(*get) (struct GSHCommandShell *);
+struct GSHCommandShell {
+	struct {
+		GtkWidget *input;
+		GtkWidget *output;
+		GtkWidget *row;
+	} widgets;
+	void (*delete) (struct GSHCommandShell *);
+	void (*run) (struct GSHCommandShell *, const gchar *);
+	GtkWidget *(*get) (struct GSHCommandShell *);
 };
 
 typedef struct GSHCommandShell GSHCommandShell;
 
-GSHCommandShell *gsh_new_GSHCommandShell ();
+GSHCommandShell *gsh_new_GSHCommandShell();
 
 #endif /* not HAVE_VTE */
 #endif /* not GSH_CMDSHELL_H */

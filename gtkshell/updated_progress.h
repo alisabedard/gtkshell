@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2006 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,6 +23,6 @@
 #ifndef GSH_UPDATED_PROGRESS_H
 #define GSH_UPDATED_PROGRESS_H
 
-void gsh_add_updated_progress (struct GSH *gsh, const gchar * command);
+void gsh_add_updated_progress(struct GSH *gsh, const gchar * command);
 
 #endif

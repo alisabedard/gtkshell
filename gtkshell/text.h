@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,26 +23,20 @@
 #ifndef GSH_TEXT_H
 #define GSH_TEXT_H
 
+GtkTextBuffer *gsh_text_area_set_text(GtkWidget * widget, const gchar * text);
 
-GtkTextBuffer *
-gsh_text_area_set_text (GtkWidget * widget,
-				       const gchar * text);
+GtkWidget *gsh_setup_command_entry(struct GSH *gsh, const gchar * command);
 
-GtkWidget *
-gsh_setup_command_entry (struct GSH *gsh, const gchar * command);
+void gsh_setup_prompt_command_entry(struct GSH *gsh, const gchar * command);
 
-void 
-gsh_setup_prompt_command_entry (struct GSH *gsh, const gchar * command);
+GtkWidget *gsh_text_area(struct GSH *gsh);
 
-GtkWidget *
-gsh_text_area (struct GSH *gsh);
+void gsh_text_editor(struct GSH *gsh, const gchar * filename);
 
-void gsh_text_editor (struct GSH *gsh, const gchar * filename);
+void gsh_editor_save_as(struct GSH *gsh);
 
-void gsh_editor_save_as (struct GSH *gsh);
+void gsh_editor_save(struct GSH *gsh);
 
-void gsh_editor_save (struct GSH *gsh);
-
-void gsh_editor_open (struct GSH *gsh);
+void gsh_editor_open(struct GSH *gsh);
 
 #endif

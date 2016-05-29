@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,9 +23,8 @@
 #ifndef GSH_INIT_H
 #define GSH_INIT_H
 
-GtkWidget *gsh_GSH_add_window (struct GSH *gsh);
+GtkWidget *gsh_GSH_add_window(struct GSH *gsh);
 
-void gsh_GSH_finalize (struct GSH *gsh);
-
+void gsh_GSH_finalize(struct GSH *gsh);
 
 #endif /* GSH_INIT_H */

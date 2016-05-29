@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2006 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,6 +23,6 @@
 #ifndef GSH_DRAGDROP_H
 #define GSH_DRAGDROP_H
 
-void gsh_setup_drag_drop (struct GSH *gsh, GtkWidget * widget);
+void gsh_setup_drag_drop(struct GSH *gsh, GtkWidget * widget);
 
 #endif /* GSH_DRAGDROP_H */

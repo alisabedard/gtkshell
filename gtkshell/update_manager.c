@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2006 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,103 +23,92 @@
 #include "gtkshell.h"
 
 static void
-gsh_update_each (gpointer data, gpointer user_data __attribute__ ((unused)))
+gsh_update_each(gpointer data, gpointer user_data __attribute__ ((unused)))
 {
-  if (data)
-    $ (((struct GSHUpdatedWidget *) data), update);
+	if (data)
+		$(((struct GSHUpdatedWidget *)data), update);
 }
 
-static gint
-gsh_perform_updates (gpointer data)
+static gint gsh_perform_updates(gpointer data)
 {
-  if (data)
-    {
-      g_slist_foreach (((struct GSHUpdateManager *) data)->list,
-		       gsh_update_each, NULL);
-      return TRUE;
-    }
-  return FALSE;
-}
-
-static void
-gsh_GSHUpdateManager_start (struct GSHUpdateManager *updaters)
-{
-  if (updaters)
-    {
-      if (updaters->updating)
-	return;
-      else
-	updaters->updating = TRUE;
-      gsh_perform_updates (updaters);
-      (void) g_timeout_add (updaters->period, gsh_perform_updates, updaters);
-    }
-}
-
-static void
-gsh_GSHUpdateManager_add (struct GSHUpdateManager *updaters,
-			  struct GSHUpdatedWidget *item)
-{
-  if (updaters)
-    {
-      if (item)
-	{
-	  updaters->list = g_slist_prepend (updaters->list, item);
+	if (data) {
+		g_slist_foreach(((struct GSHUpdateManager *)data)->list,
+				gsh_update_each, NULL);
+		return TRUE;
 	}
-      /* Begin updating, if necessary.  */
-      gsh_GSHUpdateManager_start (updaters);
-    }
+	return FALSE;
 }
 
-
-static void
-gsh_delete_each_updater (gpointer data,
-			 gpointer user_data __attribute__ ((unused)))
+static void gsh_GSHUpdateManager_start(struct GSHUpdateManager *updaters)
 {
-  struct GSHUpdatedWidget *item;
-
-  item = (struct GSHUpdatedWidget *) data;
-  $ (item, delete);
+	if (updaters) {
+		if (updaters->updating)
+			return;
+		else
+			updaters->updating = TRUE;
+		gsh_perform_updates(updaters);
+		(void)g_timeout_add(updaters->period, gsh_perform_updates,
+				    updaters);
+	}
 }
 
 static void
-gsh_delete_GSHUpdateManager (struct GSHUpdateManager *updaters)
+gsh_GSHUpdateManager_add(struct GSHUpdateManager *updaters,
+			 struct GSHUpdatedWidget *item)
 {
-  g_slist_foreach (updaters->list, gsh_delete_each_updater, NULL);
-  g_slist_free (updaters->list);
-  arfree (updaters);
+	if (updaters) {
+		if (item) {
+			updaters->list = g_slist_prepend(updaters->list, item);
+		}
+		/* Begin updating, if necessary.  */
+		gsh_GSHUpdateManager_start(updaters);
+	}
+}
+
+static void
+gsh_delete_each_updater(gpointer data,
+			gpointer user_data __attribute__ ((unused)))
+{
+	struct GSHUpdatedWidget *item;
+
+	item = (struct GSHUpdatedWidget *)data;
+	$(item, delete);
+}
+
+static void gsh_delete_GSHUpdateManager(struct GSHUpdateManager *updaters)
+{
+	g_slist_foreach(updaters->list, gsh_delete_each_updater, NULL);
+	g_slist_free(updaters->list);
+	arfree(updaters);
 }
 
 /* Setup method function pointer assignments.  */
-static inline void
-assign_methods (struct GSHUpdateManager *update)
+static inline void assign_methods(struct GSHUpdateManager *update)
 {
-  update->delete = &gsh_delete_GSHUpdateManager;
-  update->add = &gsh_GSHUpdateManager_add;
+	update->delete = &gsh_delete_GSHUpdateManager;
+	update->add = &gsh_GSHUpdateManager_add;
 }
 
 /* Setup member data fields.  */
-static inline void
-initialize_fields (struct GSHUpdateManager *update)
+static inline void initialize_fields(struct GSHUpdateManager *update)
 {
-  update->period = 1000;
-  update->list = (GSList *) NULL;
-  update->updating = FALSE;
+	update->period = 1000;
+	update->list = (GSList *) NULL;
+	update->updating = FALSE;
 }
 
-static inline void
-setup_updater (struct GSHUpdateManager *updater)
+static inline void setup_updater(struct GSHUpdateManager *updater)
 {
-  assign_methods (updater);
-  initialize_fields (updater);
+	assign_methods(updater);
+	initialize_fields(updater);
 }
 
-struct GSHUpdateManager *
-gsh_new_GSHUpdateManager ()
+struct GSHUpdateManager *gsh_new_GSHUpdateManager()
 {
-  struct GSHUpdateManager *updater;
+	struct GSHUpdateManager *updater;
 
-  updater = armalloc (sizeof (struct GSHUpdateManager));
-  setup_updater (updater);
+	updater = armalloc(sizeof(struct GSHUpdateManager));
+	setup_updater(updater);
 
-  return updater;
+	return updater;
 }

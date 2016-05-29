@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,11 +20,9 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #ifndef GSH_FORM_H
 #define GSH_FORM_H
 
-void gsh_add_form (GSH * gsh, const gchar * contents);
-
+void gsh_add_form(GSH * gsh, const gchar * contents);
 
 #endif /* GSH_FORM_H */

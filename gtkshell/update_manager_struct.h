@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2006 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,13 +23,12 @@
 #ifndef GSH_UMS_H
 #define GSH_UMS_H
 
-struct GSHUpdateManager
-{
-  unsigned int period;
-  /*@null@ */ GSList *list;
-  gboolean updating;
-  void (*delete) (struct GSHUpdateManager *);
-  void (*add) (struct GSHUpdateManager *, struct GSHUpdatedWidget *);
+struct GSHUpdateManager {
+	unsigned int period;
+	/*@null@ */ GSList *list;
+	gboolean updating;
+	void (*delete) (struct GSHUpdateManager *);
+	void (*add) (struct GSHUpdateManager *, struct GSHUpdatedWidget *);
 };
 
 #endif /* GSH_UMS_H */

@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2006 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,18 +23,17 @@
 #ifndef GSH_UPDATED_H
 #define GSH_UPDATED_H
 
-struct GSHUpdatedWidget
-{
-  GtkWidget *widget;
-  gchar *command;
-  void (*function) (const gchar *, gpointer);
-  void (*update) (struct GSHUpdatedWidget *);
-  void (*delete) (struct GSHUpdatedWidget *);
+struct GSHUpdatedWidget {
+	GtkWidget *widget;
+	gchar *command;
+	void (*function) (const gchar *, gpointer);
+	void (*update) (struct GSHUpdatedWidget *);
+	void (*delete) (struct GSHUpdatedWidget *);
 };
 
 struct GSHUpdatedWidget
-  *gsh_new_GSHUpdatedWidget (void (*function) (const gchar *, gpointer),
-			     const gchar * command, GtkWidget * widget);
+*gsh_new_GSHUpdatedWidget(void (*function) (const gchar *, gpointer),
+			  const gchar * command, GtkWidget * widget);
 
 #define GSH_NEW_UPDATER_WITH_COMMAND(gsh, function, widget, command)\
   if(!(gsh->update)) gsh->update=ARNEW(gsh, GSHUpdateManager);\

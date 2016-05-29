@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,6 +23,6 @@
 #ifndef GSH_CLOCK_H
 #define GSH_CLOCK_H
 
-GtkWidget *gsh_clock_new (GSH * gsh);
+GtkWidget *gsh_clock_new(GSH * gsh);
 
 #endif /* GSH_CLOCK_H */

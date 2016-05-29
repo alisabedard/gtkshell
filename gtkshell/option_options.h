@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c); 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -25,69 +25,52 @@
 
 #ifndef HAVE_VTE
 void
-gsh_option_null_cb (GSH * gsh __attribute__ ((unused)), 
-                    gint * counter __attribute__ ((unused)), 
-                    const gchar ** argv __attribute__ ((unused)));
+gsh_option_null_cb(GSH * gsh __attribute__ ((unused)),
+		   gint * counter __attribute__ ((unused)),
+		   const gchar ** argv __attribute__ ((unused)));
 #endif /* not HAVE_VTE */
 
-void 
-gsh_option_app_mode_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_app_mode_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_color_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_color_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_no_relief_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_no_relief_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_no_dummy_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_no_dummy_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_echoes_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_echoes_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_exits_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_exits_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
 void
-gsh_option_no_base_frame_cb (GSH * gsh, gint * counter, const gchar ** argv);
+gsh_option_no_base_frame_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
 void
-gsh_option_framed_labels_cb (GSH * gsh, gint * counter, const gchar ** argv);
+gsh_option_framed_labels_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_geometry_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_geometry_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void
-gsh_option_horiz_clock_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_horiz_clock_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void
-gsh_option_horiz_labels_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_horiz_labels_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_icon_size_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_icon_size_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_expand_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_expand_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_no_expand_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_no_expand_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
 void
-gsh_option_no_decorations_cb (GSH * gsh, gint * counter, const gchar ** argv);
+gsh_option_no_decorations_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_pane_next_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_pane_next_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_rows_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_rows_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_scroll_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_scroll_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void 
-gsh_option_title_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_title_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
-void
-gsh_option_update_cb (GSH * gsh, gint * counter, const gchar ** argv);
+void gsh_option_update_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
 #endif

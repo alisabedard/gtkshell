@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -24,37 +24,35 @@
 
 extern struct GDLEnvironment *gsh_guidl_env;
 
-
-static void
-setup_dictionary ()
+static void setup_dictionary()
 {
-  ARTupleVector *dict;
+	ARTupleVector *dict;
 
-  dict= ARNEW (ar, ARTupleVector);
+	dict = ARNEW(ar, ARTupleVector);
 #define DEF(a, b) GSH_GUIDL_DEFINE(dict, a, b);
-  DEF ("framed labels", "-of");
-  DEF ("undecorated", "-on");
-  DEF ("exit on activate", "-oe");
-  DEF ("horizontal labels", "-oh");
-  DEF ("scrolled", "-os");
-  DEF ("no fill", "-ol");
-  DEF ("fill", "-oL");
-  DEF ("geometry", "-og");
-  DEF ("title", "-oT");
-  DEF ("terminal font", "-otf");
-  DEF ("terminal width", "-otw");
-  DEF ("terminal height", "-oth");
-  DEF ("terminal transparent", "-ott");
-  DEF ("terminal not transparent", "-otT");
-  DEF ("rows", "-or");
-  DEF ("update frequency", "-ou");
-  DEF ("application", "-oa");
-  DEF ("icon size", "-oi");
-  DEF ("pane next", "-op");
-  DEF ("check commands", "-oC");
-  DEF ("horizontal clock", "-oH");
+	DEF("framed labels", "-of");
+	DEF("undecorated", "-on");
+	DEF("exit on activate", "-oe");
+	DEF("horizontal labels", "-oh");
+	DEF("scrolled", "-os");
+	DEF("no fill", "-ol");
+	DEF("fill", "-oL");
+	DEF("geometry", "-og");
+	DEF("title", "-oT");
+	DEF("terminal font", "-otf");
+	DEF("terminal width", "-otw");
+	DEF("terminal height", "-oth");
+	DEF("terminal transparent", "-ott");
+	DEF("terminal not transparent", "-otT");
+	DEF("rows", "-or");
+	DEF("update frequency", "-ou");
+	DEF("application", "-oa");
+	DEF("icon size", "-oi");
+	DEF("pane next", "-op");
+	DEF("check commands", "-oC");
+	DEF("horizontal clock", "-oH");
 #define DICT gsh_guidl_env->dictionaries->option
-  DICT=dict;
+	DICT = dict;
 }
 
-GSH_GUIDL_ITEM_FUNC (option, DICT);
+GSH_GUIDL_ITEM_FUNC(option, DICT);

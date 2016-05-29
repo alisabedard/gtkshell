@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2010 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,134 +23,122 @@
 
 #include "gtkshell.h"
 
-static void
-delete_child_classes(GSH *gsh)
+static void delete_child_classes(GSH * gsh)
 {
-  ARDELETE (gsh->rows);
-  ARDELETE (gsh->terminal);
-  ARDELETE (gsh->update);
+	ARDELETE(gsh->rows);
+	ARDELETE(gsh->terminal);
+	ARDELETE(gsh->update);
+}
+
+static void gsh_delete_GSH(GSH * gsh)
+{
+	/* Delete atomic members.  */
+	GSH_FREE_IF(gsh->geometry);
+	delete_child_classes(gsh);
+	if (GSH_FLAG(GSH_HEAP_ALLOCATED))
+		arfree(gsh);
+}
+
+static inline void manage_generic(GSH * gsh, GtkWidget * widget)
+{
+	gsh->rows->current++;
+	gsh->widgets.last_managed = widget;
 }
 
 static void
-gsh_delete_GSH (GSH * gsh)
+manage_regular_widget(GSH * gsh, GtkWidget * container, GtkWidget * widget)
 {
-  /* Delete atomic members.  */
-  GSH_FREE_IF (gsh->geometry);
-  delete_child_classes(gsh);
-  if(GSH_FLAG(GSH_HEAP_ALLOCATED))
-    arfree(gsh);
+	manage_generic(gsh, widget);
+	$(gsh->rows, check);
+	if (G_UNLIKELY(GSH_FLAG(GSH_NO_EXPAND)))
+		GSHCA_TIGHT(container, widget);
+	else
+		GSHCA(container, widget);
 }
 
-static inline void
-manage_generic (GSH * gsh, GtkWidget * widget)
+static void manage_in_current_pane(GSH * gsh, GtkWidget * widget)
 {
-  gsh->rows->current++;
-  gsh->widgets.last_managed = widget;
+	GtkWidget *container = gsh->rows->v;
+
+	if (!(GTK_IS_MENU(container) || GTK_IS_MENU_BAR(container)
+	      || GTK_IS_MENU_ITEM(container)))
+		manage_regular_widget(gsh, container, widget);
+	else
+		gtk_menu_shell_append(GTK_MENU_SHELL(container), widget);
 }
 
-static void
-manage_regular_widget(GSH *gsh, GtkWidget *container, GtkWidget *widget)
+static void manage_in_other_pane(GSH * gsh, GtkWidget * widget)
 {
-  manage_generic (gsh, widget);
-  $ (gsh->rows, check);
-  if (G_UNLIKELY(GSH_FLAG (GSH_NO_EXPAND)))
-    GSHCA_TIGHT (container, widget);
-  else
-    GSHCA (container, widget);
+	gsh_pane_previous(gsh, widget);
+	manage_generic(gsh, widget);
 }
 
-static void
-manage_in_current_pane(GSH *gsh, GtkWidget *widget)
+static void gsh_manage(GSH * gsh, GtkWidget * widget)
 {
-  GtkWidget *container = gsh->rows->v;
-
-  if (!(GTK_IS_MENU (container) || GTK_IS_MENU_BAR (container) 
-      || GTK_IS_MENU_ITEM (container)))
-    manage_regular_widget(gsh, container, widget);
-  else
-    gtk_menu_shell_append (GTK_MENU_SHELL (container), widget);
+	if (!GSH_FLAG(GSH_PANE_NEXT))
+		manage_in_current_pane(gsh, widget);
+	else
+		manage_in_other_pane(gsh, widget);
 }
 
-static void
-manage_in_other_pane(GSH *gsh, GtkWidget *widget)
+static void assign_add_methods(GSH * gsh)
 {
-      gsh_pane_previous (gsh, widget);
-      manage_generic (gsh, widget);
+	gsh->add.window = &gsh_GSH_add_window;
+	gsh->add.button = &gsh_add_button;
+	gsh->add.label = &gsh_add_label;
 }
 
-static void
-gsh_manage (GSH * gsh, GtkWidget * widget)
+static void assign_methods(GSH * gsh)
 {
-  if(!GSH_FLAG(GSH_PANE_NEXT))
-    manage_in_current_pane(gsh, widget);
-  else
-    manage_in_other_pane(gsh, widget);
+	/* setup methods */
+	gsh->delete = &gsh_delete_GSH;
+	gsh->parse = &gsh_parse_arguments;
+	gsh->finalize = &gsh_GSH_finalize;
+	gsh->manage = &gsh_manage;
+	assign_add_methods(gsh);
 }
 
-static void
-assign_add_methods(GSH *gsh)
+static void initialize_app_mode_fields(GSH * gsh)
 {
-  gsh->add.window = &gsh_GSH_add_window;
-  gsh->add.button = &gsh_add_button;
-  gsh->add.label = &gsh_add_label;
-}
-
-static void
-assign_methods(GSH *gsh)
-{
-  /* setup methods */
-  gsh->delete = &gsh_delete_GSH;
-  gsh->parse = &gsh_parse_arguments;
-  gsh->finalize = &gsh_GSH_finalize;
-  gsh->manage = &gsh_manage;
-  assign_add_methods(gsh);
-}
-
-static void
-initialize_app_mode_fields(GSH *gsh)
-{
-  /* setup app mode fields */
+	/* setup app mode fields */
 #define GWA gsh->widgets.app
-  GWA.menubar=GWA.toolbar=GWA.status=GWA.frame=GWA.row=NULL;
+	GWA.menubar = GWA.toolbar = GWA.status = GWA.frame = GWA.row = NULL;
 #define GWAM GWA.menus
-  GWAM.file=GWAM.edit=GWAM.view=GWAM.tools=GWAM.help=NULL;
+	GWAM.file = GWAM.edit = GWAM.view = GWAM.tools = GWAM.help = NULL;
 }
 
-static void
-initialize_fields(GSH *gsh)
+static void initialize_fields(GSH * gsh)
 {
-  /* setup child classes */
-  gsh->update=NULL;
-  gsh->rows = ARNEW (gsh, GSHRows, gsh);
-  gsh->terminal=NULL;
-  /* initialize fields */
-  gsh->widgets.last_managed = NULL;
-  gsh->editor.widget=NULL;
-  gsh->command_dictionary = NULL;
-  gsh->editor.fgcolor = gsh->editor.bgcolor = gsh->editor.filename
-    = gsh->geometry = gsh->usage = (gchar *) NULL;
-  gsh->bflags = 0;
-  gsh->icon_size = GTK_ICON_SIZE_DND;
-  initialize_app_mode_fields(gsh);
+	/* setup child classes */
+	gsh->update = NULL;
+	gsh->rows = ARNEW(gsh, GSHRows, gsh);
+	gsh->terminal = NULL;
+	/* initialize fields */
+	gsh->widgets.last_managed = NULL;
+	gsh->editor.widget = NULL;
+	gsh->command_dictionary = NULL;
+	gsh->editor.fgcolor = gsh->editor.bgcolor = gsh->editor.filename
+	    = gsh->geometry = gsh->usage = (gchar *) NULL;
+	gsh->bflags = 0;
+	gsh->icon_size = GTK_ICON_SIZE_DND;
+	initialize_app_mode_fields(gsh);
 }
 
-void
-gsh_GSH (GSH * gsh)
+void gsh_GSH(GSH * gsh)
 {
-  assign_methods(gsh);
-  initialize_fields(gsh);
-  /* Add initial window.  */
-  $ (gsh, add.window);
+	assign_methods(gsh);
+	initialize_fields(gsh);
+	/* Add initial window.  */
+	$(gsh, add.window);
 }
 
-GSH *
-gsh_new_GSH ()
+GSH *gsh_new_GSH()
 {
-  GSH *gsh;
+	GSH *gsh;
 
-  gsh = (GSH *) armalloc (sizeof (GSH));
-  gsh_GSH (gsh);
-  GSH_SET(GSH_HEAP_ALLOCATED);
+	gsh = (GSH *) armalloc(sizeof(GSH));
+	gsh_GSH(gsh);
+	GSH_SET(GSH_HEAP_ALLOCATED);
 
-  return gsh;
+	return gsh;
 }

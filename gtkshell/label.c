@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -22,40 +22,36 @@
 
 #include "gtkshell.h"
 
-
-static void
-set_options (struct GSH *gsh, GtkWidget * label)
+static void set_options(struct GSH *gsh, GtkWidget * label)
 {
 #define GLS(attr, ...) gtk_label_set_##attr(GTK_LABEL(label), __VA_ARGS__)
-  GLS (single_line_mode, FALSE);
-  GSH_FLAG (GSH_HORIZONTAL_LABELS) ?
-    GLS (angle, 90.0) : GLS (line_wrap, TRUE);
-  GLS (max_width_chars, 120);
-  gsh_widget_set_font (label, NULL);
+	GLS(single_line_mode, FALSE);
+	GSH_FLAG(GSH_HORIZONTAL_LABELS) ?
+	    GLS(angle, 90.0) : GLS(line_wrap, TRUE);
+	GLS(max_width_chars, 120);
+	gsh_widget_set_font(label, NULL);
 }
 
-static GtkWidget *
-make_framed_label (GtkWidget * label)
+static GtkWidget *make_framed_label(GtkWidget * label)
 {
-  GtkWidget *frame;
+	GtkWidget *frame;
 
-  frame = gtk_frame_new (NULL);
-  GSHCA (frame, label);
-  gtk_widget_show (label);
+	frame = gtk_frame_new(NULL);
+	GSHCA(frame, label);
+	gtk_widget_show(label);
 
-  return frame;
+	return frame;
 }
 
-GtkWidget *
-gsh_add_label (struct GSH * gsh, const gchar * text)
+GtkWidget *gsh_add_label(struct GSH * gsh, const gchar * text)
 {
-  GtkWidget *label;
+	GtkWidget *label;
 
-  label = gtk_label_new (NULL);
-  gtk_label_set_markup(GTK_LABEL(label), text);
-  set_options (gsh, label);
-  $(gsh, manage, GSH_FLAG (GSH_FRAMED_LABELS) 
-    ? make_framed_label (label) : label);
+	label = gtk_label_new(NULL);
+	gtk_label_set_markup(GTK_LABEL(label), text);
+	set_options(gsh, label);
+	$(gsh, manage, GSH_FLAG(GSH_FRAMED_LABELS)
+	  ? make_framed_label(label) : label);
 
-  return label;
+	return label;
 }

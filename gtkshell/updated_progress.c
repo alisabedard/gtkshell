@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -22,34 +22,31 @@
 
 #include "gtkshell.h"
 
-static gdouble
-get_command_val (const gchar * command)
+static gdouble get_command_val(const gchar * command)
 {
-  gchar *output;
-  gdouble result;
+	gchar *output;
+	gdouble result;
 
-  output=antiright_pipe_read(command);
-  result=g_strtod(output, NULL);
-  g_free(output);
-  if(result>1)
-    result=1;
+	output = antiright_pipe_read(command);
+	result = g_strtod(output, NULL);
+	g_free(output);
+	if (result > 1)
+		result = 1;
 
-  return result;
+	return result;
 }
 
-static void
-gsh_update_progress (const gchar * command, gpointer widget)
+static void gsh_update_progress(const gchar * command, gpointer widget)
 {
-  gtk_progress_bar_set_fraction (GTK_PROGRESS_BAR (widget), 
-                                 get_command_val(command));
+	gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(widget),
+				      get_command_val(command));
 }
 
-void
-gsh_add_updated_progress (struct GSH *gsh, const gchar * command)
+void gsh_add_updated_progress(struct GSH *gsh, const gchar * command)
 {
-  GtkWidget *progress;
+	GtkWidget *progress;
 
-  $ (gsh, manage, progress = gtk_progress_bar_new ());
-  GSH_NEW_UPDATER_WITH_COMMAND (gsh, gsh_update_progress, progress, command);
+	$(gsh, manage, progress = gtk_progress_bar_new());
+	GSH_NEW_UPDATER_WITH_COMMAND(gsh, gsh_update_progress, progress,
+				     command);
 }
-

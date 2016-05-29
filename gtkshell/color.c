@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -20,33 +20,31 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
 #include "gtkshell.h"
 
 static GdkColor
-get_color_for_string (const gchar * color_string, const bool is_fg)
+get_color_for_string(const gchar * color_string, const bool is_fg)
 {
-  GdkColor color;
+	GdkColor color;
 
-  if (!gdk_color_parse (color_string, &color))
-    gdk_color_parse (is_fg
-		     ? GSH_FALLBACK_FGCOLOR : GSH_FALLBACK_BGCOLOR, 
-                     &color);
+	if (!gdk_color_parse(color_string, &color))
+		gdk_color_parse(is_fg
+				? GSH_FALLBACK_FGCOLOR : GSH_FALLBACK_BGCOLOR,
+				&color);
 
-  return color;
+	return color;
 }
 
 void
-gsh_widget_set_color (GtkWidget * widget,
-		      const gchar * color_string, bool is_fg_color)
+gsh_widget_set_color(GtkWidget * widget,
+		     const gchar * color_string, bool is_fg_color)
 {
-  GdkColor color;
+	GdkColor color;
 
-  color = get_color_for_string (color_string, is_fg_color);
+	color = get_color_for_string(color_string, is_fg_color);
 
-  if (is_fg_color)
-    gtk_widget_modify_fg (widget, GTK_STATE_NORMAL, &color);
-  else
-    gtk_widget_modify_bg (widget, GTK_STATE_NORMAL, &color);
+	if (is_fg_color)
+		gtk_widget_modify_fg(widget, GTK_STATE_NORMAL, &color);
+	else
+		gtk_widget_modify_bg(widget, GTK_STATE_NORMAL, &color);
 }
-

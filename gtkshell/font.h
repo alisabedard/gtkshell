@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,6 +23,6 @@
 #ifndef GTKSHELL_FONT_H
 #define GTKSHELL_FONT_H
 
-void gsh_widget_set_font (GtkWidget * widget, const gchar * font);
+void gsh_widget_set_font(GtkWidget * widget, const gchar * font);
 
 #endif /* GTKSHELL_FONT_H */

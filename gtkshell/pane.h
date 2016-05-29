@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -21,15 +21,13 @@
   Boston, MA  02110-1301  USA
 */
 
-
 #ifndef GSH_PANE_H
 #define GSH_PANE_H
 
-void gsh_setup_hpaned (struct GSH *gsh, const gchar * label_pair);
+void gsh_setup_hpaned(struct GSH *gsh, const gchar * label_pair);
 
-void gsh_pane_previous (struct GSH *gsh, GtkWidget * target);
+void gsh_pane_previous(struct GSH *gsh, GtkWidget * target);
 
-void
-gsh_reparent_widget (GtkWidget * widget, GtkWidget * old, GtkWidget * new);
+void gsh_reparent_widget(GtkWidget * widget, GtkWidget * old, GtkWidget * new);
 
 #endif /* not GSH_PANE_H */

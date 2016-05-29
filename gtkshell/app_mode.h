@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2006-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -24,6 +24,6 @@
 #ifndef GSH_APP_MODE_H
 #define GSH_APP_MODE_H
 
-void gsh_setup_app_mode (struct GSH *gsh);
+void gsh_setup_app_mode(struct GSH *gsh);
 
 #endif /* not GSH_APP_MODE_H */

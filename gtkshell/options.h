@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2006 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -38,7 +38,6 @@
 }
 #endif /* DEBUG */
 
-void
-gsh_handle_switch_argument (GSH * gsh, const gchar ** argv, gint * counter);
+void gsh_handle_switch_argument(GSH * gsh, const gchar ** argv, gint * counter);
 
 #endif /* not GSH_OPTIONS_H */

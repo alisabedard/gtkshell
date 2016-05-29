@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,6 +23,6 @@
 #ifndef GSH_UPDATED_LABEL_H
 #define GSH_UPDATED_LABEL_H
 
-void gsh_add_updated_label (struct GSH *gsh, const gchar * command);
+void gsh_add_updated_label(struct GSH *gsh, const gchar * command);
 
 #endif /* GSH_UPDATED_LABEL_H */

@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,10 +23,10 @@
 #ifndef GSH_LABEL_H
 #define GSH_LABEL_H
 
-GtkWidget *gsh_add_label (struct GSH * gsh, const gchar * text);
+GtkWidget *gsh_add_label(struct GSH *gsh, const gchar * text);
 
-void gsh_new_label (struct GSH *gsh, const gchar * text);
+void gsh_new_label(struct GSH *gsh, const gchar * text);
 
-void gsh_set_label (GtkWidget * label, const gchar * text);
+void gsh_set_label(GtkWidget * label, const gchar * text);
 
 #endif

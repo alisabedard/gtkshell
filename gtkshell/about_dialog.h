@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -27,7 +27,7 @@
 
 #define GSH_AUTHORS \
 {\
-	 "Jeffrey E. Bedard <antiright@gmail.com>",\
+	 "Jeffrey E. Bedard <jefbed@gmail.com>",\
 	 NULL\
 }
 
@@ -35,6 +35,6 @@
 #define GSH_WEBSITE "http://www.nongnu.org/antiright"
 #define GSH_COMMENTS "This is the desktop scripting environment."
 
-void gsh_about_dialog () __attribute__ ((noreturn));
+void gsh_about_dialog() __attribute__ ((noreturn));
 
 #endif /* GSH_ABOUT_DIALOG_H */

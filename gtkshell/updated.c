@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -22,35 +22,33 @@
 
 #include "gtkshell.h"
 
-static void
-gsh_delete_GSHUpdatedWidget (struct GSHUpdatedWidget *item)
+static void gsh_delete_GSHUpdatedWidget(struct GSHUpdatedWidget *item)
 {
-  arfree (item);
+	arfree(item);
 }
 
-static void
-gsh_GSHUpdatedWidget_update (struct GSHUpdatedWidget *item)
+static void gsh_GSHUpdatedWidget_update(struct GSHUpdatedWidget *item)
 {
-  /* Call function pointer specific to the updater type.  */
-  item->function (item->command, item->widget);
+	/* Call function pointer specific to the updater type.  */
+	item->function(item->command, item->widget);
 }
 
-struct GSHUpdatedWidget *
-gsh_new_GSHUpdatedWidget (void (*function) (const gchar *, gpointer),
-			  const gchar * command, GtkWidget * widget)
+struct GSHUpdatedWidget
+    *gsh_new_GSHUpdatedWidget(void (*function) (const gchar *, gpointer),
+			      const gchar * command, GtkWidget * widget)
 {
-  struct GSHUpdatedWidget *updater;
+	struct GSHUpdatedWidget *updater;
 
-  updater = armalloc (sizeof (struct GSHUpdatedWidget));
-  /* Assign method function pointers.  */
-  updater->update = &gsh_GSHUpdatedWidget_update;
-  updater->delete = &gsh_delete_GSHUpdatedWidget;
-  /* Assign widget-specific update information, specifically
-   * the widget command, a pointer to the widget, and the widget's
-   * updater function.  */
-  updater->command = (gchar *) command;
-  updater->widget = widget;
-  updater->function = function;
+	updater = armalloc(sizeof(struct GSHUpdatedWidget));
+	/* Assign method function pointers.  */
+	updater->update = &gsh_GSHUpdatedWidget_update;
+	updater->delete = &gsh_delete_GSHUpdatedWidget;
+	/* Assign widget-specific update information, specifically
+	 * the widget command, a pointer to the widget, and the widget's
+	 * updater function.  */
+	updater->command = (gchar *) command;
+	updater->widget = widget;
+	updater->function = function;
 
-  return updater;
+	return updater;
 }

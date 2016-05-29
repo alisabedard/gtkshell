@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,8 +23,8 @@
 #ifndef GSH_CONTAINERS_H
 #define GSH_CONTAINERS_H
 
-void gsh_setup_containers (struct GSH *gsh);
+void gsh_setup_containers(struct GSH *gsh);
 
-void gsh_setup_base_container (struct GSH *gsh);
+void gsh_setup_base_container(struct GSH *gsh);
 
 #endif /* GSH_CONTAINERS_H */

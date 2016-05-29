@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -21,74 +21,68 @@
   Boston, MA  02110-1301  USA
 */
 
-
 #include "gtkshell.h"
 
-void
-gsh_reparent_widget (GtkWidget * widget, GtkWidget * old, GtkWidget * new)
+void gsh_reparent_widget(GtkWidget * widget, GtkWidget * old, GtkWidget * new)
 {
-  g_object_ref (widget);
-  gtk_container_remove (GTK_CONTAINER (old), widget);
-  gtk_container_add (GTK_CONTAINER (new), widget);
-  g_object_unref (widget);
+	g_object_ref(widget);
+	gtk_container_remove(GTK_CONTAINER(old), widget);
+	gtk_container_add(GTK_CONTAINER(new), widget);
+	g_object_unref(widget);
 }
 
 #define REPARENT_TO(new) gsh_reparent_widget(gsh->rows->v, gsh->rows->h, new)
 
-static void
-split_columns_for_pane (struct GSH *gsh, GtkWidget * pane)
+static void split_columns_for_pane(struct GSH *gsh, GtkWidget * pane)
 {
-  struct GSHRows *rows;
+	struct GSHRows *rows;
 
-  rows = gsh->rows;
-  $ (rows, new);
-  $ (gsh, manage, pane);
-  $ (rows, new);
+	rows = gsh->rows;
+	$(rows, new);
+	$(gsh, manage, pane);
+	$(rows, new);
 }
 
-static GtkWidget *
-setup_pane_half(GSH * gsh, const gchar *label)
+static GtkWidget *setup_pane_half(GSH * gsh, const gchar * label)
 {
-  GtkWidget *frame;
+	GtkWidget *frame;
 
-  frame=gtk_frame_new(label);
-  REPARENT_TO(frame);
+	frame = gtk_frame_new(label);
+	REPARENT_TO(frame);
 
-  return frame;
+	return frame;
 }
 
-void
-gsh_setup_hpaned (struct GSH *gsh, const gchar * label_pair)
+void gsh_setup_hpaned(struct GSH *gsh, const gchar * label_pair)
 {
-  GtkWidget *pane;
+	GtkWidget *pane;
 
-  pane = gtk_hpaned_new ();
-  {
-    gchar **pair;
+	pane = gtk_hpaned_new();
+	{
+		gchar **pair;
 
-    pair = g_strsplit (label_pair, ",", 2);
-    /* assign pane sections */
-    gtk_paned_add1 (GTK_PANED (pane), 
-                    setup_pane_half(gsh, (const gchar *)pair[0]));
-    split_columns_for_pane (gsh, pane);
-    gtk_paned_add2 (GTK_PANED (pane), 
-                    setup_pane_half(gsh, (const gchar *)pair[1]));
-    g_strfreev(pair);
-  }
+		pair = g_strsplit(label_pair, ",", 2);
+		/* assign pane sections */
+		gtk_paned_add1(GTK_PANED(pane),
+			       setup_pane_half(gsh, (const gchar *)pair[0]));
+		split_columns_for_pane(gsh, pane);
+		gtk_paned_add2(GTK_PANED(pane),
+			       setup_pane_half(gsh, (const gchar *)pair[1]));
+		g_strfreev(pair);
+	}
 }
 
-
-void
-gsh_pane_previous (struct GSH *gsh, GtkWidget * target)
+void gsh_pane_previous(struct GSH *gsh, GtkWidget * target)
 {
-  GtkWidget *pane;
-  GtkWidget *prev_frame;
+	GtkWidget *pane;
+	GtkWidget *prev_frame;
 
-  pane = gtk_vpaned_new ();
-  prev_frame = gtk_frame_new (NULL);
-  gsh_reparent_widget (gsh->widgets.last_managed, gsh->rows->v, prev_frame);
-  gtk_paned_add1(GTK_PANED(pane), prev_frame);
-  gtk_paned_add2(GTK_PANED(pane), target);
-  GSH_UNSET (GSH_PANE_NEXT);
-  $ (gsh, manage, pane);
+	pane = gtk_vpaned_new();
+	prev_frame = gtk_frame_new(NULL);
+	gsh_reparent_widget(gsh->widgets.last_managed, gsh->rows->v,
+			    prev_frame);
+	gtk_paned_add1(GTK_PANED(pane), prev_frame);
+	gtk_paned_add2(GTK_PANED(pane), target);
+	GSH_UNSET(GSH_PANE_NEXT);
+	$(gsh, manage, pane);
 }

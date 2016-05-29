@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -26,17 +26,16 @@
 /*typedef enum {
 } GSHCBType*/
 
-struct GSHCBData
-{
-  struct GSH *gsh;
-  gpointer data;
-  void (*delete) (struct GSHCBData *);
-  void (*system) (GtkWidget *, gpointer);
-  void (*entry) (GtkWidget *, gpointer);
+struct GSHCBData {
+	struct GSH *gsh;
+	gpointer data;
+	void (*delete) (struct GSHCBData *);
+	void (*system) (GtkWidget *, gpointer);
+	void (*entry) (GtkWidget *, gpointer);
 };
 
-struct GSHCBData *gsh_new_GSHCBData (struct GSH *gsh, gpointer data);
+struct GSHCBData *gsh_new_GSHCBData(struct GSH *gsh, gpointer data);
 
-void gsh_send_signal (GtkWidget * widget, const gchar * signal_name);
+void gsh_send_signal(GtkWidget * widget, const gchar * signal_name);
 
 #endif /* not GSH_CALLBACKS_H */

@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -26,26 +26,24 @@
 #ifdef HAVE_VTE
 
 void
-gsh_option_terminal_width_cb (GSH * gsh, gint * counter, const gchar ** argv);
+gsh_option_terminal_width_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
 void
-gsh_option_terminal_height_cb (GSH * gsh,
-			       gint * counter, const gchar ** argv);
+gsh_option_terminal_height_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
 void
-gsh_option_terminal_font_cb (GSH * gsh, gint * counter, const gchar ** argv);
+gsh_option_terminal_font_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
 void
-gsh_option_terminal_transparent_cb (GSH * gsh,
-				    gint * counter, const gchar ** argv);
+gsh_option_terminal_transparent_cb(GSH * gsh,
+				   gint * counter, const gchar ** argv);
 
 void
-gsh_option_terminal_not_transparent_cb (GSH * gsh,
-					gint * counter, const gchar ** argv);
+gsh_option_terminal_not_transparent_cb(GSH * gsh,
+				       gint * counter, const gchar ** argv);
 
 void
-gsh_option_terminal_not_tab_cb (GSH * gsh,
-				gint * counter, const gchar ** argv);
+gsh_option_terminal_not_tab_cb(GSH * gsh, gint * counter, const gchar ** argv);
 
 #endif /* HAVE_VTE */
 #endif /* not GSH_TERMINAL_OPTIONS_H */

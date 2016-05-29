@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,12 +23,11 @@
 #ifndef GSH_GUIDL_DICTIONARY_H
 #define GSH_GUIDL_DICTIONARY_H
 
-struct GDLDictionaries
-{
-  struct ARTupleVector *widget;
-  struct ARTupleVector *dialog;
-  struct ARTupleVector *option;
-  void (*delete) (struct GDLDictionaries *);
+struct GDLDictionaries {
+	struct ARTupleVector *widget;
+	struct ARTupleVector *dialog;
+	struct ARTupleVector *option;
+	void (*delete) (struct GDLDictionaries *);
 };
 
 #define GSH_GUIDL_CHECK_DICTIONARY(dict, setup)\
@@ -55,10 +54,10 @@ void gsh_guidl_ ##type (gchar * item, gchar * arg)\
 #define GSH_GUIDL_ITEM_HEAD(type)\
 void gsh_guidl_ ##type (gchar * item, gchar * arg);
 
-struct GDLDictionaries *gsh_new_GDLDictionaries ();
+struct GDLDictionaries *gsh_new_GDLDictionaries();
 
 void
-gsh_guidl_generic_item (gchar * item, gchar * argument,
-			struct ARTupleVector *dict);
+gsh_guidl_generic_item(gchar * item, gchar * argument,
+		       struct ARTupleVector *dict);
 
 #endif /* GSH_GUIDL_DICTIONARY_H */

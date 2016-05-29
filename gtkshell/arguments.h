@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -25,8 +25,8 @@
 
 #include "gtkshell.h"
 
-void gsh_parse_arguments (GSH * gsh, const gint argc, const gchar ** argv);
+void gsh_parse_arguments(GSH * gsh, const gint argc, const gchar ** argv);
 
-void gsh_check_row (GSH * gsh);
+void gsh_check_row(GSH * gsh);
 
 #endif

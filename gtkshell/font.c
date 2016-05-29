@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -22,30 +22,28 @@
 
 #include "gtkshell.h"
 
-static void
-set_font (GtkWidget * widget, const gchar * font)
+static void set_font(GtkWidget * widget, const gchar * font)
 {
-  PangoFontDescription *font_desc;
+	PangoFontDescription *font_desc;
 
-  /* Consolidation of similar call.  */
+	/* Consolidation of similar call.  */
 #define PFD(op, arg) pango_font_description_##op(arg)
-  font_desc = PFD (from_string, font);
-  gtk_widget_modify_font (widget, font_desc);
-  PFD (free, font_desc);
+	font_desc = PFD(from_string, font);
+	gtk_widget_modify_font(widget, font_desc);
+	PFD(free, font_desc);
 }
 
-void
-gsh_widget_set_font (GtkWidget * widget, const gchar * font)
+void gsh_widget_set_font(GtkWidget * widget, const gchar * font)
 {
 #ifdef DEBUG
-  ARPASSERT (widget);
+	ARPASSERT(widget);
 #endif /* DEBUG */
-  if (!font)			/* Allowed assignmet for uninitialized const var.  */
-    font = "Mono 12";
+	if (!font)		/* Allowed assignmet for uninitialized const var.  */
+		font = "Mono 12";
 #ifdef HAVE_VTE
-  if (VTE_IS_TERMINAL (widget))
-    vte_terminal_set_font_from_string (VTE_TERMINAL (widget), font);
+	if (VTE_IS_TERMINAL(widget))
+		vte_terminal_set_font_from_string(VTE_TERMINAL(widget), font);
 #endif /* HAVE_VTE */
-  else				/* Not a terminal.  */
-    set_font (widget, font);
+	else			/* Not a terminal.  */
+		set_font(widget, font);
 }

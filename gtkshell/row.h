@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,6 +23,6 @@
 #ifndef GSH_ROW_H
 #define GSH_ROW_H
 
-struct GSHRows *gsh_new_GSHRows ();
+struct GSHRows *gsh_new_GSHRows();
 
 #endif /* GSH_ROW_H */

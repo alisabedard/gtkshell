@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2002-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -28,7 +28,7 @@
 #define GSH_FALLBACK_FGCOLOR GSH_FALLBACK_COLOR
 
 void
-gsh_widget_set_color (GtkWidget * widget,
-		      const gchar * color_string, bool is_fg_color);
+gsh_widget_set_color(GtkWidget * widget,
+		     const gchar * color_string, bool is_fg_color);
 
 #endif /* ! GSH_COLOR_H */

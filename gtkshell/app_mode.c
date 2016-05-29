@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2006-2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -25,19 +25,17 @@
 
 #define GWA gsh->widgets.app
 
-void
-gsh_setup_app_mode (GSH *gsh)
+void gsh_setup_app_mode(GSH * gsh)
 {
-  /* setup row */
-  GSH_CREATE (GWA.row, vbox, FALSE, 0);
-  /* add menu bar to application column */
-  GSHCA_TIGHT (GWA.row, GWA.menubar);
-  /* setup toolbar */
-  GSH_ADD_WIDGET_TIGHT(GWA.row, GWA.toolbar, toolbar);
-  gtk_toolbar_set_style (GTK_TOOLBAR (GWA.toolbar), GTK_TOOLBAR_ICONS);
-  /* setup frame */
-  GSH_ADD_WIDGET(GWA.row, GWA.frame, frame, NULL);
-  /* setup status bar */
-  GSH_ADD_WIDGET_TIGHT(GWA.row, GWA.status, statusbar);
+	/* setup row */
+	GSH_CREATE(GWA.row, vbox, FALSE, 0);
+	/* add menu bar to application column */
+	GSHCA_TIGHT(GWA.row, GWA.menubar);
+	/* setup toolbar */
+	GSH_ADD_WIDGET_TIGHT(GWA.row, GWA.toolbar, toolbar);
+	gtk_toolbar_set_style(GTK_TOOLBAR(GWA.toolbar), GTK_TOOLBAR_ICONS);
+	/* setup frame */
+	GSH_ADD_WIDGET(GWA.row, GWA.frame, frame, NULL);
+	/* setup status bar */
+	GSH_ADD_WIDGET_TIGHT(GWA.row, GWA.status, statusbar);
 }
-

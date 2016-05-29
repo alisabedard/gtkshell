@@ -1,7 +1,7 @@
 /*
   GUIShell
   (c) 2007 Jeffrey Bedard
-  antiright@gmail.com
+  jefbed@gmail.com
 
   This file is part of GUIShell.
 
@@ -23,6 +23,6 @@
 #ifndef GSH_GUIDL_OPTIONS_H
 #define GSH_GUIDL_OPTIONS_H
 
-GSH_GUIDL_ITEM_HEAD (option);
+GSH_GUIDL_ITEM_HEAD(option);
 
 #endif /* GSH_GUIDL_OPTIONS_H */

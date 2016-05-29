@@ -21,11 +21,11 @@
 #define _UNDO_H
 
 void
-gsh_undo_init (GtkWidget * view,
-	       GtkWidget * undo_button, GtkWidget * redo_button);
+gsh_undo_init(GtkWidget * view,
+	      GtkWidget * undo_button, GtkWidget * redo_button);
 
-void gsh_undo_undo (GtkTextBuffer * buffer);
+void gsh_undo_undo(GtkTextBuffer * buffer);
 
-void gsh_undo_redo (GtkTextBuffer * buffer);
+void gsh_undo_redo(GtkTextBuffer * buffer);
 
 #endif /* _UNDO_H */

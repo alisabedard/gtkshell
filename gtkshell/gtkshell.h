@@ -55,10 +55,8 @@
 
 #include "module_includes.h"
 
-void 
-gsh_GSH (GSH * gsh);
+void gsh_GSH(GSH * gsh);
 
-GSH *
-gsh_new_GSH ();
+GSH *gsh_new_GSH();
 
 #endif /* ! GSH_GTKSHELL_H */
