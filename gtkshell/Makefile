@@ -39,14 +39,14 @@ endif
 all:
 	$(MAKE) gtkshell
 
-objects=about_dialog.o add_options.o app_mode.o arguments.o button.o \
+objects=y.tab.o about_dialog.o add_options.o app_mode.o arguments.o button.o \
 	callbacks.o clock.o color.o command_shell.o containers.o dialog.o \
 	dialog_options.o dragdrop.o font.o form.o geometry.o gtkshell.o \
 	guidl_dialog.o guidl_dictionary.o guidl_options.o guidl_util.o \
 	guidl_widgets.o image_button.o init.o label.o lex.yy.o main.o \
 	menu.o option_options.o options.o pane.o ptk-app-menu.o row.o \
 	terminal.o terminal_options.o text.o tree.o undo.o updated_label.o \
-	updated.o updated_progress.o update_manager.o y.tab.o
+	updated.o updated_progress.o update_manager.o
 
 y.tab.c: guidl.y
 	$(YACC) -d -o y.tab.c guidl.y
