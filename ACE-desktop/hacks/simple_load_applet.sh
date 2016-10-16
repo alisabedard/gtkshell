@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#    GUIShell (c) 2002-2007 Jeffrey Bedard antiright@gmail.com
+#    GUIShell (c) 2002-2007 Jeffrey Bedard jefbed@gmail.com
 
 #    This file is part of GUIShell.
 

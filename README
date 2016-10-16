@@ -36,6 +36,6 @@ ACE -A Manual_Browser   # manual browser
 ACE -A Settings         # configuration manager for ~/.antiright
 ACE Text_Editor         # text editor, configured in ~/.antiright
 ACE Browser             # configured browser
-gshterm                 # antiright's terminal program
-gtkshell		# antiright's GUI creation utility
+gshterm                 # VTE-based multi-tab terminal emulator
+gtkshell		# Central GUI creation utility and language
 
