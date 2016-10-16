@@ -1,7 +1,7 @@
 ###############################################################################
 #
 #    GUIShell
-#    (c) 2004-2011 Jeffrey Bedard
+#    (c) 2004-2016 Jeffrey Bedard
 #    jefbed@gmail.com
 # 
 #    This file is part of GUIShell.
@@ -25,68 +25,68 @@
 
 include ./config.mk
 
-CFLAGS += $(INCLUDE) $(DEFS) -Wall -W -g
+CFLAGS += ${INCLUDE} ${DEFS} -Wall -W -g
 
 all: 
-	cd libaceutil && $(MAKE)
-	cd gtkshell && $(MAKE)
-	cd ACE-desktop && $(MAKE)
-ifneq ($(OS),MINGW32)
-	cd xshell && $(MAKE)
-	cd rootcat && $(MAKE)
+	cd libaceutil && ${MAKE}
+	cd gtkshell && ${MAKE}
+	cd ACE-desktop && ${MAKE}
+ifneq (${OS},MINGW32)
+	cd xshell && ${MAKE}
+	cd rootcat && ${MAKE}
 endif
 ctags:
 	ctags -w */*.[ch] ACE-desktop/ACE
 
 clean:
-	cd libaceutil && $(MAKE) clean
-	cd gtkshell && $(MAKE) clean
-	cd ACE-desktop && $(MAKE) clean
-	$(XSHELL_BUILD) clean
-ifneq ($(OS),MINGW32)
-	cd xshell && $(MAKE) clean
-	cd rootcat && $(MAKE) clean
+	cd libaceutil && ${MAKE} clean
+	cd gtkshell && ${MAKE} clean
+	cd ACE-desktop && ${MAKE} clean
+	${XSHELL_BUILD} clean
+ifneq (${OS},MINGW32)
+	cd xshell && ${MAKE} clean
+	cd rootcat && ${MAKE} clean
 endif
 
 distclean: clean
-	cd gtkshell && $(MAKE) distclean
+	cd gtkshell && ${MAKE} distclean
 	rm -rf config.mk tags *~ */.\#* .\#* 
 
 INSTALL=install
-INSTALL_PROGRAM=$(INSTALL) -c -s
-INSTALL_SCRIPT=$(INSTALL) -c -m 755
-INSTALL_DATA=$(INSTALL) -c -m 644
-INSTALL_DIR=$(INSTALL) -d
-bindir=$(PREFIX)/bin
-mandir=$(PREFIX)/man
-man1dir=$(mandir)/man1
-man5dir=$(mandir)/man5
-datadir=$(PREFIX)/share
-docdir=$(datadir)/doc
+INSTALL_PROGRAM=${INSTALL} -c -s
+INSTALL_SCRIPT=${INSTALL} -c -m 755
+INSTALL_DATA=${INSTALL} -c -m 644
+INSTALL_DIR=${INSTALL} -d
+bindir=${PREFIX}/bin
+mandir=${PREFIX}/man
+man1dir=${mandir}/man1
+man5dir=${mandir}/man5
+datadir=${PREFIX}/share
+docdir=${datadir}/doc
 PKGBASE=aceutil
 
 install: all
-	${INSTALL_DIR} $(PREFIX)
-	${INSTALL_DIR} $(bindir)
-	${INSTALL_DIR} $(man1dir)
-	${INSTALL_DIR} $(docdir)/aceutil
-	$(INSTALL_DATA) doc/gtkshell.1 $(man1dir)
-	$(INSTALL_DATA) doc/gshterm.1 $(man1dir)
-	$(INSTALL_DATA) COPYING $(docdir)/aceutil
-	$(INSTALL_DATA) doc/AUTHORS $(docdir)/aceutil
-	$(INSTALL_DATA) README $(docdir)/aceutil
-	$(INSTALL_DATA) doc/TODO $(docdir)/aceutil
-	$(INSTALL_DATA) doc/INSTALL $(docdir)/aceutil
-	cd gtkshell && $(MAKE) install
-	cd ACE-desktop && $(MAKE) install
-	$(XSHELL_BUILD) install
-ifneq ($(OS),MINGW32)
-	cd xshell && $(MAKE) install
-	cd rootcat && $(MAKE) install
+	${INSTALL_DIR} ${PREFIX}
+	${INSTALL_DIR} ${bindir}
+	${INSTALL_DIR} ${man1dir}
+	${INSTALL_DIR} ${docdir}/aceutil
+	${INSTALL_DATA} doc/gtkshell.1 ${man1dir}
+	${INSTALL_DATA} doc/gshterm.1 ${man1dir}
+	${INSTALL_DATA} COPYING ${docdir}/aceutil
+	${INSTALL_DATA} doc/AUTHORS ${docdir}/aceutil
+	${INSTALL_DATA} README ${docdir}/aceutil
+	${INSTALL_DATA} doc/TODO ${docdir}/aceutil
+	${INSTALL_DATA} doc/INSTALL ${docdir}/aceutil
+	cd gtkshell && ${MAKE} install
+	cd ACE-desktop && ${MAKE} install
+	${XSHELL_BUILD} install
+ifneq (${OS},MINGW32)
+	cd xshell && ${MAKE} install
+	cd rootcat && ${MAKE} install
 endif
 
 bzball: distclean
-	cd .. && cp -R gtkshell gtkshell-$(VERSION) \
-	&& tar cjf gtkshell-$(VERSION).tar.bz2 gtkshell-$(VERSION) \
-	&& rm -rf gtkshell-$(VERSION)
+	cd .. && cp -R gtkshell gtkshell-${VERSION} \
+	&& tar cjf gtkshell-${VERSION}.tar.bz2 gtkshell-${VERSION} \
+	&& rm -rf gtkshell-${VERSION}
 
