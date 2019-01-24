@@ -23,11 +23,7 @@
 #include "gtkshell.h"
 #include <time.h>
 
-#ifndef GSH_FRAMED_CLOCK
-#define GSH_CLOCK_TIME_STRING_SIZE 21
-#else /* GSH_FRAMED_CLOCK */
-#define GSH_CLOCK_TIME_STRING_SIZE 20
-#endif /* ! GSH_FRAMED_CLOCK */
+#define GSH_CLOCK_TIME_STRING_SIZE 65
 
 struct GSHClockData {
 	GSH *gsh;
