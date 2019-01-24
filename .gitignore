@@ -1,4 +1,7 @@
 *~
 *.o
 *.a
-
+config.mk
+./gtkshell/lex.yy.c
+./gtkshell/y.tab.c
+./gtkshell/y.tab.h
