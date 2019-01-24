@@ -1,6 +1,6 @@
 /*
   GUIShell
-  (c) 2002-2006 Jeffrey Bedard
+  (c) 2002-2019 Jeffrey Bedard
   jefbed@gmail.com
 
   This file is part of GUIShell.
@@ -23,11 +23,11 @@
 #ifndef GSH_MACROS_H
 #define GSH_MACROS_H
 
-#define GSHBIT(n) 1 << (n-1)
+#define GSHBIT(n) (1 << (n-1))
 
 #define GSH_NONE		0
-#define GSH_SCROLL 		GSHBIT(1)
-#define GSH_CBEXIT 		GSHBIT(2)
+#define GSH_SCROLL		GSHBIT(1)
+#define GSH_CBEXIT		GSHBIT(2)
 #define GSH_UPDATING		GSHBIT(3)
 #define GSH_HORIZONTAL_LABELS	GSHBIT(4)
 #define GSH_PROMPT_ECHOES	GSHBIT(5)
