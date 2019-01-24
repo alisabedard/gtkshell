@@ -59,8 +59,8 @@ int main(int argc, char **argv)
 				counter++;
 				if (argv[counter]) {
 					font = (char *)argv[counter];
-					break;
 				}
+				goto print_usage;
 			case 'x':
 				counter++;
 				x = atoi(argv[counter]);

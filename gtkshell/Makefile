@@ -1,7 +1,7 @@
 ###############################################################################
 #
 #    GUIShell
-#    {c} 2004-2016 Jeffrey Bedard
+#    {c} 2004-2019 Jeffrey Bedard
 #    jefbed@gmail.com
 # 
 #    This file is part of GUIShell.
@@ -26,6 +26,9 @@
 include ../config.mk
 
 CFLAGS+=$(DEFS) $(INCLUDE)
+# The following disables error flags, specifically to allow auto-generated
+# sources to compile:
+CFLAGS+=-Wno-error=sign-compare -Wno-error=unused-function
 ARFLAGS=-L../libaceutil -laceutil
 GTKFLAGS=$(ARFLAGS) $(LDFLAGS)
 
