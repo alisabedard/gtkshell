@@ -1,6 +1,6 @@
 /*
   GUIShell
-  (c) 2008-2010 Jeffrey Bedard
+  (c) 2008-2019 Jeffrey Bedard
   jefbed@gmail.com
 
   This file is part of GUIShell.

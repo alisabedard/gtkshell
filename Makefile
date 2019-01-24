@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    GUIShell
-#    (c) 2004-2016 Jeffrey Bedard
+#    (c) 2004-2019 Jeffrey Bedard
 #    jefbed@gmail.com
 # 
 #    This file is part of GUIShell.
