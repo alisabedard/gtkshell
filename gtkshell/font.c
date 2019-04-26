@@ -35,15 +35,14 @@ static void set_font(GtkWidget * widget, const gchar * font)
 
 void gsh_widget_set_font(GtkWidget * widget, const gchar * font)
 {
-#ifdef DEBUG
-	ARPASSERT(widget);
-#endif /* DEBUG */
-	if (!font)		/* Allowed assignmet for uninitialized const var.  */
+	if (font==NULL) // Resort to a reasonable default if NULL
 		font = "Mono 12";
 #ifdef HAVE_VTE
-	if (VTE_IS_TERMINAL(widget))
-		vte_terminal_set_font_from_string(VTE_TERMINAL(widget), font);
-#endif /* HAVE_VTE */
-	else			/* Not a terminal.  */
-		set_font(widget, font);
+	if (VTE_IS_TERMINAL(widget)) {
+		vte_terminal_set_font_from_string(VTE_TERMINAL(widget),
+			font);
+		return; // Return early, we had a match.
+	}
+#endif//HAVE_VTE
+	set_font(widget,font);
 }
