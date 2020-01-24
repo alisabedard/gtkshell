@@ -105,9 +105,9 @@ set_debugging_options()
 OPTS='dp:'
 print_usage()
 {
-	echo -e "Usage:  ./configure -[$OPTS]"
-	echo -e "\t-d\t\tEnable debugging options"
-	echo -e "\t-p\tPATH\tSet PATH for installation\n"
+	echo "Usage:  ./configure -[$OPTS]"
+	echo "\t-d\t\tEnable debugging options"
+	echo "\t-p\tPATH\tSet PATH for installation\n"
 	exit 1
 }
 
