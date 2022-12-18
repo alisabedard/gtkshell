@@ -1,6 +1,6 @@
 
-This desktop environment is written by Jeffrey Bedard, who can be
-reached at antiright@gmail.com .
+This desktop environment is written by Alisa Bedard, who can be
+reached at alisabedard@gmail.com .
 
 I would like to give credit to Joe Klemmer who wrote the postinstall-pak script
   for checkinstall, which installs an GUIShell session in gdm.  He also provides the project's RPM packages.

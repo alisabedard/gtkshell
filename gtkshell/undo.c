@@ -2,7 +2,7 @@
  *  Leafpad - GTK+ based simple text editor
  *  Copyright (C) 2004-2005 Tarot Osuji
 
-	GUIShell - Copyright (C) 2007, Jeffrey Bedard
+	GUIShell - Copyright (C) 2007, Alisa Bedard
 
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

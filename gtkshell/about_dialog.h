@@ -1,7 +1,7 @@
 /*
   GUIShell
-  (c) 2007 Jeffrey Bedard
-  jefbed@gmail.com
+  (c) 2007 Alisa Bedard
+  alisabedard@gmail.com
 
   This file is part of GUIShell.
 
@@ -27,11 +27,11 @@
 
 #define GSH_AUTHORS \
 {\
-	 "Jeffrey E. Bedard <jefbed@gmail.com>",\
+	 "Alisa Bedard <alisabedard@gmail.com>",\
 	 NULL\
 }
 
-#define GSH_COPYRIGHT "Copyright 2002-2010, Jeffrey E. Bedard"
+#define GSH_COPYRIGHT "Copyright 2002-2010, Alisa Bedard"
 #define GSH_WEBSITE "http://www.nongnu.org/antiright"
 #define GSH_COMMENTS "This is the desktop scripting environment."
 

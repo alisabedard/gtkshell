@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-#    (c) 2008 Jeffrey Bedard
-#    jefbed@gmail.com
+#    (c) 2008 Alisa Bedard
+#    alisabedard@gmail.com
 # 
 #    This file is part of GUIShell.
 #

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 
-#    PyGUI (c) 2010 Jeffrey Bedard antiright@gmail.com
+#    PyGUI (c) 2010 Alisa Bedard alisabedard@gmail.com
 
 #     This file is part of GUIShell.
 

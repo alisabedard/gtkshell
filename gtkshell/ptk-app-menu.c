@@ -11,8 +11,8 @@
 */
 /*
   GUIShell
-  (c) 2002-2010 Jeffrey Bedard
-  jefbed@gmail.com
+  (c) 2002-2010 Alisa Bedard
+  alisabedard@gmail.com
 
   This file is part of GUIShell.
 

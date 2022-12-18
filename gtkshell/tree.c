@@ -1,7 +1,7 @@
 /*
   gtkshell
-  (c) 2002-2011 Jeffrey Bedard
-  jefbed@gmail.com
+  (c) 2002-2011 Alisa Bedard
+  alisabedard@gmail.com
 
   This file is part of gtkshell.
 

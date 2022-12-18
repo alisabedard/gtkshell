@@ -4,8 +4,8 @@ Version:	3.12
 Entered-date:	2006-10-23
 Description:	gtkshell provides gtkshell, a GTK2-based wrapper application, through which applications can be defined at the command line, particularly in scripts.    
 Keywords:	gtkshell, desktop, shell, motif, sh, browser, clock, calculator, command, launcher, panel, file, manager, load, meter, theme, background, color, sticky, note, CD, music, text, editor
-Author:		jefbed@gmail.com (Jeffrey Bedard)
-Maintained-by:	jefbed@gmail.com (Jeffrey Bedard)
+Author:		alisabedard@gmail.com (Alisa Bedard)
+Maintained-by:	alisabedard@gmail.com (Alisa Bedard)
 Primary-site:	http://code.google.com/p/gtkshell
 Copying-policy:	GPL
 End
